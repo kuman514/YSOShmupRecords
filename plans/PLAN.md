@@ -30,6 +30,7 @@
             - [선택] 영상 링크
             - [선택] 특수 태그 (노미스 ALL, 현재 점탑 등등)
 - 레이아웃
+  - 디자인 참조 ([Figma 공유 링크 - Dev Mode](https://www.figma.com/file/ufvkXsisZzY2xRqf5hS11H/YSOShmupRecords?type=design&node-id=0%3A1&mode=dev))
   - Portrait 레이아웃 (설계 중)
   - Landscape 레이아웃 (설계 중)
 - 데이터 저장 방식
