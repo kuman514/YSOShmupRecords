@@ -1,0 +1,11 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+:root {
+  --main-color: #22B14C;
+  --hover-color: #39ED6E;
+  --active-color: #FFFFFF;
+  --disabled-color: #B1B1B1;
+}
