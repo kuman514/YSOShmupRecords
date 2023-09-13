@@ -1,9 +1,13 @@
-import React, { useState } from 'react';
+import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 
 import { Chevron } from '^/components/atoms/Chevron';
 
-const Root = styled.button`
+interface RootProps {
+  isActive: boolean;
+}
+
+const Root = styled.button<RootProps>`
   all: unset;
 
   display: flex;
@@ -14,14 +18,19 @@ const Root = styled.button`
   height: 50px;
   padding: 0px 15px;
 
-  background: var(--main-color);
-  color: var(--nav-nonactive-font-color);
-  fill: var(--nav-nonactive-font-color);
+  background: ${({ isActive }) =>
+    isActive ? 'var(--active-color)' : 'var(--main-color)'};
+  color: ${({ isActive }) =>
+    isActive ? 'var(--main-color)' : 'var(--nav-nonactive-font-color)'};
+  fill: ${({ isActive }) =>
+    isActive ? 'var(--main-color)' : 'var(--nav-nonactive-font-color)'};
 
   cursor: pointer;
 
   &:hover {
     background: var(--hover-color);
+    color: var(--nav-nonactive-font-color);
+    fill: var(--nav-nonactive-font-color);
   }
 
   &:disabled {
@@ -32,16 +41,21 @@ const Root = styled.button`
 `;
 
 interface Props {
+  isActive: boolean;
   isDisabled: boolean;
+  children?: ReactNode;
+  onClick(): void;
 }
 
-export function NavItem({ isDisabled }: Props) {
-  const [tmpIsActive, tmpSetIsActive] = useState<boolean>(false);
+export function NavItem({ isActive, isDisabled, children, onClick }: Props) {
+  const handleOnClick = () => {
+    onClick();
+  };
 
   return (
-    <Root disabled={isDisabled} onClick={() => tmpSetIsActive(!tmpIsActive)}>
-      <span>kuman514</span>
-      <Chevron isOpen={tmpIsActive} fillColor="inherit" />
+    <Root isActive={isActive} disabled={isDisabled} onClick={handleOnClick}>
+      <span>{children}</span>
+      <Chevron isOpen={isActive} fillColor="inherit" />
     </Root>
   );
 }

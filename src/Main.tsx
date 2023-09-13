@@ -11,8 +11,12 @@ const Root = styled.div`
 function Main() {
   return (
     <Root>
-      <NavItem isDisabled={false} />
-      <NavItem isDisabled />
+      <NavItem isActive onClick={() => {}} isDisabled={false}>
+        Koishi
+      </NavItem>
+      <NavItem isActive onClick={() => {}} isDisabled>
+        Koishi
+      </NavItem>
     </Root>
   );
 }
