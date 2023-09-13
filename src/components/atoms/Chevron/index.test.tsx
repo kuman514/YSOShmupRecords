@@ -2,12 +2,12 @@ import React from 'react';
 import { describe, expect, it } from 'vitest';
 import { render } from '@testing-library/react';
 
-import ClickableChevron from '.';
+import { Chevron } from '.';
 
-describe('ClickableChevron', () => {
+describe('Chevron', () => {
   it('should show click-to-close chevron on open', () => {
     const { container } = render(
-      <ClickableChevron isOpen fillColor="var(--main-color)" />
+      <Chevron isOpen fillColor="var(--main-color)" />
     );
     const vectorG = container.querySelector('svg > g');
     if (!vectorG) {
@@ -18,7 +18,7 @@ describe('ClickableChevron', () => {
 
   it('should show click-to-open chevron on close', () => {
     const { container } = render(
-      <ClickableChevron isOpen={false} fillColor="var(--main-color)" />
+      <Chevron isOpen={false} fillColor="var(--main-color)" />
     );
     const vectorG = container.querySelector('svg > g');
     if (!vectorG) {

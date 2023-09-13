@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import ClickableChevron from '^/components/atoms/ClickableChevron';
+import { Chevron } from '^/components/atoms/Chevron';
 
 const Root = styled.div`
   width: 100vw;
@@ -11,8 +11,8 @@ const Root = styled.div`
 function Main() {
   return (
     <Root>
-      <ClickableChevron isOpen fillColor="var(--main-color)" />
-      <ClickableChevron isOpen={false} fillColor="var(--main-color)" />
+      <Chevron isOpen fillColor="var(--main-color)" />
+      <Chevron isOpen={false} fillColor="var(--main-color)" />
     </Root>
   );
 }

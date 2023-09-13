@@ -8,12 +8,10 @@ interface Props {
   fillColor: string;
 }
 
-function ClickableChevron({ isOpen, fillColor }: Props) {
+export function Chevron({ isOpen, fillColor }: Props) {
   return isOpen ? (
     <ClickToCloseChevronSvg style={{ fill: fillColor }} />
   ) : (
     <ClickToOpenChevronSvg style={{ fill: fillColor }} />
   );
 }
-
-export default ClickableChevron;
