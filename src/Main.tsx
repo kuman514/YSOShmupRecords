@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { Chevron } from '^/components/atoms/Chevron';
+import { NavItem } from '^/components/atoms/NavItem';
 
 const Root = styled.div`
   width: 100vw;
@@ -11,8 +11,8 @@ const Root = styled.div`
 function Main() {
   return (
     <Root>
-      <Chevron isOpen fillColor="var(--main-color)" />
-      <Chevron isOpen={false} fillColor="var(--main-color)" />
+      <NavItem isDisabled={false} />
+      <NavItem isDisabled />
     </Root>
   );
 }

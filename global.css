@@ -4,8 +4,10 @@
 }
 
 :root {
-  --main-color: #22B14C;
-  --hover-color: #39ED6E;
-  --active-color: #FFFFFF;
-  --disabled-color: #B1B1B1;
+  --main-color: #22b14c;
+  --hover-color: #39ed6e;
+  --active-color: #ffffff;
+  --disabled-color: #b1b1b1;
+  --nav-nonactive-font-color: #ffffff;
+  --article-font-color: #000000;
 }
