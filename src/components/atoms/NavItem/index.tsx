@@ -1,10 +1,17 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 import { Chevron } from '^/components/atoms/Chevron';
+import { NavNodeInfo } from '^/types';
+import { navNodeInfo } from '^/constants';
+import { useNavNodeStore } from '^/stores/nav-node';
 
 interface RootProps {
-  isActive: boolean;
+  /**
+   * Added `$` in front of camelCase properties
+   * to prevent warnings like "React does not recognize the `isActive` prop on a DOM element."
+   */
+  $isActive: boolean;
 }
 
 const Root = styled.button<RootProps>`
@@ -18,12 +25,12 @@ const Root = styled.button<RootProps>`
   height: 50px;
   padding: 0px 15px;
 
-  background: ${({ isActive }) =>
-    isActive ? 'var(--active-color)' : 'var(--main-color)'};
-  color: ${({ isActive }) =>
-    isActive ? 'var(--main-color)' : 'var(--nav-nonactive-font-color)'};
-  fill: ${({ isActive }) =>
-    isActive ? 'var(--main-color)' : 'var(--nav-nonactive-font-color)'};
+  background: ${({ $isActive }) =>
+    $isActive ? 'var(--active-color)' : 'var(--main-color)'};
+  color: ${({ $isActive }) =>
+    $isActive ? 'var(--main-color)' : 'var(--nav-nonactive-font-color)'};
+  fill: ${({ $isActive }) =>
+    $isActive ? 'var(--main-color)' : 'var(--nav-nonactive-font-color)'};
 
   cursor: pointer;
 
@@ -41,21 +48,60 @@ const Root = styled.button<RootProps>`
 `;
 
 interface Props {
-  isActive: boolean;
+  depth: number;
+  nodeInfo: NavNodeInfo;
   isDisabled: boolean;
-  children?: ReactNode;
-  onClick(): void;
+  onClick?(): void;
 }
 
-export function NavItem({ isActive, isDisabled, children, onClick }: Props) {
+export function NavItem({ depth, nodeInfo, isDisabled, onClick }: Props) {
+  const isOpen = useNavNodeStore((store) => store.isOpen[nodeInfo.id]);
+  const setIsOpen = useNavNodeStore((store) => store.setIsOpen);
+
+  const isLeaf = nodeInfo.childNavNodeIds.length === 0;
+  /**
+   * @todo
+   * Add `isSelected`, which determines if this item is in the route.
+   */
+  const isActive = isOpen;
+
   const handleOnClick = () => {
-    onClick();
+    onClick?.();
+    if (!isLeaf) {
+      setIsOpen(nodeInfo.id, !isOpen);
+    }
   };
 
+  const renderChevron = !isLeaf ? (
+    <Chevron isOpen={isOpen} fillColor="inherit" />
+  ) : null;
+
+  const renderSubitems =
+    !isLeaf && isOpen
+      ? nodeInfo.childNavNodeIds.map((id) => (
+          <NavItem
+            key={navNodeInfo[id].id}
+            depth={depth + 1}
+            onClick={() => {}}
+            isDisabled={false}
+            nodeInfo={navNodeInfo[id]}
+          />
+        ))
+      : null;
+
   return (
-    <Root isActive={isActive} disabled={isDisabled} onClick={handleOnClick}>
-      <span>{children}</span>
-      <Chevron isOpen={isActive} fillColor="inherit" />
-    </Root>
+    <>
+      <Root $isActive={isActive} disabled={isDisabled} onClick={handleOnClick}>
+        <span
+          style={{
+            paddingLeft: depth * 15,
+          }}
+        >
+          {nodeInfo.label}
+        </span>
+        {renderChevron}
+      </Root>
+      {renderSubitems}
+    </>
   );
 }

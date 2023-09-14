@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { NavItem } from '^/components/atoms/NavItem';
+import { navNodeInfo } from '^/constants';
 
 const Root = styled.div`
   width: 100vw;
@@ -11,12 +12,12 @@ const Root = styled.div`
 function Main() {
   return (
     <Root>
-      <NavItem isActive onClick={() => {}} isDisabled={false}>
-        Koishi
-      </NavItem>
-      <NavItem isActive onClick={() => {}} isDisabled>
-        Koishi
-      </NavItem>
+      <NavItem
+        depth={0}
+        onClick={() => {}}
+        isDisabled={false}
+        nodeInfo={navNodeInfo.test}
+      />
     </Root>
   );
 }
