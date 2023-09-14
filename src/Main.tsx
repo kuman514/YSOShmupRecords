@@ -16,7 +16,19 @@ function Main() {
         depth={0}
         onClick={() => {}}
         isDisabled={false}
-        nodeInfo={navNodeInfo.test}
+        nodeInfo={navNodeInfo.intro}
+      />
+      <NavItem
+        depth={0}
+        onClick={() => {}}
+        isDisabled={false}
+        nodeInfo={navNodeInfo.criteria}
+      />
+      <NavItem
+        depth={0}
+        onClick={() => {}}
+        isDisabled={false}
+        nodeInfo={navNodeInfo.records}
       />
     </Root>
   );

@@ -3,7 +3,7 @@ import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { cleanup, fireEvent, render, screen } from '@testing-library/react';
 
 import { NavItem } from '.';
-import { navNodeInfo } from '^/constants';
+import { navNodeInfoForTest } from '^/constants';
 
 describe('NavItem', () => {
   beforeEach(() => {
@@ -15,7 +15,7 @@ describe('NavItem', () => {
     render(
       <NavItem
         depth={0}
-        nodeInfo={navNodeInfo.test}
+        nodeInfo={navNodeInfoForTest.test}
         isDisabled={false}
         onClick={mockFn}
       />
@@ -30,7 +30,7 @@ describe('NavItem', () => {
     render(
       <NavItem
         depth={0}
-        nodeInfo={navNodeInfo.test}
+        nodeInfo={navNodeInfoForTest.test}
         isDisabled
         onClick={mockFn}
       />

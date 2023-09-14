@@ -82,6 +82,10 @@ export function NavItem({ depth, nodeInfo, isDisabled, onClick }: Props) {
           <NavItem
             key={navNodeInfo[id].id}
             depth={depth + 1}
+            /**
+             * @todo
+             * Add route moving if this child node is a leaf
+             */
             onClick={() => {}}
             isDisabled={false}
             nodeInfo={navNodeInfo[id]}
