@@ -3,7 +3,6 @@ import styled from 'styled-components';
 
 import { Chevron } from '^/components/atoms/Chevron';
 import { NavNodeInfo } from '^/types';
-import { navNodeInfo } from '^/constants';
 import { useNavNodeStore } from '^/stores/nav-node';
 
 interface RootProps {
@@ -15,7 +14,7 @@ interface RootProps {
 }
 
 const Root = styled.button<RootProps>`
-  all: unset;
+  border: unset;
 
   display: flex;
   justify-content: space-between;
@@ -48,13 +47,20 @@ const Root = styled.button<RootProps>`
 `;
 
 interface Props {
+  navNodeInfo: Record<string, NavNodeInfo>;
   depth: number;
   nodeInfo: NavNodeInfo;
   isDisabled: boolean;
   onClick?(): void;
 }
 
-export function NavItem({ depth, nodeInfo, isDisabled, onClick }: Props) {
+export function NavItem({
+  navNodeInfo,
+  depth,
+  nodeInfo,
+  isDisabled,
+  onClick,
+}: Props) {
   const isOpen = useNavNodeStore((store) => store.isOpen[nodeInfo.id]);
   const setIsOpen = useNavNodeStore((store) => store.setIsOpen);
 
@@ -80,6 +86,7 @@ export function NavItem({ depth, nodeInfo, isDisabled, onClick }: Props) {
     !isLeaf && isOpen
       ? nodeInfo.childNavNodeIds.map((id) => (
           <NavItem
+            navNodeInfo={navNodeInfo}
             key={navNodeInfo[id].id}
             depth={depth + 1}
             /**

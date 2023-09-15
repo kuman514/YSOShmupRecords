@@ -14,6 +14,7 @@ describe('NavItem', () => {
     const mockFn = vi.fn();
     render(
       <NavItem
+        navNodeInfo={navNodeInfoForTest}
         depth={0}
         nodeInfo={navNodeInfoForTest.test}
         isDisabled={false}
@@ -29,6 +30,7 @@ describe('NavItem', () => {
     const mockFn = vi.fn();
     render(
       <NavItem
+        navNodeInfo={navNodeInfoForTest}
         depth={0}
         nodeInfo={navNodeInfoForTest.test}
         isDisabled

@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { NavItem } from '^/components/atoms/NavItem';
 import { navNodeInfo } from '^/constants';
+import { NavSidebar } from '^/components/molecules/NavSidebar';
 
 const Root = styled.div`
   width: 100vw;
@@ -12,23 +12,9 @@ const Root = styled.div`
 function Main() {
   return (
     <Root>
-      <NavItem
-        depth={0}
-        onClick={() => {}}
-        isDisabled={false}
-        nodeInfo={navNodeInfo.intro}
-      />
-      <NavItem
-        depth={0}
-        onClick={() => {}}
-        isDisabled={false}
-        nodeInfo={navNodeInfo.criteria}
-      />
-      <NavItem
-        depth={0}
-        onClick={() => {}}
-        isDisabled={false}
-        nodeInfo={navNodeInfo.records}
+      <NavSidebar
+        navNodeInfo={navNodeInfo}
+        rootNavNodeIds={['intro', 'criteria', 'records']}
       />
     </Root>
   );
