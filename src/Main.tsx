@@ -24,8 +24,8 @@ function Main() {
      * @todo
      * This should be changed into getting nav node info from backend.
      */
-    setRootNodeIds(['intro', 'criteria', 'records']);
     setNavNodeInfoById(navNodeInfo);
+    setRootNodeIds(['intro', 'criteria', 'records']);
   }, []);
 
   return (

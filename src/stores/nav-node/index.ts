@@ -36,6 +36,6 @@ export const useNavNodeStore = create<NavNodeStore>((set) => ({
   setNavNodeInfoById: (newNavNodeInfoById) =>
     set((store) => ({
       ...store,
-      nodeInfoById: newNavNodeInfoById,
+      navNodeInfoById: newNavNodeInfoById,
     })),
 }));
