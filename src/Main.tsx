@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 
 import { navNodeInfo } from '^/constants';
 import { NavSidebar } from '^/components/molecules/NavSidebar';
+import { useNavNodeStore } from '^/stores/nav-node';
 
 const Root = styled.div`
   width: 100vw;
@@ -10,12 +11,26 @@ const Root = styled.div`
 `;
 
 function Main() {
+  const rootNodeIds = useNavNodeStore((store) => store.rootNodeIds);
+  const navNodeInfoById = useNavNodeStore((store) => store.navNodeInfoById);
+
+  const setRootNodeIds = useNavNodeStore((store) => store.setRootNodeIds);
+  const setNavNodeInfoById = useNavNodeStore(
+    (store) => store.setNavNodeInfoById
+  );
+
+  useEffect(() => {
+    /**
+     * @todo
+     * This should be changed into getting nav node info from backend.
+     */
+    setRootNodeIds(['intro', 'criteria', 'records']);
+    setNavNodeInfoById(navNodeInfo);
+  }, []);
+
   return (
     <Root>
-      <NavSidebar
-        navNodeInfo={navNodeInfo}
-        rootNavNodeIds={['intro', 'criteria', 'records']}
-      />
+      <NavSidebar navNodeInfo={navNodeInfoById} rootNavNodeIds={rootNodeIds} />
     </Root>
   );
 }
