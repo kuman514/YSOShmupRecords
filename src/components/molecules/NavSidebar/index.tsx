@@ -10,7 +10,8 @@ const Root = styled.div`
 
   background: var(--main-color);
 
-  overflow-y: scroll;
+  overflow-x: hidden;
+  overflow-y: auto;
 `;
 
 interface Props {
