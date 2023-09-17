@@ -4,10 +4,14 @@ import styled from 'styled-components';
 import { navNodeInfo } from '^/constants';
 import { NavSidebar } from '^/components/molecules/NavSidebar';
 import { useNavNodeStore } from '^/stores/nav-node';
+import { NavRouteTitle } from '^/components/atoms/NavRouteTitle';
 
 const Root = styled.div`
   width: 100vw;
   height: 100vh;
+
+  display: flex;
+  flex-direction: row;
 `;
 
 function Main() {
@@ -31,6 +35,7 @@ function Main() {
   return (
     <Root>
       <NavSidebar navNodeInfo={navNodeInfoById} rootNavNodeIds={rootNodeIds} />
+      <NavRouteTitle navNodeIds={['dodonpachi', 'c-shot']} />
     </Root>
   );
 }
