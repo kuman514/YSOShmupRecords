@@ -5,6 +5,7 @@ import { navNodeInfo } from '^/constants';
 import { NavSidebar } from '^/components/molecules/NavSidebar';
 import { useNavNodeStore } from '^/stores/nav-node';
 import { NavRouteTitle } from '^/components/atoms/NavRouteTitle';
+import { DropdownListItem } from '^/components/atoms/DropdownListItem';
 
 const Root = styled.div`
   width: 100vw;
@@ -35,7 +36,17 @@ function Main() {
   return (
     <Root>
       <NavSidebar navNodeInfo={navNodeInfoById} rootNavNodeIds={rootNodeIds} />
-      <NavRouteTitle navNodeIds={['dodonpachi', 'c-shot']} />
+      <div>
+        <NavRouteTitle navNodeIds={['dodonpachi', 'c-shot']} />
+        <ul style={{ listStyleType: 'none', padding: 0 }}>
+          <DropdownListItem
+            label="kuman514"
+            isSelected={false}
+            onClick={() => {}}
+          />
+          <DropdownListItem label="kuman514" isSelected onClick={() => {}} />
+        </ul>
+      </div>
     </Root>
   );
 }
