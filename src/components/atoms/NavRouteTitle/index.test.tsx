@@ -4,7 +4,7 @@ import { cleanup, render, screen } from '@testing-library/react';
 
 import { NavRouteTitle } from '^/components/atoms/NavRouteTitle';
 
-describe('RouteTitle', () => {
+describe('NavRouteTitle', () => {
   beforeEach(() => {
     cleanup();
   });
