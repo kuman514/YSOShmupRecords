@@ -22,3 +22,5 @@ export interface ShmupRecord {
   youtubeUrl?: string;
   specialTags?: string[];
 }
+
+export type DropdownOption = Pick<ShmupRecord, 'id' | 'when'>;
