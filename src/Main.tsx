@@ -1,12 +1,12 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 import { navNodeInfo } from '^/constants';
 import { NavSidebar } from '^/components/molecules/NavSidebar';
 import { useNavNodeStore } from '^/stores/nav-node';
 import { NavRouteTitle } from '^/components/atoms/NavRouteTitle';
-import { DropdownListItem } from '^/components/atoms/DropdownListItem';
-import { DropdownMainButton } from '^/components/atoms/DropdownMainButton';
+import { RecordDropdown } from '^/components/molecules/RecordDropdown';
+import { DropdownOption } from '^/types';
 
 const Root = styled.div`
   width: 100vw;
@@ -17,6 +17,11 @@ const Root = styled.div`
 `;
 
 function Main() {
+  const [tmpSelectedOption, setTmpSelectedOption] = useState<DropdownOption>({
+    id: '20230926',
+    when: new Date('Sep 26 2023'),
+  });
+
   const rootNodeIds = useNavNodeStore((store) => store.rootNodeIds);
   const navNodeInfoById = useNavNodeStore((store) => store.navNodeInfoById);
 
@@ -39,20 +44,25 @@ function Main() {
       <NavSidebar navNodeInfo={navNodeInfoById} rootNavNodeIds={rootNodeIds} />
       <div>
         <NavRouteTitle navNodeIds={['dodonpachi', 'c-shot']} />
-        <DropdownMainButton
-          label="kuman514"
-          isOpen={false}
-          onClick={() => {}}
+        <RecordDropdown
+          selectedOption={tmpSelectedOption}
+          options={[
+            {
+              id: '20230926',
+              when: new Date('Sep 26 2023'),
+            },
+            {
+              id: '20230816',
+              when: new Date('Aug 16 2023'),
+            },
+            {
+              id: '20230710',
+              when: new Date('Jul 10 2023'),
+            },
+          ]}
+          onSelect={setTmpSelectedOption}
         />
-        <DropdownMainButton label="kuman514" isOpen onClick={() => {}} />
-        <ul style={{ listStyleType: 'none', padding: 0 }}>
-          <DropdownListItem
-            label="kuman514"
-            isSelected={false}
-            onClick={() => {}}
-          />
-          <DropdownListItem label="kuman514" isSelected onClick={() => {}} />
-        </ul>
+        <div>Lorem Ipsum Dolor Sit Amet</div>
       </div>
     </Root>
   );
