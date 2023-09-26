@@ -17,28 +17,11 @@ describe('NavItem', () => {
         navNodeInfo={navNodeInfoForTest}
         depth={0}
         nodeInfo={navNodeInfoForTest.test}
-        isDisabled={false}
         onClick={mockFn}
       />
     );
 
     fireEvent.click(screen.getByText(/kuman514/i));
     expect(mockFn).toBeCalledTimes(1);
-  });
-
-  it('should be NOT clickable when it is disabled', () => {
-    const mockFn = vi.fn();
-    render(
-      <NavItem
-        navNodeInfo={navNodeInfoForTest}
-        depth={0}
-        nodeInfo={navNodeInfoForTest.test}
-        isDisabled
-        onClick={mockFn}
-      />
-    );
-
-    fireEvent.click(screen.getByText(/kuman514/i));
-    expect(mockFn).toBeCalledTimes(0);
   });
 });

@@ -38,29 +38,16 @@ const Root = styled.button<RootProps>`
     color: var(--nav-nonactive-font-color);
     fill: var(--nav-nonactive-font-color);
   }
-
-  &:disabled {
-    background: var(--main-color);
-    color: var(--disabled-color);
-    fill: var(--disabled-color);
-  }
 `;
 
 interface Props {
   navNodeInfo: Record<string, NavNodeInfo>;
   depth: number;
   nodeInfo: NavNodeInfo;
-  isDisabled: boolean;
   onClick?(): void;
 }
 
-export function NavItem({
-  navNodeInfo,
-  depth,
-  nodeInfo,
-  isDisabled,
-  onClick,
-}: Props) {
+export function NavItem({ navNodeInfo, depth, nodeInfo, onClick }: Props) {
   const isOpen = useNavNodeStore((store) => store.isOpen[nodeInfo.id]);
   const setIsOpen = useNavNodeStore((store) => store.setIsOpen);
 
@@ -94,7 +81,6 @@ export function NavItem({
              * Add route moving if this child node is a leaf
              */
             onClick={() => {}}
-            isDisabled={false}
             nodeInfo={navNodeInfo[id]}
           />
         ))
@@ -102,7 +88,7 @@ export function NavItem({
 
   return (
     <>
-      <Root $isActive={isActive} disabled={isDisabled} onClick={handleOnClick}>
+      <Root $isActive={isActive} onClick={handleOnClick}>
         <span
           style={{
             paddingLeft: depth * 15,
