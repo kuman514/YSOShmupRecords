@@ -5,7 +5,7 @@ import { cleanup, render } from '@testing-library/react';
 import { NavItemTree } from '.';
 import { navNodeInfoForTest } from '^/constants';
 
-describe('NavItem', () => {
+describe('NavItemTree', () => {
   beforeEach(() => {
     cleanup();
   });
