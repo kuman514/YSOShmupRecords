@@ -41,64 +41,35 @@ const Root = styled.button<RootProps>`
 `;
 
 interface Props {
-  navNodeInfo: Record<string, NavNodeInfo>;
   depth: number;
   nodeInfo: NavNodeInfo;
-  onClick?(): void;
+  onClick(): void;
 }
 
-export function NavItem({ navNodeInfo, depth, nodeInfo, onClick }: Props) {
+export function NavItemButton({ depth, nodeInfo, onClick }: Props) {
   const isOpen = useNavNodeStore((store) => store.isOpen[nodeInfo.id]);
-  const setIsOpen = useNavNodeStore((store) => store.setIsOpen);
 
-  const isLeaf = nodeInfo.childNavNodeIds.length === 0;
+  const isLeaf = nodeInfo.childNavNodes.length === 0;
   /**
    * @todo
    * Add `isSelected`, which determines if this item is in the route.
    */
   const isActive = isOpen;
 
-  const handleOnClick = () => {
-    onClick?.();
-    if (!isLeaf) {
-      setIsOpen(nodeInfo.id, !isOpen);
-    }
-  };
-
   const renderChevron = !isLeaf ? (
     <Chevron isOpen={isOpen} fillColor="inherit" />
   ) : null;
 
-  const renderSubitems =
-    !isLeaf && isOpen
-      ? nodeInfo.childNavNodeIds.map((id) => (
-          <NavItem
-            navNodeInfo={navNodeInfo}
-            key={navNodeInfo[id].id}
-            depth={depth + 1}
-            /**
-             * @todo
-             * Add route moving if this child node is a leaf
-             */
-            onClick={() => {}}
-            nodeInfo={navNodeInfo[id]}
-          />
-        ))
-      : null;
-
   return (
-    <>
-      <Root $isActive={isActive} onClick={handleOnClick}>
-        <span
-          style={{
-            paddingLeft: depth * 15,
-          }}
-        >
-          {nodeInfo.label}
-        </span>
-        {renderChevron}
-      </Root>
-      {renderSubitems}
-    </>
+    <Root $isActive={isActive} onClick={onClick}>
+      <span
+        style={{
+          paddingLeft: depth * 15,
+        }}
+      >
+        {nodeInfo.label}
+      </span>
+      {renderChevron}
+    </Root>
   );
 }
