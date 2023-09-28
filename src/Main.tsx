@@ -7,6 +7,7 @@ import { NavSidebar } from '^/components/organisms/NavSidebar';
 import { NavRouteTitle } from '^/components/atoms/NavRouteTitle';
 import { RecordDropdown } from '^/components/molecules/RecordDropdown';
 import { DropdownOption } from '^/types';
+import { Thumbnail } from '^/components/atoms/Thumbnail';
 
 const Root = styled.div`
   width: 100vw;
@@ -54,7 +55,9 @@ function Main() {
           ]}
           onSelect={setTmpSelectedOption}
         />
-        <div>Lorem Ipsum Dolor Sit Amet</div>
+        <div>
+          <Thumbnail imageSrc="" altText="" onClick={() => {}} />
+        </div>
       </div>
     </Root>
   );
