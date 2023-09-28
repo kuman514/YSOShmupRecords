@@ -15,6 +15,10 @@ const Root = styled.div`
 `;
 
 export function NavSidebar() {
+  /**
+   * @todo
+   * Replace rootNavNodes into getting from zustand store
+   */
   const renderRootNavNodes = rootNavNodes.map((navNode) => (
     <NavItemTree key={navNode.id} depth={0} nodeInfo={navNode} />
   ));
