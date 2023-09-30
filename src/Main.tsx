@@ -7,7 +7,9 @@ import { NavSidebar } from '^/components/organisms/NavSidebar';
 import { NavRouteTitle } from '^/components/atoms/NavRouteTitle';
 import { RecordDropdown } from '^/components/molecules/RecordDropdown';
 import { DropdownOption } from '^/types';
-import { Thumbnail } from '^/components/atoms/Thumbnail';
+import { ArticleSummary } from '^/components/molecules/ArticleSummary';
+
+import TestImageUrl from '^/assets/temp/image.png';
 
 const Root = styled.div`
   width: 100vw;
@@ -56,7 +58,21 @@ function Main() {
           onSelect={setTmpSelectedOption}
         />
         <div>
-          <Thumbnail imageSrc="" altText="" onClick={() => {}} />
+          <ArticleSummary
+            record={{
+              id: '20230514',
+              when: new Date('May 14 2023'),
+              subjectId: 'dodonpachi-cshot',
+              stage: '2-4',
+              score: '80000000',
+              byWhat: 'Arcade in Akatronics',
+              comment: '야스오 2-4 진출',
+              thumbnailUrl: TestImageUrl,
+              originalImageUrl: TestImageUrl,
+              tweetUrl: 'Tweet URL',
+              specialTags: ['science', 'no miss'],
+            }}
+          />
         </div>
       </div>
     </Root>
