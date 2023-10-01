@@ -7,17 +7,16 @@ import { NavSidebar } from '^/components/organisms/NavSidebar';
 import { NavRouteTitle } from '^/components/atoms/NavRouteTitle';
 import { RecordDropdown } from '^/components/molecules/RecordDropdown';
 import { DropdownOption } from '^/types';
-import { ArticleSummary } from '^/components/molecules/ArticleSummary';
 
 import TestImageUrl from '^/assets/temp/image.png';
-import { ArticleExtra } from '^/components/molecules/ArticleExtra';
+import { Article } from '^/components/organisms/Article';
 
 const Root = styled.div`
   width: 100vw;
   height: 100vh;
 
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: 300px 1fr;
 `;
 
 function Main() {
@@ -58,24 +57,22 @@ function Main() {
           ]}
           onSelect={setTmpSelectedOption}
         />
-        <div>
-          <ArticleSummary
-            record={{
-              id: '20230514',
-              when: new Date('May 14 2023'),
-              subjectId: 'dodonpachi-cshot',
-              stage: '2-4',
-              score: '80000000',
-              byWhat: 'Arcade in Akatronics',
-              comment: '야스오 2-4 진출',
-              thumbnailUrl: TestImageUrl,
-              originalImageUrl: TestImageUrl,
-              tweetUrl: 'Tweet URL',
-              specialTags: ['science', 'no miss'],
-            }}
-          />
-          <ArticleExtra comment="야스오 2-4 진출" youtubeUrl="유튜브 링크" />
-        </div>
+        <Article
+          record={{
+            id: '20230514',
+            when: new Date('May 14 2023'),
+            subjectId: 'dodonpachi-cshot',
+            stage: '2-4',
+            score: '80000000',
+            byWhat: 'Arcade in Akatronics',
+            comment: '야스오 2-4 진출',
+            thumbnailUrl: TestImageUrl,
+            originalImageUrl: TestImageUrl,
+            tweetUrl: 'Tweet URL',
+            specialTags: ['science', 'no miss'],
+            youtubeUrl: 'Youtube URL',
+          }}
+        />
       </div>
     </Root>
   );
