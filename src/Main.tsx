@@ -10,6 +10,7 @@ import { DropdownOption } from '^/types';
 import { ArticleSummary } from '^/components/molecules/ArticleSummary';
 
 import TestImageUrl from '^/assets/temp/image.png';
+import { ArticleExtra } from '^/components/molecules/ArticleExtra';
 
 const Root = styled.div`
   width: 100vw;
@@ -73,6 +74,7 @@ function Main() {
               specialTags: ['science', 'no miss'],
             }}
           />
+          <ArticleExtra comment="야스오 2-4 진출" youtubeUrl="유튜브 링크" />
         </div>
       </div>
     </Root>
