@@ -34,6 +34,7 @@ export function RecordDropdown({ selectedOption, options, onSelect }: Props) {
     <DropdownList>
       {options.map((option) => (
         <DropdownListItem
+          key={option.id}
           label={convertDateToString(option.when)}
           isSelected={option.id === selectedOption.id}
           onClick={() => handleOnSelect(option)}
