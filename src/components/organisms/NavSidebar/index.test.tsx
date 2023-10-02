@@ -4,6 +4,7 @@ import { cleanup, render, screen } from '@testing-library/react';
 
 import { NavSidebar } from '.';
 import { rootNavNodes } from '^/constants';
+import { useNavNodeStore } from '^/stores/nav-node';
 
 describe('NavSidebar', () => {
   beforeEach(() => {
@@ -11,6 +12,7 @@ describe('NavSidebar', () => {
   });
 
   it('should show root nav nodes', () => {
+    useNavNodeStore.getState().setRootNodes(rootNavNodes);
     render(<NavSidebar />);
 
     rootNavNodes.forEach((rootNavNode) => {

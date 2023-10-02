@@ -1,15 +1,14 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
-// import { navNodeInfo } from '^/constants';
 import { NavSidebar } from '^/components/organisms/NavSidebar';
-// import { useNavNodeStore } from '^/stores/nav-node';
 import { NavRouteTitle } from '^/components/atoms/NavRouteTitle';
 import { RecordDropdown } from '^/components/molecules/RecordDropdown';
 import { DropdownOption } from '^/types';
-
-import TestImageUrl from '^/assets/temp/image.png';
 import { Article } from '^/components/organisms/Article';
+import { rootNavNodes } from '^/constants';
+import { useNavNodeStore } from '^/stores/nav-node';
+import TestImageUrl from '^/assets/temp/image.png';
 
 const Root = styled.div`
   width: 100vw;
@@ -25,14 +24,13 @@ function Main() {
     when: new Date('Sep 26 2023'),
   });
 
-  // useEffect(() => {
-  //   /**
-  //    * @todo
-  //    * This should be changed into getting nav node info from backend.
-  //    */
-  //   setNavNodeInfoById(navNodeInfo);
-  //   setRootNodeIds(['intro', 'criteria', 'records']);
-  // }, []);
+  useEffect(() => {
+    /**
+     * @todo
+     * Change into getting root nav nodes from backend.
+     */
+    useNavNodeStore.getState().setRootNodes(rootNavNodes);
+  }, []);
 
   return (
     <Root>

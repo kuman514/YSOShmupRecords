@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { NavItemTree } from '^/components/molecules/NavItemTree';
-import { rootNavNodes } from '^/constants';
+import { useNavNodeStore } from '^/stores/nav-node';
 
 const Root = styled.div`
   width: 300px;
@@ -15,10 +15,7 @@ const Root = styled.div`
 `;
 
 export function NavSidebar() {
-  /**
-   * @todo
-   * Replace rootNavNodes into getting from zustand store
-   */
+  const rootNavNodes = useNavNodeStore((state) => state.rootNodes);
   const renderRootNavNodes = rootNavNodes.map((navNode) => (
     <NavItemTree key={navNode.id} depth={0} nodeInfo={navNode} />
   ));
