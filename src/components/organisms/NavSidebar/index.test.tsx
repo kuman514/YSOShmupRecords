@@ -11,7 +11,7 @@ describe('NavSidebar', () => {
     cleanup();
   });
 
-  it('should show root nav nodes', () => {
+  it('should show root nav nodes on init', () => {
     useNavNodeStore.getState().setRootNodes(rootNavNodes);
     render(<NavSidebar />);
 
