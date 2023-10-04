@@ -3,9 +3,14 @@ import styled from 'styled-components';
 
 import { DescriptionListItem } from '^/types';
 
-const Root = styled.ul``;
+const ListItem = styled.li`
+  font-size: 16px;
+  font-weight: 400;
+`;
 
-const ListItem = styled.li``;
+const ListItemBody = styled.div`
+  margin-bottom: 10px;
+`;
 
 interface Props {
   descriptionListItems: DescriptionListItem[];
@@ -15,7 +20,7 @@ export function DescriptionTemplate({ descriptionListItems }: Props) {
   const renderDescriptionListItems = descriptionListItems.map(
     ({ id, description, subItems }) => (
       <ListItem key={id}>
-        <span>{description}</span>
+        <ListItemBody>{description}</ListItemBody>
         {subItems ? (
           <DescriptionTemplate descriptionListItems={subItems} />
         ) : null}
@@ -23,5 +28,5 @@ export function DescriptionTemplate({ descriptionListItems }: Props) {
     )
   );
 
-  return <Root>{renderDescriptionListItems}</Root>;
+  return <ul>{renderDescriptionListItems}</ul>;
 }
