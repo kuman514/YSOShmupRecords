@@ -24,3 +24,9 @@ export interface ShmupRecord {
 }
 
 export type DropdownOption = Pick<ShmupRecord, 'id' | 'when'>;
+
+export interface DescriptionListItem {
+  id: string;
+  description: string;
+  subItems?: DescriptionListItem[];
+}

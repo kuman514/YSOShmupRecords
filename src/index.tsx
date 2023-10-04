@@ -2,7 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 
-import Main from './Main';
+import Main from '^/Main';
+import { IntroPage } from '^/pages/IntroPage';
+import { CriteriaPage } from '^/pages/CriteriaPage';
 
 const router = createBrowserRouter([
   {
@@ -11,11 +13,11 @@ const router = createBrowserRouter([
     children: [
       {
         path: '',
-        element: <>test outlet</>,
+        element: <IntroPage />,
       },
       {
-        path: 'kuman514',
-        element: <>kuman514</>,
+        path: 'criteria',
+        element: <CriteriaPage />,
       },
     ],
   },
