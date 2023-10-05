@@ -17,7 +17,12 @@ const Root = styled.div`
 export function NavSidebar() {
   const rootNavNodes = useNavNodeStore((state) => state.rootNodes);
   const renderRootNavNodes = rootNavNodes.map((navNode) => (
-    <NavItemTree key={navNode.id} depth={0} nodeInfo={navNode} />
+    <NavItemTree
+      key={navNode.id}
+      depth={0}
+      nodeInfo={navNode}
+      linkTo={`/${navNode.id}`}
+    />
   ));
 
   return <Root>{renderRootNavNodes}</Root>;
