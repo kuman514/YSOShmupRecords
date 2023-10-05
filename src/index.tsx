@@ -6,6 +6,8 @@ import Main from '^/Main';
 import { IntroPage } from '^/pages/IntroPage';
 import { CriteriaPage } from '^/pages/CriteriaPage';
 
+import '^/global.css';
+
 const router = createBrowserRouter([
   {
     path: '/',
