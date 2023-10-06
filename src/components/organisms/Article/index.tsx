@@ -8,6 +8,10 @@ import { useShmupRecordStore } from '^/stores/shmup-record';
 const Root = styled.article``;
 
 export function Article() {
+  /**
+   * @todo
+   * Add record selection dropdown
+   */
   const record = useShmupRecordStore((state) => state.record);
 
   return record !== undefined ? (

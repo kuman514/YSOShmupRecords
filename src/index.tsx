@@ -5,6 +5,7 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import Main from '^/Main';
 import { IntroPage } from '^/pages/IntroPage';
 import { CriteriaPage } from '^/pages/CriteriaPage';
+import { RecordPage } from '^/pages/RecordPage';
 
 import '^/global.css';
 
@@ -22,22 +23,18 @@ const router = createBrowserRouter([
         element: <IntroPage />,
       },
       {
-        path: 'intro/intro',
-        element: <IntroPage />,
-      },
-      {
         path: 'criteria',
         element: <CriteriaPage />,
       },
       // For games with single type
       {
-        path: 'records/:gameId',
-        element: null,
+        path: 'records/:typeId',
+        element: <RecordPage />,
       },
       // For games with various types
       {
         path: 'records/:gameId/:typeId',
-        element: null,
+        element: <RecordPage />,
       },
     ],
   },
