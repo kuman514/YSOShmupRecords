@@ -26,11 +26,11 @@ const introduction: DescriptionListItem[] = [
         description: '트위터(현 X) @kumankoishi',
       },
       {
-        id: 'Introduction-4-1',
+        id: 'Introduction-4-2',
         description: '깃허브 kuman514',
       },
       {
-        id: 'Introduction-4-1',
+        id: 'Introduction-4-3',
         description: '블루스카이 kuman514.bsky.social',
       },
     ],
