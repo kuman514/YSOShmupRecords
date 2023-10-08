@@ -5,6 +5,7 @@ import { Outlet } from 'react-router-dom';
 import { NavSidebar } from '^/components/organisms/NavSidebar';
 import { rootNavNodes } from '^/constants';
 import { useNavNodeStore } from '^/stores/nav-node';
+import { NavRouteTitle } from '^/components/atoms/NavRouteTitle';
 
 const Root = styled.div`
   width: 100vw;
@@ -26,7 +27,10 @@ function Main() {
   return (
     <Root>
       <NavSidebar />
-      <Outlet />
+      <div>
+        <NavRouteTitle />
+        <Outlet />
+      </div>
     </Root>
   );
 }

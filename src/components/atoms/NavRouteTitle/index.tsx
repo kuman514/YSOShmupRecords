@@ -1,4 +1,5 @@
 import React from 'react';
+import { useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 
 const Root = styled.nav`
@@ -21,14 +22,12 @@ const CrumbItem = styled.li`
   }
 `;
 
-interface Props {
-  navNodeIds: string[];
-}
-
-export function NavRouteTitle({ navNodeIds }: Props) {
-  const renderTitle = navNodeIds.map((navNodeId) => (
-    <CrumbItem key={navNodeId}>{navNodeId}</CrumbItem>
-  ));
+export function NavRouteTitle() {
+  const location = useLocation();
+  const renderTitle = location.pathname
+    .split('/')
+    .slice(1)
+    .map((navNodeId) => <CrumbItem key={navNodeId}>{navNodeId}</CrumbItem>);
   return (
     <Root>
       <Crumbs>{renderTitle}</Crumbs>
