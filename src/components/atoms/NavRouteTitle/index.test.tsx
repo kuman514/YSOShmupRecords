@@ -8,13 +8,13 @@ import { NavRouteTitle } from '^/components/atoms/NavRouteTitle';
 describe('NavRouteTitle', () => {
   const routes = [
     {
-      path: '/kuman514/koishi/hoshino',
+      path: '/test-sub1/test/koishi/hoshino',
       element: <NavRouteTitle />,
     },
   ];
 
   const router = createMemoryRouter(routes, {
-    initialEntries: ['/', '/kuman514/koishi/hoshino'],
+    initialEntries: ['/', '/test-sub1/test/koishi/hoshino'],
     initialIndex: 1,
   });
 
@@ -32,5 +32,19 @@ describe('NavRouteTitle', () => {
     expect(renderResult1).not.toStrictEqual(renderResult2);
     expect(renderResult1).not.toStrictEqual(renderResult3);
     expect(renderResult2).not.toStrictEqual(renderResult3);
+  });
+
+  it('should show text label or node id', () => {
+    render(<RouterProvider router={router} />);
+
+    const renderResult1 = screen.getByText(/subitem1/i);
+    const renderResult2 = screen.getByText(/kuman514/i);
+    const renderResult3 = screen.getByText(/koishi/i);
+    const renderResult4 = screen.getByText(/hoshino/i);
+
+    expect(renderResult1).not.toBeNull();
+    expect(renderResult2).not.toBeNull();
+    expect(renderResult3).not.toBeNull();
+    expect(renderResult4).not.toBeNull();
   });
 });

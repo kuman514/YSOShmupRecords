@@ -1,6 +1,5 @@
 export interface NavNodeInfo {
   id: string;
-  label: string;
   childNavNodes: NavNodeInfo[];
 }
 

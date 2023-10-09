@@ -1,4 +1,10 @@
-export const texts = {
+export const texts: Record<string, string> = {
+  test: 'kuman514',
+  'test-sub1': 'subitem1',
+  'test-sub2': 'subitem2',
+  'test-sub3': 'subitem3',
+  'test-sub4': 'subitem4',
+  '': '개요',
   intro: '개요',
   criteria: '등록 기준',
   records: '기록',

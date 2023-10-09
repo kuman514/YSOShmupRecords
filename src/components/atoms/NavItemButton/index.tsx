@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { Chevron } from '^/components/atoms/Chevron';
 import { NavNodeInfo } from '^/types';
 import { useNavNodeStore } from '^/stores/nav-node';
+import { texts } from '^/constants/texts';
 
 interface RootProps {
   /**
@@ -67,7 +68,7 @@ export function NavItemButton({ depth, nodeInfo, onClick }: Props) {
           paddingLeft: depth * 15,
         }}
       >
-        {nodeInfo.label}
+        {texts[nodeInfo.id] ?? nodeInfo.id}
       </span>
       {renderChevron}
     </Root>

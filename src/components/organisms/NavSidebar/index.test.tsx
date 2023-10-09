@@ -6,6 +6,7 @@ import { RouterProvider, createMemoryRouter } from 'react-router-dom';
 import { NavSidebar } from '.';
 import { rootNavNodes } from '^/constants';
 import { useNavNodeStore } from '^/stores/nav-node';
+import { texts } from '^/constants/texts';
 
 describe('NavSidebar', () => {
   const routes = [
@@ -29,7 +30,9 @@ describe('NavSidebar', () => {
     render(<RouterProvider router={router} />);
 
     rootNavNodes.forEach((rootNavNode) => {
-      expect(screen.getByText(rootNavNode.label)).not.toBeNull();
+      expect(
+        screen.getByText(texts[rootNavNode.id] ?? rootNavNode.id)
+      ).not.toBeNull();
     });
   });
 });
