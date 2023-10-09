@@ -1,6 +1,6 @@
 export interface NavNodeInfo {
   id: string;
-  childNavNodes: NavNodeInfo[];
+  childNavNodes?: NavNodeInfo[];
 }
 
 export interface ShmupRecord {

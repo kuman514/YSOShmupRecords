@@ -5,20 +5,17 @@ export const navNodeInfoForTest: NavNodeInfo = {
   childNavNodes: [
     {
       id: 'test-sub1',
-      childNavNodes: [],
     },
     {
       id: 'test-sub2',
       childNavNodes: [
         {
           id: 'test-sub4',
-          childNavNodes: [],
         },
       ],
     },
     {
       id: 'test-sub3',
-      childNavNodes: [],
     },
   ],
 };
@@ -26,11 +23,9 @@ export const navNodeInfoForTest: NavNodeInfo = {
 export const rootNavNodes: NavNodeInfo[] = [
   {
     id: 'intro',
-    childNavNodes: [],
   },
   {
     id: 'criteria',
-    childNavNodes: [],
   },
   {
     id: 'records',
@@ -40,64 +35,50 @@ export const rootNavNodes: NavNodeInfo[] = [
         childNavNodes: [
           {
             id: 'dodonpachi-ashot',
-            childNavNodes: [],
           },
           {
             id: 'dodonpachi-alaser',
-            childNavNodes: [],
           },
           {
             id: 'dodonpachi-bshot',
-            childNavNodes: [],
           },
           {
             id: 'dodonpachi-blaser',
-            childNavNodes: [],
           },
           {
             id: 'dodonpachi-cshot',
-            childNavNodes: [],
           },
           {
             id: 'dodonpachi-claser',
-            childNavNodes: [],
           },
         ],
       },
       {
         id: 'galagaarrangement',
-        childNavNodes: [],
       },
       {
         id: 'dariusgaiden',
         childNavNodes: [
           {
             id: 'dariusgaiden-zprime',
-            childNavNodes: [],
           },
           {
             id: 'dariusgaiden-v',
-            childNavNodes: [],
           },
           {
             id: 'dariusgaiden-w',
-            childNavNodes: [],
           },
           {
             id: 'dariusgaiden-x',
-            childNavNodes: [],
           },
           {
             id: 'dariusgaiden-y',
-            childNavNodes: [],
           },
           {
             id: 'dariusgaiden-z',
-            childNavNodes: [],
           },
           {
             id: 'dariusgaiden-vprime',
-            childNavNodes: [],
           },
         ],
       },

@@ -50,7 +50,8 @@ interface Props {
 export function NavItemButton({ depth, nodeInfo, onClick }: Props) {
   const isOpen = useNavNodeStore((store) => store.isOpen[nodeInfo.id]);
 
-  const isLeaf = nodeInfo.childNavNodes.length === 0;
+  const isLeaf =
+    nodeInfo.childNavNodes === undefined || nodeInfo.childNavNodes.length === 0;
   /**
    * @todo
    * Add `isSelected`, which determines if this item is in the route.

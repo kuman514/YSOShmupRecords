@@ -16,7 +16,8 @@ export function NavItemTree({ depth, nodeInfo, linkTo }: Props) {
   const setIsOpen = useNavNodeStore((store) => store.setIsOpen);
   const navigate = useNavigate();
 
-  const isLeaf = nodeInfo.childNavNodes.length === 0;
+  const isLeaf =
+    nodeInfo.childNavNodes === undefined || nodeInfo.childNavNodes.length === 0;
 
   const handleOnClick = () => {
     if (isLeaf) {
@@ -28,7 +29,7 @@ export function NavItemTree({ depth, nodeInfo, linkTo }: Props) {
 
   const renderSubitems =
     !isLeaf && isOpen
-      ? nodeInfo.childNavNodes.map((childNavNode) => (
+      ? nodeInfo.childNavNodes?.map((childNavNode) => (
           <NavItemTree
             key={childNavNode.id}
             depth={depth + 1}

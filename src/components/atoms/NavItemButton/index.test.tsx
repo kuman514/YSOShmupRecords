@@ -29,7 +29,7 @@ describe('NavItemButton', () => {
     const { container } = render(
       <NavItemButton
         depth={0}
-        nodeInfo={navNodeInfoForTest.childNavNodes[0]}
+        nodeInfo={navNodeInfoForTest.childNavNodes![0]}
         onClick={() => {}}
       />
     );
