@@ -3,19 +3,36 @@ import { create } from 'zustand';
 import { ShmupRecord } from '^/types';
 
 interface ShmupRecordState {
-  record?: ShmupRecord;
+  recordIds: ShmupRecord['id'][];
+  currentRecordId: ShmupRecord['id'] | null;
+  recordArticle: ShmupRecord | null;
 }
 
 interface ShmupRecordAction {
-  setShmupRecord(newRecord?: ShmupRecord): void;
+  setRecordIds(newRecordIds: ShmupRecord['id'][]): void;
+  setCurrentRecordId(newCurrentRecordId: ShmupRecord['id'] | null): void;
+  setRecordArticle(newRecordArticle: ShmupRecord | null): void;
 }
 
 type ShmupRecordStore = ShmupRecordState & ShmupRecordAction;
 
 export const useShmupRecordStore = create<ShmupRecordStore>((set) => ({
-  setShmupRecord: (newRecord) =>
+  recordIds: [],
+  currentRecordId: null,
+  recordArticle: null,
+  setRecordIds: (newRecordIds) =>
     set((store) => ({
       ...store,
-      record: newRecord,
+      recordIds: newRecordIds,
+    })),
+  setCurrentRecordId: (newCurrentRecordId) =>
+    set((store) => ({
+      ...store,
+      currentRecordId: newCurrentRecordId,
+    })),
+  setRecordArticle: (newRecordArticle) =>
+    set((store) => ({
+      ...store,
+      recordArticle: newRecordArticle,
     })),
 }));

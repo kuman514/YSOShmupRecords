@@ -12,12 +12,15 @@ export function Article() {
    * @todo
    * Add record selection dropdown
    */
-  const record = useShmupRecordStore((state) => state.record);
+  const recordArticle = useShmupRecordStore((state) => state.recordArticle);
 
-  return record !== undefined ? (
+  return recordArticle !== null ? (
     <Root>
-      <ArticleSummary record={record} />
-      <ArticleExtra comment={record.comment} youtubeUrl={record.youtubeUrl} />
+      <ArticleSummary record={recordArticle} />
+      <ArticleExtra
+        comment={recordArticle.comment}
+        youtubeUrl={recordArticle.youtubeUrl}
+      />
     </Root>
   ) : null;
 }

@@ -28,7 +28,7 @@ describe('Article', () => {
   });
 
   it('should have thumbnail, date title, stage, score, method, tweet link, special tag area, commentary, and youtube', () => {
-    useShmupRecordStore.getState().setShmupRecord(testData);
+    useShmupRecordStore.getState().setRecordArticle(testData);
     render(<Article />);
 
     const thumbnail = screen.getByAltText(
