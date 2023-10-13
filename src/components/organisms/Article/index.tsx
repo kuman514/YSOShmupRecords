@@ -8,13 +8,8 @@ import { useShmupRecordStore } from '^/stores/shmup-record';
 const Root = styled.article``;
 
 export function Article() {
-  /**
-   * @todo
-   * Add record selection dropdown
-   */
   const recordArticle = useShmupRecordStore((state) => state.recordArticle);
-
-  return recordArticle !== null ? (
+  return recordArticle !== undefined ? (
     <Root>
       <ArticleSummary record={recordArticle} />
       <ArticleExtra
