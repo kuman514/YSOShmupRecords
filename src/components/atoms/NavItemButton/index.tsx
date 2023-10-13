@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import { useLocation } from 'react-router-dom';
 import { Chevron } from '^/components/atoms/Chevron';
 import { NavNodeInfo } from '^/types';
 import { useNavNodeStore } from '^/stores/nav-node';
@@ -48,15 +49,15 @@ interface Props {
 }
 
 export function NavItemButton({ depth, nodeInfo, onClick }: Props) {
+  const location = useLocation();
   const isOpen = useNavNodeStore((store) => store.isOpen[nodeInfo.id]);
 
   const isLeaf =
     nodeInfo.childNavNodes === undefined || nodeInfo.childNavNodes.length === 0;
-  /**
-   * @todo
-   * Add `isSelected`, which determines if this item is in the route.
-   */
-  const isActive = isOpen;
+  const isSelected =
+    location.pathname.split('/').findIndex((path) => nodeInfo.id === path) !==
+    -1;
+  const isActive = isOpen || isSelected;
 
   const renderChevron = !isLeaf ? (
     <Chevron isOpen={isOpen} fillColor="inherit" />
