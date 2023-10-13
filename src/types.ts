@@ -22,7 +22,7 @@ export interface ShmupRecord {
   specialTags?: string[];
 }
 
-export type DropdownOption = Pick<ShmupRecord, 'id' | 'when'>;
+export type DropdownOption = ShmupRecord['id'];
 
 export interface DescriptionListItem {
   id: string;

@@ -15,12 +15,18 @@ const DropdownList = styled.ul`
 `;
 
 interface Props {
-  selectedOption: DropdownOption;
+  selectedOption?: DropdownOption;
   options: DropdownOption[];
+  placeholder: string;
   onSelect(newSelectedOption: DropdownOption): void;
 }
 
-export function RecordDropdown({ selectedOption, options, onSelect }: Props) {
+export function RecordDropdown({
+  selectedOption,
+  options,
+  placeholder,
+  onSelect,
+}: Props) {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const handleOnClick = () => setIsOpen(!isOpen);
@@ -34,9 +40,9 @@ export function RecordDropdown({ selectedOption, options, onSelect }: Props) {
     <DropdownList>
       {options.map((option) => (
         <DropdownListItem
-          key={option.id}
-          label={convertDateToString(option.when)}
-          isSelected={option.id === selectedOption.id}
+          key={option}
+          label={convertDateToString(new Date(option))}
+          isSelected={option === selectedOption}
           onClick={() => handleOnSelect(option)}
         />
       ))}
@@ -46,7 +52,11 @@ export function RecordDropdown({ selectedOption, options, onSelect }: Props) {
   return (
     <Root>
       <DropdownMainButton
-        label={convertDateToString(selectedOption.when)}
+        label={
+          selectedOption !== undefined
+            ? convertDateToString(new Date(selectedOption))
+            : placeholder
+        }
         isOpen={isOpen}
         onClick={handleOnClick}
       />
