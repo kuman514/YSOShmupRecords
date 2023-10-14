@@ -5,6 +5,10 @@ import { Article } from '^/components/organisms/Article';
 import { RecordDropdown } from '^/components/molecules/RecordDropdown';
 import { useShmupRecordStore } from '^/stores/shmup-record';
 
+/**
+ * @todo
+ * Style Root if necessary. Otherwise, changing it into just div looks better.
+ */
 const Root = styled.div``;
 
 export function RecordPage() {

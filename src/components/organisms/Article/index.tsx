@@ -5,6 +5,10 @@ import { ArticleSummary } from '^/components/molecules/ArticleSummary';
 import { ArticleExtra } from '^/components/molecules/ArticleExtra';
 import { useShmupRecordStore } from '^/stores/shmup-record';
 
+/**
+ * @todo
+ * Style Root if necessary. Otherwise, changing it into just article looks better.
+ */
 const Root = styled.article``;
 
 export function Article() {
