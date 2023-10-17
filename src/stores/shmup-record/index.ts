@@ -11,7 +11,7 @@ interface ShmupRecordState {
 interface ShmupRecordAction {
   setRecordIds(newRecordIds: ShmupRecord['id'][]): void;
   setCurrentRecordId(newCurrentRecordId: ShmupRecord['id']): void;
-  setRecordArticle(newRecordArticle: ShmupRecord): void;
+  setRecordArticle(newRecordArticle?: ShmupRecord): void;
 }
 
 type ShmupRecordStore = ShmupRecordState & ShmupRecordAction;
