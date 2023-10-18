@@ -39,11 +39,14 @@ export function RecordPage() {
   }, [location.pathname]);
 
   useEffect(() => {
-    useShmupRecordStore.getState().setCurrentRecordId(recordIds[0]);
+    useShmupRecordStore
+      .getState()
+      .setCurrentRecordId(useShmupRecordStore.getState().recordIds[0]);
   }, [recordIds]);
 
   useEffect(() => {
     if (currentRecordId === undefined) {
+      useShmupRecordStore.getState().setRecordArticle(undefined);
       return;
     }
     /**
