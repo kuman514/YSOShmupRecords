@@ -6,23 +6,23 @@ import { RouterProvider, createMemoryRouter } from 'react-router-dom';
 import { NavRouteTitle } from '^/components/atoms/NavRouteTitle';
 
 describe('NavRouteTitle', () => {
-  const routes = [
-    {
-      path: '/test-sub1/test/koishi/hoshino',
-      element: <NavRouteTitle />,
-    },
-  ];
-
-  const router = createMemoryRouter(routes, {
-    initialEntries: ['/', '/test-sub1/test/koishi/hoshino'],
-    initialIndex: 1,
-  });
-
   beforeEach(() => {
     cleanup();
   });
 
   it('should show separatedly for each route', () => {
+    const routes = [
+      {
+        path: '/test-sub1/test/koishi/hoshino',
+        element: <NavRouteTitle />,
+      },
+    ];
+
+    const router = createMemoryRouter(routes, {
+      initialEntries: ['/', '/test-sub1/test/koishi/hoshino'],
+      initialIndex: 1,
+    });
+
     render(<RouterProvider router={router} />);
 
     const renderResult1 = screen.getByText(/kuman514/i);
@@ -35,6 +35,18 @@ describe('NavRouteTitle', () => {
   });
 
   it('should show text label or node id', () => {
+    const routes = [
+      {
+        path: '/test-sub1/test/koishi/hoshino',
+        element: <NavRouteTitle />,
+      },
+    ];
+
+    const router = createMemoryRouter(routes, {
+      initialEntries: ['/', '/test-sub1/test/koishi/hoshino'],
+      initialIndex: 1,
+    });
+
     render(<RouterProvider router={router} />);
 
     const renderResult1 = screen.getByText(/subitem1/i);
@@ -46,5 +58,42 @@ describe('NavRouteTitle', () => {
     expect(renderResult2).not.toBeNull();
     expect(renderResult3).not.toBeNull();
     expect(renderResult4).not.toBeNull();
+  });
+
+  it('should show intro text when it is index route', () => {
+    const routes = [
+      {
+        path: '/',
+        element: <NavRouteTitle />,
+      },
+    ];
+
+    const router = createMemoryRouter(routes, {
+      initialEntries: ['/'],
+      initialIndex: 0,
+    });
+
+    render(<RouterProvider router={router} />);
+
+    const renderResult = screen.getByText(/개요/i);
+    expect(renderResult).not.toBeNull();
+  });
+
+  it('should not show unnecessary intro text when it has path', () => {
+    const routes = [
+      {
+        path: '/yasuo/maverick/',
+        element: <NavRouteTitle />,
+      },
+    ];
+
+    const router = createMemoryRouter(routes, {
+      initialEntries: ['/', '/yasuo/maverick/'],
+      initialIndex: 1,
+    });
+
+    render(<RouterProvider router={router} />);
+
+    expect(screen.queryByText(/개요/i)).toBeNull();
   });
 });

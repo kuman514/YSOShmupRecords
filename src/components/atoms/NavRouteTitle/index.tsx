@@ -26,12 +26,17 @@ const CrumbItem = styled.li`
 
 export function NavRouteTitle() {
   const location = useLocation();
-  const renderTitle = location.pathname
+  const pathNameSplit = location.pathname
     .split('/')
-    .slice(1)
-    .map((navNodeId) => (
-      <CrumbItem key={navNodeId}>{texts[navNodeId] ?? navNodeId}</CrumbItem>
-    ));
+    .filter((path) => path.length > 1);
+  const renderTitle =
+    pathNameSplit.length > 0 ? (
+      pathNameSplit.map((navNodeId) => (
+        <CrumbItem key={navNodeId}>{texts[navNodeId] ?? navNodeId}</CrumbItem>
+      ))
+    ) : (
+      <CrumbItem>{texts['']}</CrumbItem>
+    );
   return (
     <Root>
       <Crumbs>{renderTitle}</Crumbs>
