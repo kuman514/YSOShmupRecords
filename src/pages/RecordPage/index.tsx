@@ -7,6 +7,7 @@ import { Article } from '^/components/organisms/Article';
 import { RecordDropdown } from '^/components/molecules/RecordDropdown';
 import { useShmupRecordStore } from '^/stores/shmup-record';
 import { ShmupRecord } from '^/types';
+import { getAPIURL } from '^/utils/api-url';
 
 /**
  * @todo
@@ -20,14 +21,10 @@ export function RecordPage() {
   const currentRecordId = useShmupRecordStore((state) => state.currentRecordId);
 
   useEffect(() => {
-    /**
-     * @todo
-     * Remove hardcoded api url
-     */
     (async () => {
       try {
         const response = await axios.get<string[]>(
-          `https://read-only-api-endpoints-kuman514.vercel.app/yso-shmup-records${location.pathname}/selection`
+          getAPIURL(location.pathname, 'selection')
         );
         useShmupRecordStore.getState().setRecordIds(response.data);
       } catch (error) {
@@ -49,14 +46,10 @@ export function RecordPage() {
       useShmupRecordStore.getState().setRecordArticle(undefined);
       return;
     }
-    /**
-     * @todo
-     * Remove hardcoded api url
-     */
     (async () => {
       try {
         const response = await axios.get<ShmupRecord>(
-          `https://read-only-api-endpoints-kuman514.vercel.app/yso-shmup-records${location.pathname}/${currentRecordId}`
+          getAPIURL(location.pathname, currentRecordId)
         );
         useShmupRecordStore.getState().setRecordArticle({
           ...response.data,
