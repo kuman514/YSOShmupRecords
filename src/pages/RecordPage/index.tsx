@@ -17,6 +17,20 @@ const Root = styled.div`
   padding: 15px;
 `;
 
+const RecordSelectionArea = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  column-gap: 10px;
+`;
+
+const RecordTitle = styled.span`
+  color: #000000;
+  font-size: 12px;
+  font-weight: 600;
+`;
+
 export function RecordPage() {
   const location = useLocation();
   const pathNameSplit = location.pathname
@@ -70,16 +84,19 @@ export function RecordPage() {
 
   const renderRecordIdSelection =
     recordIds.length > 0 ? (
-      <RecordDropdown
-        selectedOption={currentRecordId}
-        placeholder="선택된 기록이 없습니다."
-        options={recordIds}
-        /**
-         * @todo
-         * Implement onSelect to browse the selected record
-         */
-        onSelect={() => {}}
-      />
+      <RecordSelectionArea>
+        <RecordTitle>기록 선택</RecordTitle>
+        <RecordDropdown
+          selectedOption={currentRecordId}
+          placeholder="선택된 기록이 없습니다."
+          options={recordIds}
+          /**
+           * @todo
+           * Implement onSelect to browse the selected record
+           */
+          onSelect={() => {}}
+        />
+      </RecordSelectionArea>
     ) : null;
 
   return (
