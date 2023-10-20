@@ -5,7 +5,6 @@ import { cleanup, render, screen } from '@testing-library/react';
 import { Article } from '.';
 import { ShmupRecord } from '^/types';
 import { convertDateToString } from '^/utils';
-import { useShmupRecordStore } from '^/stores/shmup-record';
 
 const testData: ShmupRecord = {
   id: '20230514',
@@ -28,8 +27,7 @@ describe('Article', () => {
   });
 
   it('should have thumbnail, date title, stage, score, method, tweet link, special tag area, commentary, and youtube', () => {
-    useShmupRecordStore.getState().setRecordArticle(testData);
-    render(<Article />);
+    render(<Article recordArticle={testData} />);
 
     const thumbnail = screen.getByAltText(
       `${testData.subjectId} ${convertDateToString(testData.when)} ${

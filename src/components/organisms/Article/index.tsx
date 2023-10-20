@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import { ArticleSummary } from '^/components/molecules/ArticleSummary';
 import { ArticleExtra } from '^/components/molecules/ArticleExtra';
-import { useShmupRecordStore } from '^/stores/shmup-record';
+import { ShmupRecord } from '^/types';
 
 /**
  * @todo
@@ -11,9 +11,12 @@ import { useShmupRecordStore } from '^/stores/shmup-record';
  */
 const Root = styled.article``;
 
-export function Article() {
-  const recordArticle = useShmupRecordStore((state) => state.recordArticle);
-  return recordArticle !== undefined ? (
+interface Props {
+  recordArticle: ShmupRecord;
+}
+
+export function Article({ recordArticle }: Props) {
+  return (
     <Root>
       <ArticleSummary record={recordArticle} />
       <ArticleExtra
@@ -21,5 +24,5 @@ export function Article() {
         youtubeUrl={recordArticle.youtubeUrl}
       />
     </Root>
-  ) : null;
+  );
 }

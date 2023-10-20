@@ -1,13 +1,12 @@
 import React, { useEffect } from 'react';
 import { styled } from 'styled-components';
 import { useLocation } from 'react-router-dom';
-import axios from 'axios';
 
 import { Article } from '^/components/organisms/Article';
 import { RecordDropdown } from '^/components/molecules/RecordDropdown';
 import { useShmupRecordStore } from '^/stores/shmup-record';
-import { ShmupRecord } from '^/types';
-import { getAPIURL } from '^/utils/api-url';
+import { useShmupRecordIds } from '^/hooks/useShmupRecordIds';
+import { useShmupArticle } from '^/hooks/useShmupArticle';
 
 /**
  * @todo
@@ -33,54 +32,27 @@ const RecordTitle = styled.span`
 
 export function RecordPage() {
   const location = useLocation();
-  const pathNameSplit = location.pathname
-    .split('/')
-    .filter((path) => path.length > 1);
-  const recordIds = useShmupRecordStore((state) => state.recordIds);
+  /**
+   * @todo
+   * Change into real code after adding Skeletons
+   */
+  const {
+    recordIds,
+    // isLoading: isRecorIdsLoading,
+    // isError: isRecorIdsError,
+  } = useShmupRecordIds(location.pathname);
   const currentRecordId = useShmupRecordStore((state) => state.currentRecordId);
-
-  useEffect(() => {
-    (async () => {
-      try {
-        const response = await axios.get<string[]>(
-          getAPIURL(...pathNameSplit, 'selection')
-        );
-        useShmupRecordStore.getState().setRecordIds(response.data);
-      } catch (error) {
-        if (axios.isAxiosError(error)) {
-          useShmupRecordStore.getState().setRecordIds([]);
-        }
-      }
-    })();
-  }, [location.pathname]);
+  const {
+    recordArticle,
+    // isLoading: isRecordArticleLoading,
+    // isError: isRecordArticleError,
+  } = useShmupArticle(location.pathname, currentRecordId);
 
   useEffect(() => {
     useShmupRecordStore
       .getState()
       .setCurrentRecordId(useShmupRecordStore.getState().recordIds[0]);
   }, [recordIds]);
-
-  useEffect(() => {
-    if (currentRecordId === undefined) {
-      useShmupRecordStore.getState().setRecordArticle(undefined);
-      return;
-    }
-    (async () => {
-      try {
-        const response = await axios.get<ShmupRecord>(
-          getAPIURL(...pathNameSplit, currentRecordId)
-        );
-        useShmupRecordStore.getState().setRecordArticle({
-          ...response.data,
-          when: new Date(response.data.when),
-        });
-      } catch (error) {
-        if (axios.isAxiosError(error)) {
-          useShmupRecordStore.getState().setRecordArticle(undefined);
-        }
-      }
-    })();
-  }, [currentRecordId]);
 
   const renderRecordIdSelection =
     recordIds.length > 0 ? (
@@ -99,10 +71,15 @@ export function RecordPage() {
       </RecordSelectionArea>
     ) : null;
 
+  const renderArticle =
+    recordArticle !== undefined ? (
+      <Article recordArticle={recordArticle} />
+    ) : null;
+
   return (
     <Root>
       {renderRecordIdSelection}
-      <Article />
+      {renderArticle}
     </Root>
   );
 }
