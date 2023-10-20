@@ -13,10 +13,15 @@ import { getAPIURL } from '^/utils/api-url';
  * @todo
  * Style Root if necessary. Otherwise, changing it into just div looks better.
  */
-const Root = styled.div``;
+const Root = styled.div`
+  padding: 15px;
+`;
 
 export function RecordPage() {
   const location = useLocation();
+  const pathNameSplit = location.pathname
+    .split('/')
+    .filter((path) => path.length > 1);
   const recordIds = useShmupRecordStore((state) => state.recordIds);
   const currentRecordId = useShmupRecordStore((state) => state.currentRecordId);
 
@@ -24,7 +29,7 @@ export function RecordPage() {
     (async () => {
       try {
         const response = await axios.get<string[]>(
-          getAPIURL(location.pathname, 'selection')
+          getAPIURL(...pathNameSplit, 'selection')
         );
         useShmupRecordStore.getState().setRecordIds(response.data);
       } catch (error) {
@@ -49,7 +54,7 @@ export function RecordPage() {
     (async () => {
       try {
         const response = await axios.get<ShmupRecord>(
-          getAPIURL(location.pathname, currentRecordId)
+          getAPIURL(...pathNameSplit, currentRecordId)
         );
         useShmupRecordStore.getState().setRecordArticle({
           ...response.data,
