@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { ShmupRecord } from '^/types';
 import { Thumbnail } from '^/components/atoms/Thumbnail';
 import { convertDateToString } from '^/utils';
+import { texts } from '^/constants/texts';
 
 const Root = styled.div`
   width: 100%;
@@ -74,7 +75,9 @@ export function ArticleSummary({ record }: Props) {
       </li>
       <li>
         <ListItemTitle>수단/장소</ListItemTitle>
-        <ListItemContent>{record.byWhat}</ListItemContent>
+        <ListItemContent>
+          {texts[record.byWhat] ?? record.byWhat}
+        </ListItemContent>
       </li>
       <li>
         <ListItemTitle>트위터 링크</ListItemTitle>
