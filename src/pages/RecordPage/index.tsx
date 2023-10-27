@@ -42,6 +42,9 @@ export function RecordPage() {
     // isError: isRecorIdsError,
   } = useShmupRecordIds(location.pathname);
   const currentRecordId = useShmupRecordStore((state) => state.currentRecordId);
+  const setCurrentRecordId = useShmupRecordStore(
+    (state) => state.setCurrentRecordId
+  );
   const {
     recordArticle,
     // isLoading: isRecordArticleLoading,
@@ -62,11 +65,9 @@ export function RecordPage() {
           selectedOption={currentRecordId}
           placeholder="선택된 기록이 없습니다."
           options={recordIds}
-          /**
-           * @todo
-           * Implement onSelect to browse the selected record
-           */
-          onSelect={() => {}}
+          onSelect={(newSelectedOption) => {
+            setCurrentRecordId(newSelectedOption);
+          }}
         />
       </RecordSelectionArea>
     ) : null;
