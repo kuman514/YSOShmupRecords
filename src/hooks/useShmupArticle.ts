@@ -13,8 +13,8 @@ export function useShmupArticle(pathName: string, currentRecordId?: string) {
   const pathNameSplit = pathName.split('/').filter((path) => path.length > 1);
 
   useEffect(() => {
+    useShmupRecordStore.getState().setRecordArticle(undefined);
     if (currentRecordId === undefined) {
-      useShmupRecordStore.getState().setRecordArticle(undefined);
       return;
     }
     (async () => {
