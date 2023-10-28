@@ -7,6 +7,7 @@ import { RecordDropdown } from '^/components/molecules/RecordDropdown';
 import { useShmupRecordStore } from '^/stores/shmup-record';
 import { useShmupRecordIds } from '^/hooks/useShmupRecordIds';
 import { useShmupArticle } from '^/hooks/useShmupArticle';
+import { Skeleton } from '^/components/atoms/Skeleton';
 
 /**
  * @todo
@@ -38,8 +39,8 @@ export function RecordPage() {
    */
   const {
     recordIds,
-    // isLoading: isRecorIdsLoading,
-    // isError: isRecorIdsError,
+    isLoading: isRecordIdsLoading,
+    isError: isRecordIdsError,
   } = useShmupRecordIds(location.pathname);
   const currentRecordId = useShmupRecordStore((state) => state.currentRecordId);
   const setCurrentRecordId = useShmupRecordStore(
@@ -47,8 +48,8 @@ export function RecordPage() {
   );
   const {
     recordArticle,
-    // isLoading: isRecordArticleLoading,
-    // isError: isRecordArticleError,
+    isLoading: isRecordArticleLoading,
+    isError: isRecordArticleError,
   } = useShmupArticle(location.pathname, currentRecordId);
 
   useEffect(() => {
@@ -58,7 +59,7 @@ export function RecordPage() {
   }, [recordIds]);
 
   const renderRecordIdSelection =
-    recordIds.length > 0 ? (
+    recordIds.length > 0 && !isRecordIdsLoading ? (
       <RecordSelectionArea>
         <RecordTitle>기록 선택</RecordTitle>
         <RecordDropdown
@@ -70,12 +71,36 @@ export function RecordPage() {
           }}
         />
       </RecordSelectionArea>
-    ) : null;
+    ) : (
+      <RecordSelectionArea>
+        {!isRecordIdsError ? (
+          <Skeleton width="300px" height="50px" />
+        ) : (
+          '기록 모음을 불러오는 중 오류가 발생했습니다.'
+        )}
+      </RecordSelectionArea>
+    );
 
+  /**
+   * @todo
+   * Style layout of Record page
+   */
   const renderArticle =
-    recordArticle !== undefined ? (
+    recordArticle !== undefined && !isRecordArticleLoading ? (
       <Article recordArticle={recordArticle} />
-    ) : null;
+    ) : (
+      <div
+        style={{
+          marginTop: '15px',
+        }}
+      >
+        {!isRecordArticleError ? (
+          <Skeleton width="300px" height="360px" />
+        ) : (
+          '기록 본문을 불러오는 중 오류가 발생했습니다.'
+        )}
+      </div>
+    );
 
   return (
     <Root>
