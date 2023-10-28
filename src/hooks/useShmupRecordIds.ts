@@ -13,6 +13,7 @@ export function useShmupRecordIds(pathName: string) {
 
   useEffect(() => {
     (async () => {
+      useShmupRecordStore.getState().setRecordIds([]);
       setIsError(false);
       setIsLoading(true);
       try {
