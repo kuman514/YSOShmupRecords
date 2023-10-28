@@ -33,10 +33,6 @@ const RecordTitle = styled.span`
 
 export function RecordPage() {
   const location = useLocation();
-  /**
-   * @todo
-   * Change into real code after adding Skeletons
-   */
   const {
     recordIds,
     isLoading: isRecordIdsLoading,
