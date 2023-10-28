@@ -1,11 +1,14 @@
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import { Outlet } from 'react-router-dom';
+import axios from 'axios';
 
 import { NavSidebar } from '^/components/organisms/NavSidebar';
-import { rootNavNodes } from '^/constants';
 import { useNavNodeStore } from '^/stores/nav-node';
 import { NavRouteTitle } from '^/components/atoms/NavRouteTitle';
+import { getAPIURL } from '^/utils/api-url';
+import { NavNodeInfo } from '^/types';
+import { rootNavNodes } from '^/constants';
 
 const Root = styled.div`
   width: 100vw;
@@ -17,11 +20,18 @@ const Root = styled.div`
 
 function Main() {
   useEffect(() => {
-    /**
-     * @todo
-     * Change into getting root nav nodes from backend.
-     */
-    useNavNodeStore.getState().setRootNodes(rootNavNodes);
+    (async () => {
+      try {
+        const response = await axios.get<NavNodeInfo[]>(getAPIURL('nav-info'));
+        if (response.status === 200) {
+          useNavNodeStore.getState().setRootNodes(response.data);
+        }
+      } catch (error) {
+        if (axios.isAxiosError(error)) {
+          useNavNodeStore.getState().setRootNodes(rootNavNodes);
+        }
+      }
+    })();
   }, []);
 
   return (

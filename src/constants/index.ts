@@ -27,63 +27,6 @@ export const rootNavNodes: NavNodeInfo[] = [
   {
     id: 'criteria',
   },
-  {
-    id: 'records',
-    childNavNodes: [
-      {
-        id: 'dodonpachi',
-        childNavNodes: [
-          {
-            id: 'dodonpachi-ashot',
-          },
-          {
-            id: 'dodonpachi-alaser',
-          },
-          {
-            id: 'dodonpachi-bshot',
-          },
-          {
-            id: 'dodonpachi-blaser',
-          },
-          {
-            id: 'dodonpachi-cshot',
-          },
-          {
-            id: 'dodonpachi-claser',
-          },
-        ],
-      },
-      {
-        id: 'galagaarrangement',
-      },
-      {
-        id: 'dariusgaiden',
-        childNavNodes: [
-          {
-            id: 'dariusgaiden-zprime',
-          },
-          {
-            id: 'dariusgaiden-v',
-          },
-          {
-            id: 'dariusgaiden-w',
-          },
-          {
-            id: 'dariusgaiden-x',
-          },
-          {
-            id: 'dariusgaiden-y',
-          },
-          {
-            id: 'dariusgaiden-z',
-          },
-          {
-            id: 'dariusgaiden-vprime',
-          },
-        ],
-      },
-    ],
-  },
 ];
 
 export const monthTitle = [

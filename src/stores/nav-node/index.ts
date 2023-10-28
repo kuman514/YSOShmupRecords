@@ -1,6 +1,7 @@
 import { create } from 'zustand';
 
 import { NavNodeInfo } from '^/types';
+import { rootNavNodes } from '^/constants';
 
 interface NavNodeState {
   rootNodes: NavNodeInfo[];
@@ -15,7 +16,7 @@ interface NavNodeAction {
 type NavNodeStore = NavNodeState & NavNodeAction;
 
 export const useNavNodeStore = create<NavNodeStore>((set) => ({
-  rootNodes: [],
+  rootNodes: rootNavNodes,
   isOpen: {},
   setRootNodes: (newRootNodes) =>
     set((store) => ({
