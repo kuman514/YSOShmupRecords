@@ -72,7 +72,7 @@ export function RecordPage() {
         {!isRecordIdsError ? (
           <Skeleton width="300px" height="50px" />
         ) : (
-          '기록 모음을 불러오는 중 오류가 발생했습니다.'
+          '드롭다운을 불러오는 중 오류가 발생했습니다.'
         )}
       </RecordSelectionArea>
     );
@@ -93,7 +93,7 @@ export function RecordPage() {
         {!isRecordArticleError ? (
           <Skeleton width="300px" height="360px" />
         ) : (
-          '기록 본문을 불러오는 중 오류가 발생했습니다.'
+          '본문을 불러오는 중 오류가 발생했습니다.'
         )}
       </div>
     );
