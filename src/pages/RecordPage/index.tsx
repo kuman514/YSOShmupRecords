@@ -31,6 +31,21 @@ const RecordTitle = styled.span`
   font-weight: 600;
 `;
 
+const ArticleSkeletonArea = styled.div`
+  margin-top: 15px;
+
+  display: flex;
+  flex-direction: row;
+  column-gap: 10px;
+
+  & > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    row-gap: 10px;
+  }
+`;
+
 export function RecordPage() {
   const location = useLocation();
   const {
@@ -77,25 +92,28 @@ export function RecordPage() {
       </RecordSelectionArea>
     );
 
-  /**
-   * @todo
-   * Style layout of Record page
-   */
   const renderArticle =
     recordArticle !== undefined && !isRecordArticleLoading ? (
       <Article recordArticle={recordArticle} />
     ) : (
-      <div
-        style={{
-          marginTop: '15px',
-        }}
-      >
+      <ArticleSkeletonArea>
         {!isRecordArticleError ? (
-          <Skeleton width="300px" height="360px" />
+          <>
+            <div>
+              <Skeleton width="360px" height="360px" />
+            </div>
+            <div>
+              <Skeleton width="500px" height="50px" />
+              <Skeleton width="500px" height="50px" />
+              <Skeleton width="500px" height="50px" />
+              <Skeleton width="500px" height="50px" />
+              <Skeleton width="500px" height="50px" />
+            </div>
+          </>
         ) : (
           '본문을 불러오는 중 오류가 발생했습니다.'
         )}
-      </div>
+      </ArticleSkeletonArea>
     );
 
   return (
