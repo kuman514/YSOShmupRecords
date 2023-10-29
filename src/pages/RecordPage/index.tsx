@@ -9,10 +9,6 @@ import { useShmupRecordIds } from '^/hooks/useShmupRecordIds';
 import { useShmupArticle } from '^/hooks/useShmupArticle';
 import { Skeleton } from '^/components/atoms/Skeleton';
 
-/**
- * @todo
- * Style Root if necessary. Otherwise, changing it into just div looks better.
- */
 const Root = styled.div`
   padding: 15px;
 `;
