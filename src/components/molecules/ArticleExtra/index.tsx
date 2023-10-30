@@ -32,15 +32,20 @@ interface Props {
 }
 
 export function ArticleExtra({ comment, youtubeUrl }: Props) {
-  /**
-   * @todo
-   * Replace 유튜브 영상 칸 into the real youtube embed
-   */
   const renderYoutube =
     youtubeUrl !== undefined ? (
       <Column>
         <ColumnTitle>유튜브 링크</ColumnTitle>
-        <ColumnContent>유튜브 영상 칸</ColumnContent>
+        <ColumnContent>
+          <iframe
+            width="100%"
+            height="100%"
+            src={youtubeUrl}
+            title="YouTube video player"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen
+          />
+        </ColumnContent>
       </Column>
     ) : null;
 
