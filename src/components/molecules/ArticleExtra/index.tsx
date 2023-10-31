@@ -32,6 +32,10 @@ interface Props {
 }
 
 export function ArticleExtra({ comment, youtubeUrl }: Props) {
+  /**
+   * @todo
+   * Expand youtube embed to maximum
+   */
   const renderYoutube =
     youtubeUrl !== undefined ? (
       <Column>
