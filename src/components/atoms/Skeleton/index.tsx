@@ -1,6 +1,11 @@
 import React from 'react';
 import styled, { CSSProp } from 'styled-components';
 
+/**
+ * @description
+ * Currently, there is nothing to test for Skeleton.
+ */
+
 interface RootProps {
   width?: CSSProp;
   height?: CSSProp;
