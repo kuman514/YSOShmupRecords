@@ -3,7 +3,7 @@ import { beforeEach, describe, expect, it } from 'vitest';
 import { cleanup, render, screen } from '@testing-library/react';
 import { RouterProvider, createMemoryRouter } from 'react-router-dom';
 
-import { NavRouteTitle } from '^/components/atoms/NavRouteTitle';
+import { NavRouteTitle } from '.';
 
 describe('NavRouteTitle', () => {
   beforeEach(() => {

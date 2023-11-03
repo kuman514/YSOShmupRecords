@@ -4,6 +4,7 @@ import { cleanup, fireEvent, render, screen } from '@testing-library/react';
 import { RouterProvider, createMemoryRouter } from 'react-router-dom';
 
 import { navNodeInfoForTest } from '^/constants';
+
 import { NavItemButton } from '.';
 
 describe('NavItemButton', () => {

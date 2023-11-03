@@ -3,8 +3,9 @@ import { beforeEach, describe, expect, it } from 'vitest';
 import { cleanup, render } from '@testing-library/react';
 import { RouterProvider, createMemoryRouter } from 'react-router-dom';
 
-import { NavItemTree } from '.';
 import { navNodeInfoForTest } from '^/constants';
+
+import { NavItemTree } from '.';
 
 describe('NavItemTree', () => {
   const routes = [

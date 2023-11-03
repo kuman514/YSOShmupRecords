@@ -2,9 +2,10 @@ import React from 'react';
 import { beforeEach, describe, expect, it } from 'vitest';
 import { cleanup, render, screen } from '@testing-library/react';
 
-import { Article } from '.';
 import { ShmupRecord } from '^/types';
 import { convertDateToString } from '^/utils';
+
+import { Article } from '.';
 
 const testData: ShmupRecord = {
   id: '20230514',

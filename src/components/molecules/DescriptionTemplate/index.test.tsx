@@ -2,8 +2,9 @@ import React from 'react';
 import { beforeEach, describe, expect, it } from 'vitest';
 import { cleanup, render, screen } from '@testing-library/react';
 
-import { DescriptionTemplate } from '.';
 import { DescriptionListItem } from '^/types';
+
+import { DescriptionTemplate } from '.';
 
 const rootDescriptionListItems: DescriptionListItem[] = [
   {
