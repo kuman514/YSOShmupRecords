@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import { ShmupRecord } from '^/types';
 import { Thumbnail } from '^/components/atoms/Thumbnail';
 import { convertDateToString } from '^/utils';
 import { texts } from '^/constants/texts';
+import { ImageDisplayModal } from '^/components/molecules/ImageDisplayModal';
 
 const Root = styled.div`
   width: 100%;
@@ -51,6 +52,8 @@ interface Props {
 }
 
 export function ArticleSummary({ record }: Props) {
+  const [isImageModalShow, setIsImageModalShow] = useState<boolean>(false);
+
   const renderSpecialTags =
     record.specialTags !== undefined && record.specialTags.length > 0 ? (
       <li>
@@ -89,6 +92,15 @@ export function ArticleSummary({ record }: Props) {
     </List>
   );
 
+  const renderImageModal = isImageModalShow ? (
+    <ImageDisplayModal
+      imageUrl={record.originalImageUrl}
+      onExit={() => {
+        setIsImageModalShow(false);
+      }}
+    />
+  ) : null;
+
   return (
     <Root>
       <Thumbnail
@@ -96,16 +108,15 @@ export function ArticleSummary({ record }: Props) {
         altText={`${record.subjectId} ${convertDateToString(record.when)} ${
           record.stage
         }스테이지 ${record.score}점`}
-        /**
-         * @todo
-         * Implement onClick to show original image on modal
-         */
-        onClick={() => {}}
+        onClick={() => {
+          setIsImageModalShow(true);
+        }}
       />
       <div>
         <Title>{convertDateToString(record.when)}</Title>
         {renderList}
       </div>
+      {renderImageModal}
     </Root>
   );
 }
