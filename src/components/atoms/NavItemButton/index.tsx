@@ -54,10 +54,17 @@ export function NavItemButton({ depth, nodeInfo, onClick }: Props) {
 
   const isLeaf =
     nodeInfo.childNavNodes === undefined || nodeInfo.childNavNodes.length === 0;
-  const isSelected =
+
+  /**
+   * @description
+   * This logic is to check if the node is selected only when the node is a leaf.
+   * In other words, the selection analysis will be prevented if it is not a leaf.
+   * FYI, run `console.log('yasuo') && console.log('koishi')` to verify.
+   */
+  const isActive =
+    isLeaf &&
     location.pathname.split('/').findIndex((path) => nodeInfo.id === path) !==
-    -1;
-  const isActive = isOpen || isSelected;
+      -1;
 
   const renderChevron = !isLeaf ? (
     <Chevron isOpen={isOpen} fillColor="inherit" />
