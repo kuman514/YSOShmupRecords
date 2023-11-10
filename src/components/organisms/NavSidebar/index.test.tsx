@@ -4,7 +4,6 @@ import { cleanup, render, screen } from '@testing-library/react';
 import { RouterProvider, createMemoryRouter } from 'react-router-dom';
 
 import { rootNavNodes } from '^/constants';
-import { useNavNodeStore } from '^/stores/nav-node';
 import { texts } from '^/constants/texts';
 
 import { NavSidebar } from '.';
@@ -13,7 +12,7 @@ describe('NavSidebar', () => {
   const routes = [
     {
       path: '/',
-      element: <NavSidebar />,
+      element: <NavSidebar rootNavNodes={rootNavNodes} />,
     },
   ];
 
@@ -27,7 +26,6 @@ describe('NavSidebar', () => {
   });
 
   it('should show root nav nodes on init', () => {
-    useNavNodeStore.getState().setRootNodes(rootNavNodes);
     render(<RouterProvider router={router} />);
 
     rootNavNodes.forEach((rootNavNode) => {

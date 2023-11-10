@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { NavItemTree } from '^/components/molecules/NavItemTree';
-import { useNavNodeStore } from '^/stores/nav-node';
+import { NavNodeInfo } from '^/types';
 
 const Root = styled.div`
   width: 300px;
@@ -14,8 +14,11 @@ const Root = styled.div`
   overflow-y: auto;
 `;
 
-export function NavSidebar() {
-  const rootNavNodes = useNavNodeStore((state) => state.rootNodes);
+interface Props {
+  rootNavNodes: NavNodeInfo[];
+}
+
+export function NavSidebar({ rootNavNodes }: Props) {
   const renderRootNavNodes = rootNavNodes.map((navNode) => (
     <NavItemTree
       key={navNode.id}

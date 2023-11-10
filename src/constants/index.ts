@@ -27,6 +27,25 @@ export const rootNavNodes: NavNodeInfo[] = [
   {
     id: 'criteria',
   },
+  {
+    id: 'records',
+    childNavNodes: [
+      {
+        id: 'dodonpachi',
+        childNavNodes: [
+          {
+            id: 'dodonpachi-ashot',
+          },
+          {
+            id: 'dodonpachi-blaser',
+          },
+          {
+            id: 'dodonpachi-cshot',
+          },
+        ],
+      },
+    ],
+  },
 ];
 
 export const monthTitle = [
