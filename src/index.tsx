@@ -6,6 +6,7 @@ import Main from '^/Main';
 import { IntroPage } from '^/pages/IntroPage';
 import { CriteriaPage } from '^/pages/CriteriaPage';
 import { RecordPage } from '^/pages/RecordPage';
+import { ErrorPage } from '^/pages/ErrorPage';
 
 import '^/global.css';
 
@@ -37,6 +38,7 @@ const router = createBrowserRouter([
         element: <RecordPage />,
       },
     ],
+    errorElement: <ErrorPage />,
   },
 ]);
 
