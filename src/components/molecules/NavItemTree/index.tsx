@@ -2,7 +2,6 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { NavNodeInfo } from '^/types';
-import { useNavNodeStore } from '^/stores/nav-node';
 import { NavItemButton } from '^/components/atoms/NavItemButton';
 
 interface Props {
@@ -12,8 +11,6 @@ interface Props {
 }
 
 export function NavItemTree({ depth, nodeInfo, linkTo }: Props) {
-  const isOpen = useNavNodeStore((store) => store.isOpen[nodeInfo.id]);
-  const setIsOpen = useNavNodeStore((store) => store.setIsOpen);
   const navigate = useNavigate();
 
   const isLeaf =
@@ -22,22 +19,19 @@ export function NavItemTree({ depth, nodeInfo, linkTo }: Props) {
   const handleOnClick = () => {
     if (isLeaf) {
       navigate(linkTo);
-    } else {
-      setIsOpen(nodeInfo.id, !isOpen);
     }
   };
 
-  const renderSubitems =
-    !isLeaf && isOpen
-      ? nodeInfo.childNavNodes?.map((childNavNode) => (
-          <NavItemTree
-            key={childNavNode.id}
-            depth={depth + 1}
-            nodeInfo={childNavNode}
-            linkTo={`${linkTo}/${childNavNode.id}`}
-          />
-        ))
-      : null;
+  const renderSubitems = !isLeaf
+    ? nodeInfo.childNavNodes?.map((childNavNode) => (
+        <NavItemTree
+          key={childNavNode.id}
+          depth={depth + 1}
+          nodeInfo={childNavNode}
+          linkTo={`${linkTo}/${childNavNode.id}`}
+        />
+      ))
+    : null;
 
   return (
     <>

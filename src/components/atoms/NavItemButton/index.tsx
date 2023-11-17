@@ -1,21 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { useLocation } from 'react-router-dom';
-import { Chevron } from '^/components/atoms/Chevron';
 import { NavNodeInfo } from '^/types';
-import { useNavNodeStore } from '^/stores/nav-node';
 import { texts } from '^/constants/texts';
 
-interface RootProps {
-  /**
-   * Added `$` in front of camelCase properties
-   * to prevent warnings like "React does not recognize the `isActive` prop on a DOM element."
-   */
-  $isActive: boolean;
-}
-
-const Root = styled.button<RootProps>`
+const Root = styled.button`
   border: unset;
 
   display: flex;
@@ -26,12 +15,9 @@ const Root = styled.button<RootProps>`
   height: 50px;
   padding: 0px 15px;
 
-  background: ${({ $isActive }) =>
-    $isActive ? 'var(--active-color)' : 'var(--main-color)'};
-  color: ${({ $isActive }) =>
-    $isActive ? 'var(--main-color)' : 'var(--nav-nonactive-font-color)'};
-  fill: ${({ $isActive }) =>
-    $isActive ? 'var(--main-color)' : 'var(--nav-nonactive-font-color)'};
+  background: var(--main-color);
+  color: var(--nav-nonactive-font-color);
+  fill: var(--nav-nonactive-font-color);
 
   cursor: pointer;
 
@@ -49,29 +35,8 @@ interface Props {
 }
 
 export function NavItemButton({ depth, nodeInfo, onClick }: Props) {
-  const location = useLocation();
-  const isOpen = useNavNodeStore((store) => store.isOpen[nodeInfo.id]);
-
-  const isLeaf =
-    nodeInfo.childNavNodes === undefined || nodeInfo.childNavNodes.length === 0;
-
-  /**
-   * @description
-   * This logic is to check if the node is selected only when the node is a leaf.
-   * In other words, the selection analysis will be prevented if it is not a leaf.
-   * FYI, run `console.log('yasuo') && console.log('koishi')` to verify.
-   */
-  const isActive =
-    isLeaf &&
-    location.pathname.split('/').findIndex((path) => nodeInfo.id === path) !==
-      -1;
-
-  const renderChevron = !isLeaf ? (
-    <Chevron isOpen={isOpen} fillColor="inherit" />
-  ) : null;
-
   return (
-    <Root $isActive={isActive} onClick={onClick}>
+    <Root onClick={onClick}>
       <span
         style={{
           paddingLeft: depth * 15,
@@ -79,7 +44,6 @@ export function NavItemButton({ depth, nodeInfo, onClick }: Props) {
       >
         {texts[nodeInfo.id] ?? nodeInfo.id}
       </span>
-      {renderChevron}
     </Root>
   );
 }
