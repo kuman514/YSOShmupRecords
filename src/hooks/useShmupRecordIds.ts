@@ -10,6 +10,7 @@ export function useShmupRecordIds(pathName: string) {
   const [isError, setIsError] = useState<boolean>(false);
 
   const pathNameSplit = pathName.split('/').filter((path) => path.length > 1);
+  const endpointName = pathNameSplit[pathNameSplit.length - 1];
 
   useEffect(() => {
     (async () => {
@@ -18,7 +19,7 @@ export function useShmupRecordIds(pathName: string) {
       setIsLoading(true);
       try {
         const response = await axios.get<string[]>(
-          getAPIURL(...pathNameSplit, 'selection')
+          getAPIURL('records', endpointName, 'selection')
         );
         useShmupRecordStore.getState().setRecordIds(response.data);
       } catch (error) {
