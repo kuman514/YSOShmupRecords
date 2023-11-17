@@ -5,13 +5,13 @@ import { useShmupRecordStore } from '^/stores/shmup-record';
 import { ShmupRecord } from '^/types';
 import { getAPIURL } from '^/utils/api-url';
 
-export function useShmupArticle(pathName: string, currentRecordId?: string) {
+export function useShmupArticle(
+  endpointName: string,
+  currentRecordId?: string
+) {
   const recordArticle = useShmupRecordStore((state) => state.recordArticle);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isError, setIsError] = useState<boolean>(false);
-
-  const pathNameSplit = pathName.split('/').filter((path) => path.length > 1);
-  const endpointName = pathNameSplit[pathNameSplit.length - 1];
 
   useEffect(() => {
     useShmupRecordStore.getState().setRecordArticle(undefined);

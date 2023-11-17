@@ -4,13 +4,10 @@ import { useEffect, useState } from 'react';
 import { useShmupRecordStore } from '^/stores/shmup-record';
 import { getAPIURL } from '^/utils/api-url';
 
-export function useShmupRecordIds(pathName: string) {
+export function useShmupRecordIds(endpointName: string) {
   const recordIds = useShmupRecordStore((state) => state.recordIds);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isError, setIsError] = useState<boolean>(false);
-
-  const pathNameSplit = pathName.split('/').filter((path) => path.length > 1);
-  const endpointName = pathNameSplit[pathNameSplit.length - 1];
 
   useEffect(() => {
     (async () => {
@@ -30,7 +27,7 @@ export function useShmupRecordIds(pathName: string) {
       }
       setIsLoading(false);
     })();
-  }, [pathName]);
+  }, [endpointName]);
 
   return {
     recordIds,
