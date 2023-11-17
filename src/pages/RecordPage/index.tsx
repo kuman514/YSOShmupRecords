@@ -44,11 +44,16 @@ const ArticleSkeletonArea = styled.div`
 
 export function RecordPage() {
   const location = useLocation();
+  const pathNameSplit = location.pathname
+    .split('/')
+    .filter((path) => path.length > 1);
+  const endpointName = pathNameSplit[pathNameSplit.length - 1];
+
   const {
     recordIds,
     isLoading: isRecordIdsLoading,
     isError: isRecordIdsError,
-  } = useShmupRecordIds(location.pathname);
+  } = useShmupRecordIds(endpointName);
   const currentRecordId = useShmupRecordStore((state) => state.currentRecordId);
   const setCurrentRecordId = useShmupRecordStore(
     (state) => state.setCurrentRecordId
@@ -57,7 +62,7 @@ export function RecordPage() {
     recordArticle,
     isLoading: isRecordArticleLoading,
     isError: isRecordArticleError,
-  } = useShmupArticle(location.pathname, currentRecordId);
+  } = useShmupArticle(endpointName, currentRecordId);
 
   useEffect(() => {
     useShmupRecordStore

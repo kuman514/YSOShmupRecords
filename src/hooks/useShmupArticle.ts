@@ -5,12 +5,13 @@ import { useShmupRecordStore } from '^/stores/shmup-record';
 import { ShmupRecord } from '^/types';
 import { getAPIURL } from '^/utils/api-url';
 
-export function useShmupArticle(pathName: string, currentRecordId?: string) {
+export function useShmupArticle(
+  endpointName: string,
+  currentRecordId?: string
+) {
   const recordArticle = useShmupRecordStore((state) => state.recordArticle);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isError, setIsError] = useState<boolean>(false);
-
-  const pathNameSplit = pathName.split('/').filter((path) => path.length > 1);
 
   useEffect(() => {
     useShmupRecordStore.getState().setRecordArticle(undefined);
@@ -22,7 +23,7 @@ export function useShmupArticle(pathName: string, currentRecordId?: string) {
       setIsLoading(true);
       try {
         const response = await axios.get<ShmupRecord>(
-          getAPIURL(...pathNameSplit, currentRecordId)
+          getAPIURL('records', endpointName, currentRecordId)
         );
         useShmupRecordStore.getState().setRecordArticle({
           ...response.data,
@@ -36,7 +37,7 @@ export function useShmupArticle(pathName: string, currentRecordId?: string) {
       }
       setIsLoading(false);
     })();
-  }, [currentRecordId]);
+  }, [endpointName, currentRecordId]);
 
   return {
     recordArticle,
