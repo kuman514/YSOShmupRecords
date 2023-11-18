@@ -27,14 +27,8 @@ const router = createBrowserRouter([
         path: 'criteria',
         element: <CriteriaPage />,
       },
-      // For games with single type
       {
         path: 'records/:typeId',
-        element: <RecordPage />,
-      },
-      // For games with various types
-      {
-        path: 'records/:gameId/:typeId',
         element: <RecordPage />,
       },
     ],
