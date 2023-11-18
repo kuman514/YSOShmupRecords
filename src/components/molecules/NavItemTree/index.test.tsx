@@ -11,9 +11,7 @@ describe('NavItemTree', () => {
   const routes = [
     {
       path: '/',
-      element: (
-        <NavItemTree depth={3} nodeInfo={navNodeInfoForTest} linkTo="/" />
-      ),
+      element: <NavItemTree depth={3} nodeInfo={navNodeInfoForTest} />,
     },
   ];
 

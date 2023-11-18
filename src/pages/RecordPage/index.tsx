@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { styled } from 'styled-components';
-import { useLocation } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 import { Article } from '^/components/organisms/Article';
 import { RecordDropdown } from '^/components/molecules/RecordDropdown';
@@ -43,17 +43,17 @@ const ArticleSkeletonArea = styled.div`
 `;
 
 export function RecordPage() {
-  const location = useLocation();
-  const pathNameSplit = location.pathname
-    .split('/')
-    .filter((path) => path.length > 1);
-  const endpointName = pathNameSplit[pathNameSplit.length - 1];
+  const { typeId } = useParams();
+
+  if (!typeId) {
+    return null;
+  }
 
   const {
     recordIds,
     isLoading: isRecordIdsLoading,
     isError: isRecordIdsError,
-  } = useShmupRecordIds(endpointName);
+  } = useShmupRecordIds(typeId);
   const currentRecordId = useShmupRecordStore((state) => state.currentRecordId);
   const setCurrentRecordId = useShmupRecordStore(
     (state) => state.setCurrentRecordId
@@ -62,7 +62,7 @@ export function RecordPage() {
     recordArticle,
     isLoading: isRecordArticleLoading,
     isError: isRecordArticleError,
-  } = useShmupArticle(endpointName, currentRecordId);
+  } = useShmupArticle(typeId, currentRecordId);
 
   useEffect(() => {
     useShmupRecordStore
