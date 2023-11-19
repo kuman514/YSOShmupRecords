@@ -2,7 +2,7 @@ import React from 'react';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { cleanup, fireEvent, render, screen } from '@testing-library/react';
 
-import { navNodeInfoForTest } from '^/constants';
+import { navNodeInfoForTest } from '^/constants/nav-node';
 
 import { NavItemButton } from '.';
 
