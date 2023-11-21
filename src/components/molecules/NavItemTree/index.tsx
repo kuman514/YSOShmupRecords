@@ -7,18 +7,17 @@ import { NavItemButton } from '^/components/atoms/NavItemButton';
 interface Props {
   depth: number;
   nodeInfo: NavNodeInfo;
-  linkTo: string;
 }
 
-export function NavItemTree({ depth, nodeInfo, linkTo }: Props) {
+export function NavItemTree({ depth, nodeInfo }: Props) {
   const navigate = useNavigate();
 
   const isLeaf =
     nodeInfo.childNavNodes === undefined || nodeInfo.childNavNodes.length === 0;
 
   const handleOnClick = () => {
-    if (isLeaf) {
-      navigate(linkTo);
+    if (isLeaf && nodeInfo.linkTo !== undefined) {
+      navigate(nodeInfo.linkTo);
     }
   };
 
@@ -28,7 +27,6 @@ export function NavItemTree({ depth, nodeInfo, linkTo }: Props) {
           key={childNavNode.id}
           depth={depth + 1}
           nodeInfo={childNavNode}
-          linkTo={`${linkTo}/${childNavNode.id}`}
         />
       ))
     : null;

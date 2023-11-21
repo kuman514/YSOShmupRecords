@@ -20,12 +20,7 @@ interface Props {
 
 export function NavSidebar({ rootNavNodes }: Props) {
   const renderRootNavNodes = rootNavNodes.map((navNode) => (
-    <NavItemTree
-      key={navNode.id}
-      depth={0}
-      nodeInfo={navNode}
-      linkTo={`/${navNode.id}`}
-    />
+    <NavItemTree key={navNode.id} depth={0} nodeInfo={navNode} />
   ));
 
   return <Root>{renderRootNavNodes}</Root>;

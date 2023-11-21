@@ -3,7 +3,7 @@ import { beforeEach, describe, expect, it } from 'vitest';
 import { cleanup, render } from '@testing-library/react';
 import { RouterProvider, createMemoryRouter } from 'react-router-dom';
 
-import { navNodeInfoForTest } from '^/constants';
+import { navNodeInfoForTest } from '^/constants/nav-node';
 
 import { NavItemTree } from '.';
 
@@ -11,9 +11,7 @@ describe('NavItemTree', () => {
   const routes = [
     {
       path: '/',
-      element: (
-        <NavItemTree depth={3} nodeInfo={navNodeInfoForTest} linkTo="/" />
-      ),
+      element: <NavItemTree depth={3} nodeInfo={navNodeInfoForTest} />,
     },
   ];
 

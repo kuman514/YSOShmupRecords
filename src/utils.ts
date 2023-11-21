@@ -1,4 +1,4 @@
-import { monthTitle } from '^/constants';
+import { monthTitle } from '^/constants/texts';
 
 export function convertDateToString(date: Date) {
   return `${date.getFullYear()}년 ${

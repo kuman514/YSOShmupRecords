@@ -48,3 +48,18 @@ export const texts: Record<string, string> = {
   'world-record': '전국 TOP',
   'shop-record': '점포 TOP',
 };
+
+export const monthTitle = [
+  '1월',
+  '2월',
+  '3월',
+  '4월',
+  '5월',
+  '6월',
+  '7월',
+  '8월',
+  '9월',
+  '10월',
+  '11월',
+  '12월',
+];
