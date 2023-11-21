@@ -3,10 +3,14 @@ YSO(kuman514)가 주력으로 플레이하는 슈팅게임의 기록을 등록�
 [방문하기](https://yso-shmup-records.vercel.app)
 
 ## Project Board
-[프로젝트 관리 보드](https://github.com/users/kuman514/projects/2)
+- [프로젝트 관리 보드](https://github.com/users/kuman514/projects/2)
+
+## Plans
+- [초기 계획](https://github.com/kuman514/YSOShmupRecords/blob/main/plans/PLAN.md)
+- [새로 세운 계획](https://github.com/kuman514/YSOShmupRecords/blob/main/plans/NEW_PLAN.md)
 
 ## Design
-[Figma 공유 링크 - Dev Mode](https://www.figma.com/file/ufvkXsisZzY2xRqf5hS11H/YSOShmupRecords?type=design&node-id=0%3A1&mode=dev)
+- [Figma 공유 링크 - Dev Mode](https://www.figma.com/file/ufvkXsisZzY2xRqf5hS11H/YSOShmupRecords?type=design&node-id=0%3A1&mode=dev)
 
 ## Updates
 - `2023년 11월 13일`
