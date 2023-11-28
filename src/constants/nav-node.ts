@@ -11,6 +11,7 @@ export const navNodeInfoForTest: NavNodeInfo = {
       childNavNodes: [
         {
           id: 'test-sub4',
+          linkTo: '/kuman514',
         },
       ],
     },
