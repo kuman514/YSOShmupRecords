@@ -28,13 +28,15 @@ export function NavigationTree({ depth, nodeInfo }: Props) {
     : null;
 
   return (
-    <Root
-      style={{
-        paddingLeft: depth * 16,
-      }}
-    >
-      <NavigationNode depth={depth} nodeInfo={nodeInfo} />
+    <>
+      <Root
+        style={{
+          paddingLeft: depth * 16,
+        }}
+      >
+        <NavigationNode depth={depth} nodeInfo={nodeInfo} />
+      </Root>
       {renderSubtrees}
-    </Root>
+    </>
   );
 }
