@@ -6,13 +6,13 @@ import { RouterProvider, createMemoryRouter } from 'react-router-dom';
 import { rootNavNodes } from '^/constants/nav-node';
 import { texts } from '^/constants/texts';
 
-import { NavSidebar } from '.';
+import { NavigationForest } from '.';
 
 describe('NavSidebar', () => {
   const routes = [
     {
       path: '/',
-      element: <NavSidebar rootNavNodes={rootNavNodes} />,
+      element: <NavigationForest rootNavNodes={rootNavNodes} />,
     },
   ];
 

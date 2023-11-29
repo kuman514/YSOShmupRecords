@@ -6,9 +6,7 @@ import { NavNodeInfo } from '^/types';
 
 const Root = styled.div`
   width: 300px;
-  height: 100vh;
-
-  background: var(--main-color);
+  height: 100%;
 
   padding-left: 16px;
   padding-right: 16px;
@@ -21,7 +19,7 @@ interface Props {
   rootNavNodes: NavNodeInfo[];
 }
 
-export function NavSidebar({ rootNavNodes }: Props) {
+export function NavigationForest({ rootNavNodes }: Props) {
   const renderRootNavNodes = rootNavNodes.map((navNode) => (
     <NavigationTree key={navNode.id} depth={0} nodeInfo={navNode} />
   ));
