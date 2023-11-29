@@ -10,6 +10,9 @@ const Root = styled.div`
 
   background: var(--main-color);
 
+  padding-left: 16px;
+  padding-right: 16px;
+
   overflow-x: hidden;
   overflow-y: auto;
 `;

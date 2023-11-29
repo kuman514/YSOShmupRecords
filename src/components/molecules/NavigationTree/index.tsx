@@ -1,7 +1,12 @@
 import React from 'react';
+import styled from 'styled-components';
 
 import { NavNodeInfo } from '^/types';
 import { NavigationNode } from '^/components/atoms/NavigationNode';
+
+const Root = styled.div`
+  padding-top: 12px;
+`;
 
 interface Props {
   depth: number;
@@ -23,13 +28,13 @@ export function NavigationTree({ depth, nodeInfo }: Props) {
     : null;
 
   return (
-    <div
+    <Root
       style={{
         paddingLeft: depth * 16,
       }}
     >
       <NavigationNode depth={depth} nodeInfo={nodeInfo} />
       {renderSubtrees}
-    </div>
+    </Root>
   );
 }
