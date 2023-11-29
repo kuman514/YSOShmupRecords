@@ -3,9 +3,10 @@ import styled from 'styled-components';
 
 import { Link } from 'react-router-dom';
 import { NavNodeInfo } from '^/types';
+import { texts } from '^/constants/texts';
 
 interface RootProps {
-  url?: string;
+  $url?: string;
 }
 
 const Root = styled.div<RootProps>`
@@ -17,8 +18,8 @@ const Root = styled.div<RootProps>`
 
     animation: color 100ms linear;
 
-    ${({ url }) =>
-      url !== undefined
+    ${({ $url }) =>
+      $url !== undefined
         ? `
           &:hover {
             color: #39FD72;
@@ -44,31 +45,36 @@ const Root = styled.div<RootProps>`
   }
 `;
 
+const NoUnderlineLinkOnNotHover = styled(Link)`
+  text-decoration: none;
+`;
+
 interface Props {
   depth: number;
   nodeInfo: NavNodeInfo;
 }
 
 export function NavigationNode({ depth, nodeInfo }: Props) {
+  const text = texts[nodeInfo.id] ?? nodeInfo.id;
   const renderText = (() => {
-    if (depth === 0) {
-      return <h2>{nodeInfo.id}</h2>;
+    switch (depth) {
+      case 0:
+        return <h2>{text}</h2>;
+      case 1:
+        return <h3>{text}</h3>;
+      case 2:
+        return <span>{text}</span>;
+      default:
+        return null;
     }
-
-    if (
-      nodeInfo.childNavNodes === undefined ||
-      nodeInfo.childNavNodes.length === 0
-    ) {
-      return <span>{nodeInfo.id}</span>;
-    }
-
-    return <h3>{nodeInfo.id}</h3>;
   })();
 
-  const renderMainBody = <Root url={nodeInfo.linkTo}>{renderText}</Root>;
+  const renderMainBody = <Root $url={nodeInfo.linkTo}>{renderText}</Root>;
 
   return nodeInfo.linkTo !== undefined ? (
-    <Link to={nodeInfo.linkTo}>{renderMainBody}</Link>
+    <NoUnderlineLinkOnNotHover to={nodeInfo.linkTo}>
+      {renderMainBody}
+    </NoUnderlineLinkOnNotHover>
   ) : (
     renderMainBody
   );
