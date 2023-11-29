@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Outlet } from 'react-router-dom';
 
-import { NavSidebar } from '^/components/organisms/NavSidebar';
+import { Sidebar } from '^/components/organisms/Sidebar';
 import { NavRouteTitle } from '^/components/atoms/NavRouteTitle';
 import { rootNavNodes } from '^/constants/nav-node';
 
@@ -17,7 +17,7 @@ const Root = styled.div`
 function Main() {
   return (
     <Root>
-      <NavSidebar rootNavNodes={rootNavNodes} />
+      <Sidebar rootNavNodes={rootNavNodes} />
       <div>
         <NavRouteTitle />
         <Outlet />
