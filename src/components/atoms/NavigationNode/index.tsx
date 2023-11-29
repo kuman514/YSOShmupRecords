@@ -16,13 +16,13 @@ const Root = styled.div<RootProps>`
     font-style: normal;
     line-height: normal;
 
-    animation: color 100ms linear;
+    transition: color 100ms linear;
 
     ${({ $url }) =>
       $url !== undefined
         ? `
           &:hover {
-            color: #39FD72;
+            color: var(--hovering-color);
             text-decoration-line: underline;
           }
         `
