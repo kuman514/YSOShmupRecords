@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { NavItemTree } from '^/components/molecules/NavItemTree';
+import { NavigationTree } from '^/components/molecules/NavigationTree';
 import { NavNodeInfo } from '^/types';
 
 const Root = styled.div`
@@ -20,7 +20,7 @@ interface Props {
 
 export function NavSidebar({ rootNavNodes }: Props) {
   const renderRootNavNodes = rootNavNodes.map((navNode) => (
-    <NavItemTree key={navNode.id} depth={0} nodeInfo={navNode} />
+    <NavigationTree key={navNode.id} depth={0} nodeInfo={navNode} />
   ));
 
   return <Root>{renderRootNavNodes}</Root>;
