@@ -10,7 +10,6 @@ export const texts: Record<string, string> = {
   /**
    * Names for navigation, games, and subjects
    */
-  '': '개요',
   intro: '개요',
   criteria: '등록 기준',
   records: '기록',

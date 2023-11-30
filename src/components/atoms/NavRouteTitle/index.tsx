@@ -29,17 +29,14 @@ export function NavRouteTitle() {
   const pathNameSplit = location.pathname
     .split('/')
     .filter((path) => path.length > 1);
-  const renderTitle =
-    pathNameSplit.length > 0 ? (
-      pathNameSplit.map((navNodeId) => (
-        <CrumbItem key={navNodeId}>{texts[navNodeId] ?? navNodeId}</CrumbItem>
-      ))
-    ) : (
-      <CrumbItem>{texts['']}</CrumbItem>
-    );
-  return (
+
+  return pathNameSplit.length > 0 ? (
     <Root>
-      <Crumbs>{renderTitle}</Crumbs>
+      <Crumbs>
+        {pathNameSplit.map((navNodeId) => (
+          <CrumbItem key={navNodeId}>{texts[navNodeId] ?? navNodeId}</CrumbItem>
+        ))}
+      </Crumbs>
     </Root>
-  );
+  ) : null;
 }
