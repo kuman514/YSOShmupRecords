@@ -12,3 +12,8 @@
   - 결론
     - 목표에 맞는, 더 나은 방법을 찾는다면 바로 적용하겠지만, 지금 당장 `// prettier-ignore` 외의 방법은 불가능할 것 같다.
     - 또한, 사용할 때마다 바로 윗줄에 `// prettier-ignore`를 써야 하기 때문에, `'dariusgaiden-z\''`보단 `'dariusgaiden-zprime'` 등으로 대체해서 Escape 자체를 줄일 수 밖에 없을 것 같다.
+
+## Snapshot Test를 추가하는 이유
+- UI가 의도치 않게 변경되지 않음을 확실시 하기 위해 사용.
+- Snapshot Tests가 실패할 경우, UI가 의도치 않게 변형되지 않도록 조치하거나 스냅샷을 갱신해야 한다.
+- [관련 문서](https://jestjs.io/docs/snapshot-testing)
