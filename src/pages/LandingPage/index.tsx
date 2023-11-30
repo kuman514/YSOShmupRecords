@@ -18,7 +18,7 @@ const Image = styled.img`
   max-width: 800px;
 `;
 
-export function GatePage() {
+export function LandingPage() {
   return (
     <Root>
       <Image

@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 
 import Main from '^/Main';
-import { GatePage } from '^/pages/GatePage';
+import { LandingPage } from '^/pages/LandingPage';
 import { IntroPage } from '^/pages/IntroPage';
 import { CriteriaPage } from '^/pages/CriteriaPage';
 import { RecordPage } from '^/pages/RecordPage';
@@ -18,7 +18,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: '',
-        element: <GatePage />,
+        element: <LandingPage />,
       },
       {
         path: 'intro',
