@@ -8,12 +8,21 @@ const Root = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  padding: 15px;
+`;
+
+const Image = styled.img`
+  width: 100%;
 `;
 
 export function GatePage() {
   return (
     <Root>
-      <img src={GateLogoPngUrl} alt="Welcome to YSOShmupRecords by kuman514" />
+      <Image
+        src={GateLogoPngUrl}
+        alt="Welcome to YSOShmupRecords by kuman514"
+      />
     </Root>
   );
 }
