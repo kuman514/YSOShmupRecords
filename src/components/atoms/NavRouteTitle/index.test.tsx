@@ -60,7 +60,7 @@ describe('NavRouteTitle', () => {
     expect(renderResult4).not.toBeNull();
   });
 
-  it('should show intro text when it is index route', () => {
+  it('should not show when it is index route', () => {
     const routes = [
       {
         path: '/',
@@ -73,10 +73,10 @@ describe('NavRouteTitle', () => {
       initialIndex: 0,
     });
 
-    render(<RouterProvider router={router} />);
+    const { container } = render(<RouterProvider router={router} />);
 
-    const renderResult = screen.getByText(/개요/i);
-    expect(renderResult).not.toBeNull();
+    const nav = container.querySelector('nav');
+    expect(nav).toBeNull();
   });
 
   it('should not show unnecessary intro text when it has path', () => {
