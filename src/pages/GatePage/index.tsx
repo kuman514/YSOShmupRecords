@@ -5,6 +5,7 @@ import GateLogoPngUrl from '^/assets/logos/gate.png';
 
 const Root = styled.div`
   width: 100%;
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -14,6 +15,7 @@ const Root = styled.div`
 
 const Image = styled.img`
   width: 100%;
+  max-width: 800px;
 `;
 
 export function GatePage() {
