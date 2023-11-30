@@ -54,6 +54,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-plugin-react", "virtual:46fefe5348f64803f874a54cb070dcf0bc0f9169cc1a8c416ddbb10dea5ac3f586fcdc538ffcb69d0291570dc1dbeea63abe14e3f26a6c0c864976272bc3ea65#npm:7.33.2"],\
             ["eslint-plugin-react-hooks", "virtual:46fefe5348f64803f874a54cb070dcf0bc0f9169cc1a8c416ddbb10dea5ac3f586fcdc538ffcb69d0291570dc1dbeea63abe14e3f26a6c0c864976272bc3ea65#npm:4.6.0"],\
             ["framer-motion", "virtual:46fefe5348f64803f874a54cb070dcf0bc0f9169cc1a8c416ddbb10dea5ac3f586fcdc538ffcb69d0291570dc1dbeea63abe14e3f26a6c0c864976272bc3ea65#npm:10.16.4"],\
+            ["jest-styled-components", "virtual:46fefe5348f64803f874a54cb070dcf0bc0f9169cc1a8c416ddbb10dea5ac3f586fcdc538ffcb69d0291570dc1dbeea63abe14e3f26a6c0c864976272bc3ea65#npm:7.2.0"],\
             ["jsdom", "virtual:46fefe5348f64803f874a54cb070dcf0bc0f9169cc1a8c416ddbb10dea5ac3f586fcdc538ffcb69d0291570dc1dbeea63abe14e3f26a6c0c864976272bc3ea65#npm:22.1.0"],\
             ["prettier", "npm:3.0.3"],\
             ["react", "npm:18.2.0"],\
@@ -75,6 +76,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@aashutoshrathi-word-wrap-npm-1.2.6-5b1d95e487-ada901b9e7.zip/node_modules/@aashutoshrathi/word-wrap/",\
           "packageDependencies": [\
             ["@aashutoshrathi/word-wrap", "npm:1.2.6"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@adobe/css-tools", [\
+        ["npm:4.3.2", {\
+          "packageLocation": "./.yarn/cache/@adobe-css-tools-npm-4.3.2-779f6c743d-9667d61d55.zip/node_modules/@adobe/css-tools/",\
+          "packageDependencies": [\
+            ["@adobe/css-tools", "npm:4.3.2"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -9738,6 +9748,29 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["jest-styled-components", [\
+        ["npm:7.2.0", {\
+          "packageLocation": "./.yarn/cache/jest-styled-components-npm-7.2.0-de88287aa8-9eb440fb98.zip/node_modules/jest-styled-components/",\
+          "packageDependencies": [\
+            ["jest-styled-components", "npm:7.2.0"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:46fefe5348f64803f874a54cb070dcf0bc0f9169cc1a8c416ddbb10dea5ac3f586fcdc538ffcb69d0291570dc1dbeea63abe14e3f26a6c0c864976272bc3ea65#npm:7.2.0", {\
+          "packageLocation": "./.yarn/__virtual__/jest-styled-components-virtual-27060d8e08/0/cache/jest-styled-components-npm-7.2.0-de88287aa8-9eb440fb98.zip/node_modules/jest-styled-components/",\
+          "packageDependencies": [\
+            ["jest-styled-components", "virtual:46fefe5348f64803f874a54cb070dcf0bc0f9169cc1a8c416ddbb10dea5ac3f586fcdc538ffcb69d0291570dc1dbeea63abe14e3f26a6c0c864976272bc3ea65#npm:7.2.0"],\
+            ["@adobe/css-tools", "npm:4.3.2"],\
+            ["@types/styled-components", "npm:5.1.26"],\
+            ["styled-components", "virtual:46fefe5348f64803f874a54cb070dcf0bc0f9169cc1a8c416ddbb10dea5ac3f586fcdc538ffcb69d0291570dc1dbeea63abe14e3f26a6c0c864976272bc3ea65#npm:6.0.7"]\
+          ],\
+          "packagePeers": [\
+            "@types/styled-components",\
+            "styled-components"\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["js-tokens", [\
         ["npm:4.0.0", {\
           "packageLocation": "./.yarn/cache/js-tokens-npm-4.0.0-0ac852e9e2-8a95213a5a.zip/node_modules/js-tokens/",\
@@ -12772,6 +12805,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-plugin-react", "virtual:46fefe5348f64803f874a54cb070dcf0bc0f9169cc1a8c416ddbb10dea5ac3f586fcdc538ffcb69d0291570dc1dbeea63abe14e3f26a6c0c864976272bc3ea65#npm:7.33.2"],\
             ["eslint-plugin-react-hooks", "virtual:46fefe5348f64803f874a54cb070dcf0bc0f9169cc1a8c416ddbb10dea5ac3f586fcdc538ffcb69d0291570dc1dbeea63abe14e3f26a6c0c864976272bc3ea65#npm:4.6.0"],\
             ["framer-motion", "virtual:46fefe5348f64803f874a54cb070dcf0bc0f9169cc1a8c416ddbb10dea5ac3f586fcdc538ffcb69d0291570dc1dbeea63abe14e3f26a6c0c864976272bc3ea65#npm:10.16.4"],\
+            ["jest-styled-components", "virtual:46fefe5348f64803f874a54cb070dcf0bc0f9169cc1a8c416ddbb10dea5ac3f586fcdc538ffcb69d0291570dc1dbeea63abe14e3f26a6c0c864976272bc3ea65#npm:7.2.0"],\
             ["jsdom", "virtual:46fefe5348f64803f874a54cb070dcf0bc0f9169cc1a8c416ddbb10dea5ac3f586fcdc538ffcb69d0291570dc1dbeea63abe14e3f26a6c0c864976272bc3ea65#npm:22.1.0"],\
             ["prettier", "npm:3.0.3"],\
             ["react", "npm:18.2.0"],\

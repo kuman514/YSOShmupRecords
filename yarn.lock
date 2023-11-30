@@ -12,6 +12,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@adobe/css-tools@npm:^4.0.1":
+  version: 4.3.2
+  resolution: "@adobe/css-tools@npm:4.3.2"
+  checksum: 9667d61d55dc3b0a315c530ae84e016ce5267c4dd8ac00abb40108dc98e07b98e3090ce8b87acd51a41a68d9e84dcccb08cdf21c902572a9cf9dcaf830da4ae3
+  languageName: node
+  linkType: hard
+
 "@ampproject/remapping@npm:^2.2.0":
   version: 2.2.1
   resolution: "@ampproject/remapping@npm:2.2.1"
@@ -6411,6 +6418,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"jest-styled-components@npm:^7.2.0":
+  version: 7.2.0
+  resolution: "jest-styled-components@npm:7.2.0"
+  dependencies:
+    "@adobe/css-tools": ^4.0.1
+  peerDependencies:
+    styled-components: ">= 5"
+  checksum: 9eb440fb98571520fa6309ebec5464bdd6a15fd29989c7a583badc24f390264459f21d1d09253e6a449f4f6e41ca0d8f630f762941794b51b327df9bfdcce030
+  languageName: node
+  linkType: hard
+
 "js-tokens@npm:^3.0.0 || ^4.0.0, js-tokens@npm:^4.0.0":
   version: 4.0.0
   resolution: "js-tokens@npm:4.0.0"
@@ -9012,6 +9030,7 @@ __metadata:
     eslint-plugin-react: ^7.33.2
     eslint-plugin-react-hooks: ^4.6.0
     framer-motion: ^10.16.4
+    jest-styled-components: ^7.2.0
     jsdom: ^22.1.0
     prettier: ^3.0.3
     react: ^18.2.0
