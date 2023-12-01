@@ -1,0 +1,346 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Sample test > should have a snapshot match for clear button 1`] = `
+.c0 {
+  all: unset;
+  box-sizing: border-box;
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 8px 16px;
+  color: var(--primary-color);
+  background-color: transparent;
+  border: none;
+  border-radius: 16px;
+  cursor: pointer;
+}
+
+.c0:hover {
+  background-color: var(--hover-color);
+  color: #ffffff;
+}
+
+.c0:disabled {
+  border: none;
+  color: var(--gray-color);
+  background-color: transparent;
+  text-decoration: line-through;
+}
+
+<button
+  class="c0"
+>
+  kuman514
+</button>
+`;
+
+exports[`Sample test > should have a snapshot match for disabled clear button 1`] = `
+.c0 {
+  all: unset;
+  box-sizing: border-box;
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 8px 16px;
+  color: var(--primary-color);
+  background-color: transparent;
+  border: none;
+  border-radius: 16px;
+  cursor: pointer;
+}
+
+.c0:hover {
+  background-color: var(--hover-color);
+  color: #ffffff;
+}
+
+.c0:disabled {
+  border: none;
+  color: var(--gray-color);
+  background-color: transparent;
+  text-decoration: line-through;
+}
+
+<button
+  class="c0"
+  disabled=""
+>
+  kuman514
+</button>
+`;
+
+exports[`Sample test > should have a snapshot match for disabled line button 1`] = `
+.c0 {
+  all: unset;
+  box-sizing: border-box;
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 8px 16px;
+  color: var(--primary-color);
+  background-color: transparent;
+  border: 1px solid var(--primary-color);
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.c0:hover {
+  background-color: var(--hover-color);
+  color: #ffffff;
+}
+
+.c0:disabled {
+  border: none;
+  color: #ffffff;
+  background-color: var(--gray-color);
+  text-decoration: none;
+}
+
+<button
+  class="c0"
+  disabled=""
+>
+  kuman514
+</button>
+`;
+
+exports[`Sample test > should have a snapshot match for disabled round line button 1`] = `
+.c0 {
+  all: unset;
+  box-sizing: border-box;
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 8px 16px;
+  color: var(--primary-color);
+  background-color: transparent;
+  border: 1px solid var(--primary-color);
+  border-radius: 16px;
+  cursor: pointer;
+}
+
+.c0:hover {
+  background-color: var(--hover-color);
+  color: #ffffff;
+}
+
+.c0:disabled {
+  border: none;
+  color: #ffffff;
+  background-color: var(--gray-color);
+  text-decoration: none;
+}
+
+<button
+  class="c0"
+  disabled=""
+>
+  kuman514
+</button>
+`;
+
+exports[`Sample test > should have a snapshot match for disabled round solid button 1`] = `
+.c0 {
+  all: unset;
+  box-sizing: border-box;
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 8px 16px;
+  color: #ffffff;
+  background-color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+  border-radius: 16px;
+  cursor: pointer;
+}
+
+.c0:hover {
+  background-color: var(--hover-color);
+  color: #ffffff;
+}
+
+.c0:disabled {
+  border: none;
+  color: #ffffff;
+  background-color: var(--gray-color);
+  text-decoration: none;
+}
+
+<button
+  class="c0"
+  disabled=""
+>
+  kuman514
+</button>
+`;
+
+exports[`Sample test > should have a snapshot match for disabled solid button 1`] = `
+.c0 {
+  all: unset;
+  box-sizing: border-box;
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 8px 16px;
+  color: #ffffff;
+  background-color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.c0:hover {
+  background-color: var(--hover-color);
+  color: #ffffff;
+}
+
+.c0:disabled {
+  border: none;
+  color: #ffffff;
+  background-color: var(--gray-color);
+  text-decoration: none;
+}
+
+<button
+  class="c0"
+  disabled=""
+>
+  kuman514
+</button>
+`;
+
+exports[`Sample test > should have a snapshot match for line button 1`] = `
+.c0 {
+  all: unset;
+  box-sizing: border-box;
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 8px 16px;
+  color: var(--primary-color);
+  background-color: transparent;
+  border: 1px solid var(--primary-color);
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.c0:hover {
+  background-color: var(--hover-color);
+  color: #ffffff;
+}
+
+.c0:disabled {
+  border: none;
+  color: #ffffff;
+  background-color: var(--gray-color);
+  text-decoration: none;
+}
+
+<button
+  class="c0"
+>
+  kuman514
+</button>
+`;
+
+exports[`Sample test > should have a snapshot match for round line button 1`] = `
+.c0 {
+  all: unset;
+  box-sizing: border-box;
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 8px 16px;
+  color: var(--primary-color);
+  background-color: transparent;
+  border: 1px solid var(--primary-color);
+  border-radius: 16px;
+  cursor: pointer;
+}
+
+.c0:hover {
+  background-color: var(--hover-color);
+  color: #ffffff;
+}
+
+.c0:disabled {
+  border: none;
+  color: #ffffff;
+  background-color: var(--gray-color);
+  text-decoration: none;
+}
+
+<button
+  class="c0"
+>
+  kuman514
+</button>
+`;
+
+exports[`Sample test > should have a snapshot match for round solid button 1`] = `
+.c0 {
+  all: unset;
+  box-sizing: border-box;
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 8px 16px;
+  color: #ffffff;
+  background-color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+  border-radius: 16px;
+  cursor: pointer;
+}
+
+.c0:hover {
+  background-color: var(--hover-color);
+  color: #ffffff;
+}
+
+.c0:disabled {
+  border: none;
+  color: #ffffff;
+  background-color: var(--gray-color);
+  text-decoration: none;
+}
+
+<button
+  class="c0"
+>
+  kuman514
+</button>
+`;
+
+exports[`Sample test > should have a snapshot match for solid button 1`] = `
+.c0 {
+  all: unset;
+  box-sizing: border-box;
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 8px 16px;
+  color: #ffffff;
+  background-color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.c0:hover {
+  background-color: var(--hover-color);
+  color: #ffffff;
+}
+
+.c0:disabled {
+  border: none;
+  color: #ffffff;
+  background-color: var(--gray-color);
+  text-decoration: none;
+}
+
+<button
+  class="c0"
+>
+  kuman514
+</button>
+`;

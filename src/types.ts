@@ -30,3 +30,11 @@ export interface DescriptionListItem {
   description: string;
   subItems?: DescriptionListItem[];
 }
+
+export enum ButtonType {
+  SOLID = 'solid',
+  LINE = 'line',
+  ROUND_SOLID = 'round-solid',
+  ROUND_LINE = 'round-line',
+  CLEAR = 'clear',
+}
