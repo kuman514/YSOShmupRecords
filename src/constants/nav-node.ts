@@ -23,12 +23,17 @@ export const navNodeInfoForTest: NavNodeInfo = {
 
 export const rootNavNodes: NavNodeInfo[] = [
   {
-    id: 'intro',
-    linkTo: '/intro',
-  },
-  {
-    id: 'criteria',
-    linkTo: '/criteria',
+    id: 'introduction',
+    childNavNodes: [
+      {
+        id: 'intro',
+        linkTo: '/intro',
+      },
+      {
+        id: 'criteria',
+        linkTo: '/criteria',
+      },
+    ],
   },
   {
     id: 'records',

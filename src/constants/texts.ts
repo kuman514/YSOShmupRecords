@@ -10,6 +10,7 @@ export const texts: Record<string, string> = {
   /**
    * Names for navigation, games, and subjects
    */
+  introduction: 'YSOShmupRecords 소개',
   intro: '개요',
   criteria: '등록 기준',
   records: '기록',
