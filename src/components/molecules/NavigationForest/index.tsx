@@ -5,14 +5,30 @@ import { NavigationTree } from '^/components/molecules/NavigationTree';
 import { NavNodeInfo } from '^/types';
 
 const Root = styled.div`
+  height: 100%;
+
+  display: flex;
+  flex-direction: row;
+
+  padding-top: 16px;
+  padding-bottom: 16px;
+
+  overflow-x: hidden;
+  overflow-y: auto;
+`;
+
+const TreeContainer = styled.div`
   width: 300px;
   height: 100%;
+
+  border-right: 1px solid #ffffff;
 
   padding-left: 16px;
   padding-right: 16px;
 
-  overflow-x: hidden;
-  overflow-y: auto;
+  &:last-of-type {
+    border: none;
+  }
 `;
 
 interface Props {
@@ -21,7 +37,9 @@ interface Props {
 
 export function NavigationForest({ rootNavNodes }: Props) {
   const renderRootNavNodes = rootNavNodes.map((navNode) => (
-    <NavigationTree key={navNode.id} depth={0} nodeInfo={navNode} />
+    <TreeContainer key={navNode.id}>
+      <NavigationTree depth={0} nodeInfo={navNode} />
+    </TreeContainer>
   ));
 
   return <Root>{renderRootNavNodes}</Root>;
