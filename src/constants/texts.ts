@@ -32,6 +32,9 @@ export const texts: Record<string, string> = {
   'dariusgaiden-z': 'Z존',
   // prettier-ignore
   'dariusgaiden-vprime': 'V\'존',
+  ketsui: '케츠이',
+  'ketsui-a': 'A타입',
+  'ketsui-b': 'B타입',
   /**
    * Method names
    */
