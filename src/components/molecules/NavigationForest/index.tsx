@@ -10,8 +10,6 @@ const Root = styled.div`
   display: flex;
   flex-direction: row;
 
-  padding-top: 16px;
-
   overflow-x: hidden;
   overflow-y: auto;
 `;
