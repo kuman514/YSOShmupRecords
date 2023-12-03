@@ -32,6 +32,7 @@ const ArticleSkeletonArea = styled.div`
 
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   column-gap: 10px;
 
   & > div {

@@ -11,7 +11,7 @@ const Root = styled.div`
   height: 100vh;
 
   display: grid;
-  grid-template-columns: 300px 1fr;
+  grid-template-columns: auto 1fr;
 `;
 
 function Main() {

@@ -10,6 +10,7 @@ export const texts: Record<string, string> = {
   /**
    * Names for navigation, games, and subjects
    */
+  introduction: 'YSOShmupRecords 소개',
   intro: '개요',
   criteria: '등록 기준',
   records: '기록',
@@ -31,6 +32,9 @@ export const texts: Record<string, string> = {
   'dariusgaiden-z': 'Z존',
   // prettier-ignore
   'dariusgaiden-vprime': 'V\'존',
+  ketsui: '케츠이',
+  'ketsui-a': 'A타입',
+  'ketsui-b': 'B타입',
   /**
    * Method names
    */
