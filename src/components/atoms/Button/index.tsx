@@ -16,7 +16,7 @@ const colorByType: Record<ButtonType, string> = {
   [ButtonType.LINE]: 'var(--primary-color)',
   [ButtonType.ROUND_SOLID]: '#ffffff',
   [ButtonType.ROUND_LINE]: 'var(--primary-color)',
-  [ButtonType.CLEAR]: 'var(--primary-color)',
+  [ButtonType.CLEAR]: '#ffffff',
 };
 
 const borderByType: Record<ButtonType, string> = {
