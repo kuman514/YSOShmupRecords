@@ -3,14 +3,15 @@ import styled from 'styled-components';
 
 import { NavNodeInfo } from '^/types';
 import { NavigationForest } from '^/components/molecules/NavigationForest';
+import { SidebarFooter } from '^/components/molecules/SidebarFooter';
 
 const Root = styled.div`
   height: 100vh;
 
-  background: var(--main-color);
+  display: grid;
+  grid-template-rows: 1fr auto;
 
-  overflow-x: hidden;
-  overflow-y: auto;
+  background: var(--main-color);
 `;
 
 interface Props {
@@ -21,6 +22,7 @@ export function Sidebar({ rootNavNodes }: Props) {
   return (
     <Root>
       <NavigationForest rootNavNodes={rootNavNodes} />
+      <SidebarFooter />
     </Root>
   );
 }
