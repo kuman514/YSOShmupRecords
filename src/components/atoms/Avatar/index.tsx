@@ -2,16 +2,16 @@ import React from 'react';
 import styled from 'styled-components';
 
 interface RootProps {
-  pxSize: number;
+  $pxSize: number;
 }
 
 const Root = styled.div<RootProps>`
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: calc(${({ pxSize }) => pxSize}px / 2);
-  width: ${({ pxSize }) => pxSize}px;
-  height: ${({ pxSize }) => pxSize}px;
+  border-radius: calc(${({ $pxSize }) => $pxSize}px / 2);
+  width: ${({ $pxSize }) => $pxSize}px;
+  height: ${({ $pxSize }) => $pxSize}px;
   background-color: var(--gray-color);
 `;
 
@@ -35,7 +35,7 @@ interface Props {
 
 export function Avatar({ pxSize }: Props) {
   return (
-    <Root pxSize={pxSize}>
+    <Root $pxSize={pxSize}>
       <TmpPlaceholder>Insert image here</TmpPlaceholder>
     </Root>
   );
