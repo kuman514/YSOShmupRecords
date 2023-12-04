@@ -5,39 +5,39 @@ exports[`MenuButtonIcon > should be a cross icon when open 1`] = `
   width: 24px;
   height: 2px;
   background-color: #ffffff;
+  transition-property: left,top,transform;
+  transition-duration: 500ms;
+  transition-timing-function: ease-in-out;
   position: absolute;
   left: 6px;
   top: 17px;
   transform: rotate(45deg);
-  transition-property: left,top,transform;
-  transition-duration: 500ms;
-  transition-timing-function: ease-in-out;
 }
 
 .c2 {
   width: 24px;
   height: 2px;
   background-color: #ffffff;
+  transition-property: left,top,transform;
+  transition-duration: 500ms;
+  transition-timing-function: ease-in-out;
   position: absolute;
   left: 6px;
   top: 17px;
   transform: rotate(-45deg);
-  transition-property: left,top,transform;
-  transition-duration: 500ms;
-  transition-timing-function: ease-in-out;
 }
 
 .c3 {
   width: 24px;
   height: 2px;
   background-color: #ffffff;
+  transition-property: left,top,transform;
+  transition-duration: 500ms;
+  transition-timing-function: ease-in-out;
   position: absolute;
   left: 6px;
   top: 17px;
   transform: rotate(-45deg);
-  transition-property: left,top,transform;
-  transition-duration: 500ms;
-  transition-timing-function: ease-in-out;
 }
 
 .c0 {
@@ -66,39 +66,39 @@ exports[`MenuButtonIcon > should be a stack icon when closed 1`] = `
   width: 24px;
   height: 2px;
   background-color: #ffffff;
+  transition-property: left,top,transform;
+  transition-duration: 500ms;
+  transition-timing-function: ease-in-out;
   position: absolute;
   left: 6px;
   top: 9px;
   transform: rotate(0deg);
-  transition-property: left,top,transform;
-  transition-duration: 500ms;
-  transition-timing-function: ease-in-out;
 }
 
 .c2 {
   width: 24px;
   height: 2px;
   background-color: #ffffff;
+  transition-property: left,top,transform;
+  transition-duration: 500ms;
+  transition-timing-function: ease-in-out;
   position: absolute;
   left: 6px;
   top: 17px;
   transform: rotate(0deg);
-  transition-property: left,top,transform;
-  transition-duration: 500ms;
-  transition-timing-function: ease-in-out;
 }
 
 .c3 {
   width: 24px;
   height: 2px;
   background-color: #ffffff;
+  transition-property: left,top,transform;
+  transition-duration: 500ms;
+  transition-timing-function: ease-in-out;
   position: absolute;
   left: 6px;
   top: 25px;
   transform: rotate(0deg);
-  transition-property: left,top,transform;
-  transition-duration: 500ms;
-  transition-timing-function: ease-in-out;
 }
 
 .c0 {

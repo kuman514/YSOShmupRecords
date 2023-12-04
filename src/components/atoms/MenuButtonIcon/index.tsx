@@ -1,53 +1,45 @@
 import React from 'react';
 import styled from 'styled-components';
 
+const commonStickStyle = `
+  width: 24px;
+  height: 2px;
+  background-color: #ffffff;
+
+  transition-property: left, top, transform;
+  transition-duration: 500ms;
+  transition-timing-function: ease-in-out;
+`;
+
 interface StickProps {
   $isOpen: boolean;
 }
 
 const FirstStick = styled.div<StickProps>`
-  width: 24px;
-  height: 2px;
-  background-color: #ffffff;
+  ${commonStickStyle}
 
   position: absolute;
   left: ${({ $isOpen }) => ($isOpen ? 6 : 6)}px;
   top: ${({ $isOpen }) => ($isOpen ? 17 : 9)}px;
   transform: rotate(${({ $isOpen }) => ($isOpen ? 45 : 0)}deg);
-
-  transition-property: left, top, transform;
-  transition-duration: 500ms;
-  transition-timing-function: ease-in-out;
 `;
 
 const SecondStick = styled.div<StickProps>`
-  width: 24px;
-  height: 2px;
-  background-color: #ffffff;
+  ${commonStickStyle}
 
   position: absolute;
   left: ${({ $isOpen }) => ($isOpen ? 6 : 6)}px;
   top: ${({ $isOpen }) => ($isOpen ? 17 : 17)}px;
   transform: rotate(${({ $isOpen }) => ($isOpen ? -45 : 0)}deg);
-
-  transition-property: left, top, transform;
-  transition-duration: 500ms;
-  transition-timing-function: ease-in-out;
 `;
 
 const ThirdStick = styled.div<StickProps>`
-  width: 24px;
-  height: 2px;
-  background-color: #ffffff;
+  ${commonStickStyle}
 
   position: absolute;
   left: ${({ $isOpen }) => ($isOpen ? 6 : 6)}px;
   top: ${({ $isOpen }) => ($isOpen ? 17 : 25)}px;
   transform: rotate(${({ $isOpen }) => ($isOpen ? -45 : 0)}deg);
-
-  transition-property: left, top, transform;
-  transition-duration: 500ms;
-  transition-timing-function: ease-in-out;
 `;
 
 const Root = styled.div`
