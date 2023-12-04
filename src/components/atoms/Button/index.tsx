@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { CSSProperties, ReactNode } from 'react';
 import styled from 'styled-components';
 
 import { ButtonType } from '^/types';
@@ -97,12 +97,24 @@ interface Props {
   type: ButtonType;
   children?: ReactNode;
   isDisabled: boolean;
+  customStyle?: CSSProperties;
   onClick(): void;
 }
 
-export function Button({ type, children, isDisabled, onClick }: Props) {
+export function Button({
+  type,
+  children,
+  isDisabled,
+  customStyle,
+  onClick,
+}: Props) {
   return (
-    <Root $type={type} disabled={isDisabled} onClick={onClick}>
+    <Root
+      $type={type}
+      style={customStyle}
+      disabled={isDisabled}
+      onClick={onClick}
+    >
       {children}
     </Root>
   );
