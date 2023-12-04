@@ -15,28 +15,26 @@ const Root = styled.div<RootProps>`
   background-color: var(--gray-color);
 `;
 
-const TmpPlaceholder = styled.span`
+const TmpPlaceholder = styled.img`
   color: #000000;
   font-family: Inter;
   font-size: 16px;
   font-weight: 500;
+
+  border-radius: inherit;
+  width: inherit;
+  height: inherit;
 `;
 
 interface Props {
   pxSize: number;
-  // imageUrl: string;
+  imageUrl: string;
 }
 
-/**
- * @todo
- * Add real image url for avatar
- * Make test cases for Avatar
- */
-
-export function Avatar({ pxSize }: Props) {
+export function Avatar({ pxSize, imageUrl }: Props) {
   return (
     <Root $pxSize={pxSize}>
-      <TmpPlaceholder>Insert image here</TmpPlaceholder>
+      <TmpPlaceholder src={imageUrl} alt="YSOShmupRecords avatar" />
     </Root>
   );
 }
