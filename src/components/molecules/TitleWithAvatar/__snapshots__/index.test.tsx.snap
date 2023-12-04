@@ -1,0 +1,63 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`MenuOpenCloseIcon > should have a snapshot match for its appearance 1`] = `
+.c2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: calc(150px / 2);
+  width: 150px;
+  height: 150px;
+  background-color: var(--gray-color);
+}
+
+.c3 {
+  color: #000000;
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.c0 {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 36px;
+}
+
+.c1 {
+  width: 30px;
+  border-top: 1px solid #ffffff;
+}
+
+.c4 {
+  color: #ffffff;
+  font-family: Inter;
+  font-size: 36px;
+  font-weight: 200;
+}
+
+<div
+  class="c0"
+>
+  <div
+    class="c1"
+  />
+  <div
+    class="c2"
+  >
+    <span
+      class="c3"
+    >
+      Insert image here
+    </span>
+  </div>
+  <h1
+    class="c4"
+  >
+    YSOShmupRecords
+  </h1>
+</div>
+`;
