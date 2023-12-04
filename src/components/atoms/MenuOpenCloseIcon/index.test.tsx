@@ -5,7 +5,7 @@ import 'jest-styled-components';
 
 import { MenuOpenCloseIcon } from '.';
 
-describe('MenuButtonIcon', () => {
+describe('MenuOpenCloseIcon', () => {
   beforeEach(() => {
     cleanup();
   });

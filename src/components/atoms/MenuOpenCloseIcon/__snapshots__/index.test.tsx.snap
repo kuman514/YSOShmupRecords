@@ -1,6 +1,6 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`MenuButtonIcon > should be a cross icon when open 1`] = `
+exports[`MenuOpenCloseIcon > should be a cross icon when open 1`] = `
 .c1 {
   width: 24px;
   height: 2px;
@@ -62,7 +62,7 @@ exports[`MenuButtonIcon > should be a cross icon when open 1`] = `
 </div>
 `;
 
-exports[`MenuButtonIcon > should be a stack icon when closed 1`] = `
+exports[`MenuOpenCloseIcon > should be a stack icon when closed 1`] = `
 .c1 {
   width: 24px;
   height: 2px;
