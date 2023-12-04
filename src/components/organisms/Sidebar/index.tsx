@@ -5,6 +5,7 @@ import { NavNodeInfo } from '^/types';
 import { NavigationForest } from '^/components/molecules/NavigationForest';
 import { SidebarFooter } from '^/components/molecules/SidebarFooter';
 import { SidebarHeader } from '^/components/molecules/SidebarHeader';
+import { TitleWithAvatar } from '^/components/molecules/TitleWithAvatar';
 
 const Root = styled.div`
   height: 100vh;
@@ -22,6 +23,12 @@ interface Props {
 export function Sidebar({ rootNavNodes }: Props) {
   const [isNavigationOpen, setIsNavigationOpen] = useState<boolean>(false);
 
+  const renderCenter = isNavigationOpen ? (
+    <NavigationForest rootNavNodes={rootNavNodes} />
+  ) : (
+    <TitleWithAvatar />
+  );
+
   return (
     <Root>
       <SidebarHeader
@@ -30,7 +37,7 @@ export function Sidebar({ rootNavNodes }: Props) {
           setIsNavigationOpen(!isNavigationOpen);
         }}
       />
-      <NavigationForest rootNavNodes={rootNavNodes} />
+      {renderCenter}
       <SidebarFooter />
     </Root>
   );

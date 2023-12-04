@@ -4,7 +4,6 @@ import { cleanup, render, screen } from '@testing-library/react';
 import { RouterProvider, createMemoryRouter } from 'react-router-dom';
 
 import { rootNavNodes } from '^/constants/nav-node';
-import { texts } from '^/constants/texts';
 
 import { Sidebar } from '.';
 
@@ -25,13 +24,8 @@ describe('Sidebar', () => {
     cleanup();
   });
 
-  it('should show root nav nodes on init', () => {
+  it('should show title on init', () => {
     render(<RouterProvider router={router} />);
-
-    rootNavNodes.forEach((rootNavNode) => {
-      expect(
-        screen.getByText(texts[rootNavNode.id] ?? rootNavNode.id)
-      ).not.toBeNull();
-    });
+    expect(screen.getByText(/YSOShmupRecords/i)).not.toBeNull();
   });
 });
