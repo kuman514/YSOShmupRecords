@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { Button } from '^/components/atoms/Button';
-import { MenuOpenCloseIcon } from '^/components/atoms/MenuButtonIcon';
+import { MenuOpenCloseIcon } from '^/components/atoms/MenuOpenCloseIcon';
 import { ButtonType } from '^/types';
 
 const Root = styled.div`
