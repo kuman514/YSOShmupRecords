@@ -54,7 +54,7 @@ interface Props {
 
 export function MenuOpenCloseIcon({ isOpen }: Props) {
   return (
-    <Root>
+    <Root id={isOpen ? 'Click-to-close-icon' : 'Click-to-open-icon'}>
       <FirstStick $isOpen={isOpen} />
       <SecondStick $isOpen={isOpen} />
       <ThirdStick $isOpen={isOpen} />

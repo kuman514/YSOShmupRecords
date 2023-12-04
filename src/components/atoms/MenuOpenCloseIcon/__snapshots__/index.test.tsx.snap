@@ -48,6 +48,7 @@ exports[`MenuButtonIcon > should be a cross icon when open 1`] = `
 
 <div
   class="c0"
+  id="Click-to-close-icon"
 >
   <div
     class="c1"
@@ -109,6 +110,7 @@ exports[`MenuButtonIcon > should be a stack icon when closed 1`] = `
 
 <div
   class="c0"
+  id="Click-to-open-icon"
 >
   <div
     class="c1"
