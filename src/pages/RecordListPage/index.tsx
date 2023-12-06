@@ -6,6 +6,11 @@ import { texts } from '^/constants/texts';
 import { useShmupRecordIds } from '^/hooks/useShmupRecordIds';
 import { Skeleton } from '^/components/atoms/Skeleton';
 
+const Root = styled.div`
+  padding-left: 15px;
+  padding-right: 15px;
+`;
+
 const Title = styled.h1`
   color: var(--light-font-color);
   font-family: Inter;
@@ -15,10 +20,9 @@ const Title = styled.h1`
 
 const RecordSelectionArea = styled.div`
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  flex-wrap: wrap;
-  column-gap: 10px;
+  flex-direction: column;
+  justify-content: center;
+  row-gap: 10px;
 `;
 
 export function RecordListPage() {
@@ -37,18 +41,28 @@ export function RecordListPage() {
   const renderRecordIdSelection =
     recordIds.length > 0 && !isRecordIdsLoading ? (
       <RecordSelectionArea>
-        <ul>
-          {recordIds.map((recordId) => (
-            <li>
-              <Link to={`${recordId}`}>{recordId}</Link>
-            </li>
-          ))}
-        </ul>
+        {recordIds.length > 0 ? (
+          <ul>
+            {recordIds.map((recordId) => (
+              <li>
+                <Link to={`${recordId}`}>{recordId}</Link>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          '현재 등록된 기록이 없습니다.'
+        )}
       </RecordSelectionArea>
     ) : (
       <RecordSelectionArea>
         {!isRecordIdsError ? (
-          <Skeleton width="300px" height="50px" />
+          <>
+            <Skeleton width="300px" height="20px" />
+            <Skeleton width="300px" height="20px" />
+            <Skeleton width="300px" height="20px" />
+            <Skeleton width="300px" height="20px" />
+            <Skeleton width="300px" height="20px" />
+          </>
         ) : (
           '목록을 불러오는 중 오류가 발생했습니다.'
         )}
@@ -56,9 +70,9 @@ export function RecordListPage() {
     );
 
   return (
-    <div>
+    <Root>
       <Title>{texts[typeId] ?? typeId} 기록 목록</Title>
       {renderRecordIdSelection}
-    </div>
+    </Root>
   );
 }
