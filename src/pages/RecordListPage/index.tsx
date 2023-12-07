@@ -5,6 +5,9 @@ import styled from 'styled-components';
 import { texts } from '^/constants/texts';
 import { useShmupRecordIds } from '^/hooks/useShmupRecordIds';
 import { Skeleton } from '^/components/atoms/Skeleton';
+import { RecordListCard } from '^/components/molecules/RecordListCard';
+import { convertDateToString } from '^/utils';
+import { getAPIURL } from '^/utils/api-url';
 
 const Root = styled.div`
   padding-left: 15px;
@@ -20,10 +23,43 @@ const Title = styled.h1`
 
 const RecordSelectionArea = styled.div`
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  row-gap: 10px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 16px;
 `;
+
+const RecordSelectionList = styled.ul`
+  list-style-type: none;
+  margin: unset;
+  padding: unset;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 16px;
+`;
+
+const RecordSelectionLink = styled(Link)`
+  color: unset;
+  text-decoration: none;
+`;
+
+const RecordListCardSkeletonRoot = styled.div`
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
+`;
+
+function RecordListCardSkeleton() {
+  return (
+    <RecordListCardSkeletonRoot>
+      <Skeleton width="300px" height="200px" borderRadius="16px" />
+      <Skeleton width="300px" height="20px" borderRadius="10px" />
+    </RecordListCardSkeletonRoot>
+  );
+}
 
 export function RecordListPage() {
   const { typeId } = useParams();
@@ -42,13 +78,23 @@ export function RecordListPage() {
     recordIds.length > 0 && !isRecordIdsLoading ? (
       <RecordSelectionArea>
         {recordIds.length > 0 ? (
-          <ul>
+          <RecordSelectionList>
             {recordIds.map((recordId) => (
               <li>
-                <Link to={`${recordId}`}>{recordId}</Link>
+                <RecordSelectionLink to={`${recordId}`}>
+                  <RecordListCard
+                    imageUrl={getAPIURL(
+                      'records',
+                      typeId,
+                      'images',
+                      `${recordId}_thumbnail.jpg`
+                    )}
+                    title={`${convertDateToString(new Date(recordId))} 기록`}
+                  />
+                </RecordSelectionLink>
               </li>
             ))}
-          </ul>
+          </RecordSelectionList>
         ) : (
           '현재 등록된 기록이 없습니다.'
         )}
@@ -57,11 +103,9 @@ export function RecordListPage() {
       <RecordSelectionArea>
         {!isRecordIdsError ? (
           <>
-            <Skeleton width="300px" height="20px" />
-            <Skeleton width="300px" height="20px" />
-            <Skeleton width="300px" height="20px" />
-            <Skeleton width="300px" height="20px" />
-            <Skeleton width="300px" height="20px" />
+            <RecordListCardSkeleton />
+            <RecordListCardSkeleton />
+            <RecordListCardSkeleton />
           </>
         ) : (
           '목록을 불러오는 중 오류가 발생했습니다.'
