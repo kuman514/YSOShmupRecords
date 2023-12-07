@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import { ShmupRecord } from '^/types';
 import { Thumbnail } from '^/components/atoms/Thumbnail';
-import { convertDateToString } from '^/utils';
+import { convertDateToString } from '^/utils/date-to-string';
 import { texts } from '^/constants/texts';
 import { ImageDisplayModal } from '^/components/molecules/ImageDisplayModal';
 

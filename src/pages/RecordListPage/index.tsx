@@ -6,7 +6,7 @@ import { texts } from '^/constants/texts';
 import { useShmupRecordIds } from '^/hooks/useShmupRecordIds';
 import { Skeleton } from '^/components/atoms/Skeleton';
 import { RecordListCard } from '^/components/molecules/RecordListCard';
-import { convertDateToString } from '^/utils';
+import { convertDateToString } from '^/utils/date-to-string';
 import { getAPIURL } from '^/utils/api-url';
 
 const Root = styled.div`
