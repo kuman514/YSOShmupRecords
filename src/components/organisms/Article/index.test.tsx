@@ -3,7 +3,7 @@ import { beforeEach, describe, expect, it } from 'vitest';
 import { cleanup, render, screen } from '@testing-library/react';
 
 import { ShmupRecord } from '^/types';
-import { convertDateToString } from '^/utils';
+import { convertDateToString } from '^/utils/date-to-string';
 
 import { Article } from '.';
 
