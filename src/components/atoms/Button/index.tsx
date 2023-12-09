@@ -81,7 +81,7 @@ const Root = styled.button<RootProps>`
   cursor: pointer;
 
   &:hover {
-    background-color: var(--hover-color);
+    background-color: var(--hovering-color);
     color: #ffffff;
   }
 

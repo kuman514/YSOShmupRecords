@@ -13,7 +13,7 @@ const Root = styled.div`
   border-radius: 16px;
 
   &:hover {
-    background-color: var(--hover-color);
+    background-color: var(--hovering-color);
   }
 `;
 

@@ -13,7 +13,7 @@ const Root = styled.div`
   display: grid;
   grid-template-rows: auto 1fr auto;
 
-  background: var(--main-color);
+  background: var(--primary-color);
 `;
 
 interface Props {
