@@ -16,7 +16,7 @@ exports[`Sample test > should have a snapshot match for clear button 1`] = `
 }
 
 .c0:hover {
-  background-color: var(--hover-color);
+  background-color: var(--hovering-color);
   color: #ffffff;
 }
 
@@ -50,7 +50,7 @@ exports[`Sample test > should have a snapshot match for disabled clear button 1`
 }
 
 .c0:hover {
-  background-color: var(--hover-color);
+  background-color: var(--hovering-color);
   color: #ffffff;
 }
 
@@ -85,7 +85,7 @@ exports[`Sample test > should have a snapshot match for disabled line button 1`]
 }
 
 .c0:hover {
-  background-color: var(--hover-color);
+  background-color: var(--hovering-color);
   color: #ffffff;
 }
 
@@ -120,7 +120,7 @@ exports[`Sample test > should have a snapshot match for disabled round line butt
 }
 
 .c0:hover {
-  background-color: var(--hover-color);
+  background-color: var(--hovering-color);
   color: #ffffff;
 }
 
@@ -155,7 +155,7 @@ exports[`Sample test > should have a snapshot match for disabled round solid but
 }
 
 .c0:hover {
-  background-color: var(--hover-color);
+  background-color: var(--hovering-color);
   color: #ffffff;
 }
 
@@ -190,7 +190,7 @@ exports[`Sample test > should have a snapshot match for disabled solid button 1`
 }
 
 .c0:hover {
-  background-color: var(--hover-color);
+  background-color: var(--hovering-color);
   color: #ffffff;
 }
 
@@ -225,7 +225,7 @@ exports[`Sample test > should have a snapshot match for line button 1`] = `
 }
 
 .c0:hover {
-  background-color: var(--hover-color);
+  background-color: var(--hovering-color);
   color: #ffffff;
 }
 
@@ -259,7 +259,7 @@ exports[`Sample test > should have a snapshot match for round line button 1`] = 
 }
 
 .c0:hover {
-  background-color: var(--hover-color);
+  background-color: var(--hovering-color);
   color: #ffffff;
 }
 
@@ -293,7 +293,7 @@ exports[`Sample test > should have a snapshot match for round solid button 1`] =
 }
 
 .c0:hover {
-  background-color: var(--hover-color);
+  background-color: var(--hovering-color);
   color: #ffffff;
 }
 
@@ -327,7 +327,7 @@ exports[`Sample test > should have a snapshot match for solid button 1`] = `
 }
 
 .c0:hover {
-  background-color: var(--hover-color);
+  background-color: var(--hovering-color);
   color: #ffffff;
 }
 

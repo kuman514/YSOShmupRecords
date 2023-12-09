@@ -11,7 +11,7 @@ exports[`RecordListCard > should have a snapshot match for its appearance 1`] = 
 }
 
 .c0:hover {
-  background-color: var(--hover-color);
+  background-color: var(--hovering-color);
 }
 
 .c1 {
