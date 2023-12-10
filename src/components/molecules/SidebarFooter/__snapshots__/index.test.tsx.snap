@@ -4,7 +4,6 @@ exports[`SidebarFooter > should have a snapshot match for its appearance 1`] = `
 .c3 {
   all: unset;
   box-sizing: border-box;
-  font-family: Inter;
   font-size: 16px;
   font-weight: 500;
   padding: 8px 16px;
