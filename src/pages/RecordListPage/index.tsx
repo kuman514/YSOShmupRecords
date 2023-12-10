@@ -74,44 +74,43 @@ export function RecordListPage() {
     isError: isRecordIdsError,
   } = useShmupRecordIds(typeId);
 
-  const renderRecordIdSelection =
-    recordIds.length > 0 && !isRecordIdsLoading ? (
-      <RecordSelectionArea>
-        {recordIds.length > 0 ? (
-          <RecordSelectionList>
-            {recordIds.map((recordId) => (
-              <li>
-                <RecordSelectionLink to={`${recordId}`}>
-                  <RecordListCard
-                    imageUrl={getAPIURL(
-                      'records',
-                      typeId,
-                      'images',
-                      `${recordId}_thumbnail.jpg`
-                    )}
-                    title={`${convertDateToString(new Date(recordId))} 기록`}
-                  />
-                </RecordSelectionLink>
-              </li>
-            ))}
-          </RecordSelectionList>
-        ) : (
-          '현재 등록된 기록이 없습니다.'
-        )}
-      </RecordSelectionArea>
-    ) : (
-      <RecordSelectionArea>
-        {!isRecordIdsError ? (
-          <>
-            <RecordListCardSkeleton />
-            <RecordListCardSkeleton />
-            <RecordListCardSkeleton />
-          </>
-        ) : (
-          '목록을 불러오는 중 오류가 발생했습니다.'
-        )}
-      </RecordSelectionArea>
-    );
+  const renderRecordIdSelection = !isRecordIdsLoading ? (
+    <RecordSelectionArea>
+      {recordIds.length > 0 ? (
+        <RecordSelectionList>
+          {recordIds.map((recordId) => (
+            <li>
+              <RecordSelectionLink to={`${recordId}`}>
+                <RecordListCard
+                  imageUrl={getAPIURL(
+                    'records',
+                    typeId,
+                    'images',
+                    `${recordId}_thumbnail.jpg`
+                  )}
+                  title={`${convertDateToString(new Date(recordId))} 기록`}
+                />
+              </RecordSelectionLink>
+            </li>
+          ))}
+        </RecordSelectionList>
+      ) : (
+        '현재 등록된 기록이 없습니다.'
+      )}
+    </RecordSelectionArea>
+  ) : (
+    <RecordSelectionArea>
+      {!isRecordIdsError ? (
+        <>
+          <RecordListCardSkeleton />
+          <RecordListCardSkeleton />
+          <RecordListCardSkeleton />
+        </>
+      ) : (
+        '목록을 불러오는 중 오류가 발생했습니다.'
+      )}
+    </RecordSelectionArea>
+  );
 
   return (
     <Root>
