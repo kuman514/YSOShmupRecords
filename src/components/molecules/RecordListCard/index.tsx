@@ -41,7 +41,7 @@ const Summary = styled.div`
 
 const Title = styled.span`
   color: #ffffff;
-  font-family: Inter;
+
   font-size: 16px;
   font-weight: 600;
 `;

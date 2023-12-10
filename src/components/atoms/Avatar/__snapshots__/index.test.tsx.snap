@@ -13,7 +13,6 @@ exports[`TitleWithAvatar > should have a snapshot match for its appearance 1`] =
 
 .c1 {
   color: #000000;
-  font-family: Inter;
   font-size: 16px;
   font-weight: 500;
   border-radius: inherit;

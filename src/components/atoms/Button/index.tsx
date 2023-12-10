@@ -67,7 +67,6 @@ const Root = styled.button<RootProps>`
   all: unset;
   box-sizing: border-box;
 
-  font-family: Inter;
   font-size: 16px;
   font-weight: 500;
 

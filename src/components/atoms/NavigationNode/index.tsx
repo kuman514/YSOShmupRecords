@@ -12,7 +12,7 @@ interface RootProps {
 const Root = styled.div<RootProps>`
   & > * {
     color: #ffffff;
-    font-family: Inter;
+
     font-style: normal;
     line-height: normal;
 

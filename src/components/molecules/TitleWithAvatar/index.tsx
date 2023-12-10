@@ -20,7 +20,7 @@ const Line = styled.div`
 
 const Title = styled.h1`
   color: #ffffff;
-  font-family: Inter;
+
   font-size: 36px;
   font-weight: 200;
 `;

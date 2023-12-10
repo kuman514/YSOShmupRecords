@@ -34,7 +34,6 @@ exports[`RecordListCard > should have a snapshot match for its appearance 1`] = 
 
 .c3 {
   color: #ffffff;
-  font-family: Inter;
   font-size: 16px;
   font-weight: 600;
 }

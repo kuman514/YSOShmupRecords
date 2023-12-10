@@ -17,7 +17,7 @@ const Root = styled.div<RootProps>`
 
 const TmpPlaceholder = styled.img`
   color: #000000;
-  font-family: Inter;
+
   font-size: 16px;
   font-weight: 500;
 
