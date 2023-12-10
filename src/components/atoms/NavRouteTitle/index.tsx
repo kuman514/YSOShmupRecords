@@ -4,10 +4,6 @@ import styled from 'styled-components';
 
 import { texts } from '^/constants/texts';
 
-const Root = styled.nav`
-  padding: 10px 15px;
-`;
-
 const Crumbs = styled.ol`
   list-style-type: none;
   padding-left: 0;
@@ -15,8 +11,8 @@ const Crumbs = styled.ol`
 
 const CrumbItem = styled.li`
   display: inline-block;
-  font-size: 36px;
-  font-weight: 700;
+  font-size: 16px;
+  font-weight: 400;
 
   & + &::before {
     content: ' > ';
@@ -31,12 +27,12 @@ export function NavRouteTitle() {
     .filter((path) => path.length > 1);
 
   return pathNameSplit.length > 0 ? (
-    <Root>
+    <nav>
       <Crumbs>
         {pathNameSplit.map((navNodeId) => (
           <CrumbItem key={navNodeId}>{texts[navNodeId] ?? navNodeId}</CrumbItem>
         ))}
       </Crumbs>
-    </Root>
+    </nav>
   ) : null;
 }
