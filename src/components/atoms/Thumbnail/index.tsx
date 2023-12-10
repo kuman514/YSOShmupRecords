@@ -10,12 +10,15 @@ const Root = styled.button`
 
   padding: 0;
 
+  background-color: black;
+
   cursor: pointer;
 `;
 
 const Image = styled.img`
   width: inherit;
   height: inherit;
+  object-fit: contain;
 `;
 
 interface Props {
