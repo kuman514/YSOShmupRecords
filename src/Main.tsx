@@ -12,7 +12,7 @@ const Root = styled.div`
   grid-template-columns: auto 1fr;
 `;
 
-const OutletWrapper = styled.div`
+const OutletPositionHolder = styled.div`
   display: flex;
   justify-content: center;
   padding-top: 72px;
@@ -20,13 +20,20 @@ const OutletWrapper = styled.div`
   overflow-y: scroll;
 `;
 
+const OutletContainer = styled.div`
+  width: 100%;
+  max-width: 720px;
+`;
+
 function Main() {
   return (
     <Root>
       <Sidebar rootNavNodes={rootNavNodes} />
-      <OutletWrapper>
-        <Outlet />
-      </OutletWrapper>
+      <OutletPositionHolder>
+        <OutletContainer>
+          <Outlet />
+        </OutletContainer>
+      </OutletPositionHolder>
     </Root>
   );
 }

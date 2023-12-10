@@ -7,7 +7,6 @@ import { ShmupRecord } from '^/types';
 
 const Root = styled.article`
   width: 100%;
-  max-width: 720px;
 
   display: flex;
   flex-direction: column;
