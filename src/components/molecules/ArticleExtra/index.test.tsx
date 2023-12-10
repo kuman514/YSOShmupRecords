@@ -22,7 +22,7 @@ describe('ArticleExtra', () => {
   it('should show youtube when the record contains youtube link', () => {
     render(<ArticleExtra comment={comment} youtubeUrl={youtubeUrl} />);
 
-    const youtube = screen.getByText(/유튜브 링크/i);
+    const youtube = screen.getByText(/유튜브 영상/i);
     expect(youtube).not.toBeNull();
   });
 });

@@ -80,7 +80,7 @@ describe('Article', () => {
     const commentary = screen.getByText(testData.comment);
     expect(commentary).not.toBeNull();
 
-    const youtube = screen.getByText(/유튜브 링크/i);
+    const youtube = screen.getByText(/유튜브 영상/i);
     expect(youtube).not.toBeNull();
   });
 });
