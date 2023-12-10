@@ -6,14 +6,22 @@ import { Thumbnail } from '^/components/atoms/Thumbnail';
 import { convertDateToString } from '^/utils/date-to-string';
 import { texts } from '^/constants/texts';
 import { ImageDisplayModal } from '^/components/molecules/ImageDisplayModal';
+import { NavRouteTitle } from '^/components/atoms/NavRouteTitle';
 
 const Root = styled.div`
   width: 100%;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
+  row-gap: 16px;
+`;
+
+const SummaryArea = styled.div`
+  display: flex;
+  flex-direction: row;
   align-items: center;
-  column-gap: 15px;
+  flex-wrap: wrap;
+  gap: 16px;
 `;
 
 const Title = styled.h1`
@@ -23,6 +31,10 @@ const Title = styled.h1`
 
 const List = styled.ul`
   padding-left: 15px;
+
+  & > li:not(:last-of-type) {
+    margin-bottom: 8px;
+  }
 `;
 
 const ListItemTitle = styled.span`
@@ -82,12 +94,6 @@ export function ArticleSummary({ record }: Props) {
           {texts[record.byWhat] ?? record.byWhat}
         </ListItemContent>
       </li>
-      <li>
-        <ListItemTitle>트위터 링크</ListItemTitle>
-        <ListItemContent>
-          <a href={record.tweetUrl}>{record.tweetUrl}</a>
-        </ListItemContent>
-      </li>
       {renderSpecialTags}
     </List>
   );
@@ -103,19 +109,20 @@ export function ArticleSummary({ record }: Props) {
 
   return (
     <Root>
-      <Thumbnail
-        imageSrc={record.thumbnailUrl}
-        altText={`${record.subjectId} ${convertDateToString(record.when)} ${
-          record.stage
-        }스테이지 ${record.score}점`}
-        onClick={() => {
-          setIsImageModalShow(true);
-        }}
-      />
-      <div>
-        <Title>{convertDateToString(record.when)}</Title>
-        {renderList}
-      </div>
+      <Title>{convertDateToString(record.when)}</Title>
+      <NavRouteTitle />
+      <SummaryArea>
+        <Thumbnail
+          imageSrc={record.thumbnailUrl}
+          altText={`${record.subjectId} ${convertDateToString(record.when)} ${
+            record.stage
+          }스테이지 ${record.score}점`}
+          onClick={() => {
+            setIsImageModalShow(true);
+          }}
+        />
+        <div>{renderList}</div>
+      </SummaryArea>
       {renderImageModal}
     </Root>
   );

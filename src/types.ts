@@ -18,7 +18,6 @@ export interface ShmupRecord {
   comment: string;
   thumbnailUrl: string;
   originalImageUrl: string;
-  tweetUrl: string;
   youtubeUrl?: string;
   specialTags?: string[];
 }
