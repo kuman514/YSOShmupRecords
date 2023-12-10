@@ -5,8 +5,8 @@ const Root = styled.button`
   border: unset;
   background: unset;
 
-  width: 360px;
-  height: 360px;
+  width: 240px;
+  height: 240px;
 
   padding: 0;
 
@@ -14,10 +14,8 @@ const Root = styled.button`
 `;
 
 const Image = styled.img`
-  width: auto;
-  height: auto;
-  max-width: 360px;
-  max-height: 360px;
+  width: inherit;
+  height: inherit;
 `;
 
 interface Props {
