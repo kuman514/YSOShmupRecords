@@ -26,7 +26,7 @@ const SummaryArea = styled.div`
 
 const Title = styled.h1`
   font-size: 36px;
-  font-weight: 600;
+  font-weight: 700;
 `;
 
 const List = styled.ul`
