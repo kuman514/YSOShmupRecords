@@ -2,7 +2,7 @@ import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-import { texts } from '^/constants/texts';
+import { textsForArticle } from '^/constants/texts';
 import { useShmupRecordIds } from '^/hooks/useShmupRecordIds';
 import { Skeleton } from '^/components/atoms/Skeleton';
 import { RecordListCard } from '^/components/molecules/RecordListCard';
@@ -114,7 +114,7 @@ export function RecordListPage() {
 
   return (
     <Root>
-      <Title>{texts[typeId] ?? typeId} 기록 목록</Title>
+      <Title>{textsForArticle[typeId] ?? typeId} 기록 목록</Title>
       {renderRecordIdSelection}
     </Root>
   );

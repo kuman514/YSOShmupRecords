@@ -4,7 +4,7 @@ import { cleanup, render, screen } from '@testing-library/react';
 import { RouterProvider, createMemoryRouter } from 'react-router-dom';
 
 import { rootNavNodes } from '^/constants/nav-node';
-import { texts } from '^/constants/texts';
+import { textsForNavigation } from '^/constants/texts';
 
 import { NavigationForest } from '.';
 
@@ -30,7 +30,7 @@ describe('NavSidebar', () => {
 
     rootNavNodes.forEach((rootNavNode) => {
       expect(
-        screen.getByText(texts[rootNavNode.id] ?? rootNavNode.id)
+        screen.getByText(textsForNavigation[rootNavNode.id] ?? rootNavNode.id)
       ).not.toBeNull();
     });
   });

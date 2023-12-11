@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { ShmupRecord } from '^/types';
 import { Thumbnail } from '^/components/atoms/Thumbnail';
 import { convertDateToString } from '^/utils/date-to-string';
-import { texts } from '^/constants/texts';
+import { textsForArticle } from '^/constants/texts';
 import { ImageDisplayModal } from '^/components/molecules/ImageDisplayModal';
 import { NavRouteTitle } from '^/components/atoms/NavRouteTitle';
 
@@ -91,7 +91,7 @@ export function ArticleSummary({ record }: Props) {
       <li>
         <ListItemTitle>수단/장소</ListItemTitle>
         <ListItemContent>
-          {texts[record.byWhat] ?? record.byWhat}
+          {textsForArticle[record.byWhat] ?? record.byWhat}
         </ListItemContent>
       </li>
       {renderSpecialTags}
