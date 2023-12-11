@@ -9,8 +9,8 @@ import { textsForArticle } from '^/constants/texts';
 import { ImageDisplayModal } from '^/components/molecules/ImageDisplayModal';
 import { NavRouteTitle } from '^/components/atoms/NavRouteTitle';
 import { Button } from '^/components/atoms/Button';
-import { ReactComponent as TwitterSvg } from '^/assets/icons/twitter.svg';
-import { ReactComponent as LinkSvg } from '^/assets/icons/link.svg';
+import { ReactComponent as RawLinkSvg } from '^/assets/icons/link.svg';
+import { ReactComponent as RawTwitterSvg } from '^/assets/icons/twitter.svg';
 
 const Root = styled.div`
   width: 100%;
@@ -73,6 +73,16 @@ const ShareButtonList = styled.div`
   display: flex;
   flex-direction: row;
   gap: 8px;
+`;
+
+const LinkSvg = styled(RawLinkSvg)`
+  width: 24px;
+  height: 24px;
+`;
+
+const TwitterSvg = styled(RawTwitterSvg)`
+  width: 24px;
+  height: 24px;
 `;
 
 interface Props {
@@ -161,12 +171,7 @@ export function ArticleSummary({ record }: Props) {
                 borderRadius: '50%',
               }}
             >
-              <LinkSvg
-                style={{
-                  width: '24px',
-                  height: '24px',
-                }}
-              />
+              <LinkSvg />
             </Button>
             <Button
               type={ButtonType.ROUND_LINE}
@@ -190,12 +195,7 @@ export function ArticleSummary({ record }: Props) {
                 borderRadius: '50%',
               }}
             >
-              <TwitterSvg
-                style={{
-                  width: '24px',
-                  height: '24px',
-                }}
-              />
+              <TwitterSvg />
             </Button>
           </ShareButtonList>
         </SummaryDescription>
