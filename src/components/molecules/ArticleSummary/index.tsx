@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { useToast } from '@chakra-ui/react';
 
 import { ButtonType, ShmupRecord } from '^/types';
 import { Thumbnail } from '^/components/atoms/Thumbnail';
@@ -79,6 +80,7 @@ interface Props {
 }
 
 export function ArticleSummary({ record }: Props) {
+  const toast = useToast();
   const [isImageModalShow, setIsImageModalShow] = useState<boolean>(false);
 
   const renderSpecialTags =
@@ -142,8 +144,18 @@ export function ArticleSummary({ record }: Props) {
             <Button
               type={ButtonType.ROUND_LINE}
               isDisabled={false}
-              onClick={() => {}}
+              onClick={() => {
+                navigator.clipboard.writeText(window.location.href);
+                toast({
+                  duration: 2000,
+                  title: '링크 복사 완료.',
+                  description: '공유하기 원하시는 곳에 붙여넣으십시오.',
+                  status: 'success',
+                  isClosable: true,
+                });
+              }}
               customStyle={{
+                position: 'relative',
                 display: 'flex',
                 padding: '10px',
                 borderRadius: '50%',
@@ -159,7 +171,19 @@ export function ArticleSummary({ record }: Props) {
             <Button
               type={ButtonType.ROUND_LINE}
               isDisabled={false}
-              onClick={() => {}}
+              onClick={() => {
+                const urlToUri = encodeURI(window.location.href);
+                const textToUri = encodeURI(
+                  `${convertDateToString(record.when)}, ${
+                    textsForArticle[record.byWhat]
+                  }에서 플레이한 ${textsForArticle[record.subjectId]}에서, ${
+                    record.score
+                  }점으로 ${record.stage} 달성!`
+                );
+
+                const tweet = `https://twitter.com/intent/tweet?url=${urlToUri}&text=${textToUri}`;
+                window.open(tweet, '_blank');
+              }}
               customStyle={{
                 display: 'flex',
                 padding: '10px',
