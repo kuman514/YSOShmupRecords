@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import { Link } from 'react-router-dom';
 import { NavNodeInfo } from '^/types';
-import { texts } from '^/constants/texts';
+import { textsForNavigation } from '^/constants/texts';
 
 interface RootProps {
   $url?: string;
@@ -55,7 +55,7 @@ interface Props {
 }
 
 export function NavigationNode({ depth, nodeInfo }: Props) {
-  const text = texts[nodeInfo.id] ?? nodeInfo.id;
+  const text = textsForNavigation[nodeInfo.id] ?? nodeInfo.id;
   const renderText = (() => {
     switch (depth) {
       case 0:

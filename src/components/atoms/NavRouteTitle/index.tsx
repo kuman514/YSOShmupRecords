@@ -2,7 +2,7 @@ import React from 'react';
 import { useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 
-import { texts } from '^/constants/texts';
+import { textsForArticle } from '^/constants/texts';
 
 const Crumbs = styled.ol`
   list-style-type: none;
@@ -30,7 +30,9 @@ export function NavRouteTitle() {
     <nav>
       <Crumbs>
         {pathNameSplit.map((navNodeId) => (
-          <CrumbItem key={navNodeId}>{texts[navNodeId] ?? navNodeId}</CrumbItem>
+          <CrumbItem key={navNodeId}>
+            {textsForArticle[navNodeId] ?? navNodeId}
+          </CrumbItem>
         ))}
       </Crumbs>
     </nav>
