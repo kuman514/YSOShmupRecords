@@ -99,6 +99,31 @@ export function ArticleSummary({ record }: Props) {
   const toast = useToast();
   const [isImageModalShow, setIsImageModalShow] = useState<boolean>(false);
 
+  function handleOnClickCopyLink() {
+    navigator.clipboard.writeText(window.location.href);
+    toast({
+      duration: 3000,
+      title: '링크 복사 완료.',
+      description: '공유하기 원하시는 곳에 붙여넣으십시오.',
+      status: 'success',
+      isClosable: true,
+    });
+  }
+
+  function handleOnClickShareToTwitter() {
+    const urlToUri = encodeURI(window.location.href);
+    const textToUri = encodeURI(
+      `${convertDateToString(record.when)}, ${
+        textsForArticle[record.byWhat]
+      }에서 플레이한 ${textsForArticle[record.subjectId]}에서, ${
+        record.score
+      }점으로 ${record.stage} 달성!`
+    );
+
+    const tweet = `https://twitter.com/intent/tweet?url=${urlToUri}&text=${textToUri}`;
+    window.open(tweet, '_blank');
+  }
+
   const renderSpecialTags =
     record.specialTags !== undefined && record.specialTags.length > 0 ? (
       <li>
@@ -160,16 +185,7 @@ export function ArticleSummary({ record }: Props) {
             <Button
               type={ButtonType.ROUND_LINE}
               isDisabled={false}
-              onClick={() => {
-                navigator.clipboard.writeText(window.location.href);
-                toast({
-                  duration: 2000,
-                  title: '링크 복사 완료.',
-                  description: '공유하기 원하시는 곳에 붙여넣으십시오.',
-                  status: 'success',
-                  isClosable: true,
-                });
-              }}
+              onClick={handleOnClickCopyLink}
               customStyle={iconShareButtonStyle}
             >
               <LinkSvg />
@@ -177,19 +193,7 @@ export function ArticleSummary({ record }: Props) {
             <Button
               type={ButtonType.ROUND_LINE}
               isDisabled={false}
-              onClick={() => {
-                const urlToUri = encodeURI(window.location.href);
-                const textToUri = encodeURI(
-                  `${convertDateToString(record.when)}, ${
-                    textsForArticle[record.byWhat]
-                  }에서 플레이한 ${textsForArticle[record.subjectId]}에서, ${
-                    record.score
-                  }점으로 ${record.stage} 달성!`
-                );
-
-                const tweet = `https://twitter.com/intent/tweet?url=${urlToUri}&text=${textToUri}`;
-                window.open(tweet, '_blank');
-              }}
+              onClick={handleOnClickShareToTwitter}
               customStyle={iconShareButtonStyle}
             >
               <TwitterSvg />
