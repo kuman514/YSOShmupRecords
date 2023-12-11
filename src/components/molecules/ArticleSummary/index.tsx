@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-import { ShmupRecord } from '^/types';
+import { ButtonType, ShmupRecord } from '^/types';
 import { Thumbnail } from '^/components/atoms/Thumbnail';
 import { convertDateToString } from '^/utils/date-to-string';
 import { textsForArticle } from '^/constants/texts';
 import { ImageDisplayModal } from '^/components/molecules/ImageDisplayModal';
 import { NavRouteTitle } from '^/components/atoms/NavRouteTitle';
+import { Button } from '^/components/atoms/Button';
+import { ReactComponent as TwitterSvg } from '^/assets/icons/twitter.svg';
+import { ReactComponent as LinkSvg } from '^/assets/icons/link.svg';
 
 const Root = styled.div`
   width: 100%;
@@ -27,6 +30,12 @@ const SummaryArea = styled.div`
 const Title = styled.h1`
   font-size: 36px;
   font-weight: 700;
+`;
+
+const SummaryDescription = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 `;
 
 const List = styled.ul`
@@ -57,6 +66,12 @@ const SpecialTag = styled.span`
     content: ', ';
     white-space: pre;
   }
+`;
+
+const ShareButtonList = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
 `;
 
 interface Props {
@@ -121,7 +136,45 @@ export function ArticleSummary({ record }: Props) {
             setIsImageModalShow(true);
           }}
         />
-        <div>{renderList}</div>
+        <SummaryDescription>
+          {renderList}
+          <ShareButtonList>
+            <Button
+              type={ButtonType.ROUND_LINE}
+              isDisabled={false}
+              onClick={() => {}}
+              customStyle={{
+                display: 'flex',
+                padding: '10px',
+                borderRadius: '50%',
+              }}
+            >
+              <LinkSvg
+                style={{
+                  width: '24px',
+                  height: '24px',
+                }}
+              />
+            </Button>
+            <Button
+              type={ButtonType.ROUND_LINE}
+              isDisabled={false}
+              onClick={() => {}}
+              customStyle={{
+                display: 'flex',
+                padding: '10px',
+                borderRadius: '50%',
+              }}
+            >
+              <TwitterSvg
+                style={{
+                  width: '24px',
+                  height: '24px',
+                }}
+              />
+            </Button>
+          </ShareButtonList>
+        </SummaryDescription>
       </SummaryArea>
       {renderImageModal}
     </Root>
