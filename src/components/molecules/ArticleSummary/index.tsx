@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { CSSProperties, useState } from 'react';
 import styled from 'styled-components';
 import { useToast } from '@chakra-ui/react';
 
@@ -85,6 +85,12 @@ const TwitterSvg = styled(RawTwitterSvg)`
   height: 24px;
 `;
 
+const iconShareButtonStyle: CSSProperties = {
+  display: 'flex',
+  padding: '10px',
+  borderRadius: '50%',
+};
+
 interface Props {
   record: ShmupRecord;
 }
@@ -164,12 +170,7 @@ export function ArticleSummary({ record }: Props) {
                   isClosable: true,
                 });
               }}
-              customStyle={{
-                position: 'relative',
-                display: 'flex',
-                padding: '10px',
-                borderRadius: '50%',
-              }}
+              customStyle={iconShareButtonStyle}
             >
               <LinkSvg />
             </Button>
@@ -189,11 +190,7 @@ export function ArticleSummary({ record }: Props) {
                 const tweet = `https://twitter.com/intent/tweet?url=${urlToUri}&text=${textToUri}`;
                 window.open(tweet, '_blank');
               }}
-              customStyle={{
-                display: 'flex',
-                padding: '10px',
-                borderRadius: '50%',
-              }}
+              customStyle={iconShareButtonStyle}
             >
               <TwitterSvg />
             </Button>
