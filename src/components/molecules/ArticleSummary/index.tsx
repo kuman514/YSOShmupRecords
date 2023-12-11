@@ -1,12 +1,16 @@
-import React, { useState } from 'react';
+import React, { CSSProperties, useState } from 'react';
 import styled from 'styled-components';
+import { useToast } from '@chakra-ui/react';
 
-import { ShmupRecord } from '^/types';
+import { ButtonType, ShmupRecord } from '^/types';
 import { Thumbnail } from '^/components/atoms/Thumbnail';
 import { convertDateToString } from '^/utils/date-to-string';
 import { textsForArticle } from '^/constants/texts';
 import { ImageDisplayModal } from '^/components/molecules/ImageDisplayModal';
 import { NavRouteTitle } from '^/components/atoms/NavRouteTitle';
+import { Button } from '^/components/atoms/Button';
+import { ReactComponent as RawLinkSvg } from '^/assets/icons/link.svg';
+import { ReactComponent as RawTwitterSvg } from '^/assets/icons/twitter.svg';
 
 const Root = styled.div`
   width: 100%;
@@ -27,6 +31,12 @@ const SummaryArea = styled.div`
 const Title = styled.h1`
   font-size: 36px;
   font-weight: 700;
+`;
+
+const SummaryDescription = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 `;
 
 const List = styled.ul`
@@ -59,12 +69,60 @@ const SpecialTag = styled.span`
   }
 `;
 
+const ShareButtonList = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+`;
+
+const LinkSvg = styled(RawLinkSvg)`
+  width: 24px;
+  height: 24px;
+`;
+
+const TwitterSvg = styled(RawTwitterSvg)`
+  width: 24px;
+  height: 24px;
+`;
+
+const iconShareButtonStyle: CSSProperties = {
+  display: 'flex',
+  padding: '10px',
+  borderRadius: '50%',
+};
+
 interface Props {
   record: ShmupRecord;
 }
 
 export function ArticleSummary({ record }: Props) {
+  const toast = useToast();
   const [isImageModalShow, setIsImageModalShow] = useState<boolean>(false);
+
+  function handleOnClickCopyLink() {
+    navigator.clipboard.writeText(window.location.href);
+    toast({
+      duration: 3000,
+      title: '링크 복사 완료.',
+      description: '공유하기 원하시는 곳에 붙여넣으십시오.',
+      status: 'success',
+      isClosable: true,
+    });
+  }
+
+  function handleOnClickShareToTwitter() {
+    const urlToUri = encodeURI(window.location.href);
+    const textToUri = encodeURI(
+      `${convertDateToString(record.when)}, ${
+        textsForArticle[record.byWhat]
+      }에서 플레이한 ${textsForArticle[record.subjectId]}에서, ${
+        record.score
+      }점으로 ${record.stage} 달성!`
+    );
+
+    const tweet = `https://twitter.com/intent/tweet?url=${urlToUri}&text=${textToUri}`;
+    window.open(tweet, '_blank');
+  }
 
   const renderSpecialTags =
     record.specialTags !== undefined && record.specialTags.length > 0 ? (
@@ -121,7 +179,27 @@ export function ArticleSummary({ record }: Props) {
             setIsImageModalShow(true);
           }}
         />
-        <div>{renderList}</div>
+        <SummaryDescription>
+          {renderList}
+          <ShareButtonList>
+            <Button
+              type={ButtonType.ROUND_LINE}
+              isDisabled={false}
+              onClick={handleOnClickCopyLink}
+              customStyle={iconShareButtonStyle}
+            >
+              <LinkSvg />
+            </Button>
+            <Button
+              type={ButtonType.ROUND_LINE}
+              isDisabled={false}
+              onClick={handleOnClickShareToTwitter}
+              customStyle={iconShareButtonStyle}
+            >
+              <TwitterSvg />
+            </Button>
+          </ShareButtonList>
+        </SummaryDescription>
       </SummaryArea>
       {renderImageModal}
     </Root>

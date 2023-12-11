@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { ChakraProvider } from '@chakra-ui/react';
 
 import Main from '^/Main';
 import { LandingPage } from '^/pages/LandingPage';
@@ -57,7 +58,9 @@ const router = createBrowserRouter([
   if (root) {
     ReactDOM.createRoot(root).render(
       <React.StrictMode>
-        <RouterProvider router={router} />
+        <ChakraProvider>
+          <RouterProvider router={router} />
+        </ChakraProvider>
       </React.StrictMode>
     );
   }
