@@ -123,6 +123,13 @@ module.exports = {
         'jsx-a11y/click-events-have-key-events': [
           'off',
         ],
+        'react/jsx-no-bind': [
+          'error', {
+            allowArrowFunctions: true,
+            allowFunctions: true,
+            allowBind: false,
+          }
+        ],
       },
     },
   ],
