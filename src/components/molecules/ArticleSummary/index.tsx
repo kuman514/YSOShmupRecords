@@ -1,6 +1,5 @@
-import React, { CSSProperties, useState } from 'react';
+import React, { CSSProperties, useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { useToast } from '@chakra-ui/react';
 
 import { ButtonType, ShmupRecord } from '^/types';
 import { Thumbnail } from '^/components/atoms/Thumbnail';
@@ -75,6 +74,41 @@ const ShareButtonList = styled.div`
   gap: 8px;
 `;
 
+interface CopyToClipboardTooltipProps {
+  $isCopiedToClipboard: boolean;
+}
+
+const CopyToClipboardTooltip = styled.div<CopyToClipboardTooltipProps>`
+  position: relative;
+
+  &::after {
+    content: ${({ $isCopiedToClipboard }) =>
+      $isCopiedToClipboard ? '"복사 완료"' : '"복사하기"'};
+
+    position: absolute;
+    left: 50%; /* Based on the parent's width */
+    top: -100%; /* Based on the parent's width */
+    transform: translateX(-50%); /* Based on this width, 150px */
+
+    width: 150px;
+    padding: 12px 8px;
+    border-radius: 8px;
+
+    background-color: var(--primary-color);
+    color: #ffffff;
+
+    display: none;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &:hover {
+    &::after {
+      display: flex;
+    }
+  }
+`;
+
 const LinkSvg = styled(RawLinkSvg)`
   width: 24px;
   height: 24px;
@@ -96,18 +130,13 @@ interface Props {
 }
 
 export function ArticleSummary({ record }: Props) {
-  const toast = useToast();
+  const [isCopiedToClipboard, setIsCopiedToClipboard] =
+    useState<boolean>(false);
   const [isImageModalShow, setIsImageModalShow] = useState<boolean>(false);
 
   function handleOnClickCopyLink() {
     navigator.clipboard.writeText(window.location.href);
-    toast({
-      duration: 3000,
-      title: '링크 복사 완료.',
-      description: '공유하기 원하시는 곳에 붙여넣으십시오.',
-      status: 'success',
-      isClosable: true,
-    });
+    setIsCopiedToClipboard(true);
   }
 
   function handleOnClickShareToTwitter() {
@@ -165,6 +194,14 @@ export function ArticleSummary({ record }: Props) {
     />
   ) : null;
 
+  useEffect(() => {
+    if (isCopiedToClipboard) {
+      setTimeout(() => {
+        setIsCopiedToClipboard(false);
+      }, 2500);
+    }
+  }, [isCopiedToClipboard]);
+
   return (
     <Root>
       <Title>{convertDateToString(record.when)}</Title>
@@ -182,14 +219,16 @@ export function ArticleSummary({ record }: Props) {
         <SummaryDescription>
           {renderList}
           <ShareButtonList>
-            <Button
-              type={ButtonType.ROUND_LINE}
-              isDisabled={false}
-              onClick={handleOnClickCopyLink}
-              customStyle={iconShareButtonStyle}
-            >
-              <LinkSvg />
-            </Button>
+            <CopyToClipboardTooltip $isCopiedToClipboard={isCopiedToClipboard}>
+              <Button
+                type={ButtonType.ROUND_LINE}
+                isDisabled={false}
+                onClick={handleOnClickCopyLink}
+                customStyle={iconShareButtonStyle}
+              >
+                <LinkSvg />
+              </Button>
+            </CopyToClipboardTooltip>
             <Button
               type={ButtonType.ROUND_LINE}
               isDisabled={false}
