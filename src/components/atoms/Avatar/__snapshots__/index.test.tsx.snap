@@ -1,0 +1,32 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`TitleWithAvatar > should have a snapshot match for its appearance 1`] = `
+.c0 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: calc(150px / 2);
+  width: 150px;
+  height: 150px;
+  background-color: var(--gray-color);
+}
+
+.c1 {
+  color: #000000;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: inherit;
+  width: inherit;
+  height: inherit;
+}
+
+<div
+  class="c0"
+>
+  <img
+    alt="YSOShmupRecords avatar"
+    class="c1"
+    src="Temp Image Url"
+  />
+</div>
+`;

@@ -3,30 +3,44 @@ import styled from 'styled-components';
 
 import { DescriptionListItem } from '^/types';
 
+const Root = styled.div`
+  display: flex;
+  flex-direction: column;
+  row-gap: 16px;
+  padding-left: 15px;
+  padding-right: 15px;
+`;
+
+const Title = styled.h1`
+  color: var(--light-font-color);
+
+  font-size: 36px;
+  font-weight: 700;
+`;
+
 const ListItem = styled.li`
   font-size: 16px;
   font-weight: 400;
-`;
 
-const ListItemBody = styled.div`
-  margin-bottom: 10px;
+  &:not(:last-of-type) {
+    margin-bottom: 8px;
+  }
 `;
 
 interface Props {
+  title: string;
   descriptionListItems: DescriptionListItem[];
 }
 
-export function DescriptionTemplate({ descriptionListItems }: Props) {
+export function DescriptionTemplate({ title, descriptionListItems }: Props) {
   const renderDescriptionListItems = descriptionListItems.map(
-    ({ id, description, subItems }) => (
-      <ListItem key={id}>
-        <ListItemBody>{description}</ListItemBody>
-        {subItems ? (
-          <DescriptionTemplate descriptionListItems={subItems} />
-        ) : null}
-      </ListItem>
-    )
+    ({ id, description }) => <ListItem key={id}>{description}</ListItem>
   );
 
-  return <ul>{renderDescriptionListItems}</ul>;
+  return (
+    <Root>
+      <Title>{title}</Title>
+      <ul>{renderDescriptionListItems}</ul>
+    </Root>
+  );
 }

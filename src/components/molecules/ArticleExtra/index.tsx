@@ -3,25 +3,29 @@ import styled from 'styled-components';
 
 import { ShmupRecord } from '^/types';
 
-const Root = styled.div`
+const Root = styled.ul`
   width: 100%;
+  padding-left: 15px;
 `;
 
-const Column = styled.div`
+const ListItem = styled.li`
+  &:not(:last-of-type) {
+    margin-bottom: 8px;
+  }
+`;
+
+const ListItemWrapper = styled.div`
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-items: center;
-  column-gap: 15px;
+  flex-direction: column;
+  row-gap: 8px;
 `;
 
-const ColumnTitle = styled.div`
-  width: 180px;
-  font-weight: 600;
+const ListItemTitle = styled.span`
   font-size: 16px;
+  font-weight: 600;
 `;
 
-const ColumnContent = styled.div`
+const ListItemContent = styled.span`
   font-size: 16px;
   font-weight: 400;
 `;
@@ -32,33 +36,36 @@ interface Props {
 }
 
 export function ArticleExtra({ comment, youtubeUrl }: Props) {
-  /**
-   * @todo
-   * Expand youtube embed to maximum
-   */
   const renderYoutube =
     youtubeUrl !== undefined ? (
-      <Column>
-        <ColumnTitle>유튜브 링크</ColumnTitle>
-        <ColumnContent>
-          <iframe
-            width="100%"
-            height="100%"
-            src={youtubeUrl}
-            title="YouTube video player"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowFullScreen
-          />
-        </ColumnContent>
-      </Column>
+      <ListItem>
+        <ListItemWrapper>
+          <ListItemTitle>유튜브 영상</ListItemTitle>
+          <ListItemContent>
+            <iframe
+              width="100%"
+              height="480px"
+              src={youtubeUrl}
+              title="YouTube video player"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+              style={{
+                borderWidth: 0,
+              }}
+            />
+          </ListItemContent>
+        </ListItemWrapper>
+      </ListItem>
     ) : null;
 
   return (
     <Root>
-      <Column>
-        <ColumnTitle>코멘터리</ColumnTitle>
-        <ColumnContent>{comment}</ColumnContent>
-      </Column>
+      <ListItem>
+        <ListItemWrapper>
+          <ListItemTitle>코멘터리</ListItemTitle>
+          <ListItemContent>{comment}</ListItemContent>
+        </ListItemWrapper>
+      </ListItem>
       {renderYoutube}
     </Root>
   );

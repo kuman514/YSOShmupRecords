@@ -18,15 +18,19 @@ export interface ShmupRecord {
   comment: string;
   thumbnailUrl: string;
   originalImageUrl: string;
-  tweetUrl: string;
   youtubeUrl?: string;
   specialTags?: string[];
 }
 
-export type DropdownOption = ShmupRecord['id'];
-
 export interface DescriptionListItem {
   id: string;
   description: string;
-  subItems?: DescriptionListItem[];
+}
+
+export enum ButtonType {
+  SOLID = 'solid',
+  LINE = 'line',
+  ROUND_SOLID = 'round-solid',
+  ROUND_LINE = 'round-line',
+  CLEAR = 'clear',
 }

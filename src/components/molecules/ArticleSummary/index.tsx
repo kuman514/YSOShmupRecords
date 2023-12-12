@@ -1,28 +1,49 @@
-import React, { useState } from 'react';
+import React, { CSSProperties, useEffect, useState } from 'react';
 import styled from 'styled-components';
 
-import { ShmupRecord } from '^/types';
+import { ButtonType, ShmupRecord } from '^/types';
 import { Thumbnail } from '^/components/atoms/Thumbnail';
-import { convertDateToString } from '^/utils';
-import { texts } from '^/constants/texts';
+import { convertDateToString } from '^/utils/date-to-string';
+import { textsForArticle } from '^/constants/texts';
 import { ImageDisplayModal } from '^/components/molecules/ImageDisplayModal';
+import { NavRouteTitle } from '^/components/atoms/NavRouteTitle';
+import { Button } from '^/components/atoms/Button';
+import { ReactComponent as RawLinkSvg } from '^/assets/icons/link.svg';
+import { ReactComponent as RawTwitterSvg } from '^/assets/icons/twitter.svg';
 
 const Root = styled.div`
   width: 100%;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
+  row-gap: 16px;
+`;
+
+const SummaryArea = styled.div`
+  display: flex;
+  flex-direction: row;
   align-items: center;
-  column-gap: 15px;
+  flex-wrap: wrap;
+  gap: 16px;
 `;
 
 const Title = styled.h1`
   font-size: 36px;
-  font-weight: 600;
+  font-weight: 700;
+`;
+
+const SummaryDescription = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 `;
 
 const List = styled.ul`
   padding-left: 15px;
+
+  & > li:not(:last-of-type) {
+    margin-bottom: 8px;
+  }
 `;
 
 const ListItemTitle = styled.span`
@@ -47,12 +68,90 @@ const SpecialTag = styled.span`
   }
 `;
 
+const ShareButtonList = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+`;
+
+interface CopyToClipboardTooltipProps {
+  $isCopiedToClipboard: boolean;
+}
+
+const CopyToClipboardTooltip = styled.div<CopyToClipboardTooltipProps>`
+  position: relative;
+
+  &::after {
+    content: ${({ $isCopiedToClipboard }) =>
+      $isCopiedToClipboard ? '"복사 완료"' : '"복사하기"'};
+
+    position: absolute;
+    left: 50%; /* Based on the parent's width */
+    top: -100%; /* Based on the parent's width */
+    transform: translateX(-50%); /* Based on this width, 150px */
+
+    width: 150px;
+    padding: 12px 8px;
+    border-radius: 8px;
+
+    background-color: var(--primary-color);
+    color: #ffffff;
+
+    display: none;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &:hover {
+    &::after {
+      display: flex;
+    }
+  }
+`;
+
+const LinkSvg = styled(RawLinkSvg)`
+  width: 24px;
+  height: 24px;
+`;
+
+const TwitterSvg = styled(RawTwitterSvg)`
+  width: 24px;
+  height: 24px;
+`;
+
+const iconShareButtonStyle: CSSProperties = {
+  display: 'flex',
+  padding: '10px',
+  borderRadius: '50%',
+};
+
 interface Props {
   record: ShmupRecord;
 }
 
 export function ArticleSummary({ record }: Props) {
+  const [isCopiedToClipboard, setIsCopiedToClipboard] =
+    useState<boolean>(false);
   const [isImageModalShow, setIsImageModalShow] = useState<boolean>(false);
+
+  function handleOnClickCopyLink() {
+    navigator.clipboard.writeText(window.location.href);
+    setIsCopiedToClipboard(true);
+  }
+
+  function handleOnClickShareToTwitter() {
+    const urlToUri = encodeURI(window.location.href);
+    const textToUri = encodeURI(
+      `${convertDateToString(record.when)}, ${
+        textsForArticle[record.byWhat]
+      }에서 플레이한 ${textsForArticle[record.subjectId]}에서, ${
+        record.score
+      }점으로 ${record.stage} 달성!`
+    );
+
+    const tweet = `https://twitter.com/intent/tweet?url=${urlToUri}&text=${textToUri}`;
+    window.open(tweet, '_blank');
+  }
 
   const renderSpecialTags =
     record.specialTags !== undefined && record.specialTags.length > 0 ? (
@@ -79,13 +178,7 @@ export function ArticleSummary({ record }: Props) {
       <li>
         <ListItemTitle>수단/장소</ListItemTitle>
         <ListItemContent>
-          {texts[record.byWhat] ?? record.byWhat}
-        </ListItemContent>
-      </li>
-      <li>
-        <ListItemTitle>트위터 링크</ListItemTitle>
-        <ListItemContent>
-          <a href={record.tweetUrl}>{record.tweetUrl}</a>
+          {textsForArticle[record.byWhat] ?? record.byWhat}
         </ListItemContent>
       </li>
       {renderSpecialTags}
@@ -101,21 +194,52 @@ export function ArticleSummary({ record }: Props) {
     />
   ) : null;
 
+  useEffect(() => {
+    if (isCopiedToClipboard) {
+      setTimeout(() => {
+        setIsCopiedToClipboard(false);
+      }, 2500);
+    }
+  }, [isCopiedToClipboard]);
+
   return (
     <Root>
-      <Thumbnail
-        imageSrc={record.thumbnailUrl}
-        altText={`${record.subjectId} ${convertDateToString(record.when)} ${
-          record.stage
-        }스테이지 ${record.score}점`}
-        onClick={() => {
-          setIsImageModalShow(true);
-        }}
-      />
-      <div>
-        <Title>{convertDateToString(record.when)}</Title>
-        {renderList}
-      </div>
+      <Title>{convertDateToString(record.when)}</Title>
+      <NavRouteTitle />
+      <SummaryArea>
+        <Thumbnail
+          imageSrc={record.thumbnailUrl}
+          altText={`${record.subjectId} ${convertDateToString(record.when)} ${
+            record.stage
+          }스테이지 ${record.score}점`}
+          onClick={() => {
+            setIsImageModalShow(true);
+          }}
+        />
+        <SummaryDescription>
+          {renderList}
+          <ShareButtonList>
+            <CopyToClipboardTooltip $isCopiedToClipboard={isCopiedToClipboard}>
+              <Button
+                type={ButtonType.ROUND_LINE}
+                isDisabled={false}
+                onClick={handleOnClickCopyLink}
+                customStyle={iconShareButtonStyle}
+              >
+                <LinkSvg />
+              </Button>
+            </CopyToClipboardTooltip>
+            <Button
+              type={ButtonType.ROUND_LINE}
+              isDisabled={false}
+              onClick={handleOnClickShareToTwitter}
+              customStyle={iconShareButtonStyle}
+            >
+              <TwitterSvg />
+            </Button>
+          </ShareButtonList>
+        </SummaryDescription>
+      </SummaryArea>
       {renderImageModal}
     </Root>
   );

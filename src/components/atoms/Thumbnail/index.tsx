@@ -5,19 +5,20 @@ const Root = styled.button`
   border: unset;
   background: unset;
 
-  width: 360px;
-  height: 360px;
+  width: 240px;
+  height: 240px;
 
   padding: 0;
+
+  background-color: black;
 
   cursor: pointer;
 `;
 
 const Image = styled.img`
-  width: auto;
-  height: auto;
-  max-width: 360px;
-  max-height: 360px;
+  width: inherit;
+  height: inherit;
+  object-fit: contain;
 `;
 
 interface Props {

@@ -1,0 +1,59 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`RecordListCard > should have a snapshot match for its appearance 1`] = `
+.c0 {
+  width: 300px;
+  height: 240px;
+  display: grid;
+  grid-template-rows: 200px 40px;
+  background-color: var(--primary-color);
+  border-radius: 16px;
+}
+
+.c0:hover {
+  background-color: var(--hovering-color);
+}
+
+.c1 {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+}
+
+.c2 {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
+  padding: 0px 16px;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.c3 {
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+<div
+  class="c0"
+>
+  <img
+    alt="kuman514"
+    class="c1"
+    src="/src/assets/avatar/avatar.jpeg"
+  />
+  <div
+    class="c2"
+  >
+    <span
+      class="c3"
+    >
+      kuman514
+    </span>
+  </div>
+</div>
+`;

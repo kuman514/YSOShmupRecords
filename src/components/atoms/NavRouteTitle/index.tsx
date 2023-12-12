@@ -2,11 +2,7 @@ import React from 'react';
 import { useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 
-import { texts } from '^/constants/texts';
-
-const Root = styled.nav`
-  padding: 10px 15px;
-`;
+import { textsForArticle } from '^/constants/texts';
 
 const Crumbs = styled.ol`
   list-style-type: none;
@@ -15,8 +11,8 @@ const Crumbs = styled.ol`
 
 const CrumbItem = styled.li`
   display: inline-block;
-  font-size: 36px;
-  font-weight: 700;
+  font-size: 16px;
+  font-weight: 400;
 
   & + &::before {
     content: ' > ';
@@ -29,17 +25,16 @@ export function NavRouteTitle() {
   const pathNameSplit = location.pathname
     .split('/')
     .filter((path) => path.length > 1);
-  const renderTitle =
-    pathNameSplit.length > 0 ? (
-      pathNameSplit.map((navNodeId) => (
-        <CrumbItem key={navNodeId}>{texts[navNodeId] ?? navNodeId}</CrumbItem>
-      ))
-    ) : (
-      <CrumbItem>{texts['']}</CrumbItem>
-    );
-  return (
-    <Root>
-      <Crumbs>{renderTitle}</Crumbs>
-    </Root>
-  );
+
+  return pathNameSplit.length > 0 ? (
+    <nav>
+      <Crumbs>
+        {pathNameSplit.map((navNodeId) => (
+          <CrumbItem key={navNodeId}>
+            {textsForArticle[navNodeId] ?? navNodeId}
+          </CrumbItem>
+        ))}
+      </Crumbs>
+    </nav>
+  ) : null;
 }
