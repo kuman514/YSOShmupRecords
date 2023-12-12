@@ -7,7 +7,8 @@ import { useShmupArticle } from '^/hooks/useShmupArticle';
 import { Skeleton } from '^/components/atoms/Skeleton';
 
 const Root = styled.div`
-  padding: 15px;
+  padding-left: 15px;
+  padding-right: 15px;
 `;
 
 const ArticleSkeletonArea = styled.div`
