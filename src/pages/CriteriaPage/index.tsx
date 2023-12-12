@@ -34,24 +34,6 @@ const criteria: DescriptionListItem[] = [
       },
     ],
   },
-  {
-    id: 'Criteria-3',
-    description: '다음과 같은 결과가 있어야 함',
-    subItems: [
-      {
-        id: 'Criteria-3-1',
-        description: '개인 베스트 최종 점수 갱신',
-      },
-      {
-        id: 'Criteria-3-2',
-        description: '개인 베스트 최종 스테이지 갱신',
-      },
-      {
-        id: 'Criteria-3-3',
-        description: '노미스 ALL (죽지 않고 모든 스테이지 완주) 등 특수한 경우',
-      },
-    ],
-  },
 ];
 
 export function CriteriaPage() {
