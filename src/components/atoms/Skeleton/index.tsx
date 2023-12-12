@@ -7,9 +7,9 @@ import styled, { CSSProp } from 'styled-components';
  */
 
 interface RootProps {
-  width?: CSSProp;
-  height?: CSSProp;
-  borderRadius?: CSSProp;
+  $width?: CSSProp;
+  $height?: CSSProp;
+  $borderRadius?: CSSProp;
 }
 
 const Root = styled.div<RootProps>`
@@ -36,14 +36,18 @@ const Root = styled.div<RootProps>`
 
   overflow: hidden;
   position: relative;
-  width: ${({ width }) => width};
-  height: ${({ height }) => height};
-  border-radius: ${({ borderRadius }) => borderRadius};
+  width: ${({ $width }) => $width};
+  height: ${({ $height }) => $height};
+  border-radius: ${({ $borderRadius }) => $borderRadius};
   background: #e2e2e2;
 `;
 
-interface Props extends RootProps {}
+interface Props {
+  width: CSSProp;
+  height: CSSProp;
+  borderRadius: CSSProp;
+}
 
 export function Skeleton({ width, height, borderRadius }: Props) {
-  return <Root width={width} height={height} borderRadius={borderRadius} />;
+  return <Root $width={width} $height={height} $borderRadius={borderRadius} />;
 }
