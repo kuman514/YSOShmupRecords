@@ -10,6 +10,12 @@ const Root = styled.div`
   height: 100vh;
   display: grid;
   grid-template-columns: auto 1fr;
+
+  @media (max-width: 1000px) {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+  }
 `;
 
 const OutletPositionHolder = styled.div`
