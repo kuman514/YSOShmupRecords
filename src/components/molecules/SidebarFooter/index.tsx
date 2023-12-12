@@ -7,9 +7,11 @@ import { ButtonType } from '^/types';
 const Root = styled.div`
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
 
+  row-gap: 8px;
   column-gap: 20px;
   padding: 16px 16px 16px 32px;
 
