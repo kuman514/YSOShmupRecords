@@ -25,7 +25,6 @@ export interface ShmupRecord {
 export interface DescriptionListItem {
   id: string;
   description: string;
-  subItems?: DescriptionListItem[];
 }
 
 export enum ButtonType {

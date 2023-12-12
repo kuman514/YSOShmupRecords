@@ -12,6 +12,10 @@ import { getAPIURL } from '^/utils/api-url';
 const Root = styled.div`
   padding-left: 15px;
   padding-right: 15px;
+
+  display: flex;
+  flex-direction: column;
+  row-gap: 16px;
 `;
 
 const Title = styled.h1`
