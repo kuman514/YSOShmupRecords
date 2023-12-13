@@ -83,7 +83,7 @@ export function RecordListPage() {
       {recordIds.length > 0 ? (
         <RecordSelectionList>
           {recordIds.map((recordId) => (
-            <li>
+            <li key={recordId}>
               <RecordSelectionLink to={`${recordId}`}>
                 <RecordListCard
                   imageUrl={getAPIURL(

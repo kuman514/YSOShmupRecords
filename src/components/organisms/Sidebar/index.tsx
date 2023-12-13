@@ -8,12 +8,19 @@ import { SidebarHeader } from '^/components/molecules/SidebarHeader';
 import { TitleWithAvatar } from '^/components/molecules/TitleWithAvatar';
 
 const Root = styled.div`
-  height: 100vh;
+  height: 100%;
 
   display: grid;
   grid-template-rows: auto 1fr auto;
 
   background: var(--primary-color);
+`;
+
+const CenterWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 interface Props {
@@ -24,7 +31,12 @@ export function Sidebar({ rootNavNodes }: Props) {
   const [isNavigationOpen, setIsNavigationOpen] = useState<boolean>(false);
 
   const renderCenter = isNavigationOpen ? (
-    <NavigationForest rootNavNodes={rootNavNodes} />
+    <NavigationForest
+      onClickNavigationNode={() => {
+        setIsNavigationOpen(false);
+      }}
+      rootNavNodes={rootNavNodes}
+    />
   ) : (
     <TitleWithAvatar />
   );
@@ -37,7 +49,7 @@ export function Sidebar({ rootNavNodes }: Props) {
           setIsNavigationOpen(!isNavigationOpen);
         }}
       />
-      {renderCenter}
+      <CenterWrapper>{renderCenter}</CenterWrapper>
       <SidebarFooter />
     </Root>
   );
