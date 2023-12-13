@@ -43,9 +43,9 @@ const Root = styled.div<RootProps>`
 `;
 
 interface Props {
-  width: CSSProp;
-  height: CSSProp;
-  borderRadius: CSSProp;
+  width?: CSSProp;
+  height?: CSSProp;
+  borderRadius?: CSSProp;
 }
 
 export function Skeleton({ width, height, borderRadius }: Props) {
