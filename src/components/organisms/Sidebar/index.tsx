@@ -31,7 +31,12 @@ export function Sidebar({ rootNavNodes }: Props) {
   const [isNavigationOpen, setIsNavigationOpen] = useState<boolean>(false);
 
   const renderCenter = isNavigationOpen ? (
-    <NavigationForest rootNavNodes={rootNavNodes} />
+    <NavigationForest
+      onClickNavigationNode={() => {
+        setIsNavigationOpen(false);
+      }}
+      rootNavNodes={rootNavNodes}
+    />
   ) : (
     <TitleWithAvatar />
   );

@@ -46,7 +46,8 @@ const Root = styled.div<RootProps>`
 `;
 
 const NoUnderlineLinkOnNotHover = styled(Link)`
-  text-decoration: none;
+  all: inherit;
+  cursor: pointer;
 `;
 
 interface Props {
@@ -56,26 +57,27 @@ interface Props {
 
 export function NavigationNode({ depth, nodeInfo }: Props) {
   const text = textsForNavigation[nodeInfo.id] ?? nodeInfo.id;
-  const renderText = (() => {
+  const renderLinkText =
+    nodeInfo.linkTo !== undefined ? (
+      <NoUnderlineLinkOnNotHover to={nodeInfo.linkTo}>
+        {text}
+      </NoUnderlineLinkOnNotHover>
+    ) : (
+      text
+    );
+
+  const renderMainBody = (() => {
     switch (depth) {
       case 0:
-        return <h2>{text}</h2>;
+        return <h2>{renderLinkText}</h2>;
       case 1:
-        return <h3>{text}</h3>;
+        return <h3>{renderLinkText}</h3>;
       case 2:
-        return <span>{text}</span>;
+        return <span>{renderLinkText}</span>;
       default:
         return null;
     }
   })();
 
-  const renderMainBody = <Root $url={nodeInfo.linkTo}>{renderText}</Root>;
-
-  return nodeInfo.linkTo !== undefined ? (
-    <NoUnderlineLinkOnNotHover to={nodeInfo.linkTo}>
-      {renderMainBody}
-    </NoUnderlineLinkOnNotHover>
-  ) : (
-    renderMainBody
-  );
+  return <Root $url={nodeInfo.linkTo}>{renderMainBody}</Root>;
 }

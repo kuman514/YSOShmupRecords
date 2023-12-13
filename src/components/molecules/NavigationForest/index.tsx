@@ -39,14 +39,31 @@ const TreeContainer = styled.div`
 
 interface Props {
   rootNavNodes: NavNodeInfo[];
+  onClickNavigationNode(): void;
 }
 
-export function NavigationForest({ rootNavNodes }: Props) {
+export function NavigationForest({
+  rootNavNodes,
+  onClickNavigationNode,
+}: Props) {
   const renderRootNavNodes = rootNavNodes.map((navNode) => (
     <TreeContainer key={navNode.id}>
       <NavigationTree depth={0} nodeInfo={navNode} />
     </TreeContainer>
   ));
 
-  return <Root>{renderRootNavNodes}</Root>;
+  return (
+    <Root
+      onClick={(event) => {
+        if (
+          event.target instanceof HTMLElement &&
+          event.target.nodeName === 'A'
+        ) {
+          onClickNavigationNode();
+        }
+      }}
+    >
+      {renderRootNavNodes}
+    </Root>
+  );
 }
