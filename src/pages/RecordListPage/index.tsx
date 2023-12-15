@@ -73,6 +73,7 @@ export function RecordListPage() {
   }
 
   const {
+    savedTypeId,
     recordIds,
     isLoading: isRecordIdsLoading,
     isError: isRecordIdsError,
@@ -88,7 +89,7 @@ export function RecordListPage() {
                 <RecordListCard
                   imageUrl={getAPIURL(
                     'records',
-                    typeId,
+                    savedTypeId,
                     'images',
                     `${recordId}_thumbnail.jpg`
                   )}
