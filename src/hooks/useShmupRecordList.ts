@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 
 import { getAPIURL } from '^/utils/api-url';
 
-export function useShmupRecordIds(endpointName: string) {
+export function useShmupRecordList(endpointName: string) {
   const [savedTypeId, setSavedTypeId] = useState<string>('');
   const [recordIds, setRecordIds] = useState<string[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);

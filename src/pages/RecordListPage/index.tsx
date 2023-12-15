@@ -3,7 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { textsForArticle } from '^/constants/texts';
-import { useShmupRecordIds } from '^/hooks/useShmupRecordIds';
+import { useShmupRecordList } from '^/hooks/useShmupRecordList';
 import { Skeleton } from '^/components/atoms/Skeleton';
 import { RecordListCard } from '^/components/molecules/RecordListCard';
 import { convertDateToString } from '^/utils/date-to-string';
@@ -77,7 +77,7 @@ export function RecordListPage() {
     recordIds,
     isLoading: isRecordIdsLoading,
     isError: isRecordIdsError,
-  } = useShmupRecordIds(typeId);
+  } = useShmupRecordList(typeId);
 
   const renderRecordIdSelection = !isRecordIdsLoading ? (
     <RecordSelectionArea>
