@@ -7,7 +7,7 @@ import { RecordListCard } from '^/components/molecules/RecordListCard';
 import { getAPIURL } from '^/utils/api-url';
 import { convertDateToString } from '^/utils/date-to-string';
 
-const RecordSelectionArea = styled.div`
+const Root = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -94,5 +94,5 @@ export function RecordSelection({
     );
   })();
 
-  return <RecordSelectionArea>{renderRecordSelectionArea}</RecordSelectionArea>;
+  return <Root>{renderRecordSelectionArea}</Root>;
 }
