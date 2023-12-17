@@ -193,9 +193,9 @@ exports[`RecordSelection > should match snapshot with non-empty recordIds on not
         class="c3"
       >
         <img
-          alt="2023년 10월 28일 기록"
+          alt="2023년 10월 28일"
           class="c4"
-          src="https://read-only-api-endpoints-kuman514.vercel.app/yso-shmup-records/records/kuman514/images/2023-10-28_thumbnail.jpg"
+          src="2023-10-28.jpg"
         />
         <div
           class="c5"
@@ -203,7 +203,7 @@ exports[`RecordSelection > should match snapshot with non-empty recordIds on not
           <span
             class="c6"
           >
-            2023년 10월 28일 기록
+            2023년 10월 28일
           </span>
         </div>
       </div>
@@ -216,9 +216,9 @@ exports[`RecordSelection > should match snapshot with non-empty recordIds on not
         class="c3"
       >
         <img
-          alt="2023년 5월 14일 기록"
+          alt="2023년 5월 14일"
           class="c4"
-          src="https://read-only-api-endpoints-kuman514.vercel.app/yso-shmup-records/records/kuman514/images/2023-05-14_thumbnail.jpg"
+          src="2023-05-14.jpg"
         />
         <div
           class="c5"
@@ -226,7 +226,7 @@ exports[`RecordSelection > should match snapshot with non-empty recordIds on not
           <span
             class="c6"
           >
-            2023년 5월 14일 기록
+            2023년 5월 14일
           </span>
         </div>
       </div>
@@ -239,9 +239,9 @@ exports[`RecordSelection > should match snapshot with non-empty recordIds on not
         class="c3"
       >
         <img
-          alt="2022년 11월 21일 기록"
+          alt="2022년 11월 21일"
           class="c4"
-          src="https://read-only-api-endpoints-kuman514.vercel.app/yso-shmup-records/records/kuman514/images/2022-11-21_thumbnail.jpg"
+          src="2022-11-21.jpg"
         />
         <div
           class="c5"
@@ -249,7 +249,7 @@ exports[`RecordSelection > should match snapshot with non-empty recordIds on not
           <span
             class="c6"
           >
-            2022년 11월 21일 기록
+            2022년 11월 21일
           </span>
         </div>
       </div>

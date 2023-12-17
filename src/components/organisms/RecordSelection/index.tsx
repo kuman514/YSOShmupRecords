@@ -4,8 +4,7 @@ import { styled } from 'styled-components';
 
 import { Skeleton } from '^/components/atoms/Skeleton';
 import { RecordListCard } from '^/components/molecules/RecordListCard';
-import { getAPIURL } from '^/utils/api-url';
-import { convertDateToString } from '^/utils/date-to-string';
+import { ShmupRecordPreview } from '^/types';
 
 const Root = styled.div`
   display: flex;
@@ -44,18 +43,12 @@ function RecordListCardSkeleton() {
 }
 
 interface Props {
-  savedTypeId: string;
-  recordIds: string[];
+  recordPreviews: ShmupRecordPreview[];
   isLoading: boolean;
   isError: boolean;
 }
 
-export function RecordSelection({
-  savedTypeId,
-  recordIds,
-  isLoading,
-  isError,
-}: Props) {
+export function RecordSelection({ recordPreviews, isLoading, isError }: Props) {
   const renderRecordSelectionArea = (() => {
     if (isLoading) {
       return (
@@ -71,23 +64,15 @@ export function RecordSelection({
       return '목록을 불러오는 중 오류가 발생했습니다.';
     }
 
-    if (recordIds.length === 0) {
+    if (recordPreviews.length === 0) {
       return '현재 등록된 기록이 없습니다.';
     }
 
     return (
       <RecordSelectionList>
-        {recordIds.map((recordId) => (
-          <RecordSelectionLink key={recordId} to={`${recordId}`}>
-            <RecordListCard
-              imageUrl={getAPIURL(
-                'records',
-                savedTypeId,
-                'images',
-                `${recordId}_thumbnail.jpg`
-              )}
-              title={`${convertDateToString(new Date(recordId))} 기록`}
-            />
+        {recordPreviews.map(({ id, title, imageUrl }) => (
+          <RecordSelectionLink key={id} to={id}>
+            <RecordListCard imageUrl={imageUrl} title={title} />
           </RecordSelectionLink>
         ))}
       </RecordSelectionList>

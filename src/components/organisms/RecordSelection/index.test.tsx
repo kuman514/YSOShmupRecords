@@ -4,7 +4,19 @@ import { createMemoryRouter, RouterProvider } from 'react-router-dom';
 import { describe, it, beforeEach, expect } from 'vitest';
 import 'jest-styled-components';
 
+import { ShmupRecordPreview } from '^/types';
 import { RecordSelection } from '.';
+import { convertDateToString } from '^/utils/date-to-string';
+
+const recordIdsForTest: string[] = ['2023-10-28', '2023-05-14', '2022-11-21'];
+
+const recordPreviewForTest = recordIdsForTest.map(
+  (recordId): ShmupRecordPreview => ({
+    id: recordId,
+    title: convertDateToString(new Date(recordId)),
+    imageUrl: `${recordId}.jpg`,
+  })
+);
 
 describe('RecordSelection', () => {
   beforeEach(() => {
@@ -14,19 +26,13 @@ describe('RecordSelection', () => {
   it('should match snapshot while loading regardless of savedTypeId, recordIds, and isError', () => {
     const { container } = render(
       <>
+        <RecordSelection recordPreviews={[]} isLoading isError={false} />
         <RecordSelection
-          savedTypeId="yasuo"
-          recordIds={['']}
+          recordPreviews={recordPreviewForTest}
           isLoading
           isError={false}
         />
-        <RecordSelection
-          savedTypeId="yasuo"
-          recordIds={['2023-01-23', '2022-11-14']}
-          isLoading
-          isError={false}
-        />
-        <RecordSelection savedTypeId="" recordIds={[]} isLoading isError />
+        <RecordSelection recordPreviews={[]} isLoading isError />
       </>
     );
     expect(container.firstChild).toMatchSnapshot();
@@ -35,15 +41,9 @@ describe('RecordSelection', () => {
   it('should match snapshot on not-loading error regardless of savedTypeId and recordIds', () => {
     const { container } = render(
       <>
+        <RecordSelection recordPreviews={[]} isLoading={false} isError />
         <RecordSelection
-          savedTypeId="kuman514"
-          recordIds={[]}
-          isLoading={false}
-          isError
-        />
-        <RecordSelection
-          savedTypeId="yasuo"
-          recordIds={['2023-01-23', '2022-11-14']}
+          recordPreviews={recordPreviewForTest}
           isLoading={false}
           isError
         />
@@ -54,12 +54,7 @@ describe('RecordSelection', () => {
 
   it('should match snapshot with empty recordIds on not-loading and not-error', () => {
     const { container } = render(
-      <RecordSelection
-        savedTypeId="kuman514"
-        recordIds={[]}
-        isLoading={false}
-        isError={false}
-      />
+      <RecordSelection recordPreviews={[]} isLoading={false} isError={false} />
     );
     expect(container.firstChild).toMatchSnapshot();
   });
@@ -70,8 +65,7 @@ describe('RecordSelection', () => {
         path: '/',
         element: (
           <RecordSelection
-            savedTypeId="kuman514"
-            recordIds={['2023-10-28', '2023-05-14', '2022-11-21']}
+            recordPreviews={recordPreviewForTest}
             isLoading={false}
             isError={false}
           />
@@ -94,8 +88,7 @@ describe('RecordSelection', () => {
         path: '/',
         element: (
           <RecordSelection
-            savedTypeId="kuman514"
-            recordIds={['2023-05-14']}
+            recordPreviews={recordPreviewForTest}
             isLoading={false}
             isError={false}
           />

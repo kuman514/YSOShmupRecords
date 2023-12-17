@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { textsForArticle } from '^/constants/texts';
-import { useShmupRecordList } from '^/hooks/useShmupRecordList';
+import { useShmupRecordPreviewList } from '^/hooks/useShmupRecordPreviewList';
 import { RecordSelection } from '^/components/organisms/RecordSelection';
 
 const Root = styled.div`
@@ -32,7 +32,7 @@ export function RecordListPage() {
   return (
     <Root>
       <Title>{textsForArticle[typeId] ?? typeId} 기록 목록</Title>
-      <RecordSelection {...useShmupRecordList(typeId)} />
+      <RecordSelection {...useShmupRecordPreviewList(typeId)} />
     </Root>
   );
 }
