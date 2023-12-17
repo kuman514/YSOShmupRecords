@@ -22,7 +22,7 @@ const testDataWithoutSpecialTags: ShmupRecord = {
 
 const testDataWithSpecialTags: ShmupRecord = {
   ...testDataWithoutSpecialTags,
-  specialTags: ['science', 'no miss'],
+  specialTags: ['science', 'no miss', 'no-miss-all'],
 };
 
 describe('ArticleSummary', () => {
@@ -95,9 +95,8 @@ describe('ArticleSummary', () => {
     const specialTagTitle = screen.getByText(/특이사항/i);
     expect(specialTagTitle).not.toBeNull();
 
-    testDataWithSpecialTags.specialTags?.forEach((specialTag) => {
-      const specialTagName = screen.getByText(specialTag);
-      expect(specialTagName).not.toBeNull();
-    });
+    expect(screen.getByText(/science/i)).not.toBeNull();
+    expect(screen.getByText(/no miss/i)).not.toBeNull();
+    expect(screen.getByText(/노미스 ALL/i)).not.toBeNull();
   });
 });
