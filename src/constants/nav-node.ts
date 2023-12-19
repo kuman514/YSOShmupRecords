@@ -33,6 +33,10 @@ export const rootNavNodes: NavNodeInfo[] = [
         id: 'criteria',
         linkTo: '/criteria',
       },
+      {
+        id: 'terminology',
+        linkTo: '/terminology',
+      },
     ],
   },
   {
