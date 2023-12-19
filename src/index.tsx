@@ -11,6 +11,7 @@ import { RecordPage } from '^/pages/RecordPage';
 import { ErrorPage } from '^/pages/ErrorPage';
 
 import '^/global.css';
+import { TerminologyPage } from '^/pages/TerminologyPage';
 
 const router = createBrowserRouter([
   {
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
       {
         path: 'criteria',
         element: <CriteriaPage />,
+      },
+      {
+        path: 'terminology',
+        element: <TerminologyPage />,
       },
       {
         path: 'records',
