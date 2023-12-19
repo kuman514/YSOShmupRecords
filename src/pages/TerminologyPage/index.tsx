@@ -51,7 +51,8 @@ const terminology: DescriptionListItem[] = [
   },
   {
     id: 'Terminology-10',
-    description: '패턴화: 게임을 진행하기 위해 일정한 패턴을 세우는 행위.',
+    description:
+      '패턴화: 게임을 원활하게 진행하기 위해 일정한 패턴을 세우는 행위.',
   },
 ];
 
