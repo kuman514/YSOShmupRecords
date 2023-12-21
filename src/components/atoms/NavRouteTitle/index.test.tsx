@@ -94,6 +94,6 @@ describe('NavRouteTitle', () => {
 
     render(<RouterProvider router={router} />);
 
-    expect(screen.queryByText(/개요/i)).toBeNull();
+    expect(screen.queryByText(/인삿말/i)).toBeNull();
   });
 });
