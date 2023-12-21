@@ -11,7 +11,7 @@ export const textsForNavigation: Record<string, string> = {
    * Names for navigation, games, and subjects
    */
   introduction: 'YSOShmupRecords',
-  intro: '개요',
+  intro: '인삿말',
   criteria: '등록 기준',
   records: '기록',
   terminology: '용어',
@@ -50,7 +50,7 @@ export const textsForArticle: Record<string, string> = {
   /**
    * Names for navigation, games, and subjects
    */
-  intro: '개요',
+  intro: '인삿말',
   criteria: '등록 기준',
   records: '기록',
   terminology: '용어',
