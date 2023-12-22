@@ -21,14 +21,15 @@ const Root = styled.div`
 const OutletPositionHolder = styled.div`
   display: flex;
   justify-content: center;
-  padding-top: 72px;
-  padding-bottom: 72px;
   overflow-y: scroll;
 `;
 
 const OutletContainer = styled.div`
   width: 100%;
+  height: fit-content;
   max-width: 720px;
+  padding-top: 72px;
+  padding-bottom: 72px;
 `;
 
 function Main() {
