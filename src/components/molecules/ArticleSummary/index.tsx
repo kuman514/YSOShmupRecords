@@ -159,7 +159,9 @@ export function ArticleSummary({ record }: Props) {
         <ListItemTitle>특이사항</ListItemTitle>
         <ListItemContent>
           {record.specialTags.map((specialTag) => (
-            <SpecialTag key={specialTag}>{specialTag}</SpecialTag>
+            <SpecialTag key={specialTag}>
+              {textsForArticle[specialTag] ?? specialTag}
+            </SpecialTag>
           ))}
         </ListItemContent>
       </li>

@@ -1,13 +1,12 @@
 import React from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { textsForArticle } from '^/constants/texts';
-import { useShmupRecordIds } from '^/hooks/useShmupRecordIds';
+import { useShmupRecordPreviewList } from '^/hooks/useShmupRecordPreviewList';
+import { RecordSelection } from '^/components/organisms/RecordSelection';
+import { ErrorIndicator } from '^/components/molecules/ErrorIndicator';
 import { Skeleton } from '^/components/atoms/Skeleton';
-import { RecordListCard } from '^/components/molecules/RecordListCard';
-import { convertDateToString } from '^/utils/date-to-string';
-import { getAPIURL } from '^/utils/api-url';
 
 const Root = styled.div`
   padding-left: 15px;
@@ -25,29 +24,11 @@ const Title = styled.h1`
   font-weight: 700;
 `;
 
-const RecordSelectionArea = styled.div`
+const RecordListCardSkeletonListWrapper = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   gap: 16px;
-`;
-
-const RecordSelectionList = styled.ul`
-  list-style-type: none;
-  margin: unset;
-  padding: unset;
-
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  align-items: flex-start;
-  gap: 16px;
-`;
-
-const RecordSelectionLink = styled(Link)`
-  color: unset;
-  text-decoration: none;
 `;
 
 const RecordListCardSkeletonRoot = styled.div`
@@ -72,54 +53,32 @@ export function RecordListPage() {
     return null;
   }
 
-  const {
-    recordIds,
-    isLoading: isRecordIdsLoading,
-    isError: isRecordIdsError,
-  } = useShmupRecordIds(typeId);
+  const { recordPreviews, isLoading, isError } =
+    useShmupRecordPreviewList(typeId);
 
-  const renderRecordIdSelection = !isRecordIdsLoading ? (
-    <RecordSelectionArea>
-      {recordIds.length > 0 ? (
-        <RecordSelectionList>
-          {recordIds.map((recordId) => (
-            <li key={recordId}>
-              <RecordSelectionLink to={`${recordId}`}>
-                <RecordListCard
-                  imageUrl={getAPIURL(
-                    'records',
-                    typeId,
-                    'images',
-                    `${recordId}_thumbnail.jpg`
-                  )}
-                  title={`${convertDateToString(new Date(recordId))} 기록`}
-                />
-              </RecordSelectionLink>
-            </li>
-          ))}
-        </RecordSelectionList>
-      ) : (
-        '현재 등록된 기록이 없습니다.'
-      )}
-    </RecordSelectionArea>
-  ) : (
-    <RecordSelectionArea>
-      {!isRecordIdsError ? (
-        <>
+  const renderRecordSelectionArea = (() => {
+    if (isLoading) {
+      return (
+        <RecordListCardSkeletonListWrapper>
           <RecordListCardSkeleton />
           <RecordListCardSkeleton />
           <RecordListCardSkeleton />
-        </>
-      ) : (
-        '목록을 불러오는 중 오류가 발생했습니다.'
-      )}
-    </RecordSelectionArea>
-  );
+          <RecordListCardSkeleton />
+        </RecordListCardSkeletonListWrapper>
+      );
+    }
+
+    if (isError) {
+      return <ErrorIndicator title="목록을 불러오는 중 오류가 발생했습니다." />;
+    }
+
+    return <RecordSelection recordPreviews={recordPreviews} />;
+  })();
 
   return (
     <Root>
       <Title>{textsForArticle[typeId] ?? typeId} 기록 목록</Title>
-      {renderRecordIdSelection}
+      {renderRecordSelectionArea}
     </Root>
   );
 }
