@@ -23,77 +23,16 @@ describe('RecordSelection', () => {
     cleanup();
   });
 
-  it('should match snapshot while loading regardless of savedTypeId, recordIds, and isError', () => {
-    const routes = [
-      {
-        path: '/',
-        element: (
-          <>
-            <RecordSelection recordPreviews={[]} isLoading isError={false} />
-            <RecordSelection
-              recordPreviews={recordPreviewForTest}
-              isLoading
-              isError={false}
-            />
-            <RecordSelection recordPreviews={[]} isLoading isError />
-          </>
-        ),
-      },
-    ];
-
-    const router = createMemoryRouter(routes, {
-      initialEntries: ['/'],
-      initialIndex: 0,
-    });
-
-    const { container } = render(<RouterProvider router={router} />);
+  it('should match snapshot with empty recordIds', () => {
+    const { container } = render(<RecordSelection recordPreviews={[]} />);
     expect(container.firstChild).toMatchSnapshot();
   });
 
-  it('should match snapshot on not-loading error regardless of savedTypeId and recordIds', () => {
+  it('should match snapshot with non-empty recordIds', () => {
     const routes = [
       {
         path: '/',
-        element: (
-          <>
-            <RecordSelection recordPreviews={[]} isLoading={false} isError />
-            <RecordSelection
-              recordPreviews={recordPreviewForTest}
-              isLoading={false}
-              isError
-            />
-          </>
-        ),
-      },
-    ];
-
-    const router = createMemoryRouter(routes, {
-      initialEntries: ['/'],
-      initialIndex: 0,
-    });
-
-    const { container } = render(<RouterProvider router={router} />);
-    expect(container.firstChild).toMatchSnapshot();
-  });
-
-  it('should match snapshot with empty recordIds on not-loading and not-error', () => {
-    const { container } = render(
-      <RecordSelection recordPreviews={[]} isLoading={false} isError={false} />
-    );
-    expect(container.firstChild).toMatchSnapshot();
-  });
-
-  it('should match snapshot with non-empty recordIds on not-loading and not-error', () => {
-    const routes = [
-      {
-        path: '/',
-        element: (
-          <RecordSelection
-            recordPreviews={recordPreviewForTest}
-            isLoading={false}
-            isError={false}
-          />
-        ),
+        element: <RecordSelection recordPreviews={recordPreviewForTest} />,
       },
     ];
 
@@ -110,13 +49,7 @@ describe('RecordSelection', () => {
     const routes = [
       {
         path: '/',
-        element: (
-          <RecordSelection
-            recordPreviews={recordPreviewForTest}
-            isLoading={false}
-            isError={false}
-          />
-        ),
+        element: <RecordSelection recordPreviews={recordPreviewForTest} />,
       },
       {
         path: '/2023-05-14',
