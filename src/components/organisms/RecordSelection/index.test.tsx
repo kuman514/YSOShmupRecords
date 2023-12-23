@@ -24,7 +24,19 @@ describe('RecordSelection', () => {
   });
 
   it('should match snapshot with empty recordIds', () => {
-    const { container } = render(<RecordSelection recordPreviews={[]} />);
+    const routes = [
+      {
+        path: '/',
+        element: <RecordSelection recordPreviews={[]} />,
+      },
+    ];
+
+    const router = createMemoryRouter(routes, {
+      initialEntries: ['/'],
+      initialIndex: 0,
+    });
+
+    const { container } = render(<RouterProvider router={router} />);
     expect(container.firstChild).toMatchSnapshot();
   });
 

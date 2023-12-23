@@ -4,6 +4,7 @@ import { styled } from 'styled-components';
 
 import { RecordListCard } from '^/components/molecules/RecordListCard';
 import { ShmupRecordPreview } from '^/types';
+import { EmptyIndicator } from '^/components/molecules/EmptyIndicator';
 
 const Root = styled.div`
   display: flex;
@@ -33,7 +34,7 @@ interface Props {
 export function RecordSelection({ recordPreviews }: Props) {
   const renderRecordSelectionArea = (() => {
     if (recordPreviews.length === 0) {
-      return '현재 등록된 기록이 없습니다.';
+      return <EmptyIndicator />;
     }
 
     return (

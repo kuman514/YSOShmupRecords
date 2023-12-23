@@ -72,10 +72,6 @@ export function RecordListPage() {
       return <ErrorIndicator title="목록을 불러오는 중 오류가 발생했습니다." />;
     }
 
-    if (recordPreviews.length === 0) {
-      return '현재 등록된 기록이 없습니다.';
-    }
-
     return <RecordSelection recordPreviews={recordPreviews} />;
   })();
 
