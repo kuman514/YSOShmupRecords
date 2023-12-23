@@ -5,6 +5,7 @@ import { styled } from 'styled-components';
 import { Skeleton } from '^/components/atoms/Skeleton';
 import { RecordListCard } from '^/components/molecules/RecordListCard';
 import { ShmupRecordPreview } from '^/types';
+import { ErrorIndicator } from '^/components/molecules/ErrorIndicator';
 
 const Root = styled.div`
   display: flex;
@@ -61,7 +62,7 @@ export function RecordSelection({ recordPreviews, isLoading, isError }: Props) {
     }
 
     if (isError) {
-      return '목록을 불러오는 중 오류가 발생했습니다.';
+      return <ErrorIndicator title="목록을 불러오는 중 오류가 발생했습니다." />;
     }
 
     if (recordPreviews.length === 0) {
