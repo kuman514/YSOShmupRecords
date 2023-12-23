@@ -1,0 +1,43 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ErrorIndicator > should have a snapshot match for its appearance 1`] = `
+<div
+  class="sc-grXZZQ fpEzvy"
+>
+  <img
+    alt="에러 발생"
+    class="sc-dkjKgF fXTRgv"
+    src="/src/assets/images/error.png"
+  />
+  <h2
+    class="sc-hLclGa jPMdaH"
+  >
+    오류가 발생했습니다.
+  </h2>
+  <span
+    class="sc-eDnVMP icsQxT"
+  >
+    인터넷 연결 상태와 현재 주소를 확인해주세요.
+  </span>
+  <span
+    class="sc-eDnVMP icsQxT"
+  >
+    서버 상의 에러일 수 있으니 잠시 후 다시 시도해주세요.
+  </span>
+  <span
+    class="sc-eDnVMP icsQxT"
+  >
+    문제 발생 시 아래 카카오 오픈채팅방 버튼으로 문의해주세요.
+  </span>
+  <button
+    class="sc-bcPKhP EfXTN"
+  >
+    타이틀 화면으로 돌아가기
+  </button>
+  <button
+    class="sc-bcPKhP EfXTN"
+  >
+    소통창구 (카카오 오픈채팅방)
+  </button>
+</div>
+`;

@@ -1,111 +1,50 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`RecordSelection > should match snapshot on not-loading error regardless of savedTypeId and recordIds 1`] = `
-.c0 {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: 16px;
+exports[`RecordSelection > should match snapshot with empty recordIds 1`] = `
+.c4 {
+  all: unset;
+  box-sizing: border-box;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 8px 16px;
+  color: #ffffff;
+  background-color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+  border-radius: 4px;
+  cursor: pointer;
 }
 
-<div
-  class="c0"
->
-  목록을 불러오는 중 오류가 발생했습니다.
-</div>
-`;
-
-exports[`RecordSelection > should match snapshot while loading regardless of savedTypeId, recordIds, and isError 1`] = `
-.c2 {
-  overflow: hidden;
-  position: relative;
-  width: 300px;
-  height: 200px;
-  border-radius: 16px;
-  background: #e2e2e2;
+.c4:hover {
+  background-color: var(--hovering-color);
+  color: #ffffff;
 }
 
-.c2::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(to right, #e2e2e2, #b6b6b6, #e2e2e2);
-  animation: loading 1000ms ease-in-out infinite;
-}
-
-.c3 {
-  overflow: hidden;
-  position: relative;
-  width: 300px;
-  height: 20px;
-  border-radius: 10px;
-  background: #e2e2e2;
-}
-
-.c3::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(to right, #e2e2e2, #b6b6b6, #e2e2e2);
-  animation: loading 1000ms ease-in-out infinite;
-}
-
-.c0 {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: 16px;
+.c4:disabled {
+  border: none;
+  color: #ffffff;
+  background-color: var(--gray-color);
+  text-decoration: none;
 }
 
 .c1 {
+  width: 100%;
   display: flex;
   flex-direction: column;
-  row-gap: 8px;
+  align-items: center;
+  text-align: center;
+  row-gap: 16px;
 }
 
-<div
-  class="c0"
->
-  <div
-    class="c1"
-  >
-    <div
-      class="c2"
-    />
-    <div
-      class="c3"
-    />
-  </div>
-  <div
-    class="c1"
-  >
-    <div
-      class="c2"
-    />
-    <div
-      class="c3"
-    />
-  </div>
-  <div
-    class="c1"
-  >
-    <div
-      class="c2"
-    />
-    <div
-      class="c3"
-    />
-  </div>
-</div>
-`;
+.c2 {
+  width: 100%;
+  max-width: 400px;
+}
 
-exports[`RecordSelection > should match snapshot with empty recordIds on not-loading and not-error 1`] = `
+.c3 {
+  font-size: 36px;
+  font-weight: 700;
+}
+
 .c0 {
   display: flex;
   flex-direction: row;
@@ -116,11 +55,34 @@ exports[`RecordSelection > should match snapshot with empty recordIds on not-loa
 <div
   class="c0"
 >
-  현재 등록된 기록이 없습니다.
+  <div
+    class="c1"
+  >
+    <img
+      alt="에러 발생"
+      class="c2"
+      src="/src/assets/images/empty.png"
+    />
+    <h2
+      class="c3"
+    >
+      현재 등록된 기록이 없습니다.
+    </h2>
+    <button
+      class="c4"
+    >
+      타이틀 화면으로 돌아가기
+    </button>
+    <button
+      class="c4"
+    >
+      소통창구 (카카오 오픈채팅방)
+    </button>
+  </div>
 </div>
 `;
 
-exports[`RecordSelection > should match snapshot with non-empty recordIds on not-loading and not-error 1`] = `
+exports[`RecordSelection > should match snapshot with non-empty recordIds 1`] = `
 .c3 {
   width: 300px;
   height: 240px;

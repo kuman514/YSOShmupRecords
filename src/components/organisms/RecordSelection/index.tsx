@@ -2,9 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { styled } from 'styled-components';
 
-import { Skeleton } from '^/components/atoms/Skeleton';
 import { RecordListCard } from '^/components/molecules/RecordListCard';
 import { ShmupRecordPreview } from '^/types';
+import { EmptyIndicator } from '^/components/molecules/EmptyIndicator';
 
 const Root = styled.div`
   display: flex;
@@ -27,45 +27,14 @@ const RecordSelectionLink = styled(Link)`
   text-decoration: none;
 `;
 
-const RecordListCardSkeletonRoot = styled.div`
-  display: flex;
-  flex-direction: column;
-  row-gap: 8px;
-`;
-
-function RecordListCardSkeleton() {
-  return (
-    <RecordListCardSkeletonRoot>
-      <Skeleton width="300px" height="200px" borderRadius="16px" />
-      <Skeleton width="300px" height="20px" borderRadius="10px" />
-    </RecordListCardSkeletonRoot>
-  );
-}
-
 interface Props {
   recordPreviews: ShmupRecordPreview[];
-  isLoading: boolean;
-  isError: boolean;
 }
 
-export function RecordSelection({ recordPreviews, isLoading, isError }: Props) {
+export function RecordSelection({ recordPreviews }: Props) {
   const renderRecordSelectionArea = (() => {
-    if (isLoading) {
-      return (
-        <>
-          <RecordListCardSkeleton />
-          <RecordListCardSkeleton />
-          <RecordListCardSkeleton />
-        </>
-      );
-    }
-
-    if (isError) {
-      return '목록을 불러오는 중 오류가 발생했습니다.';
-    }
-
     if (recordPreviews.length === 0) {
-      return '현재 등록된 기록이 없습니다.';
+      return <EmptyIndicator />;
     }
 
     return (

@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom';
 import { Article } from '^/components/organisms/Article';
 import { useShmupArticle } from '^/hooks/useShmupArticle';
 import { Skeleton } from '^/components/atoms/Skeleton';
+import { ErrorIndicator } from '^/components/molecules/ErrorIndicator';
 
 const Root = styled.div`
   padding-left: 15px;
@@ -17,7 +18,7 @@ const ArticleSkeletonArea = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  column-gap: 10px;
+  gap: 10px;
 
   & > div {
     display: flex;
@@ -33,35 +34,35 @@ export function RecordPage() {
   if (!typeId) {
     return null;
   }
-  const {
-    recordArticle,
-    isLoading: isRecordArticleLoading,
-    isError: isRecordArticleError,
-  } = useShmupArticle(typeId, currentRecordId);
+  const { recordArticle, isLoading, isError } = useShmupArticle(
+    typeId,
+    currentRecordId
+  );
 
-  const renderArticle =
-    recordArticle !== undefined && !isRecordArticleLoading ? (
-      <Article recordArticle={recordArticle} />
-    ) : (
-      <ArticleSkeletonArea>
-        {!isRecordArticleError ? (
-          <>
-            <div>
-              <Skeleton width="360px" height="360px" />
-            </div>
-            <div>
-              <Skeleton width="500px" height="50px" />
-              <Skeleton width="500px" height="50px" />
-              <Skeleton width="500px" height="50px" />
-              <Skeleton width="500px" height="50px" />
-              <Skeleton width="500px" height="50px" />
-            </div>
-          </>
-        ) : (
-          '본문을 불러오는 중 오류가 발생했습니다.'
-        )}
-      </ArticleSkeletonArea>
-    );
+  const renderMainPart = (() => {
+    if (isLoading) {
+      return (
+        <ArticleSkeletonArea>
+          <div>
+            <Skeleton width="360px" height="360px" />
+          </div>
+          <div>
+            <Skeleton width="500px" height="50px" />
+            <Skeleton width="500px" height="50px" />
+            <Skeleton width="500px" height="50px" />
+            <Skeleton width="500px" height="50px" />
+            <Skeleton width="500px" height="50px" />
+          </div>
+        </ArticleSkeletonArea>
+      );
+    }
 
-  return <Root>{renderArticle}</Root>;
+    if (recordArticle === undefined || isError) {
+      return <ErrorIndicator title="본문을 불러오는 중 오류가 발생했습니다." />;
+    }
+
+    return <Article recordArticle={recordArticle} />;
+  })();
+
+  return <Root>{renderMainPart}</Root>;
 }
