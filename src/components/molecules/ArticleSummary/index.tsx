@@ -6,30 +6,16 @@ import { Thumbnail } from '^/components/atoms/Thumbnail';
 import { convertDateToString } from '^/utils/date-to-string';
 import { textsForArticle } from '^/constants/texts';
 import { ImageDisplayModal } from '^/components/molecules/ImageDisplayModal';
-import { NavRouteTitle } from '^/components/atoms/NavRouteTitle';
 import { Button } from '^/components/atoms/Button';
 import { ReactComponent as RawLinkSvg } from '^/assets/icons/link.svg';
 import { ReactComponent as RawTwitterSvg } from '^/assets/icons/twitter.svg';
 
 const Root = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  row-gap: 16px;
-`;
-
-const SummaryArea = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
   flex-wrap: wrap;
   gap: 16px;
-`;
-
-const Title = styled.h1`
-  font-size: 36px;
-  font-weight: 700;
 `;
 
 const SummaryDescription = styled.div`
@@ -205,10 +191,8 @@ export function ArticleSummary({ record }: Props) {
   }, [isCopiedToClipboard]);
 
   return (
-    <Root>
-      <Title>{convertDateToString(record.when)}</Title>
-      <NavRouteTitle />
-      <SummaryArea>
+    <>
+      <Root>
         <Thumbnail
           imageSrc={record.thumbnailUrl}
           altText={`${record.subjectId} ${convertDateToString(record.when)} ${
@@ -241,8 +225,8 @@ export function ArticleSummary({ record }: Props) {
             </Button>
           </ShareButtonList>
         </SummaryDescription>
-      </SummaryArea>
+      </Root>
       {renderImageModal}
-    </Root>
+    </>
   );
 }
