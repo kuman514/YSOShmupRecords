@@ -6,15 +6,31 @@ import { Article } from '^/components/organisms/Article';
 import { useShmupArticle } from '^/hooks/useShmupArticle';
 import { Skeleton } from '^/components/atoms/Skeleton';
 import { ErrorIndicator } from '^/components/molecules/ErrorIndicator';
+import { NavRouteTitle } from '^/components/atoms/NavRouteTitle';
+import { convertDateToString } from '^/utils/date-to-string';
 
 const Root = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
   padding-left: 15px;
   padding-right: 15px;
+  row-gap: 16px;
+`;
+
+const TitleArea = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  row-gap: 16px;
+`;
+
+const Title = styled.h1`
+  font-size: 36px;
+  font-weight: 700;
 `;
 
 const ArticleSkeletonArea = styled.div`
-  margin-top: 15px;
-
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -31,7 +47,7 @@ const ArticleSkeletonArea = styled.div`
 export function RecordPage() {
   const { typeId, currentRecordId } = useParams();
 
-  if (!typeId) {
+  if (!typeId || !currentRecordId) {
     return null;
   }
   const { recordArticle, isLoading, isError } = useShmupArticle(
@@ -64,5 +80,13 @@ export function RecordPage() {
     return <Article recordArticle={recordArticle} />;
   })();
 
-  return <Root>{renderMainPart}</Root>;
+  return (
+    <Root>
+      <TitleArea>
+        <Title>{convertDateToString(new Date(currentRecordId))}</Title>
+        <NavRouteTitle />
+      </TitleArea>
+      {renderMainPart}
+    </Root>
+  );
 }
