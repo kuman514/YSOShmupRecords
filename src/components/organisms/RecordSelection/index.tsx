@@ -13,7 +13,13 @@ const Root = styled.div`
   gap: 16px;
 `;
 
+const RecordCount = styled.span`
+  font-size: 16px;
+  font-weight: 400;
+`;
+
 const RecordSelectionList = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -32,12 +38,13 @@ interface Props {
 }
 
 export function RecordSelection({ recordPreviews }: Props) {
-  const renderRecordSelectionArea = (() => {
-    if (recordPreviews.length === 0) {
-      return <EmptyIndicator />;
-    }
+  const renderRecordCount =
+    recordPreviews.length > 0 ? (
+      <RecordCount>총 {recordPreviews.length}건의 기록이 있습니다.</RecordCount>
+    ) : null;
 
-    return (
+  const renderRecordSelectionArea =
+    recordPreviews.length > 0 ? (
       <RecordSelectionList>
         {recordPreviews.map(({ id, title, imageUrl }) => (
           <RecordSelectionLink key={id} to={id}>
@@ -45,8 +52,14 @@ export function RecordSelection({ recordPreviews }: Props) {
           </RecordSelectionLink>
         ))}
       </RecordSelectionList>
+    ) : (
+      <EmptyIndicator />
     );
-  })();
 
-  return <Root>{renderRecordSelectionArea}</Root>;
+  return (
+    <Root>
+      {renderRecordCount}
+      {renderRecordSelectionArea}
+    </Root>
+  );
 }
