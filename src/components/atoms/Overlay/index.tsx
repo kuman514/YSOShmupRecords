@@ -15,7 +15,7 @@ const Root = styled.div`
 
 interface Props {
   children?: ReactNode;
-  onClick(): void;
+  onClick?(): void;
 }
 
 export function Overlay({ children, onClick }: Props) {

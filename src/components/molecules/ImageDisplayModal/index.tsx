@@ -1,7 +1,18 @@
 import React from 'react';
+import styled from 'styled-components';
 
-import { ImageDisplay } from '^/components/atoms/ImageDisplay';
+import { ImageZoomAndMoveController } from '^/components/molecules/ImageZoomAndMoveController';
 import { Overlay } from '^/components/atoms/Overlay';
+import { Button } from '^/components/atoms/Button';
+import { MenuOpenCloseIcon } from '^/components/atoms/MenuOpenCloseIcon';
+import { ButtonType } from '^/types';
+
+const CloseButtonWrapper = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 16px;
+`;
 
 interface Props {
   imageUrl: string;
@@ -10,8 +21,21 @@ interface Props {
 
 export function ImageDisplayModal({ imageUrl, onExit }: Props) {
   return (
-    <Overlay onClick={onExit}>
-      <ImageDisplay imageUrl={imageUrl} onClickClose={onExit} />
+    <Overlay>
+      <ImageZoomAndMoveController imageUrl={imageUrl} />
+      <CloseButtonWrapper>
+        <Button
+          type={ButtonType.CLEAR}
+          customStyle={{
+            padding: '4px',
+            borderRadius: '50%',
+          }}
+          isDisabled={false}
+          onClick={onExit}
+        >
+          <MenuOpenCloseIcon isOpen />
+        </Button>
+      </CloseButtonWrapper>
     </Overlay>
   );
 }
