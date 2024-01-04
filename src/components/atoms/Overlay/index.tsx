@@ -11,6 +11,7 @@ const Root = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  touch-action: none;
 `;
 
 interface Props {
