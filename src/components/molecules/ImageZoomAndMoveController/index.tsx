@@ -23,6 +23,8 @@ const Image = styled.img`
   -moz-user-select: none;
   -o-user-select: none;
   user-select: none;
+
+  touch-action: pan-x pan-y pinch-zoom;
 `;
 
 interface Props {
