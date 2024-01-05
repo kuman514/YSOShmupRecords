@@ -23,8 +23,6 @@ const Image = styled.img`
   -moz-user-select: none;
   -o-user-select: none;
   user-select: none;
-
-  touch-action: auto;
 `;
 
 interface Props {
@@ -32,6 +30,7 @@ interface Props {
 }
 
 export function ImageZoomAndMoveController({ imageUrl }: Props) {
+  const [recentTouchDist, setRecentTouchDist] = useState<number>(-1);
   const [position, setPosition] = useState<number[]>([0, 0]);
   const [scale, setScale] = useState<number>(1);
 
@@ -71,6 +70,33 @@ export function ImageZoomAndMoveController({ imageUrl }: Props) {
           const deltaY =
             touchMoveEvent.touches[0].pageY - touchStartEvent.touches[0].pageY;
           moveImage(deltaX, deltaY);
+
+          if (touchMoveEvent.touches.length === 2) {
+            const firstPageX = touchMoveEvent.touches[0].pageX;
+            const firstPageY = touchMoveEvent.touches[0].pageY;
+            const secondPageX = touchMoveEvent.touches[1].pageX;
+            const secondPageY = touchMoveEvent.touches[1].pageY;
+
+            const left = Math.min(firstPageX, secondPageX);
+            const right = Math.max(firstPageX, secondPageX);
+            const top = Math.min(firstPageY, secondPageY);
+            const bottom = Math.max(firstPageY, secondPageY);
+
+            const horizontalDist = right - left;
+            const verticalDist = bottom - top;
+
+            const dist = Math.sqrt(
+              horizontalDist * horizontalDist + verticalDist * verticalDist
+            );
+
+            if (recentTouchDist > 0) {
+              const newScale = scale - (recentTouchDist - dist) / 100;
+              const finalScale = Math.min(Math.max(0.3, newScale), 10);
+              setScale(finalScale);
+            }
+          } else {
+            setRecentTouchDist(-1);
+          }
         }
 
         function handleOnTouchEnd() {
