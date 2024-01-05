@@ -24,7 +24,7 @@ const Image = styled.img`
   -o-user-select: none;
   user-select: none;
 
-  touch-action: pan-x pan-y pinch-zoom;
+  touch-action: auto;
 `;
 
 interface Props {
@@ -50,7 +50,7 @@ export function ImageZoomAndMoveController({ imageUrl }: Props) {
         event.nativeEvent.stopImmediatePropagation();
       }}
       onWheel={(event) => {
-        const newScale = scale - event.deltaY * 0.01;
+        const newScale = scale - event.deltaY * 0.001;
         const finalScale = Math.min(Math.max(0.3, newScale), 10);
         setScale(finalScale);
       }}
@@ -59,6 +59,26 @@ export function ImageZoomAndMoveController({ imageUrl }: Props) {
           return;
         }
         moveImage(event.movementX, event.movementY);
+      }}
+      onTouchStart={(touchStartEvent) => {
+        function handleOnTouchMove(touchMoveEvent: TouchEvent) {
+          if (touchMoveEvent.cancelable) {
+            touchMoveEvent.preventDefault();
+          }
+
+          const deltaX =
+            touchMoveEvent.touches[0].pageX - touchStartEvent.touches[0].pageX;
+          const deltaY =
+            touchMoveEvent.touches[0].pageY - touchStartEvent.touches[0].pageY;
+          moveImage(deltaX, deltaY);
+        }
+
+        function handleOnTouchEnd() {
+          document.removeEventListener('touchmove', handleOnTouchMove);
+        }
+
+        document.addEventListener('touchmove', handleOnTouchMove);
+        document.addEventListener('touchend', handleOnTouchEnd, { once: true });
       }}
     >
       <Image
