@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "start": "vite --open",
+    "start": "vite --open --host",
     "lint": "yarn eslint src/**/*.{ts,tsx}",
     "test": "vitest",
     "build": "tsc --noEmit && yarn lint && yarn test --watch=false && vite build",
