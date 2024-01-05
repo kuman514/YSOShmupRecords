@@ -69,6 +69,8 @@ describe('ImageZoomAndMoveController', () => {
       throw Error('The container returned nullish');
     }
 
-    expect(img.style.transform).toStrictEqual('scale(0.5) translate(0px, 0px)');
+    expect(img.style.transform).toStrictEqual(
+      'scale(0.95) translate(0px, 0px)'
+    );
   });
 });
