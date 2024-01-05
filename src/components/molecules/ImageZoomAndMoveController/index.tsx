@@ -70,33 +70,6 @@ export function ImageZoomAndMoveController({ imageUrl }: Props) {
           const deltaY =
             touchMoveEvent.touches[0].pageY - touchStartEvent.touches[0].pageY;
           moveImage(deltaX, deltaY);
-
-          if (touchMoveEvent.touches.length === 2) {
-            const firstPageX = touchMoveEvent.touches[0].pageX;
-            const firstPageY = touchMoveEvent.touches[0].pageY;
-            const secondPageX = touchMoveEvent.touches[1].pageX;
-            const secondPageY = touchMoveEvent.touches[1].pageY;
-
-            const left = Math.min(firstPageX, secondPageX);
-            const right = Math.max(firstPageX, secondPageX);
-            const top = Math.min(firstPageY, secondPageY);
-            const bottom = Math.max(firstPageY, secondPageY);
-
-            const horizontalDist = right - left;
-            const verticalDist = bottom - top;
-
-            const dist = Math.sqrt(
-              horizontalDist * horizontalDist + verticalDist * verticalDist
-            );
-
-            if (recentTouchDist > 0) {
-              const newScale = scale - (recentTouchDist - dist) / 100;
-              const finalScale = Math.min(Math.max(0.3, newScale), 10);
-              setScale(finalScale);
-            }
-          } else {
-            setRecentTouchDist(-1);
-          }
         }
 
         function handleOnTouchEnd() {
@@ -105,6 +78,36 @@ export function ImageZoomAndMoveController({ imageUrl }: Props) {
 
         document.addEventListener('touchmove', handleOnTouchMove);
         document.addEventListener('touchend', handleOnTouchEnd, { once: true });
+      }}
+      onTouchMove={(event) => {
+        if (event.touches.length === 2) {
+          const firstPageX = event.touches[0].pageX;
+          const firstPageY = event.touches[0].pageY;
+          const secondPageX = event.touches[1].pageX;
+          const secondPageY = event.touches[1].pageY;
+
+          const left = Math.min(firstPageX, secondPageX);
+          const right = Math.max(firstPageX, secondPageX);
+          const top = Math.min(firstPageY, secondPageY);
+          const bottom = Math.max(firstPageY, secondPageY);
+
+          const horizontalDist = right - left;
+          const verticalDist = bottom - top;
+
+          const dist = Math.sqrt(
+            horizontalDist * horizontalDist + verticalDist * verticalDist
+          );
+
+          if (recentTouchDist > 0) {
+            const newScale = scale - (recentTouchDist - dist) / 100;
+            const finalScale = Math.min(Math.max(0.3, newScale), 10);
+            setScale(finalScale);
+          }
+
+          setRecentTouchDist(dist);
+        } else {
+          setRecentTouchDist(-1);
+        }
       }}
     >
       <Image
