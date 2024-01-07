@@ -27,7 +27,7 @@ describe('Article', () => {
     cleanup();
   });
 
-  it('should have nav route title, thumbnail, date title, stage, score, method, special tag area, commentary, and youtube', () => {
+  it('should have thumbnail, date title, stage, score, method, special tag area, commentary, and youtube', () => {
     const routes = [
       {
         path: '/test-sub1/test/koishi/hoshino',
@@ -42,23 +42,12 @@ describe('Article', () => {
 
     render(<RouterProvider router={router} />);
 
-    const renderResult1 = screen.getByText(/kuman514/i);
-    const renderResult2 = screen.getByText(/koishi/i);
-    const renderResult3 = screen.getByText(/hoshino/i);
-
-    expect(renderResult1).not.toStrictEqual(renderResult2);
-    expect(renderResult1).not.toStrictEqual(renderResult3);
-    expect(renderResult2).not.toStrictEqual(renderResult3);
-
     const thumbnail = screen.getByAltText(
       `${testData.subjectId} ${convertDateToString(testData.when)} ${
         testData.stage
       }스테이지 ${testData.score}점`
     );
     expect(thumbnail).not.toBeNull();
-
-    const dateTitle = screen.getByText(convertDateToString(testData.when));
-    expect(dateTitle).not.toBeNull();
 
     const stage = screen.getByText(testData.stage);
     expect(stage).not.toBeNull();

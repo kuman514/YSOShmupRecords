@@ -9,23 +9,22 @@ describe('ImageDisplayModal', () => {
     cleanup();
   });
 
-  it('should not bubble events from children', () => {
+  it('should close modal only on-click close button', () => {
     const mockFn = vi.fn();
     const { container } = render(
       <ImageDisplayModal imageUrl="" onExit={mockFn} />
     );
 
-    fireEvent.click(screen.getByText(/닫기/i));
+    const clickToCloseIcon = container.querySelector('#Click-to-close-icon');
+    if (!clickToCloseIcon) {
+      throw Error('The container returned nullish');
+    }
+    fireEvent.click(clickToCloseIcon);
     expect(mockFn).toBeCalledTimes(1);
 
     fireEvent.click(
       screen.getByAltText(/Record image in expanded contain size/i)
     );
     expect(mockFn).toBeCalledTimes(1);
-
-    if (container.firstChild !== null) {
-      fireEvent.click(container.firstChild);
-      expect(mockFn).toBeCalledTimes(2);
-    }
   });
 });

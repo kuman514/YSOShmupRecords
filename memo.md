@@ -17,3 +17,20 @@
 - UI가 의도치 않게 변경되지 않음을 확실시 하기 위해 사용.
 - Snapshot Tests가 실패할 경우, UI가 의도치 않게 변형되지 않도록 조치하거나 스냅샷을 갱신해야 한다.
 - [관련 문서](https://jestjs.io/docs/snapshot-testing)
+
+## fireEvent나 Simulate를 사용한 테스트에서 state 변경을 반영시키려면
+- 테스트 중 Warning 내용
+  ```
+  Warning: An update to ImageZoomAndMoveController inside a test was not wrapped in act(...).
+
+  When testing, code that causes React state updates should be wrapped into act(...):
+  ```
+  ```TypeScript
+  act(() => {
+    /* fire events that update state */
+  });
+  /* assert on the output */
+  ```
+  ```
+  This ensures that you're testing the behavior the user would see in the browser. Learn more at https://reactjs.org/link/wrap-tests-with-act
+  ```

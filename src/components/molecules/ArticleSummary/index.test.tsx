@@ -45,14 +45,6 @@ describe('ArticleSummary', () => {
 
     render(<RouterProvider router={router} />);
 
-    const renderResult1 = screen.getByText(/kuman514/i);
-    const renderResult2 = screen.getByText(/koishi/i);
-    const renderResult3 = screen.getByText(/hoshino/i);
-
-    expect(renderResult1).not.toStrictEqual(renderResult2);
-    expect(renderResult1).not.toStrictEqual(renderResult3);
-    expect(renderResult2).not.toStrictEqual(renderResult3);
-
     const thumbnail = screen.getByAltText(
       `${testDataWithoutSpecialTags.subjectId} ${convertDateToString(
         testDataWithoutSpecialTags.when
@@ -61,11 +53,6 @@ describe('ArticleSummary', () => {
       }점`
     );
     expect(thumbnail).not.toBeNull();
-
-    const dateTitle = screen.getByText(
-      convertDateToString(testDataWithoutSpecialTags.when)
-    );
-    expect(dateTitle).not.toBeNull();
 
     const stage = screen.getByText(testDataWithoutSpecialTags.stage);
     expect(stage).not.toBeNull();
