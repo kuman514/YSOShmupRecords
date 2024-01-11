@@ -9,17 +9,19 @@ export function useShmupArticle(
   currentRecordId?: string
 ) {
   const [recordArticle, setRecordArticle] = useState<ShmupRecord>();
-  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
   const [isError, setIsError] = useState<boolean>(false);
 
   useEffect(() => {
-    setRecordArticle(undefined);
     if (currentRecordId === undefined) {
+      setRecordArticle(undefined);
       return;
     }
+
     (async () => {
       setIsError(false);
       setIsLoading(true);
+      setRecordArticle(undefined);
       try {
         const response = await axios.get<ShmupRecord>(
           getAPIURL('records', endpointName, currentRecordId)
