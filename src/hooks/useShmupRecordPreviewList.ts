@@ -9,14 +9,14 @@ export function useShmupRecordPreviewList(endpointName: string) {
   const [recordPreviews, setRecordPreviews] = useState<ShmupRecordPreview[]>(
     []
   );
-  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
   const [isError, setIsError] = useState<boolean>(false);
 
   useEffect(() => {
     (async () => {
-      setRecordPreviews([]);
-      setIsError(false);
       setIsLoading(true);
+      setIsError(false);
+      setRecordPreviews([]);
 
       try {
         const response = await axios.get<string[]>(
