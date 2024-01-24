@@ -33,11 +33,15 @@ export function useShmupRecordPreviewList(endpointName: string) {
           .sort((a, b) => b.recordId.localeCompare(a.recordId))
           .map(
             (record): ShmupRecordPreview => ({
-              id: record.recordId.split('--')[1],
+              ...record,
+              thumbnailUrl: getStaticImageUrl(record.thumbnailUrl),
+              originalImageUrls: record.originalImageUrls.map(
+                (originalImageUrl) => getStaticImageUrl(originalImageUrl)
+              ),
+              when: new Date(record.when),
               title: `${convertDateToString(
                 new Date(record.recordId.split('--')[1])
               )} 기록`,
-              imageUrl: getStaticImageUrl(record.recordId, 'thumbnail.jpg'),
             })
           );
         setRecordPreviews(newRecordPreviews);

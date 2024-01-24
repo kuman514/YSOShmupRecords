@@ -4,12 +4,6 @@ export interface NavNodeInfo {
   childNavNodes?: NavNodeInfo[];
 }
 
-export interface ShmupRecordPreview {
-  id: string;
-  title: string;
-  imageUrl: string;
-}
-
 export interface ShmupRecord {
   recordId: string;
   when: Date;
@@ -26,6 +20,10 @@ export interface ShmupRecord {
   originalImageUrls: string[];
   youtubeUrl?: string;
   specialTags?: string[];
+}
+
+export interface ShmupRecordPreview extends ShmupRecord {
+  title: string;
 }
 
 export interface DescriptionListItem {

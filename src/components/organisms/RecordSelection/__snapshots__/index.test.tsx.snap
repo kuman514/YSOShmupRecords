@@ -170,7 +170,7 @@ exports[`RecordSelection > should match snapshot with non-empty recordIds 1`] = 
         <img
           alt="2023년 10월 28일"
           class="c5"
-          src="2023-10-28.jpg"
+          src="Thumbnail URL"
         />
         <div
           class="c6"
@@ -193,7 +193,7 @@ exports[`RecordSelection > should match snapshot with non-empty recordIds 1`] = 
         <img
           alt="2023년 5월 14일"
           class="c5"
-          src="2023-05-14.jpg"
+          src="Thumbnail URL"
         />
         <div
           class="c6"
@@ -216,7 +216,7 @@ exports[`RecordSelection > should match snapshot with non-empty recordIds 1`] = 
         <img
           alt="2022년 11월 21일"
           class="c5"
-          src="2022-11-21.jpg"
+          src="Thumbnail URL"
         />
         <div
           class="c6"
