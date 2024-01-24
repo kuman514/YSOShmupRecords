@@ -46,9 +46,9 @@ export function RecordSelection({ recordPreviews }: Props) {
   const renderRecordSelectionArea =
     recordPreviews.length > 0 ? (
       <RecordSelectionList>
-        {recordPreviews.map(({ id, title, imageUrl }) => (
-          <RecordSelectionLink key={id} to={id}>
-            <RecordListCard imageUrl={imageUrl} title={title} />
+        {recordPreviews.map(({ recordId, title, thumbnailUrl }) => (
+          <RecordSelectionLink key={recordId} to={recordId.split('--')[1]}>
+            <RecordListCard imageUrl={thumbnailUrl} title={title} />
           </RecordSelectionLink>
         ))}
       </RecordSelectionList>
