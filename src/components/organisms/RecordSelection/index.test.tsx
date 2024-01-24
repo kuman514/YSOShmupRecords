@@ -6,17 +6,55 @@ import 'jest-styled-components';
 
 import { ShmupRecordPreview } from '^/types';
 import { RecordSelection } from '.';
-import { convertDateToString } from '^/utils/date-to-string';
 
-const recordIdsForTest: string[] = ['2023-10-28', '2023-05-14', '2022-11-21'];
+// const recordIdsForTest: string[] = ['2023-10-28', '2023-05-14', '2022-11-21'];
 
-const recordPreviewForTest = recordIdsForTest.map(
-  (recordId): ShmupRecordPreview => ({
-    id: recordId,
-    title: convertDateToString(new Date(recordId)),
-    imageUrl: `${recordId}.jpg`,
-  })
-);
+// const recordPreviewForTest = recordIdsForTest.map(
+//   (recordId): ShmupRecordPreview => ({
+//     id: recordId,
+//     title: convertDateToString(new Date(recordId)),
+//     imageUrl: `${recordId}.jpg`,
+//   })
+// );
+
+const recordPreviewForTest: ShmupRecordPreview[] = [
+  {
+    recordId: 'dodonpachi-cshot--2023-10-28',
+    when: new Date('Oct 28 2023'),
+    typeId: 'dodonpachi-cshot',
+    stage: '2-4',
+    score: '80000000',
+    byWhat: 'Arcade in Akatronics',
+    comment: '야스오 2-4 진출',
+    thumbnailUrl: 'Thumbnail URL',
+    originalImageUrls: ['Original Image URL'],
+    title: '2023년 10월 28일',
+  },
+  {
+    recordId: 'dodonpachi-cshot--2023-05-14',
+    when: new Date('May 14 2023'),
+    typeId: 'dodonpachi-cshot',
+    stage: '2-4',
+    score: '80000000',
+    byWhat: 'Arcade in Akatronics',
+    comment: '야스오 2-4 진출',
+    thumbnailUrl: 'Thumbnail URL',
+    originalImageUrls: ['Original Image URL'],
+    title: '2023년 5월 14일',
+  },
+  {
+    recordId: 'dodonpachi-cshot--2022-11-21',
+    when: new Date('Nov 21 2023'),
+    typeId: 'dodonpachi-cshot',
+    stage: '2-4',
+    score: '80000000',
+    byWhat: 'Arcade in Akatronics',
+    comment: '김두한',
+    thumbnailUrl: 'Thumbnail URL',
+    originalImageUrls: ['Original Image URL'],
+    title: '2022년 11월 21일',
+  },
+];
 
 describe('RecordSelection', () => {
   beforeEach(() => {

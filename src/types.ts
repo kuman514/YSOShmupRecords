@@ -4,16 +4,10 @@ export interface NavNodeInfo {
   childNavNodes?: NavNodeInfo[];
 }
 
-export interface ShmupRecordPreview {
-  id: string;
-  title: string;
-  imageUrl: string;
-}
-
 export interface ShmupRecord {
-  id: string;
+  recordId: string;
   when: Date;
-  subjectId: string;
+  typeId: string;
   stage: string;
   /**
    * Why score should be string?
@@ -23,9 +17,13 @@ export interface ShmupRecord {
   byWhat: string;
   comment: string;
   thumbnailUrl: string;
-  originalImageUrl: string;
+  originalImageUrls: string[];
   youtubeUrl?: string;
   specialTags?: string[];
+}
+
+export interface ShmupRecordPreview extends ShmupRecord {
+  title: string;
 }
 
 export interface DescriptionListItem {

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import { ImageZoomAndMoveController } from '^/components/molecules/ImageZoomAndMoveController';
@@ -15,14 +15,20 @@ const CloseButtonWrapper = styled.div`
 `;
 
 interface Props {
-  imageUrl: string;
+  imageUrls: string[];
   onExit(): void;
 }
 
-export function ImageDisplayModal({ imageUrl, onExit }: Props) {
+export function ImageDisplayModal({ imageUrls, onExit }: Props) {
+  /**
+   * @todo
+   * Make going to prev/next image
+   */
+  const [index] = useState<number>(0);
+
   return (
     <Overlay>
-      <ImageZoomAndMoveController imageUrl={imageUrl} />
+      <ImageZoomAndMoveController imageUrl={imageUrls[index]} />
       <CloseButtonWrapper>
         <Button
           type={ButtonType.CLEAR}

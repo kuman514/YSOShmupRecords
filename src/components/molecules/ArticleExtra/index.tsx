@@ -36,27 +36,26 @@ interface Props {
 }
 
 export function ArticleExtra({ comment, youtubeUrl }: Props) {
-  const renderYoutube =
-    youtubeUrl !== undefined ? (
-      <ListItem>
-        <ListItemWrapper>
-          <ListItemTitle>유튜브 영상</ListItemTitle>
-          <ListItemContent>
-            <iframe
-              width="100%"
-              height="480px"
-              src={youtubeUrl}
-              title="YouTube video player"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowFullScreen
-              style={{
-                borderWidth: 0,
-              }}
-            />
-          </ListItemContent>
-        </ListItemWrapper>
-      </ListItem>
-    ) : null;
+  const renderYoutube = youtubeUrl ? (
+    <ListItem>
+      <ListItemWrapper>
+        <ListItemTitle>유튜브 영상</ListItemTitle>
+        <ListItemContent>
+          <iframe
+            width="100%"
+            height="480px"
+            src={youtubeUrl}
+            title="YouTube video player"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen
+            style={{
+              borderWidth: 0,
+            }}
+          />
+        </ListItemContent>
+      </ListItemWrapper>
+    </ListItem>
+  ) : null;
 
   return (
     <Root>
