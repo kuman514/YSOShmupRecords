@@ -2,8 +2,15 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 
 import { getAPIURL } from '^/utils/api-url';
-import { ShmupRecordPreview } from '^/types';
+import { ShmupRecord, ShmupRecordPreview } from '^/types';
 import { convertDateToString } from '^/utils/date-to-string';
+import { getStaticImageUrl } from '^/utils/static-image-url';
+
+interface GetShmupRecordPreviewListResponse {
+  attempts: number;
+  statusCode: number;
+  data: ShmupRecord[];
+}
 
 export function useShmupRecordPreviewList(endpointName: string) {
   const [recordPreviews, setRecordPreviews] = useState<ShmupRecordPreview[]>(
@@ -19,21 +26,20 @@ export function useShmupRecordPreviewList(endpointName: string) {
       setRecordPreviews([]);
 
       try {
-        const response = await axios.get<string[]>(
-          getAPIURL('records', endpointName, 'selection')
+        const response = await axios.get<GetShmupRecordPreviewListResponse>(
+          getAPIURL('records', endpointName)
         );
-        const newRecordPreviews = response.data.map(
-          (recordId): ShmupRecordPreview => ({
-            id: recordId,
-            title: `${convertDateToString(new Date(recordId))} 기록`,
-            imageUrl: getAPIURL(
-              'records',
-              endpointName,
-              'images',
-              `${recordId}_thumbnail.jpg`
-            ),
-          })
-        );
+        const newRecordPreviews = response.data.data
+          .sort((a, b) => b.recordId.localeCompare(a.recordId))
+          .map(
+            (record): ShmupRecordPreview => ({
+              id: record.recordId.split('--')[1],
+              title: `${convertDateToString(
+                new Date(record.recordId.split('--')[1])
+              )} 기록`,
+              imageUrl: getStaticImageUrl(record.recordId, 'thumbnail.jpg'),
+            })
+          );
         setRecordPreviews(newRecordPreviews);
       } catch (error) {
         if (axios.isAxiosError(error)) {

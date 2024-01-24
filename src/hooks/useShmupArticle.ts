@@ -4,6 +4,12 @@ import { useState, useEffect } from 'react';
 import { ShmupRecord } from '^/types';
 import { getAPIURL } from '^/utils/api-url';
 
+interface GetShmupRecordArticleResponse {
+  attempts: number;
+  statusCode: number;
+  data: ShmupRecord;
+}
+
 export function useShmupArticle(
   endpointName: string,
   currentRecordId?: string
@@ -23,12 +29,12 @@ export function useShmupArticle(
       setIsLoading(true);
       setRecordArticle(undefined);
       try {
-        const response = await axios.get<ShmupRecord>(
+        const response = await axios.get<GetShmupRecordArticleResponse>(
           getAPIURL('records', endpointName, currentRecordId)
         );
         setRecordArticle({
-          ...response.data,
-          when: new Date(response.data.when),
+          ...response.data.data,
+          when: new Date(response.data.data.when),
         });
       } catch (error) {
         if (axios.isAxiosError(error)) {
