@@ -130,7 +130,7 @@ export function ArticleSummary({ record }: Props) {
     const textToUri = encodeURI(
       `${convertDateToString(record.when)}, ${
         textsForArticle[record.byWhat]
-      }에서 플레이한 ${textsForArticle[record.subjectId]}에서, ${
+      }에서 플레이한 ${textsForArticle[record.typeId]}에서, ${
         record.score
       }점으로 ${record.stage} 달성!`
     );
@@ -175,7 +175,7 @@ export function ArticleSummary({ record }: Props) {
 
   const renderImageModal = isImageModalShow ? (
     <ImageDisplayModal
-      imageUrl={record.originalImageUrl}
+      imageUrls={record.originalImageUrls}
       onExit={() => {
         setIsImageModalShow(false);
       }}
@@ -195,7 +195,7 @@ export function ArticleSummary({ record }: Props) {
       <Root>
         <Thumbnail
           imageSrc={record.thumbnailUrl}
-          altText={`${record.subjectId} ${convertDateToString(record.when)} ${
+          altText={`${record.typeId} ${convertDateToString(record.when)} ${
             record.stage
           }스테이지 ${record.score}점`}
           onClick={() => {

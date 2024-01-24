@@ -9,15 +9,15 @@ import { convertDateToString } from '^/utils/date-to-string';
 import { ArticleSummary } from '.';
 
 const testDataWithoutSpecialTags: ShmupRecord = {
-  id: '20230514',
+  recordId: '20230514',
   when: new Date('May 14 2023'),
-  subjectId: 'dodonpachi-cshot',
+  typeId: 'dodonpachi-cshot',
   stage: '2-4',
   score: '80000000',
   byWhat: 'Arcade in Akatronics',
   comment: '야스오 2-4 진출',
   thumbnailUrl: 'Thumbnail URL',
-  originalImageUrl: 'Original Image URL',
+  originalImageUrls: ['Original Image URL'],
 };
 
 const testDataWithSpecialTags: ShmupRecord = {
@@ -46,7 +46,7 @@ describe('ArticleSummary', () => {
     render(<RouterProvider router={router} />);
 
     const thumbnail = screen.getByAltText(
-      `${testDataWithoutSpecialTags.subjectId} ${convertDateToString(
+      `${testDataWithoutSpecialTags.typeId} ${convertDateToString(
         testDataWithoutSpecialTags.when
       )} ${testDataWithoutSpecialTags.stage}스테이지 ${
         testDataWithoutSpecialTags.score

@@ -12,7 +12,7 @@ describe('ImageDisplayModal', () => {
   it('should close modal only on-click close button', () => {
     const mockFn = vi.fn();
     const { container } = render(
-      <ImageDisplayModal imageUrl="" onExit={mockFn} />
+      <ImageDisplayModal imageUrls={['']} onExit={mockFn} />
     );
 
     const clickToCloseIcon = container.querySelector('#Click-to-close-icon');
