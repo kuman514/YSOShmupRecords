@@ -11,9 +11,9 @@ export interface ShmupRecordPreview {
 }
 
 export interface ShmupRecord {
-  id: string;
+  recordId: string;
   when: Date;
-  subjectId: string;
+  typeId: string;
   stage: string;
   /**
    * Why score should be string?
@@ -23,7 +23,7 @@ export interface ShmupRecord {
   byWhat: string;
   comment: string;
   thumbnailUrl: string;
-  originalImageUrl: string;
+  originalImageUrls: string[];
   youtubeUrl?: string;
   specialTags?: string[];
 }
