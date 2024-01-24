@@ -19,7 +19,7 @@ const Root = styled.div<RootProps>`
     transition: color 100ms linear;
 
     ${({ $url }) =>
-      $url !== undefined
+      $url
         ? `
           &:hover {
             color: var(--hovering-color);
@@ -57,14 +57,13 @@ interface Props {
 
 export function NavigationNode({ depth, nodeInfo }: Props) {
   const text = textsForNavigation[nodeInfo.id] ?? nodeInfo.id;
-  const renderLinkText =
-    nodeInfo.linkTo !== undefined ? (
-      <NoUnderlineLinkOnNotHover to={nodeInfo.linkTo}>
-        {text}
-      </NoUnderlineLinkOnNotHover>
-    ) : (
-      text
-    );
+  const renderLinkText = nodeInfo.linkTo ? (
+    <NoUnderlineLinkOnNotHover to={nodeInfo.linkTo}>
+      {text}
+    </NoUnderlineLinkOnNotHover>
+  ) : (
+    text
+  );
 
   const renderMainBody = (() => {
     switch (depth) {

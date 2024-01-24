@@ -140,7 +140,7 @@ export function ArticleSummary({ record }: Props) {
   }
 
   const renderSpecialTags =
-    record.specialTags !== undefined && record.specialTags.length > 0 ? (
+    record.specialTags && record.specialTags.length > 0 ? (
       <li>
         <ListItemTitle>특이사항</ListItemTitle>
         <ListItemContent>

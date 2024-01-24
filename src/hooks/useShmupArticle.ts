@@ -19,7 +19,7 @@ export function useShmupArticle(
   const [isError, setIsError] = useState<boolean>(false);
 
   useEffect(() => {
-    if (currentRecordId === undefined) {
+    if (!currentRecordId) {
       setRecordArticle(undefined);
       return;
     }

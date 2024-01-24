@@ -15,7 +15,7 @@ interface Props {
 
 export function NavigationTree({ depth, nodeInfo }: Props) {
   const isHavingChildren =
-    nodeInfo.childNavNodes === undefined || nodeInfo.childNavNodes.length === 0;
+    !nodeInfo.childNavNodes || nodeInfo.childNavNodes.length === 0;
 
   const renderSubtrees = !isHavingChildren
     ? nodeInfo.childNavNodes?.map((childNavNode) => (
