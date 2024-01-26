@@ -46,11 +46,27 @@ export function RecordSelection({ recordPreviews }: Props) {
   const renderRecordSelectionArea =
     recordPreviews.length > 0 ? (
       <RecordSelectionList>
-        {recordPreviews.map(({ recordId, title, thumbnailUrl }) => (
-          <RecordSelectionLink key={recordId} to={recordId.split('--')[1]}>
-            <RecordListCard imageUrl={thumbnailUrl} title={title} />
-          </RecordSelectionLink>
-        ))}
+        {recordPreviews.map(
+          ({
+            recordId,
+            title,
+            thumbnailUrl,
+            stage,
+            score,
+            specialTags,
+            youtubeUrl,
+          }) => (
+            <RecordSelectionLink key={recordId} to={recordId.split('--')[1]}>
+              <RecordListCard
+                imageUrl={thumbnailUrl}
+                title={title}
+                stageAndScore={`${stage} / ${score}점`}
+                specialTags={specialTags}
+                youtubeUrl={youtubeUrl}
+              />
+            </RecordSelectionLink>
+          )
+        )}
       </RecordSelectionList>
     ) : (
       <EmptyIndicator />
