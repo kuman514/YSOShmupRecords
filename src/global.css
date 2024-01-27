@@ -8,7 +8,6 @@
 :root {
   --primary-color: #22b14c;
   --hovering-color: #39fd72;
-  --gray-color: #b1b1b1;
   --light-background-color: #ffffff;
   --light-font-color: #000000;
   --dark-background-color: #033205;
@@ -16,4 +15,8 @@
   --player1-color: #ff6b00;
   --player2-color: #4073f4;
   --error-color: #ee4444;
+
+  --white-color: #ffffff;
+  --gray-color: #b1b1b1;
+  --black-color: #000000;
 }

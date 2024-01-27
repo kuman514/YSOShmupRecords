@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const commonStickStyle = `
   width: 24px;
   height: 2px;
-  background-color: #ffffff;
+  background-color: var(--white-color);
 
   transition-property: left, top, transform;
   transition-duration: 500ms;

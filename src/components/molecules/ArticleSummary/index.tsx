@@ -81,7 +81,7 @@ const CopyToClipboardTooltip = styled.div<CopyToClipboardTooltipProps>`
     border-radius: 8px;
 
     background-color: var(--primary-color);
-    color: #ffffff;
+    color: var(--white-color);
 
     display: none;
     justify-content: center;

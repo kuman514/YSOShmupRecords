@@ -12,11 +12,11 @@ const backgroundColorByType: Record<ButtonType, string> = {
 };
 
 const colorByType: Record<ButtonType, string> = {
-  [ButtonType.SOLID]: '#ffffff',
+  [ButtonType.SOLID]: 'var(--white-color)',
   [ButtonType.LINE]: 'var(--primary-color)',
-  [ButtonType.ROUND_SOLID]: '#ffffff',
+  [ButtonType.ROUND_SOLID]: 'var(--white-color)',
   [ButtonType.ROUND_LINE]: 'var(--primary-color)',
-  [ButtonType.CLEAR]: '#ffffff',
+  [ButtonType.CLEAR]: 'var(--white-color)',
 };
 
 const borderByType: Record<ButtonType, string> = {
@@ -36,10 +36,10 @@ const borderRadiusByType: Record<ButtonType, string> = {
 };
 
 const disabledColorByType: Record<ButtonType, string> = {
-  [ButtonType.SOLID]: '#ffffff',
-  [ButtonType.LINE]: '#ffffff',
-  [ButtonType.ROUND_SOLID]: '#ffffff',
-  [ButtonType.ROUND_LINE]: '#ffffff',
+  [ButtonType.SOLID]: 'var(--white-color)',
+  [ButtonType.LINE]: 'var(--white-color)',
+  [ButtonType.ROUND_SOLID]: 'var(--white-color)',
+  [ButtonType.ROUND_LINE]: 'var(--white-color)',
   [ButtonType.CLEAR]: 'var(--gray-color)',
 };
 
@@ -81,7 +81,7 @@ const Root = styled.button<RootProps>`
 
   &:hover {
     background-color: var(--hovering-color);
-    color: #ffffff;
+    color: var(--white-color);
   }
 
   &:disabled {

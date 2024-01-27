@@ -34,13 +34,13 @@ exports[`RecordListCard > should have a snapshot match for its appearance 1`] = 
 }
 
 .c3 {
-  color: #ffffff;
+  color: var(--white-color);
   font-size: 16px;
   font-weight: 600;
 }
 
 .c4 {
-  color: #ffffff;
+  color: var(--white-color);
   font-size: 16px;
   font-weight: 400;
 }
@@ -79,7 +79,7 @@ exports[`RecordListCard > should have a snapshot match showing youtube mark and 
   border-radius: 4px;
   font-size: 12px;
   font-weight: 400;
-  color: #ffffff;
+  color: var(--white-color);
 }
 
 .c0 {
@@ -115,13 +115,13 @@ exports[`RecordListCard > should have a snapshot match showing youtube mark and 
 }
 
 .c3 {
-  color: #ffffff;
+  color: var(--white-color);
   font-size: 16px;
   font-weight: 600;
 }
 
 .c4 {
-  color: #ffffff;
+  color: var(--white-color);
   font-size: 16px;
   font-weight: 400;
 }

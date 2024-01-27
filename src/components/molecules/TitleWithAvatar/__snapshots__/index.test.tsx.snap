@@ -12,7 +12,7 @@ exports[`TitleWithAvatar > should have a snapshot match for its appearance 1`] =
 }
 
 .c3 {
-  color: #000000;
+  color: var(--black-color);
   font-size: 16px;
   font-weight: 500;
   border-radius: inherit;
@@ -31,11 +31,11 @@ exports[`TitleWithAvatar > should have a snapshot match for its appearance 1`] =
 
 .c1 {
   width: 30px;
-  border-top: 1px solid #ffffff;
+  border-top: 1px solid var(--white-color);
 }
 
 .c4 {
-  color: #ffffff;
+  color: var(--white-color);
   font-size: 36px;
   font-weight: 200;
 }

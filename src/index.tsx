@@ -45,7 +45,7 @@ const router = createBrowserRouter([
                 element: <RecordListPage />,
               },
               {
-                path: ':currentRecordId',
+                path: ':recordDateId',
                 element: <RecordPage />,
               },
             ],

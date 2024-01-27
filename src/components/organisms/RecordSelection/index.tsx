@@ -38,39 +38,26 @@ interface Props {
 }
 
 export function RecordSelection({ recordPreviews }: Props) {
-  const renderRecordCount =
-    recordPreviews.length > 0 ? (
-      <RecordCount>총 {recordPreviews.length}건의 기록이 있습니다.</RecordCount>
-    ) : null;
+  const isHavingRecordPreviews = recordPreviews.length > 0;
 
-  const renderRecordSelectionArea =
-    recordPreviews.length > 0 ? (
-      <RecordSelectionList>
-        {recordPreviews.map(
-          ({
-            recordId,
-            title,
-            thumbnailUrl,
-            stage,
-            score,
-            specialTags,
-            youtubeUrl,
-          }) => (
-            <RecordSelectionLink key={recordId} to={recordId.split('--')[1]}>
-              <RecordListCard
-                imageUrl={thumbnailUrl}
-                title={title}
-                stageAndScore={`${stage} / ${score}점`}
-                specialTags={specialTags}
-                youtubeUrl={youtubeUrl}
-              />
-            </RecordSelectionLink>
-          )
-        )}
-      </RecordSelectionList>
-    ) : (
-      <EmptyIndicator />
-    );
+  const renderRecordCount = isHavingRecordPreviews ? (
+    <RecordCount>총 {recordPreviews.length}건의 기록이 있습니다.</RecordCount>
+  ) : null;
+
+  const renderRecordSelectionArea = isHavingRecordPreviews ? (
+    <RecordSelectionList>
+      {recordPreviews.map((recordPreview) => (
+        <RecordSelectionLink
+          key={recordPreview.recordId}
+          to={recordPreview.recordId.split('--')[1]}
+        >
+          <RecordListCard recordPreview={recordPreview} />
+        </RecordSelectionLink>
+      ))}
+    </RecordSelectionList>
+  ) : (
+    <EmptyIndicator />
+  );
 
   return (
     <Root>

@@ -15,12 +15,12 @@ exports[`EmptyIndicator > should have a snapshot match for its appearance 1`] = 
     현재 등록된 기록이 없습니다.
   </h2>
   <button
-    class="sc-bcPKhP EfXTN"
+    class="sc-bcPKhP hULXZF"
   >
     타이틀 화면으로 돌아가기
   </button>
   <button
-    class="sc-bcPKhP EfXTN"
+    class="sc-bcPKhP hULXZF"
   >
     소통창구 (카카오 오픈채팅방)
   </button>

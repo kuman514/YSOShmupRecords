@@ -12,7 +12,7 @@ interface GetShmupRecordPreviewListResponse {
   data: ShmupRecord[];
 }
 
-export function useShmupRecordPreviewList(endpointName: string) {
+export function useShmupRecordPreviewList(typeId: string) {
   const [recordPreviews, setRecordPreviews] = useState<ShmupRecordPreview[]>(
     []
   );
@@ -27,7 +27,7 @@ export function useShmupRecordPreviewList(endpointName: string) {
 
       try {
         const response = await axios.get<GetShmupRecordPreviewListResponse>(
-          getAPIURL('records', endpointName)
+          getAPIURL('records', typeId)
         );
         const newRecordPreviews = response.data.data
           .sort((a, b) => b.recordId.localeCompare(a.recordId))
@@ -54,7 +54,7 @@ export function useShmupRecordPreviewList(endpointName: string) {
 
       setIsLoading(false);
     })();
-  }, [endpointName]);
+  }, [typeId]);
 
   return {
     recordPreviews,

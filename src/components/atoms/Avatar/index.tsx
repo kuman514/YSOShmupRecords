@@ -15,8 +15,8 @@ const Root = styled.div<RootProps>`
   background-color: var(--gray-color);
 `;
 
-const TmpPlaceholder = styled.img`
-  color: #000000;
+const Image = styled.img`
+  color: var(--black-color);
 
   font-size: 16px;
   font-weight: 500;
@@ -34,7 +34,7 @@ interface Props {
 export function Avatar({ pxSize, imageUrl }: Props) {
   return (
     <Root $pxSize={pxSize}>
-      <TmpPlaceholder src={imageUrl} alt="YSOShmupRecords avatar" />
+      <Image src={imageUrl} alt="YSOShmupRecords avatar" />
     </Root>
   );
 }

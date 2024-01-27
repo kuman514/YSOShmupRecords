@@ -4,7 +4,7 @@ exports[`MenuOpenCloseIcon > should be a cross icon when open 1`] = `
 .c1 {
   width: 24px;
   height: 2px;
-  background-color: #ffffff;
+  background-color: var(--white-color);
   transition-property: left,top,transform;
   transition-duration: 500ms;
   transition-timing-function: ease-in-out;
@@ -17,7 +17,7 @@ exports[`MenuOpenCloseIcon > should be a cross icon when open 1`] = `
 .c2 {
   width: 24px;
   height: 2px;
-  background-color: #ffffff;
+  background-color: var(--white-color);
   transition-property: left,top,transform;
   transition-duration: 500ms;
   transition-timing-function: ease-in-out;
@@ -30,7 +30,7 @@ exports[`MenuOpenCloseIcon > should be a cross icon when open 1`] = `
 .c3 {
   width: 24px;
   height: 2px;
-  background-color: #ffffff;
+  background-color: var(--white-color);
   transition-property: left,top,transform;
   transition-duration: 500ms;
   transition-timing-function: ease-in-out;
@@ -66,7 +66,7 @@ exports[`MenuOpenCloseIcon > should be a stack icon when closed 1`] = `
 .c1 {
   width: 24px;
   height: 2px;
-  background-color: #ffffff;
+  background-color: var(--white-color);
   transition-property: left,top,transform;
   transition-duration: 500ms;
   transition-timing-function: ease-in-out;
@@ -79,7 +79,7 @@ exports[`MenuOpenCloseIcon > should be a stack icon when closed 1`] = `
 .c2 {
   width: 24px;
   height: 2px;
-  background-color: #ffffff;
+  background-color: var(--white-color);
   transition-property: left,top,transform;
   transition-duration: 500ms;
   transition-timing-function: ease-in-out;
@@ -92,7 +92,7 @@ exports[`MenuOpenCloseIcon > should be a stack icon when closed 1`] = `
 .c3 {
   width: 24px;
   height: 2px;
-  background-color: #ffffff;
+  background-color: var(--white-color);
   transition-property: left,top,transform;
   transition-duration: 500ms;
   transition-timing-function: ease-in-out;
