@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { SpecialTag } from '^/components/atoms/SpecialTag';
 import { textsForArticle } from '^/constants/texts';
 import { ReactComponent as RawYoutubeMarkSvg } from '^/assets/icons/youtube-mark.svg';
+import { ShmupRecordPreview } from '^/types';
 
 const Root = styled.div`
   position: relative;
@@ -72,24 +73,14 @@ const YoutubeMarkSvg = styled(RawYoutubeMarkSvg)`
 `;
 
 interface Props {
-  imageUrl: string;
-  title: string;
-  stageAndScore: string;
-  youtubeUrl?: string;
-  specialTags?: string[];
+  recordPreview: ShmupRecordPreview;
 }
 
-export function RecordListCard({
-  imageUrl,
-  title,
-  stageAndScore,
-  youtubeUrl,
-  specialTags,
-}: Props) {
+export function RecordListCard({ recordPreview }: Props) {
   const renderSpecialTags =
-    specialTags && specialTags.length > 0 ? (
+    recordPreview.specialTags && recordPreview.specialTags.length > 0 ? (
       <SpecialTagsArea>
-        {specialTags.map((specialTag) => (
+        {recordPreview.specialTags.map((specialTag) => (
           <SpecialTag key={`special-tag-${specialTag}`}>
             {textsForArticle[specialTag] ?? specialTag}
           </SpecialTag>
@@ -97,14 +88,16 @@ export function RecordListCard({
       </SpecialTagsArea>
     ) : null;
 
-  const renderYoutubeMarkSvg = youtubeUrl ? <YoutubeMarkSvg /> : null;
+  const renderYoutubeMarkSvg = recordPreview.youtubeUrl ? (
+    <YoutubeMarkSvg />
+  ) : null;
 
   return (
     <Root>
-      <Image src={imageUrl} alt={title} />
+      <Image src={recordPreview.thumbnailUrl} alt={recordPreview.title} />
       <Summary>
-        <Title>{title}</Title>
-        <StageAndScore>{stageAndScore}</StageAndScore>
+        <Title>{recordPreview.title}</Title>
+        <StageAndScore>{`${recordPreview.stage} / ${recordPreview.score}점`}</StageAndScore>
         {renderSpecialTags}
       </Summary>
       {renderYoutubeMarkSvg}
