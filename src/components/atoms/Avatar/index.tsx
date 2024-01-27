@@ -16,7 +16,7 @@ const Root = styled.div<RootProps>`
 `;
 
 const TmpPlaceholder = styled.img`
-  color: #000000;
+  color: var(--black-color);
 
   font-size: 16px;
   font-weight: 500;

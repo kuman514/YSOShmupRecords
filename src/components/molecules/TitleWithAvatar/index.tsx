@@ -15,11 +15,11 @@ const Root = styled.div`
 
 const Line = styled.div`
   width: 30px;
-  border-top: 1px solid #ffffff;
+  border-top: 1px solid var(--white-color);
 `;
 
 const Title = styled.h1`
-  color: #ffffff;
+  color: var(--white-color);
 
   font-size: 36px;
   font-weight: 200;

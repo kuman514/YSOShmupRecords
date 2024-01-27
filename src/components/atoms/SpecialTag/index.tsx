@@ -11,7 +11,7 @@ const Root = styled.span`
 
   font-size: 12px;
   font-weight: 400;
-  color: #ffffff;
+  color: var(--white-color);
 `;
 
 interface Props {

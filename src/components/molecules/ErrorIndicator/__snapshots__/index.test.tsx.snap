@@ -30,12 +30,12 @@ exports[`ErrorIndicator > should have a snapshot match for its appearance 1`] = 
     문제 발생 시 아래 카카오 오픈채팅방 버튼으로 문의해주세요.
   </span>
   <button
-    class="sc-bcPKhP EfXTN"
+    class="sc-bcPKhP hULXZF"
   >
     타이틀 화면으로 돌아가기
   </button>
   <button
-    class="sc-bcPKhP EfXTN"
+    class="sc-bcPKhP hULXZF"
   >
     소통창구 (카카오 오픈채팅방)
   </button>

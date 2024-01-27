@@ -22,7 +22,7 @@ const TreeContainer = styled.div`
   width: 300px;
   height: 100%;
 
-  border-right: 1px solid #ffffff;
+  border-right: 1px solid var(--white-color);
 
   padding-left: 16px;
   padding-right: 16px;

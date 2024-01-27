@@ -45,14 +45,14 @@ const Summary = styled.div`
 `;
 
 const Title = styled.span`
-  color: #ffffff;
+  color: var(--white-color);
 
   font-size: 16px;
   font-weight: 600;
 `;
 
 const StageAndScore = styled.span`
-  color: #ffffff;
+  color: var(--white-color);
 
   font-size: 16px;
   font-weight: 400;

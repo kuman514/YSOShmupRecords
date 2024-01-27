@@ -9,7 +9,7 @@ exports[`SpecialTag > should have a snapshot match 1`] = `
   border-radius: 4px;
   font-size: 12px;
   font-weight: 400;
-  color: #ffffff;
+  color: var(--white-color);
 }
 
 <span
