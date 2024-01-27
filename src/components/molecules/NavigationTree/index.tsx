@@ -14,18 +14,16 @@ interface Props {
 }
 
 export function NavigationTree({ depth, nodeInfo }: Props) {
-  const isHavingChildren =
-    !nodeInfo.childNavNodes || nodeInfo.childNavNodes.length === 0;
-
-  const renderSubtrees = !isHavingChildren
-    ? nodeInfo.childNavNodes?.map((childNavNode) => (
-        <NavigationTree
-          key={childNavNode.id}
-          depth={depth + 1}
-          nodeInfo={childNavNode}
-        />
-      ))
-    : null;
+  const renderSubtrees =
+    nodeInfo.childNavNodes && nodeInfo.childNavNodes.length > 0
+      ? nodeInfo.childNavNodes.map((childNavNode) => (
+          <NavigationTree
+            key={childNavNode.id}
+            depth={depth + 1}
+            nodeInfo={childNavNode}
+          />
+        ))
+      : null;
 
   return (
     <>
