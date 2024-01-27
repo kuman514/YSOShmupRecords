@@ -11,16 +11,13 @@ interface GetShmupRecordArticleResponse {
   data: ShmupRecord;
 }
 
-export function useShmupArticle(
-  endpointName: string,
-  currentRecordId?: string
-) {
+export function useShmupArticle(typeId: string, recordDateId: string) {
   const [recordArticle, setRecordArticle] = useState<ShmupRecord>();
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [isError, setIsError] = useState<boolean>(false);
 
   useEffect(() => {
-    if (!currentRecordId) {
+    if (!recordDateId) {
       setRecordArticle(undefined);
       return;
     }
@@ -31,7 +28,7 @@ export function useShmupArticle(
       setRecordArticle(undefined);
       try {
         const response = await axios.get<GetShmupRecordArticleResponse>(
-          getAPIURL('records', endpointName, currentRecordId)
+          getAPIURL('records', typeId, recordDateId)
         );
         setRecordArticle({
           ...response.data.data,
@@ -49,7 +46,7 @@ export function useShmupArticle(
       }
       setIsLoading(false);
     })();
-  }, [endpointName, currentRecordId]);
+  }, [typeId, recordDateId]);
 
   return {
     recordArticle,
