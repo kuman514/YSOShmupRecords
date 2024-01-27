@@ -45,14 +45,14 @@ const ArticleSkeletonArea = styled.div`
 `;
 
 export function RecordPage() {
-  const { typeId, currentRecordId } = useParams();
+  const { typeId, recordDateId } = useParams();
 
-  if (!typeId || !currentRecordId) {
+  if (!typeId || !recordDateId) {
     return null;
   }
   const { recordArticle, isLoading, isError } = useShmupArticle(
     typeId,
-    currentRecordId
+    recordDateId
   );
 
   const renderMainPart = (() => {
@@ -83,7 +83,7 @@ export function RecordPage() {
   return (
     <Root>
       <TitleArea>
-        <Title>{convertDateToString(new Date(currentRecordId))}</Title>
+        <Title>{convertDateToString(new Date(recordDateId))}</Title>
         <NavRouteTitle />
       </TitleArea>
       {renderMainPart}
