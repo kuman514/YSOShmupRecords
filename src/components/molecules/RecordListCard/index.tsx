@@ -1,12 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import { SpecialTag } from '^/components/atoms/SpecialTag';
+import { textsForArticle } from '^/constants/texts';
+import { ReactComponent as RawYoutubeMarkSvg } from '^/assets/icons/youtube-mark.svg';
+import { ShmupRecordPreview } from '^/types';
+
 const Root = styled.div`
+  position: relative;
   width: 300px;
-  height: 240px;
+  min-height: 240px;
 
   display: grid;
-  grid-template-rows: 200px 40px;
+  grid-template-rows: 200px 1fr;
 
   background-color: var(--primary-color);
 
@@ -33,31 +39,68 @@ const Summary = styled.div`
   flex-direction: column;
   row-gap: 8px;
 
-  padding: 0px 16px;
+  padding: 8px 16px;
 
   justify-content: center;
   align-items: flex-start;
 `;
 
 const Title = styled.span`
-  color: #ffffff;
+  color: var(--white-color);
 
   font-size: 16px;
   font-weight: 600;
 `;
 
+const StageAndScore = styled.span`
+  color: var(--white-color);
+
+  font-size: 16px;
+  font-weight: 400;
+`;
+
+const SpecialTagsArea = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 8px;
+`;
+
+const YoutubeMarkSvg = styled(RawYoutubeMarkSvg)`
+  position: absolute;
+  top: 16px;
+  right: 16px;
+`;
+
 interface Props {
-  imageUrl: string;
-  title: string;
+  recordPreview: ShmupRecordPreview;
 }
 
-export function RecordListCard({ imageUrl, title }: Props) {
+export function RecordListCard({ recordPreview }: Props) {
+  const renderSpecialTags =
+    recordPreview.specialTags && recordPreview.specialTags.length > 0 ? (
+      <SpecialTagsArea>
+        {recordPreview.specialTags.map((specialTag) => (
+          <SpecialTag key={`special-tag-${specialTag}`}>
+            {textsForArticle[specialTag] ?? specialTag}
+          </SpecialTag>
+        ))}
+      </SpecialTagsArea>
+    ) : null;
+
+  const renderYoutubeMarkSvg = recordPreview.youtubeUrl ? (
+    <YoutubeMarkSvg />
+  ) : null;
+
   return (
     <Root>
-      <Image src={imageUrl} alt={title} />
+      <Image src={recordPreview.thumbnailUrl} alt={recordPreview.title} />
       <Summary>
-        <Title>{title}</Title>
+        <Title>{recordPreview.title}</Title>
+        <StageAndScore>{`${recordPreview.stage} / ${recordPreview.score}점`}</StageAndScore>
+        {renderSpecialTags}
       </Summary>
+      {renderYoutubeMarkSvg}
     </Root>
   );
 }

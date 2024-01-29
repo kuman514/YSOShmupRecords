@@ -8,7 +8,6 @@
 :root {
   --primary-color: #22b14c;
   --hovering-color: #39fd72;
-  --gray-color: #b1b1b1;
   --light-background-color: #ffffff;
   --light-font-color: #000000;
   --dark-background-color: #033205;
@@ -16,4 +15,18 @@
   --player1-color: #ff6b00;
   --player2-color: #4073f4;
   --error-color: #ee4444;
+
+  --white-color: #ffffff;
+  --gray-color: #b1b1b1;
+  --black-color: #000000;
+}
+
+html[color-theme='light'] {
+  background-color: var(--light-background-color);
+  color: var(--light-font-color);
+}
+
+html[color-theme='dark'] {
+  background-color: var(--dark-background-color);
+  color: var(--dark-font-color);
 }

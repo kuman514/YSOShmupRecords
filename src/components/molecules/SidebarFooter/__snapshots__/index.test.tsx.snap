@@ -7,7 +7,7 @@ exports[`SidebarFooter > should have a snapshot match for its appearance 1`] = `
   font-size: 16px;
   font-weight: 500;
   padding: 8px 16px;
-  color: #ffffff;
+  color: var(--white-color);
   background-color: transparent;
   border: none;
   border-radius: 16px;
@@ -16,7 +16,7 @@ exports[`SidebarFooter > should have a snapshot match for its appearance 1`] = `
 
 .c3:hover {
   background-color: var(--hovering-color);
-  color: #ffffff;
+  color: var(--white-color);
 }
 
 .c3:disabled {
@@ -35,7 +35,7 @@ exports[`SidebarFooter > should have a snapshot match for its appearance 1`] = `
   row-gap: 8px;
   column-gap: 20px;
   padding: 16px 16px 16px 32px;
-  color: #ffffff;
+  color: var(--white-color);
   font-size: 16px;
   font-weight: 300;
 }
@@ -50,7 +50,7 @@ exports[`SidebarFooter > should have a snapshot match for its appearance 1`] = `
 }
 
 .c2:not(:last-of-type) {
-  border-right: 1px solid #ffffff;
+  border-right: 1px solid var(--white-color);
 }
 
 <div

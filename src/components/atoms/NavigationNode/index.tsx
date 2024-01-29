@@ -11,7 +11,7 @@ interface RootProps {
 
 const Root = styled.div<RootProps>`
   & > * {
-    color: #ffffff;
+    color: var(--white-color);
 
     font-style: normal;
     line-height: normal;
