@@ -14,21 +14,94 @@ const CloseButtonWrapper = styled.div`
   padding: 16px;
 `;
 
+const NextPrevButtonWrapper = styled.div`
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  pointer-events: none;
+
+  & * {
+    pointer-events: fill;
+  }
+`;
+
+const NextPrevButton = styled.div`
+  width: 30%;
+  max-width: 300px;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: var(--white-color);
+
+  font-size: 24px;
+  font-weight: 700;
+
+  cursor: pointer;
+`;
+
+const PageWrapper = styled.div`
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+
+  color: var(--white-color);
+`;
+
 interface Props {
   imageUrls: string[];
   onExit(): void;
 }
 
 export function ImageDisplayModal({ imageUrls, onExit }: Props) {
-  /**
-   * @todo
-   * Make going to prev/next image
-   */
-  const [index] = useState<number>(0);
+  const [index, setIndex] = useState<number>(0);
+
+  const renderNextPrevButtonWrapper =
+    imageUrls.length > 1 ? (
+      <NextPrevButtonWrapper>
+        <NextPrevButton
+          id="prev-image-button"
+          onClick={() => {
+            const newIndex = (index - 1 + imageUrls.length) % imageUrls.length;
+            setIndex(newIndex);
+          }}
+        >
+          {'<'}
+        </NextPrevButton>
+        <NextPrevButton
+          id="next-image-button"
+          onClick={() => {
+            const newIndex = (index + 1) % imageUrls.length;
+            setIndex(newIndex);
+          }}
+        >
+          {'>'}
+        </NextPrevButton>
+      </NextPrevButtonWrapper>
+    ) : null;
 
   return (
     <Overlay>
       <ImageZoomAndMoveController imageUrl={imageUrls[index]} />
+      {renderNextPrevButtonWrapper}
       <CloseButtonWrapper>
         <Button
           type={ButtonType.CLEAR}
@@ -42,6 +115,9 @@ export function ImageDisplayModal({ imageUrls, onExit }: Props) {
           <MenuOpenCloseIcon isOpen />
         </Button>
       </CloseButtonWrapper>
+      <PageWrapper>
+        {index + 1} / {imageUrls.length}
+      </PageWrapper>
     </Overlay>
   );
 }
