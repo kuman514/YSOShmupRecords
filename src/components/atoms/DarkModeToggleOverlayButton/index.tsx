@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import { Button } from '^/components/atoms/Button';
 import { ButtonType } from '^/types';
+import { isDarkModeTurnedOn } from '^/constants/dark-mode';
 
 export function DarkModeToggleOverlayButton() {
   const preferredTheme = window.matchMedia?.('(prefers-color-scheme: dark)')
@@ -16,6 +17,10 @@ export function DarkModeToggleOverlayButton() {
     localStorage.setItem('yso-shmup-records-color-theme', newTheme);
     setColorTheme(newTheme);
   }
+
+  const renderLabel = isDarkModeTurnedOn[colorTheme]
+    ? '다크 모드 끄기'
+    : '다크 모드 켜기';
 
   useEffect(() => {
     document.documentElement.setAttribute('color-theme', colorTheme);
@@ -43,7 +48,7 @@ export function DarkModeToggleOverlayButton() {
         }
       }}
     >
-      다크 모드 활성화
+      {renderLabel}
     </Button>
   );
 }
