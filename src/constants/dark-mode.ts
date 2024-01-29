@@ -3,4 +3,4 @@ export const isDarkModeTurnedOn: Record<string, boolean> = {
   light: false,
 };
 
-export const COLOR__LOCAL_STORAGE_KEY = 'yso-shmup-records-color-theme';
+export const COLOR_THEME_LOCAL_STORAGE_KEY = 'yso-shmup-records-color-theme';

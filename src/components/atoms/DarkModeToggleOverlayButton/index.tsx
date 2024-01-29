@@ -2,7 +2,10 @@ import React, { useEffect, useState } from 'react';
 
 import { Button } from '^/components/atoms/Button';
 import { ButtonType } from '^/types';
-import { isDarkModeTurnedOn } from '^/constants/dark-mode';
+import {
+  COLOR_THEME_LOCAL_STORAGE_KEY,
+  isDarkModeTurnedOn,
+} from '^/constants/dark-mode';
 
 export function DarkModeToggleOverlayButton() {
   const preferredTheme = window.matchMedia?.('(prefers-color-scheme: dark)')
@@ -10,11 +13,11 @@ export function DarkModeToggleOverlayButton() {
     ? 'dark'
     : 'light';
   const [colorTheme, setColorTheme] = useState<string>(
-    localStorage.getItem('yso-shmup-records-color-theme') ?? preferredTheme
+    localStorage.getItem(COLOR_THEME_LOCAL_STORAGE_KEY) ?? preferredTheme
   );
 
   function handleOnClickToggleColorTheme(newTheme: string) {
-    localStorage.setItem('yso-shmup-records-color-theme', newTheme);
+    localStorage.setItem(COLOR_THEME_LOCAL_STORAGE_KEY, newTheme);
     setColorTheme(newTheme);
   }
 
