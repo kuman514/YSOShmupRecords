@@ -47,6 +47,23 @@ const NextPrevButton = styled.div`
   font-weight: 700;
 `;
 
+const PageWrapper = styled.div`
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+
+  color: var(--white-color);
+`;
+
 interface Props {
   imageUrls: string[];
   onExit(): void;
@@ -96,6 +113,9 @@ export function ImageDisplayModal({ imageUrls, onExit }: Props) {
           <MenuOpenCloseIcon isOpen />
         </Button>
       </CloseButtonWrapper>
+      <PageWrapper>
+        {index + 1} / {imageUrls.length}
+      </PageWrapper>
     </Overlay>
   );
 }
