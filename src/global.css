@@ -21,14 +21,12 @@
   --black-color: #000000;
 }
 
-html {
+html[color-theme='light'] {
   background-color: var(--light-background-color);
   color: var(--light-font-color);
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    background-color: var(--dark-background-color);
-    color: var(--dark-font-color);
-  }
+html[color-theme='dark'] {
+  background-color: var(--dark-background-color);
+  color: var(--dark-font-color);
 }
