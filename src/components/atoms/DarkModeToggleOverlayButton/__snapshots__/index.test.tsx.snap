@@ -28,7 +28,7 @@ exports[`DarkModeToggleOverlayButton > should have a snapshot match 1`] = `
 
 <button
   class="c0"
-  style="position: fixed; bottom: 32px; right: 32px;"
+  style="position: fixed; bottom: 32px; right: 32px; z-index: 10;"
 >
   다크 모드 켜기
 </button>
