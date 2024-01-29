@@ -1,13 +1,21 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { Button } from '^/components/atoms/Button';
 import { ButtonType } from '^/types';
 
-interface Props {
-  onClick(): void;
-}
+export function DarkModeToggleOverlayButton() {
+  const preferredTheme = window.matchMedia?.('(prefers-color-scheme: dark)')
+    .matches
+    ? 'dark'
+    : 'light';
+  const [colorTheme, setColorTheme] = useState<string>(
+    document.documentElement.getAttribute('color-theme') ?? preferredTheme
+  );
 
-export function DarkModeToggleOverlayButton({ onClick }: Props) {
+  useEffect(() => {
+    document.documentElement.setAttribute('color-theme', colorTheme);
+  }, [colorTheme]);
+
   return (
     <Button
       type={ButtonType.ROUND_SOLID}
@@ -17,7 +25,18 @@ export function DarkModeToggleOverlayButton({ onClick }: Props) {
         right: '32px',
       }}
       isDisabled={false}
-      onClick={onClick}
+      onClick={() => {
+        switch (colorTheme) {
+          case 'light':
+            setColorTheme('dark');
+            break;
+          case 'dark':
+            setColorTheme('light');
+            break;
+          default:
+            break;
+        }
+      }}
     >
       다크 모드 활성화
     </Button>

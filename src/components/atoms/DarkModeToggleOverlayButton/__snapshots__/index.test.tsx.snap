@@ -1,0 +1,35 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`DarkModeToggleOverlayButton > should have a snapshot match 1`] = `
+.c0 {
+  all: unset;
+  box-sizing: border-box;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 8px 16px;
+  color: var(--white-color);
+  background-color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+  border-radius: 16px;
+  cursor: pointer;
+}
+
+.c0:hover {
+  background-color: var(--hovering-color);
+  color: var(--white-color);
+}
+
+.c0:disabled {
+  border: none;
+  color: var(--white-color);
+  background-color: var(--gray-color);
+  text-decoration: none;
+}
+
+<button
+  class="c0"
+  style="position: fixed; bottom: 32px; right: 32px;"
+>
+  다크 모드 활성화
+</button>
+`;
