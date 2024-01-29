@@ -33,6 +33,7 @@ export function DarkModeToggleOverlayButton() {
         position: 'fixed',
         bottom: '32px',
         right: '32px',
+        zIndex: 10,
       }}
       isDisabled={false}
       onClick={() => {
