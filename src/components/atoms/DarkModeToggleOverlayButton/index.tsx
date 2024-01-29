@@ -9,8 +9,13 @@ export function DarkModeToggleOverlayButton() {
     ? 'dark'
     : 'light';
   const [colorTheme, setColorTheme] = useState<string>(
-    document.documentElement.getAttribute('color-theme') ?? preferredTheme
+    localStorage.getItem('yso-shmup-records-color-theme') ?? preferredTheme
   );
+
+  function handleOnClickToggleColorTheme(newTheme: string) {
+    localStorage.setItem('yso-shmup-records-color-theme', newTheme);
+    setColorTheme(newTheme);
+  }
 
   useEffect(() => {
     document.documentElement.setAttribute('color-theme', colorTheme);
@@ -28,10 +33,10 @@ export function DarkModeToggleOverlayButton() {
       onClick={() => {
         switch (colorTheme) {
           case 'light':
-            setColorTheme('dark');
+            handleOnClickToggleColorTheme('dark');
             break;
           case 'dark':
-            setColorTheme('light');
+            handleOnClickToggleColorTheme('light');
             break;
           default:
             break;
