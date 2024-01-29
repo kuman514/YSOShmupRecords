@@ -18,8 +18,6 @@ const Root = styled.div`
 `;
 
 const Title = styled.h1`
-  color: var(--light-font-color);
-
   font-size: 36px;
   font-weight: 700;
 `;

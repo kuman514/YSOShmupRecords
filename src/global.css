@@ -20,3 +20,13 @@
   --gray-color: #b1b1b1;
   --black-color: #000000;
 }
+
+html[color-theme='light'] {
+  background-color: var(--light-background-color);
+  color: var(--light-font-color);
+}
+
+html[color-theme='dark'] {
+  background-color: var(--dark-background-color);
+  color: var(--dark-font-color);
+}
