@@ -45,6 +45,8 @@ const NextPrevButton = styled.div`
 
   font-size: 24px;
   font-weight: 700;
+
+  cursor: pointer;
 `;
 
 const PageWrapper = styled.div`
