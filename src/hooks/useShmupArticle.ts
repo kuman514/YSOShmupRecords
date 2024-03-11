@@ -1,8 +1,8 @@
 import axios from 'axios';
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 import { ShmupRecord } from '^/types';
-import { getAPIURL } from '^/utils/api-url';
+import { getAPIURL } from '^/utils/api';
 import { getStaticImageUrl } from '^/utils/static-image-url';
 
 interface GetShmupRecordArticleResponse {

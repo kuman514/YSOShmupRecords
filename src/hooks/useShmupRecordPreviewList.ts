@@ -1,8 +1,8 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 
-import { getAPIURL } from '^/utils/api-url';
 import { ShmupRecord, ShmupRecordPreview } from '^/types';
+import { getAPIURL } from '^/utils/api';
 import { convertDateToString } from '^/utils/date-to-string';
 import { getStaticImageUrl } from '^/utils/static-image-url';
 
