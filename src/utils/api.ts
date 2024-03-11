@@ -1,3 +1,9 @@
+import axios from 'axios';
+
+export const apiClient = axios.create({
+  baseURL: import.meta.env.VITE_API_URL,
+});
+
 export function getAPIURL(...paths: string[]) {
-  return `${import.meta.env.VITE_API_URL}/${paths.join('/')}`;
+  return paths.join('/');
 }

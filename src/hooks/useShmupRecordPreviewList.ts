@@ -1,8 +1,7 @@
-import axios from 'axios';
 import { useEffect, useState } from 'react';
 
 import { ShmupRecord, ShmupRecordPreview } from '^/types';
-import { getAPIURL } from '^/utils/api';
+import { apiClient, getAPIURL } from '^/utils/api';
 import { convertDateToString } from '^/utils/date-to-string';
 import { getStaticImageUrl } from '^/utils/static-image-url';
 
@@ -26,7 +25,7 @@ export function useShmupRecordPreviewList(typeId: string) {
       setRecordPreviews([]);
 
       try {
-        const response = await axios.get<GetShmupRecordPreviewListResponse>(
+        const response = await apiClient.get<GetShmupRecordPreviewListResponse>(
           getAPIURL('records', typeId)
         );
         const newRecordPreviews = response.data.data
@@ -46,10 +45,8 @@ export function useShmupRecordPreviewList(typeId: string) {
           );
         setRecordPreviews(newRecordPreviews);
       } catch (error) {
-        if (axios.isAxiosError(error)) {
-          setRecordPreviews([]);
-          setIsError(true);
-        }
+        setRecordPreviews([]);
+        setIsError(true);
       }
 
       setIsLoading(false);
