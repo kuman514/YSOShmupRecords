@@ -1,8 +1,7 @@
-import axios from 'axios';
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 import { ShmupRecord } from '^/types';
-import { getAPIURL } from '^/utils/api-url';
+import { apiClient, getAPIURL } from '^/utils/api';
 import { getStaticImageUrl } from '^/utils/static-image-url';
 
 interface GetShmupRecordArticleResponse {
@@ -27,7 +26,7 @@ export function useShmupArticle(typeId: string, recordDateId: string) {
       setIsLoading(true);
       setRecordArticle(undefined);
       try {
-        const response = await axios.get<GetShmupRecordArticleResponse>(
+        const response = await apiClient.get<GetShmupRecordArticleResponse>(
           getAPIURL('records', typeId, recordDateId)
         );
         setRecordArticle({
@@ -39,10 +38,8 @@ export function useShmupArticle(typeId: string, recordDateId: string) {
           when: new Date(response.data.data.when),
         });
       } catch (error) {
-        if (axios.isAxiosError(error)) {
-          setRecordArticle(undefined);
-          setIsError(true);
-        }
+        setRecordArticle(undefined);
+        setIsError(true);
       }
       setIsLoading(false);
     })();
