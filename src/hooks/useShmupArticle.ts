@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 
 import { ShmupRecord } from '^/types';
 import { apiClient, getAPIURL } from '^/utils/api';
-import { getStaticImageUrl } from '^/utils/static-image-url';
 
 interface GetShmupRecordArticleResponse {
   attempts: number;
@@ -31,10 +30,6 @@ export function useShmupArticle(typeId: string, recordDateId: string) {
         );
         setRecordArticle({
           ...response.data.data,
-          thumbnailUrl: getStaticImageUrl(response.data.data.thumbnailUrl),
-          originalImageUrls: response.data.data.originalImageUrls.map(
-            (originalImageUrl) => getStaticImageUrl(originalImageUrl)
-          ),
           when: new Date(response.data.data.when),
         });
       } catch (error) {
