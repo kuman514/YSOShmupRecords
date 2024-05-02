@@ -38,3 +38,15 @@ export enum ButtonType {
   ROUND_LINE = 'round-line',
   CLEAR = 'clear',
 }
+
+export interface GetShmupRecordPreviewListResponse {
+  attempts: number;
+  statusCode: number;
+  data: ShmupRecord[];
+}
+
+export interface GetShmupRecordArticleResponse {
+  attempts: number;
+  statusCode: number;
+  data: ShmupRecord;
+}
