@@ -1,14 +1,7 @@
 import { useEffect, useState } from 'react';
 
-import { ShmupRecord, ShmupRecordPreview } from '^/types';
-import { apiClient, getAPIURL } from '^/utils/api';
-import { convertDateToString } from '^/utils/date-to-string';
-
-interface GetShmupRecordPreviewListResponse {
-  attempts: number;
-  statusCode: number;
-  data: ShmupRecord[];
-}
+import { ShmupRecordPreview } from '^/types';
+import { getShmupRecordPreviewList } from '^/utils/api';
 
 export function useShmupRecordPreviewList(typeId: string) {
   const [recordPreviews, setRecordPreviews] = useState<ShmupRecordPreview[]>(
@@ -18,34 +11,12 @@ export function useShmupRecordPreviewList(typeId: string) {
   const [isError, setIsError] = useState<boolean>(false);
 
   useEffect(() => {
-    (async () => {
-      setIsLoading(true);
-      setIsError(false);
-      setRecordPreviews([]);
-
-      try {
-        const response = await apiClient.get<GetShmupRecordPreviewListResponse>(
-          getAPIURL('records', typeId)
-        );
-        const newRecordPreviews = response.data.data
-          .sort((a, b) => b.recordId.localeCompare(a.recordId))
-          .map(
-            (record): ShmupRecordPreview => ({
-              ...record,
-              when: new Date(record.when),
-              title: `${convertDateToString(
-                new Date(record.recordId.split('--')[1])
-              )} 기록`,
-            })
-          );
-        setRecordPreviews(newRecordPreviews);
-      } catch (error) {
-        setRecordPreviews([]);
-        setIsError(true);
-      }
-
-      setIsLoading(false);
-    })();
+    getShmupRecordPreviewList(
+      typeId,
+      setIsLoading,
+      setIsError,
+      setRecordPreviews
+    );
   }, [typeId]);
 
   return {
