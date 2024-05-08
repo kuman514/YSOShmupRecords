@@ -1,8 +1,7 @@
-import React from 'react';
-import { beforeEach, describe, expect, it } from 'vitest';
 import { cleanup, render } from '@testing-library/react';
-import styled from 'styled-components';
 import 'jest-styled-components';
+import styled from 'styled-components';
+import { beforeEach, describe, expect, it } from 'vitest';
 
 const SampleButton = styled.button`
   background-color: red;

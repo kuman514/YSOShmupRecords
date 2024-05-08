@@ -1,8 +1,7 @@
-import React from 'react';
-import { beforeEach, describe, expect, it } from 'vitest';
 import { act, cleanup, render } from '@testing-library/react';
-
 import { Simulate, SyntheticEventData } from 'react-dom/test-utils';
+import { beforeEach, describe, expect, it } from 'vitest';
+
 import { ImageZoomAndMoveController } from '.';
 
 describe('ImageZoomAndMoveController', () => {

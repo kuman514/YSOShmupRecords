@@ -1,7 +1,6 @@
-import React from 'react';
 import { cleanup, fireEvent, render } from '@testing-library/react';
-import { beforeEach, describe, expect, it, vi } from 'vitest';
 import 'jest-styled-components';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { SidebarHeader } from '.';
 

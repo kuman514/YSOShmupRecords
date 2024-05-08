@@ -1,21 +1,11 @@
-import React from 'react';
 import { cleanup, fireEvent, render, screen } from '@testing-library/react';
-import { createMemoryRouter, RouterProvider } from 'react-router-dom';
-import { describe, it, beforeEach, expect } from 'vitest';
 import 'jest-styled-components';
+import { RouterProvider, createMemoryRouter } from 'react-router-dom';
+import { beforeEach, describe, expect, it } from 'vitest';
 
 import { ShmupRecordPreview } from '^/types';
+
 import { RecordSelection } from '.';
-
-// const recordIdsForTest: string[] = ['2023-10-28', '2023-05-14', '2022-11-21'];
-
-// const recordPreviewForTest = recordIdsForTest.map(
-//   (recordId): ShmupRecordPreview => ({
-//     id: recordId,
-//     title: convertDateToString(new Date(recordId)),
-//     imageUrl: `${recordId}.jpg`,
-//   })
-// );
 
 const recordPreviewForTest: ShmupRecordPreview[] = [
   {

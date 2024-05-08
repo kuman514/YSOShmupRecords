@@ -1,7 +1,6 @@
-import React from 'react';
-import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { cleanup, fireEvent, render, screen } from '@testing-library/react';
 import { RouterProvider, createMemoryRouter } from 'react-router-dom';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { navNodeInfoForTest, rootNavNodes } from '^/constants/nav-node';
 import { textsForNavigation } from '^/constants/texts';

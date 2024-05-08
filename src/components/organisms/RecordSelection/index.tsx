@@ -1,10 +1,9 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { styled } from 'styled-components';
 
+import { EmptyIndicator } from '^/components/molecules/EmptyIndicator';
 import { RecordListCard } from '^/components/molecules/RecordListCard';
 import { ShmupRecordPreview } from '^/types';
-import { EmptyIndicator } from '^/components/molecules/EmptyIndicator';
 
 const Root = styled.div`
   display: flex;

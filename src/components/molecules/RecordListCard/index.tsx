@@ -1,9 +1,8 @@
-import React from 'react';
 import styled from 'styled-components';
 
+import { ReactComponent as RawYoutubeMarkSvg } from '^/assets/icons/youtube-mark.svg';
 import { SpecialTag } from '^/components/atoms/SpecialTag';
 import { textsForArticle } from '^/constants/texts';
-import { ReactComponent as RawYoutubeMarkSvg } from '^/assets/icons/youtube-mark.svg';
 import { ShmupRecordPreview } from '^/types';
 
 const Root = styled.div`

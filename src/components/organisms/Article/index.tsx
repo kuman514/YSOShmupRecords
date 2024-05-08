@@ -1,8 +1,7 @@
-import React from 'react';
 import styled from 'styled-components';
 
-import { ArticleSummary } from '^/components/molecules/ArticleSummary';
 import { ArticleExtra } from '^/components/molecules/ArticleExtra';
+import { ArticleSummary } from '^/components/molecules/ArticleSummary';
 import { ShmupRecord } from '^/types';
 
 const Root = styled.article`

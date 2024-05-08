@@ -1,10 +1,9 @@
-import React from 'react';
-import styled from 'styled-components';
 import { Outlet } from 'react-router-dom';
+import styled from 'styled-components';
 
+import { DarkModeToggleOverlayButton } from '^/components/atoms/DarkModeToggleOverlayButton';
 import { Sidebar } from '^/components/organisms/Sidebar';
 import { rootNavNodes } from '^/constants/nav-node';
-import { DarkModeToggleOverlayButton } from '^/components/atoms/DarkModeToggleOverlayButton';
 
 const Root = styled.div`
   width: 100vw;

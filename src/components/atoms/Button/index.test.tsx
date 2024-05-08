@@ -1,10 +1,9 @@
-import React from 'react';
-import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { cleanup, fireEvent, render, screen } from '@testing-library/react';
 import 'jest-styled-components';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 
-import { Button } from '.';
 import { ButtonType } from '^/types';
+import { Button } from '.';
 
 describe('Sample test', () => {
   beforeEach(() => {
