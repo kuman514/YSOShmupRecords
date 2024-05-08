@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { DescriptionTemplate } from '^/components/molecules/DescriptionTemplate';
 import { DescriptionListItem } from '^/types';
 

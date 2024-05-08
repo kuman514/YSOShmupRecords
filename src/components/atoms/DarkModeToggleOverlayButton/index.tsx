@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { Button } from '^/components/atoms/Button';
-import { ButtonType } from '^/types';
 import {
   COLOR_THEME_LOCAL_STORAGE_KEY,
   isDarkModeTurnedOn,
 } from '^/constants/dark-mode';
+import { ButtonType } from '^/types';
 
 export function DarkModeToggleOverlayButton() {
   const preferredTheme = window.matchMedia?.('(prefers-color-scheme: dark)')

@@ -1,7 +1,6 @@
-import React from 'react';
-import { beforeEach, describe, expect, it } from 'vitest';
 import { cleanup, render } from '@testing-library/react';
 import 'jest-styled-components';
+import { beforeEach, describe, expect, it } from 'vitest';
 
 import { SidebarFooter } from '^/components/molecules/SidebarFooter';
 

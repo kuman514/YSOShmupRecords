@@ -1,14 +1,14 @@
-import React from 'react';
+import { StrictMode } from 'react';
 import ReactDOM from 'react-dom/client';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 
 import Main from '^/Main';
-import { LandingPage } from '^/pages/LandingPage';
-import { IntroPage } from '^/pages/IntroPage';
 import { CriteriaPage } from '^/pages/CriteriaPage';
+import { ErrorPage } from '^/pages/ErrorPage';
+import { IntroPage } from '^/pages/IntroPage';
+import { LandingPage } from '^/pages/LandingPage';
 import { RecordListPage } from '^/pages/RecordListPage';
 import { RecordPage } from '^/pages/RecordPage';
-import { ErrorPage } from '^/pages/ErrorPage';
 
 import '^/global.css';
 import { TerminologyPage } from '^/pages/TerminologyPage';
@@ -61,9 +61,9 @@ const router = createBrowserRouter([
   const root = document.querySelector('#root');
   if (root) {
     ReactDOM.createRoot(root).render(
-      <React.StrictMode>
+      <StrictMode>
         <RouterProvider router={router} />
-      </React.StrictMode>
+      </StrictMode>
     );
   }
 })();

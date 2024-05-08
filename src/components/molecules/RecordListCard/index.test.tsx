@@ -1,10 +1,10 @@
-import React from 'react';
 import { cleanup, render, screen } from '@testing-library/react';
-import { beforeEach, describe, expect, it } from 'vitest';
 import 'jest-styled-components';
+import { beforeEach, describe, expect, it } from 'vitest';
 
-import { ShmupRecordPreview } from '^/types';
 import AvatarJpgUrl from '^/assets/avatar/avatar.jpeg';
+import { ShmupRecordPreview } from '^/types';
+
 import { RecordListCard } from '.';
 
 const previewForTest: ShmupRecordPreview = {

@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import styled from 'styled-components';
 
-import { NavNodeInfo } from '^/types';
 import { NavigationForest } from '^/components/molecules/NavigationForest';
 import { SidebarFooter } from '^/components/molecules/SidebarFooter';
 import { SidebarHeader } from '^/components/molecules/SidebarHeader';
 import { TitleWithAvatar } from '^/components/molecules/TitleWithAvatar';
+import { NavNodeInfo } from '^/types';
 
 const Root = styled.div`
   height: 100%;

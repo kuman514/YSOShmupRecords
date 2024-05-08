@@ -1,9 +1,9 @@
-import React from 'react';
-import { beforeEach, describe, expect, it } from 'vitest';
 import { cleanup, render } from '@testing-library/react';
 import { RouterProvider, createMemoryRouter } from 'react-router-dom';
+import { beforeEach, describe, expect, it } from 'vitest';
 
 import { navNodeInfoForTest } from '^/constants/nav-node';
+
 import { NavigationTree } from '.';
 
 describe('NavigationNode', () => {

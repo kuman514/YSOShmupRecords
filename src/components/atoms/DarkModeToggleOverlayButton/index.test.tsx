@@ -1,8 +1,7 @@
-import React from 'react';
 import { act, cleanup, render } from '@testing-library/react';
-import { beforeEach, describe, expect, it } from 'vitest';
-import { Simulate } from 'react-dom/test-utils';
 import 'jest-styled-components';
+import { Simulate } from 'react-dom/test-utils';
+import { beforeEach, describe, expect, it } from 'vitest';
 
 import { DarkModeToggleOverlayButton } from '^/components/atoms/DarkModeToggleOverlayButton';
 

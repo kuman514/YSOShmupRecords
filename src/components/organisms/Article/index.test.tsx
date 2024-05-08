@@ -1,8 +1,7 @@
-import React from 'react';
-import { beforeEach, describe, expect, it } from 'vitest';
 import { cleanup, render, screen } from '@testing-library/react';
+import { RouterProvider, createMemoryRouter } from 'react-router-dom';
+import { beforeEach, describe, expect, it } from 'vitest';
 
-import { createMemoryRouter, RouterProvider } from 'react-router-dom';
 import { ShmupRecord } from '^/types';
 import { convertDateToString } from '^/utils/date-to-string';
 
