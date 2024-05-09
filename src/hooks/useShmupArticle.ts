@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
+import { getShmupRecordArticle } from '^/apis/get-shmup-record-article';
 import { ShmupRecord } from '^/types';
-import { getShmupRecordArticle } from '^/utils/api';
 
 export function useShmupArticle(typeId: string, recordDateId: string) {
   const [recordArticle, setRecordArticle] = useState<ShmupRecord>();
