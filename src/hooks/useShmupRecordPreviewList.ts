@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import { getShmupRecordPreviewList } from '^/apis/api';
+import { getShmupRecordPreviewList } from '^/apis/get-shmup-record-preview-list';
 import { ShmupRecordPreview } from '^/types';
 
 export function useShmupRecordPreviewList(typeId: string) {

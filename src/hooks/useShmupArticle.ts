@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import { getShmupRecordArticle } from '^/apis/api';
+import { getShmupRecordArticle } from '^/apis/get-shmup-record-article';
 import { ShmupRecord } from '^/types';
 
 export function useShmupArticle(typeId: string, recordDateId: string) {
