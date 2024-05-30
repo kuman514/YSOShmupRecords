@@ -2,8 +2,8 @@ import { Outlet } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { DarkModeToggleOverlayButton } from '^/components/atoms/DarkModeToggleOverlayButton';
-import { Sidebar } from '^/components/organisms/Sidebar';
 import { rootNavNodes } from '^/constants/nav-node';
+import { NavigationSidebar } from '^/components/organisms/NavigationSidebar';
 
 const Root = styled.div`
   width: 100vw;
@@ -35,7 +35,7 @@ const OutletContainer = styled.div`
 function Main() {
   return (
     <Root>
-      <Sidebar rootNavNodes={rootNavNodes} />
+      <NavigationSidebar rootNavNodes={rootNavNodes} />
       <OutletPositionHolder>
         <OutletContainer>
           <Outlet />
