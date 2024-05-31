@@ -13,11 +13,13 @@ import { ReactComponent as RawMoonSvgrepoSvg } from '^/assets/icons/moon-svgrepo
 const SunSvgrepoSvg = styled(RawSunSvgrepoSvg)`
   width: 36px;
   height: 36px;
+  fill: var(--white-color);
 `;
 
 const MoonSvgrepoSvg = styled(RawMoonSvgrepoSvg)`
   width: 36px;
   height: 36px;
+  fill: var(--white-color);
 `;
 
 export function DarkModeToggleOverlayButton() {
