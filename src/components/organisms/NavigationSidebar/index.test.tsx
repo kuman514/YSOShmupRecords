@@ -11,7 +11,13 @@ describe('NavigationSidebar', () => {
   const routes = [
     {
       path: '/',
-      element: <NavigationSidebar rootNavNodes={rootNavNodes} />,
+      element: (
+        <NavigationSidebar
+          rootNavNodes={rootNavNodes}
+          isNavigationOpen
+          onClickCloseNavigationButton={() => {}}
+        />
+      ),
     },
   ];
 
