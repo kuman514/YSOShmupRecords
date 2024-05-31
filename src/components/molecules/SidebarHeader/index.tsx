@@ -8,8 +8,7 @@ const Root = styled.div`
   width: 100%;
   display: flex;
   align-items: center;
-  column-gap: 10px;
-  padding: 16px;
+  padding: 8px;
 `;
 
 interface Props {
