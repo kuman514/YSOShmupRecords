@@ -1,15 +1,15 @@
 import styled from 'styled-components';
 
 import { Button } from '^/components/atoms/Button';
-import { ButtonType } from '^/types';
 import { DarkModeToggleOverlayButton } from '^/components/atoms/DarkModeToggleOverlayButton';
 import { MenuOpenCloseIcon } from '^/components/atoms/MenuOpenCloseIcon';
+import { ButtonType } from '^/types';
 
 const Root = styled.div`
   width: 100%;
   height: 60px;
 
-  position: sticky;
+  position: fixed;
   left: 0;
   top: 0;
   z-index: 19;
