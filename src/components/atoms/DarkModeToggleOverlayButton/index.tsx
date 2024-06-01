@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { styled } from 'styled-components';
 
 import { Button } from '^/components/atoms/Button';
 import {
@@ -7,20 +6,6 @@ import {
   isDarkModeTurnedOn,
 } from '^/constants/dark-mode';
 import { ButtonType } from '^/types';
-import { ReactComponent as RawSunSvgrepoSvg } from '^/assets/icons/sun-svgrepo-com.svg';
-import { ReactComponent as RawMoonSvgrepoSvg } from '^/assets/icons/moon-svgrepo-com.svg';
-
-const SunSvgrepoSvg = styled(RawSunSvgrepoSvg)`
-  width: 36px;
-  height: 36px;
-  fill: var(--white-color);
-`;
-
-const MoonSvgrepoSvg = styled(RawMoonSvgrepoSvg)`
-  width: 36px;
-  height: 36px;
-  fill: var(--white-color);
-`;
 
 export function DarkModeToggleOverlayButton() {
   const preferredTheme = window.matchMedia?.('(prefers-color-scheme: dark)')
@@ -36,11 +21,9 @@ export function DarkModeToggleOverlayButton() {
     setColorTheme(newTheme);
   }
 
-  const renderIcon = isDarkModeTurnedOn[colorTheme] ? (
-    <MoonSvgrepoSvg />
-  ) : (
-    <SunSvgrepoSvg />
-  );
+  const renderLabel = isDarkModeTurnedOn[colorTheme]
+    ? '다크 모드 끄기'
+    : '다크 모드 켜기';
 
   useEffect(() => {
     document.documentElement.setAttribute('color-theme', colorTheme);
@@ -48,11 +31,12 @@ export function DarkModeToggleOverlayButton() {
 
   return (
     <Button
-      type={ButtonType.CLEAR}
+      type={ButtonType.ROUND_SOLID}
       customStyle={{
-        padding: '4px',
-        paddingBottom: 0,
-        borderRadius: '50%',
+        position: 'fixed',
+        bottom: '32px',
+        right: '32px',
+        zIndex: 10,
       }}
       isDisabled={false}
       onClick={() => {
@@ -68,7 +52,7 @@ export function DarkModeToggleOverlayButton() {
         }
       }}
     >
-      {renderIcon}
+      {renderLabel}
     </Button>
   );
 }

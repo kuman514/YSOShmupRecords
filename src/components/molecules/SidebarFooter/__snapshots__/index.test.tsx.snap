@@ -1,6 +1,31 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`SidebarFooter > should have a snapshot match for its appearance 1`] = `
+.c3 {
+  all: unset;
+  box-sizing: border-box;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 8px 16px;
+  color: var(--white-color);
+  background-color: transparent;
+  border: none;
+  border-radius: 16px;
+  cursor: pointer;
+}
+
+.c3:hover {
+  background-color: var(--hovering-color);
+  color: var(--white-color);
+}
+
+.c3:disabled {
+  border: none;
+  color: var(--gray-color);
+  background-color: transparent;
+  text-decoration: line-through;
+}
+
 .c0 {
   display: flex;
   flex-direction: row;
@@ -15,11 +40,37 @@ exports[`SidebarFooter > should have a snapshot match for its appearance 1`] = `
   font-weight: 300;
 }
 
+.c1 {
+  display: flex;
+  flex-direction: row;
+}
+
+.c2 {
+  padding: 0 10px;
+}
+
+.c2:not(:last-of-type) {
+  border-right: 1px solid var(--white-color);
+}
+
 <div
   class="c0"
 >
   <div>
     YSO as kuman514
+  </div>
+  <div
+    class="c1"
+  >
+    <div
+      class="c2"
+    >
+      <button
+        class="c3"
+      >
+        소통창구 (카카오 오픈채팅방)
+      </button>
+    </div>
   </div>
 </div>
 `;

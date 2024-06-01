@@ -1,19 +1,27 @@
 import { Outlet } from 'react-router-dom';
 import styled from 'styled-components';
 
-import { useState } from 'react';
+import { DarkModeToggleOverlayButton } from '^/components/atoms/DarkModeToggleOverlayButton';
+import { Sidebar } from '^/components/organisms/Sidebar';
 import { rootNavNodes } from '^/constants/nav-node';
-import { NavigationSidebar } from '^/components/organisms/NavigationSidebar';
-import { Header } from '^/components/organisms/Header';
 
 const Root = styled.div`
   width: 100vw;
-  min-height: 100vh;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: auto 1fr;
+
+  @media (max-width: 1000px) {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+  }
 `;
 
 const OutletPositionHolder = styled.div`
   display: flex;
   justify-content: center;
+  overflow-y: scroll;
 `;
 
 const OutletContainer = styled.div`
@@ -25,27 +33,15 @@ const OutletContainer = styled.div`
 `;
 
 function Main() {
-  const [isNavigationOpen, setIsNavigationOpen] = useState<boolean>(false);
-
   return (
     <Root>
-      <Header
-        onClickOpenOrCloseNavigationButton={() => {
-          setIsNavigationOpen(true);
-        }}
-      />
-      <NavigationSidebar
-        isNavigationOpen={isNavigationOpen}
-        rootNavNodes={rootNavNodes}
-        onClickCloseNavigationButton={() => {
-          setIsNavigationOpen(false);
-        }}
-      />
+      <Sidebar rootNavNodes={rootNavNodes} />
       <OutletPositionHolder>
         <OutletContainer>
           <Outlet />
         </OutletContainer>
       </OutletPositionHolder>
+      <DarkModeToggleOverlayButton />
     </Root>
   );
 }
