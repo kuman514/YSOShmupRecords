@@ -7,7 +7,8 @@ const Root = styled.div`
   top: 0;
 
   width: 100vw;
-  height: 100vh;
+  height: 100vh; /* old browsers */
+  height: 100dvh; /* new browsers */
 
   background-color: rgba(0, 0, 0, 0.75);
 
