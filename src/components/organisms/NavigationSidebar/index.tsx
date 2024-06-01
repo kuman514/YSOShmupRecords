@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
+import { Overlay } from '^/components/atoms/Overlay';
 import { NavigationForest } from '^/components/molecules/NavigationForest';
 import { SidebarFooter } from '^/components/molecules/SidebarFooter';
 import { SidebarHeader } from '^/components/molecules/SidebarHeader';
 import { NavNodeInfo } from '^/types';
-import { Overlay } from '^/components/atoms/Overlay';
 
 const Root = styled.div`
   width: 100%;
@@ -38,7 +38,34 @@ export function NavigationSidebar({
 }: Props) {
   return isNavigationOpen ? (
     <Overlay>
-      <Root>
+      <Root
+        onClick={(event) => {
+          event.stopPropagation();
+          event.nativeEvent.stopPropagation();
+          event.nativeEvent.stopImmediatePropagation();
+        }}
+        onWheel={(event) => {
+          event.stopPropagation();
+          event.nativeEvent.stopPropagation();
+          event.nativeEvent.stopImmediatePropagation();
+        }}
+        onTouchStart={() => {
+          function handleOnTouchMove(touchMoveEvent: TouchEvent) {
+            if (touchMoveEvent.cancelable) {
+              touchMoveEvent.preventDefault();
+            }
+          }
+
+          function handleOnTouchEnd() {
+            document.removeEventListener('touchmove', handleOnTouchMove);
+          }
+
+          document.addEventListener('touchmove', handleOnTouchMove);
+          document.addEventListener('touchend', handleOnTouchEnd, {
+            once: true,
+          });
+        }}
+      >
         <Container>
           <SidebarHeader
             isNavigationOpen

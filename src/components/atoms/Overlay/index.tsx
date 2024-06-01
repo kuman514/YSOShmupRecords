@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { ReactNode, useEffect } from 'react';
 import styled from 'styled-components';
 
 const Root = styled.div`
@@ -26,5 +26,12 @@ interface Props {
 }
 
 export function Overlay({ children, onClick }: Props) {
+  useEffect(() => {
+    document.body.style.overflowY = 'hidden';
+    return () => {
+      document.body.style.overflowY = 'auto';
+    };
+  }, []);
+
   return <Root onClick={onClick}>{children}</Root>;
 }
