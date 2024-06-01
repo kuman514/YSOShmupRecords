@@ -1,0 +1,151 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Header > should match snapshot 1`] = `
+.c1 {
+  all: unset;
+  box-sizing: border-box;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 8px 16px;
+  color: var(--white-color);
+  background-color: transparent;
+  border: none;
+  border-radius: 16px;
+  cursor: pointer;
+}
+
+.c1:hover {
+  background-color: var(--hovering-color);
+  color: var(--white-color);
+}
+
+.c1:disabled {
+  border: none;
+  color: var(--gray-color);
+  background-color: transparent;
+  text-decoration: line-through;
+}
+
+.c7 {
+  width: 36px;
+  height: 36px;
+  fill: var(--white-color);
+}
+
+.c3 {
+  width: 24px;
+  height: 2px;
+  background-color: var(--white-color);
+  transition-property: left,top,transform;
+  transition-duration: 500ms;
+  transition-timing-function: ease-in-out;
+  position: absolute;
+  left: 6px;
+  top: 9px;
+  transform: rotate(0deg);
+}
+
+.c4 {
+  width: 24px;
+  height: 2px;
+  background-color: var(--white-color);
+  transition-property: left,top,transform;
+  transition-duration: 500ms;
+  transition-timing-function: ease-in-out;
+  position: absolute;
+  left: 6px;
+  top: 17px;
+  transform: rotate(0deg);
+}
+
+.c5 {
+  width: 24px;
+  height: 2px;
+  background-color: var(--white-color);
+  transition-property: left,top,transform;
+  transition-duration: 500ms;
+  transition-timing-function: ease-in-out;
+  position: absolute;
+  left: 6px;
+  top: 25px;
+  transform: rotate(0deg);
+}
+
+.c2 {
+  width: 36px;
+  height: 36px;
+  position: relative;
+}
+
+.c0 {
+  width: 100%;
+  height: 60px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 19;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 8px;
+  background: var(--primary-color);
+}
+
+.c6 {
+  color: var(--white-color);
+  font-size: clamp(16px, 3.6vw, 36px);
+  font-weight: 200;
+}
+
+<div
+  class="c0"
+>
+  <button
+    class="c1"
+    style="padding: 4px; border-radius: 50%;"
+  >
+    <div
+      class="c2"
+      id="Click-to-open-icon"
+    >
+      <div
+        class="c3"
+      />
+      <div
+        class="c4"
+      />
+      <div
+        class="c5"
+      />
+    </div>
+  </button>
+  <h1
+    class="c6"
+  >
+    YSOShmupRecords
+  </h1>
+  <button
+    class="c1"
+    style="padding: 4px 4px 0px 4px; border-radius: 50%;"
+  >
+    <svg
+      class="c7"
+      fill="none"
+      height="800px"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+      width="800px"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M12 3V4M12 20V21M4 12H3M6.31412 6.31412L5.5 5.5M17.6859 6.31412L18.5 5.5M6.31412 17.69L5.5 18.5001M17.6859 17.69L18.5 18.5001M21 12H20M16 12C16 14.2091 14.2091 16 12 16C9.79086 16 8 14.2091 8 12C8 9.79086 9.79086 8 12 8C14.2091 8 16 9.79086 16 12Z"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+      />
+    </svg>
+  </button>
+</div>
+`;
