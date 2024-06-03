@@ -12,7 +12,7 @@ const Root = styled.div`
   overflow-x: hidden;
   overflow-y: auto;
 
-  @media (max-width: 1000px) {
+  @media (max-width: 599px) {
     flex-direction: column;
   }
 `;
@@ -31,7 +31,11 @@ const TreeContainer = styled.div`
   }
 
   @media (max-width: 1000px) {
-    width: min(300px, 100%);
+    width: 300px;
+  }
+
+  @media (max-width: 599px) {
+    width: 100%;
     border-right: none;
   }
 `;
