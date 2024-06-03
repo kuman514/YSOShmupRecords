@@ -23,6 +23,10 @@ const Container = styled.div`
   grid-template-rows: auto 1fr auto;
 
   background: var(--primary-color);
+
+  @media (max-width: 1000px) {
+    width: 100%;
+  }
 `;
 
 interface Props {
