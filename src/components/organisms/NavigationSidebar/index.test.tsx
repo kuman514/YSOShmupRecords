@@ -38,11 +38,15 @@ describe('NavigationSidebar', () => {
         screen.getByText(textsForNavigation[rootNavNode.id] ?? rootNavNode.id)
       ).not.toBeNull();
     });
+  });
 
-    /**
-     * @todo
-     * Add testing if it renders close icon
-     * Add testing if it renders footer
-     */
+  it('should show a cross icon when open', () => {
+    const { container } = render(<RouterProvider router={router} />);
+    expect(container.querySelector('#Click-to-close-icon')).not.toBeNull();
+  });
+
+  it('should renders footer', async () => {
+    render(<RouterProvider router={router} />);
+    expect(await screen.findByText('YSO as kuman514')).not.toBeNull();
   });
 });
