@@ -1,8 +1,7 @@
-import React from 'react';
 import styled from 'styled-components';
 
-import { Avatar } from '^/components/atoms/Avatar';
 import AvatarJpgUrl from '^/assets/avatar/avatar.jpeg';
+import { Avatar } from '^/components/atoms/Avatar';
 
 const Root = styled.div`
   height: 100%;

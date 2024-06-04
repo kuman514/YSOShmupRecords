@@ -1,5 +1,3 @@
-import React from 'react';
-import { beforeEach, describe, expect, it, vi } from 'vitest';
 import {
   act,
   cleanup,
@@ -7,8 +5,9 @@ import {
   render,
   screen,
 } from '@testing-library/react';
-
 import { Simulate } from 'react-dom/test-utils';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
+
 import { ImageDisplayModal } from '.';
 
 describe('ImageDisplayModal', () => {

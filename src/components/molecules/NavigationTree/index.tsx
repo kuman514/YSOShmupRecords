@@ -1,8 +1,7 @@
-import React from 'react';
 import styled from 'styled-components';
 
-import { NavNodeInfo } from '^/types';
 import { NavigationNode } from '^/components/atoms/NavigationNode';
+import { NavNodeInfo } from '^/types';
 
 const Root = styled.div`
   padding-top: 12px;

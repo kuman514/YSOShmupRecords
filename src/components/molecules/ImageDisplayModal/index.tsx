@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import styled from 'styled-components';
 
-import { ImageZoomAndMoveController } from '^/components/molecules/ImageZoomAndMoveController';
-import { Overlay } from '^/components/atoms/Overlay';
 import { Button } from '^/components/atoms/Button';
 import { MenuOpenCloseIcon } from '^/components/atoms/MenuOpenCloseIcon';
+import { Overlay } from '^/components/atoms/Overlay';
+import { ImageZoomAndMoveController } from '^/components/molecules/ImageZoomAndMoveController';
 import { ButtonType } from '^/types';
 
 const CloseButtonWrapper = styled.div`

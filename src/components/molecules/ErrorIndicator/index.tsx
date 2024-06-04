@@ -1,6 +1,5 @@
-import React from 'react';
-import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
+import styled from 'styled-components';
 
 import ErrorPngUrl from '^/assets/images/error.png';
 import { Button } from '^/components/atoms/Button';

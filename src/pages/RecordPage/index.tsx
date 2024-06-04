@@ -1,12 +1,11 @@
-import React from 'react';
-import { styled } from 'styled-components';
 import { useParams } from 'react-router-dom';
+import { styled } from 'styled-components';
 
-import { Article } from '^/components/organisms/Article';
-import { useShmupArticle } from '^/hooks/useShmupArticle';
+import { NavRouteTitle } from '^/components/atoms/NavRouteTitle';
 import { Skeleton } from '^/components/atoms/Skeleton';
 import { ErrorIndicator } from '^/components/molecules/ErrorIndicator';
-import { NavRouteTitle } from '^/components/atoms/NavRouteTitle';
+import { Article } from '^/components/organisms/Article';
+import { useShmupArticle } from '^/hooks/useShmupArticle';
 import { convertDateToString } from '^/utils/date-to-string';
 
 const Root = styled.div`

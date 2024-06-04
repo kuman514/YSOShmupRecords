@@ -1,14 +1,14 @@
-import React, { CSSProperties, useEffect, useState } from 'react';
+import { CSSProperties, useEffect, useState } from 'react';
 import styled from 'styled-components';
 
-import { ButtonType, ShmupRecord } from '^/types';
-import { Thumbnail } from '^/components/atoms/Thumbnail';
-import { convertDateToString } from '^/utils/date-to-string';
-import { textsForArticle } from '^/constants/texts';
-import { ImageDisplayModal } from '^/components/molecules/ImageDisplayModal';
-import { Button } from '^/components/atoms/Button';
 import { ReactComponent as RawLinkSvg } from '^/assets/icons/link.svg';
 import { ReactComponent as RawTwitterSvg } from '^/assets/icons/twitter.svg';
+import { Button } from '^/components/atoms/Button';
+import { Thumbnail } from '^/components/atoms/Thumbnail';
+import { ImageDisplayModal } from '^/components/molecules/ImageDisplayModal';
+import { textsForArticle } from '^/constants/texts';
+import { ButtonType, ShmupRecord } from '^/types';
+import { convertDateToString } from '^/utils/date-to-string';
 
 const Root = styled.div`
   display: flex;

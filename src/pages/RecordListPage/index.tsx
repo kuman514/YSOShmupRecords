@@ -1,12 +1,11 @@
-import React from 'react';
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 
+import { Skeleton } from '^/components/atoms/Skeleton';
+import { ErrorIndicator } from '^/components/molecules/ErrorIndicator';
+import { RecordSelection } from '^/components/organisms/RecordSelection';
 import { textsForArticle } from '^/constants/texts';
 import { useShmupRecordPreviewList } from '^/hooks/useShmupRecordPreviewList';
-import { RecordSelection } from '^/components/organisms/RecordSelection';
-import { ErrorIndicator } from '^/components/molecules/ErrorIndicator';
-import { Skeleton } from '^/components/atoms/Skeleton';
 
 const Root = styled.div`
   padding-left: 15px;

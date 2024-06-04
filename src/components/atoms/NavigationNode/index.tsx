@@ -1,9 +1,8 @@
-import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-import { Link } from 'react-router-dom';
-import { NavNodeInfo } from '^/types';
 import { textsForNavigation } from '^/constants/texts';
+import { NavNodeInfo } from '^/types';
 
 interface RootProps {
   $url?: string;

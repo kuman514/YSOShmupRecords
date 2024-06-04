@@ -8,8 +8,8 @@ exports[`DarkModeToggleOverlayButton > should have a snapshot match 1`] = `
   font-weight: 500;
   padding: 8px 16px;
   color: var(--white-color);
-  background-color: var(--primary-color);
-  border: 1px solid var(--primary-color);
+  background-color: transparent;
+  border: none;
   border-radius: 16px;
   cursor: pointer;
 }
@@ -21,15 +21,37 @@ exports[`DarkModeToggleOverlayButton > should have a snapshot match 1`] = `
 
 .c0:disabled {
   border: none;
-  color: var(--white-color);
-  background-color: var(--gray-color);
-  text-decoration: none;
+  color: var(--gray-color);
+  background-color: transparent;
+  text-decoration: line-through;
+}
+
+.c1 {
+  width: 36px;
+  height: 36px;
+  fill: var(--white-color);
 }
 
 <button
   class="c0"
-  style="position: fixed; bottom: 32px; right: 32px; z-index: 10;"
+  style="padding: 4px 4px 0px 4px; border-radius: 50%;"
 >
-  다크 모드 켜기
+  <svg
+    class="c1"
+    fill="none"
+    height="800px"
+    stroke="currentColor"
+    viewBox="0 0 24 24"
+    width="800px"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M12 3V4M12 20V21M4 12H3M6.31412 6.31412L5.5 5.5M17.6859 6.31412L18.5 5.5M6.31412 17.69L5.5 18.5001M17.6859 17.69L18.5 18.5001M21 12H20M16 12C16 14.2091 14.2091 16 12 16C9.79086 16 8 14.2091 8 12C8 9.79086 9.79086 8 12 8C14.2091 8 16 9.79086 16 12Z"
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+    />
+  </svg>
 </button>
 `;
