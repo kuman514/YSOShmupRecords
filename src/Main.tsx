@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { rootNavNodes } from '^/constants/nav-node';
 import { NavigationSidebar } from '^/components/organisms/NavigationSidebar';
 import { Header } from '^/components/organisms/Header';
+import { ContactButton } from '^/components/atoms/ContactButton';
 
 const Root = styled.div`
   width: 100vw;
@@ -46,6 +47,11 @@ function Main() {
           <Outlet />
         </OutletContainer>
       </OutletPositionHolder>
+      <ContactButton
+        onClick={() => {
+          window.open('https://open.kakao.com/me/YSOShmupRecords', '_blank');
+        }}
+      />
     </Root>
   );
 }
