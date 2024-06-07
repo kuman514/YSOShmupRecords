@@ -1,6 +1,6 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`DarkModeToggleOverlayButton > should have a snapshot match 1`] = `
+exports[`DarkModeToggleButton > should have a snapshot match 1`] = `
 .c0 {
   all: unset;
   box-sizing: border-box;
