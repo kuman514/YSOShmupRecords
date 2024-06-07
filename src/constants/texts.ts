@@ -91,7 +91,8 @@ export const textsForArticle: Record<string, string> = {
   'new-stage-record': '최대 스테이지 갱신',
   'world-record': '전국 TOP',
   'shop-record': '점포 TOP',
-  'akatronics-5th-anniversary': '아카트로닉스 5주년 행사',
+  'akatronics-5th-anniversary': '아카트로닉스 5주년 기념',
+  'akatronics-6th-anniversary': '아카트로닉스 6주년 기념',
 };
 
 export const monthTitle = [
