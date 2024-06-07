@@ -22,7 +22,7 @@ const MoonSvgrepoSvg = styled(RawMoonSvgrepoSvg)`
   fill: var(--white-color);
 `;
 
-export function DarkModeToggleOverlayButton() {
+export function DarkModeToggleButton() {
   const preferredTheme = window.matchMedia?.('(prefers-color-scheme: dark)')
     .matches
     ? 'dark'
