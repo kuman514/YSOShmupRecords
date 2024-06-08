@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { styled } from 'styled-components';
 
 import { NavRouteTitle } from '^/components/atoms/NavRouteTitle';
@@ -7,6 +7,8 @@ import { ErrorIndicator } from '^/components/molecules/ErrorIndicator';
 import { Article } from '^/components/organisms/Article';
 import { useShmupArticle } from '^/hooks/useShmupArticle';
 import { convertDateToString } from '^/utils/date-to-string';
+import { Button } from '^/components/atoms/Button';
+import { ButtonType } from '^/types';
 
 const Root = styled.div`
   width: 100%;
@@ -44,6 +46,7 @@ const ArticleSkeletonArea = styled.div`
 `;
 
 export function RecordPage() {
+  const navigate = useNavigate();
   const { typeId, recordDateId } = useParams();
 
   if (!typeId || !recordDateId) {
@@ -81,6 +84,18 @@ export function RecordPage() {
 
   return (
     <Root>
+      <Button
+        type={ButtonType.CLEAR}
+        customStyle={{
+          color: 'unset',
+        }}
+        isDisabled={false}
+        onClick={() => {
+          navigate(-1);
+        }}
+      >
+        목록으로 돌아가기
+      </Button>
       <TitleArea>
         <Title>{convertDateToString(new Date(recordDateId))}</Title>
         <NavRouteTitle />
