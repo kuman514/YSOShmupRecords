@@ -7,6 +7,7 @@ import { ErrorIndicator } from '^/components/molecules/ErrorIndicator';
 import { Article } from '^/components/organisms/Article';
 import { useShmupArticle } from '^/hooks/useShmupArticle';
 import { convertDateToString } from '^/utils/date-to-string';
+import { GoBackButton } from '^/components/atoms/GoBackButton';
 
 const Root = styled.div`
   width: 100%;
@@ -81,6 +82,7 @@ export function RecordPage() {
 
   return (
     <Root>
+      <GoBackButton />
       <TitleArea>
         <Title>{convertDateToString(new Date(recordDateId))}</Title>
         <NavRouteTitle />

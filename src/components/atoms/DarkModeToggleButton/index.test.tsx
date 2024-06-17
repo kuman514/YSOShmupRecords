@@ -3,20 +3,20 @@ import 'jest-styled-components';
 import { Simulate } from 'react-dom/test-utils';
 import { beforeEach, describe, expect, it } from 'vitest';
 
-import { DarkModeToggleOverlayButton } from '^/components/atoms/DarkModeToggleOverlayButton';
+import { DarkModeToggleButton } from '^/components/atoms/DarkModeToggleButton';
 
-describe('DarkModeToggleOverlayButton', () => {
+describe('DarkModeToggleButton', () => {
   beforeEach(() => {
     cleanup();
   });
 
   it('should have a snapshot match', () => {
-    const { container } = render(<DarkModeToggleOverlayButton />);
+    const { container } = render(<DarkModeToggleButton />);
     expect(container.firstChild).toMatchSnapshot();
   });
 
   it('should have a clickable button', async () => {
-    const { container } = render(<DarkModeToggleOverlayButton />);
+    const { container } = render(<DarkModeToggleButton />);
 
     act(() => {
       if (

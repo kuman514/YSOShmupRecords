@@ -17,9 +17,28 @@ const Root = styled.div`
 
   border-radius: 16px;
 
+  overflow: hidden;
+
   &:hover {
     background-color: var(--hovering-color);
+
+    & > div > img {
+      transform: scale(1.3);
+
+      & + div {
+        opacity: 1;
+      }
+    }
   }
+`;
+
+const ImageContainer = styled.div`
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
 `;
 
 const Image = styled.img`
@@ -27,8 +46,21 @@ const Image = styled.img`
   height: 100%;
   object-fit: cover;
 
-  border-top-left-radius: 16px;
-  border-top-right-radius: 16px;
+  transition: transform 100ms ease-in-out;
+`;
+
+const ImageContainerOverlay = styled.div`
+  width: 100%;
+  height: 200px;
+
+  position: absolute;
+  left: 0;
+  top: 0;
+
+  background-color: rgba(255, 255, 255, 0.3);
+  opacity: 0;
+
+  transition: opacity 100ms ease-in-out;
 `;
 
 const Summary = styled.div`
@@ -93,7 +125,10 @@ export function RecordListCard({ recordPreview }: Props) {
 
   return (
     <Root>
-      <Image src={recordPreview.thumbnailUrl} alt={recordPreview.title} />
+      <ImageContainer>
+        <Image src={recordPreview.thumbnailUrl} alt={recordPreview.title} />
+        <ImageContainerOverlay />
+      </ImageContainer>
       <Summary>
         <Title>{recordPreview.title}</Title>
         <StageAndScore>{`${recordPreview.stage} / ${recordPreview.score}점`}</StageAndScore>

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 import { Button } from '^/components/atoms/Button';
-import { DarkModeToggleOverlayButton } from '^/components/atoms/DarkModeToggleOverlayButton';
+import { DarkModeToggleButton } from '^/components/atoms/DarkModeToggleButton';
 import { MenuOpenCloseIcon } from '^/components/atoms/MenuOpenCloseIcon';
 import { ButtonType } from '^/types';
 
@@ -50,7 +50,7 @@ export function Header({ onClickOpenOrCloseNavigationButton }: Props) {
         <MenuOpenCloseIcon isOpen={false} />
       </Button>
       <Title>YSOShmupRecords</Title>
-      <DarkModeToggleOverlayButton />
+      <DarkModeToggleButton />
     </Root>
   );
 }
