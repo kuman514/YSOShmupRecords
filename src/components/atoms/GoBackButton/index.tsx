@@ -3,7 +3,11 @@ import { useNavigate } from 'react-router-dom';
 import { Button } from '^/components/atoms/Button';
 import { ButtonType } from '^/types';
 
-export function GoBackButton() {
+interface Props {
+  typeId: string;
+}
+
+export function GoBackButton({ typeId }: Props) {
   const navigate = useNavigate();
 
   return (
@@ -14,7 +18,7 @@ export function GoBackButton() {
       }}
       isDisabled={false}
       onClick={() => {
-        navigate(-1);
+        navigate(`/records/${typeId}`);
       }}
     >
       목록으로 돌아가기

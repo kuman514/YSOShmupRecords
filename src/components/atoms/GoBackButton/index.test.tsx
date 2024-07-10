@@ -1,7 +1,7 @@
 import { cleanup, fireEvent, render, screen } from '@testing-library/react';
 import 'jest-styled-components';
-import { beforeEach, describe, expect, it } from 'vitest';
 import { RouterProvider, createMemoryRouter } from 'react-router-dom';
+import { beforeEach, describe, expect, it } from 'vitest';
 
 import { GoBackButton } from '.';
 
@@ -14,7 +14,7 @@ describe('DarkModeToggleButton', () => {
     const routes = [
       {
         path: '/',
-        element: <GoBackButton />,
+        element: <GoBackButton typeId="yasuo" />,
       },
     ];
 
@@ -27,22 +27,21 @@ describe('DarkModeToggleButton', () => {
     expect(container.firstChild).toMatchSnapshot();
   });
 
-  it('should go back on click', async () => {
+  it('should go to record list on click', async () => {
     const routes = [
       {
-        path: '/koishi/hoshino',
+        path: '/records/koishi-hoshino/1234-56-78',
         element: (
           <div>
-            <GoBackButton />
+            <GoBackButton typeId="koishi-hoshino" />
             <div>애기코이시 애기호시노</div>
           </div>
         ),
       },
       {
-        path: '/yasuo/science',
+        path: '/records/koishi-hoshino',
         element: (
           <div>
-            <GoBackButton />
             <div>야스오는 과학이다</div>
           </div>
         ),
@@ -50,8 +49,8 @@ describe('DarkModeToggleButton', () => {
     ];
 
     const router = createMemoryRouter(routes, {
-      initialEntries: ['/yasuo/science', '/koishi/hoshino'],
-      initialIndex: 1,
+      initialEntries: ['/records/koishi-hoshino/1234-56-78'],
+      initialIndex: 0,
     });
 
     render(<RouterProvider router={router} />);
