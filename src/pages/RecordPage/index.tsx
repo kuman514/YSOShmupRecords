@@ -1,13 +1,13 @@
 import { useParams } from 'react-router-dom';
 import { styled } from 'styled-components';
 
+import { GoBackButton } from '^/components/atoms/GoBackButton';
 import { NavRouteTitle } from '^/components/atoms/NavRouteTitle';
 import { Skeleton } from '^/components/atoms/Skeleton';
 import { ErrorIndicator } from '^/components/molecules/ErrorIndicator';
 import { Article } from '^/components/organisms/Article';
 import { useShmupArticle } from '^/hooks/useShmupArticle';
 import { convertDateToString } from '^/utils/date-to-string';
-import { GoBackButton } from '^/components/atoms/GoBackButton';
 
 const Root = styled.div`
   width: 100%;
@@ -82,7 +82,7 @@ export function RecordPage() {
 
   return (
     <Root>
-      <GoBackButton />
+      <GoBackButton typeId={typeId} />
       <TitleArea>
         <Title>{convertDateToString(new Date(recordDateId))}</Title>
         <NavRouteTitle />
