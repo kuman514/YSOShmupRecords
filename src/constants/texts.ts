@@ -93,6 +93,7 @@ export const textsForArticle: Record<string, string> = {
   'shop-record': '점포 TOP',
   'akatronics-5th-anniversary': '아카트로닉스 5주년 기념',
   'akatronics-6th-anniversary': '아카트로닉스 6주년 기념',
+  ksf4: 'Korea Shmup Festival 4 참여',
 };
 
 export const monthTitle = [
