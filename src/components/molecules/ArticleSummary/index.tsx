@@ -1,8 +1,8 @@
 import { CSSProperties, useEffect, useState } from 'react';
 import styled from 'styled-components';
 
-import { ReactComponent as RawLinkSvg } from '^/assets/icons/link.svg';
-import { ReactComponent as RawTwitterSvg } from '^/assets/icons/twitter.svg';
+import RawLinkSvg from '^/assets/icons/link.svg?react';
+import RawTwitterSvg from '^/assets/icons/twitter.svg?react';
 import { Button } from '^/components/atoms/Button';
 import { Thumbnail } from '^/components/atoms/Thumbnail';
 import { ImageDisplayModal } from '^/components/molecules/ImageDisplayModal';
