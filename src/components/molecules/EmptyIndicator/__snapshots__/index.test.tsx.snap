@@ -2,25 +2,25 @@
 
 exports[`EmptyIndicator > should have a snapshot match for its appearance 1`] = `
 <div
-  class="sc-grXZZQ fpEzvy"
+  class="sc-gJhJTp gsTsrA"
 >
   <img
     alt="에러 발생"
-    class="sc-dkjKgF fXTRgv"
+    class="sc-elDIKY fzQEKb"
     src="/src/assets/images/empty.png"
   />
   <h2
-    class="sc-hLclGa jPMdaH"
+    class="sc-fQpRED hKKVKD"
   >
     현재 등록된 기록이 없습니다.
   </h2>
   <button
-    class="sc-bcPKhP hULXZF"
+    class="sc-braxZu breotL"
   >
     타이틀 화면으로 돌아가기
   </button>
   <button
-    class="sc-bcPKhP hULXZF"
+    class="sc-braxZu breotL"
   >
     소통창구 (카카오 오픈채팅방)
   </button>

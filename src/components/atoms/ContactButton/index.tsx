@@ -1,8 +1,8 @@
 import { styled } from 'styled-components';
 
+import RawChatCircleDotsSvgrepoSvg from '^/assets/icons/chat-circle-dots-svgrepo-com.svg?react';
 import { Button } from '^/components/atoms/Button';
 import { ButtonType } from '^/types';
-import { ReactComponent as RawChatCircleDotsSvgrepoSvg } from '^/assets/icons/chat-circle-dots-svgrepo-com.svg';
 
 const ChatCircleDotsSvgrepoSvg = styled(RawChatCircleDotsSvgrepoSvg)`
   width: 36px;

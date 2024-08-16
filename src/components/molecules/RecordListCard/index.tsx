@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { ReactComponent as RawYoutubeMarkSvg } from '^/assets/icons/youtube-mark.svg';
+import RawYoutubeMarkSvg from '^/assets/icons/youtube-mark.svg?react';
 import { SpecialTag } from '^/components/atoms/SpecialTag';
 import { textsForArticle } from '^/constants/texts';
 import { ShmupRecordPreview } from '^/types';
