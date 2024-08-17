@@ -7,7 +7,7 @@ import { getAPIURL } from '^/utils/get-api-url';
 import { apiClient } from './api';
 
 interface Params {
-  typeId: string;
+  typeId?: string;
   onStart: () => void;
   onError: (error: Error) => void;
   onComplete: (newShmupRecordPreviews: ShmupRecordPreview[]) => void;
@@ -23,10 +23,9 @@ export async function getShmupRecordPreviewList({
 
   try {
     const response = await apiClient.get<GetShmupRecordPreviewListResponse>(
-      getAPIURL('records', typeId)
+      typeId ? getAPIURL('records', typeId) : getAPIURL('records')
     );
     const newRecordPreviews = response.data.data
-      .sort((a, b) => b.recordId.localeCompare(a.recordId))
       .map((record): ShmupRecordPreview => {
         const dateFromString = new Date(record.when);
         return {
@@ -34,6 +33,16 @@ export async function getShmupRecordPreviewList({
           when: dateFromString,
           title: `${convertDateToString(dateFromString)} 기록`,
         };
+      })
+      .sort((a, b) => {
+        const bTime = b.when.getTime();
+        const aTime = a.when.getTime();
+
+        if (aTime !== bTime) {
+          return bTime - aTime;
+        }
+
+        return a.typeId.localeCompare(b.typeId);
       });
     onComplete(newRecordPreviews);
   } catch (error) {
