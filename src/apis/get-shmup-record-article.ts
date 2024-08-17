@@ -1,21 +1,30 @@
+import axios from 'axios';
+
 import { GetShmupRecordArticleResponse, ShmupRecord } from '^/types';
 import { getAPIURL } from '^/utils/get-api-url';
 
 import { apiClient } from './api';
 
-export async function getShmupRecordArticle(
-  typeId: string,
-  recordId: string,
-  onLoad: (newIsLoading: boolean) => void,
-  onError: (newIsError: boolean) => void,
-  onComplete: (newShmupRecordArticle: ShmupRecord) => void
-) {
-  onLoad(true);
-  onError(false);
+interface Params {
+  typeId: string;
+  recordDateId: string;
+  onStart: () => void;
+  onError: (error: Error) => void;
+  onComplete: (newShmupRecordArticle: ShmupRecord) => void;
+}
+
+export async function getShmupRecordArticle({
+  typeId,
+  recordDateId,
+  onStart,
+  onError,
+  onComplete,
+}: Params) {
+  onStart();
 
   try {
     const response = await apiClient.get<GetShmupRecordArticleResponse>(
-      getAPIURL('records', typeId, recordId)
+      getAPIURL('records', typeId, recordDateId)
     );
     onComplete({
       ...response.data.data,
@@ -27,8 +36,10 @@ export async function getShmupRecordArticle(
      */
     // eslint-disable-next-line no-console
     console.error(error);
-    onError(true);
+    if (axios.isAxiosError(error)) {
+      onError(error);
+    } else {
+      onError(new Error('Something else went wrong.'));
+    }
   }
-
-  onLoad(false);
 }

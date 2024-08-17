@@ -9,13 +9,22 @@ export function useShmupArticle(typeId: string, recordDateId: string) {
   const [isError, setIsError] = useState<boolean>(false);
 
   useEffect(() => {
-    getShmupRecordArticle(
+    getShmupRecordArticle({
       typeId,
       recordDateId,
-      setIsLoading,
-      setIsError,
-      setRecordArticle
-    );
+      onStart: () => {
+        setIsLoading(true);
+        setIsError(false);
+      },
+      onError: () => {
+        setIsError(true);
+        setIsLoading(false);
+      },
+      onComplete: (newShmupRecordArticle) => {
+        setRecordArticle(newShmupRecordArticle);
+        setIsLoading(false);
+      },
+    });
   }, [typeId, recordDateId]);
 
   return {
