@@ -11,12 +11,21 @@ export function useShmupRecordPreviewList(typeId: string) {
   const [isError, setIsError] = useState<boolean>(false);
 
   useEffect(() => {
-    getShmupRecordPreviewList(
+    getShmupRecordPreviewList({
       typeId,
-      setIsLoading,
-      setIsError,
-      setRecordPreviews
-    );
+      onStart: () => {
+        setIsLoading(true);
+        setIsError(false);
+      },
+      onError: () => {
+        setIsError(true);
+        setIsLoading(false);
+      },
+      onComplete: (newShmupRecordPreviews) => {
+        setRecordPreviews(newShmupRecordPreviews);
+        setIsLoading(false);
+      },
+    });
   }, [typeId]);
 
   return {
