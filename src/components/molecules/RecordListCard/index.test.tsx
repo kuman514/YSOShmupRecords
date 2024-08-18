@@ -8,7 +8,7 @@ import { ShmupRecordPreview } from '^/types';
 import { RecordListCard } from '.';
 
 const previewForTest: ShmupRecordPreview = {
-  title: 'kuman514',
+  title: 'kumankoishi shmup record 2024-01-01',
   recordId: 'test-test',
   when: new Date('2024-01-01'),
   typeId: 'test',

@@ -41,6 +41,7 @@ export const rootNavNodes: NavNodeInfo[] = [
   },
   {
     id: 'records',
+    linkTo: '/records',
     childNavNodes: [
       {
         id: 'dodonpachi',

@@ -34,6 +34,10 @@ export const router = createBrowserRouter([
         path: 'records',
         children: [
           {
+            path: '',
+            element: <RecordListPage />,
+          },
+          {
             path: ':typeId',
             children: [
               {
