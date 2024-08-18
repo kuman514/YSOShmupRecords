@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { ReactComponent as RawYoutubeMarkSvg } from '^/assets/icons/youtube-mark.svg';
+import RawYoutubeMarkSvg from '^/assets/icons/youtube-mark.svg?react';
 import { SpecialTag } from '^/components/atoms/SpecialTag';
 import { textsForArticle } from '^/constants/texts';
 import { ShmupRecordPreview } from '^/types';
@@ -130,6 +130,9 @@ export function RecordListCard({ recordPreview }: Props) {
         <ImageContainerOverlay />
       </ImageContainer>
       <Summary>
+        <Title>
+          {textsForArticle[recordPreview.typeId] ?? recordPreview.typeId}
+        </Title>
         <Title>{recordPreview.title}</Title>
         <StageAndScore>{`${recordPreview.stage} / ${recordPreview.score}점`}</StageAndScore>
         {renderSpecialTags}

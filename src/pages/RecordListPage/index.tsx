@@ -46,10 +46,6 @@ function RecordListCardSkeleton() {
 export function RecordListPage() {
   const { typeId } = useParams();
 
-  if (!typeId) {
-    return null;
-  }
-
   const { recordPreviews, isLoading, isError } =
     useShmupRecordPreviewList(typeId);
 
@@ -72,9 +68,13 @@ export function RecordListPage() {
     return <RecordSelection recordPreviews={recordPreviews} />;
   })();
 
+  const renderRecordTypeTitle = typeId
+    ? (textsForArticle[typeId] ?? typeId)
+    : '모든 슈팅게임';
+
   return (
     <Root>
-      <Title>{textsForArticle[typeId] ?? typeId} 기록 목록</Title>
+      <Title>{renderRecordTypeTitle} 기록 목록</Title>
       {renderRecordSelectionArea}
     </Root>
   );

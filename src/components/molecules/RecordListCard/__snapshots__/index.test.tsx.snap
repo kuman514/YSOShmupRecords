@@ -79,7 +79,7 @@ exports[`RecordListCard > should have a snapshot match for its appearance 1`] = 
     class="c1"
   >
     <img
-      alt="kuman514"
+      alt="kumankoishi shmup record 2024-01-01"
       class="c2"
       src="/src/assets/avatar/avatar.jpeg"
     />
@@ -94,6 +94,11 @@ exports[`RecordListCard > should have a snapshot match for its appearance 1`] = 
       class="c5"
     >
       kuman514
+    </span>
+    <span
+      class="c5"
+    >
+      kumankoishi shmup record 2024-01-01
     </span>
     <span
       class="c6"
@@ -207,7 +212,7 @@ exports[`RecordListCard > should have a snapshot match showing youtube mark and 
     class="c1"
   >
     <img
-      alt="kuman514"
+      alt="kumankoishi shmup record 2024-01-01"
       class="c2"
       src="/src/assets/avatar/avatar.jpeg"
     />
@@ -222,6 +227,11 @@ exports[`RecordListCard > should have a snapshot match showing youtube mark and 
       class="c5"
     >
       kuman514
+    </span>
+    <span
+      class="c5"
+    >
+      kumankoishi shmup record 2024-01-01
     </span>
     <span
       class="c6"

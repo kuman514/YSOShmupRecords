@@ -1,11 +1,11 @@
+import { useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import styled from 'styled-components';
 
-import { useState } from 'react';
-import { rootNavNodes } from '^/constants/nav-node';
-import { NavigationSidebar } from '^/components/organisms/NavigationSidebar';
-import { Header } from '^/components/organisms/Header';
 import { ContactButton } from '^/components/atoms/ContactButton';
+import { Header } from '^/components/organisms/Header';
+import { NavigationSidebar } from '^/components/organisms/NavigationSidebar';
+import { rootNavNodes } from '^/constants/nav-node';
 
 const Root = styled.div`
   width: 100vw;
@@ -21,7 +21,7 @@ const OutletContainer = styled.div`
   width: 100%;
   height: fit-content;
   max-width: 720px;
-  padding-top: 72px;
+  padding-top: 144px;
   padding-bottom: 72px;
 `;
 

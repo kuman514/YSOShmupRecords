@@ -1,24 +1,31 @@
+import axios from 'axios';
+
 import { GetShmupRecordPreviewListResponse, ShmupRecordPreview } from '^/types';
 import { convertDateToString } from '^/utils/date-to-string';
 import { getAPIURL } from '^/utils/get-api-url';
 
 import { apiClient } from './api';
 
-export async function getShmupRecordPreviewList(
-  typeId: string,
-  onLoad: (newIsLoading: boolean) => void,
-  onError: (newIsError: boolean) => void,
-  onComplete: (newShmupRecordPreviews: ShmupRecordPreview[]) => void
-) {
-  onLoad(true);
-  onError(false);
+interface Params {
+  typeId?: string;
+  onStart: () => void;
+  onError: (error: Error) => void;
+  onComplete: (newShmupRecordPreviews: ShmupRecordPreview[]) => void;
+}
+
+export async function getShmupRecordPreviewList({
+  typeId,
+  onStart,
+  onError,
+  onComplete,
+}: Params) {
+  onStart();
 
   try {
     const response = await apiClient.get<GetShmupRecordPreviewListResponse>(
-      getAPIURL('records', typeId)
+      typeId ? getAPIURL('records', typeId) : getAPIURL('records')
     );
     const newRecordPreviews = response.data.data
-      .sort((a, b) => b.recordId.localeCompare(a.recordId))
       .map((record): ShmupRecordPreview => {
         const dateFromString = new Date(record.when);
         return {
@@ -26,6 +33,16 @@ export async function getShmupRecordPreviewList(
           when: dateFromString,
           title: `${convertDateToString(dateFromString)} 기록`,
         };
+      })
+      .sort((a, b) => {
+        const bTime = b.when.getTime();
+        const aTime = a.when.getTime();
+
+        if (aTime !== bTime) {
+          return bTime - aTime;
+        }
+
+        return a.typeId.localeCompare(b.typeId);
       });
     onComplete(newRecordPreviews);
   } catch (error) {
@@ -34,8 +51,10 @@ export async function getShmupRecordPreviewList(
      */
     // eslint-disable-next-line no-console
     console.error(error);
-    onError(false);
+    if (axios.isAxiosError(error)) {
+      onError(error);
+    } else {
+      onError(new Error('Something else went wrong.'));
+    }
   }
-
-  onLoad(false);
 }
