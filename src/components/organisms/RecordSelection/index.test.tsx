@@ -92,13 +92,13 @@ describe('RecordSelection', () => {
         element: <RecordSelection recordPreviews={recordPreviewForTest} />,
       },
       {
-        path: '/2023-05-14',
+        path: '/records/dodonpachi-cshot/2023-05-14',
         element: <div>Correct!</div>,
       },
     ];
 
     const router = createMemoryRouter(routes, {
-      initialEntries: ['/', '/2023-05-14'],
+      initialEntries: ['/', '/records/dodonpachi-cshot/2023-05-14'],
       initialIndex: 0,
     });
 
