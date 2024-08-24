@@ -196,7 +196,7 @@ exports[`RecordSelection > should match snapshot with non-empty recordIds 1`] = 
   >
     <a
       class="c3"
-      href="/2023-10-28"
+      href="/records/dodonpachi-cshot/2023-10-28"
     >
       <div
         class="c4"
@@ -236,7 +236,7 @@ exports[`RecordSelection > should match snapshot with non-empty recordIds 1`] = 
     </a>
     <a
       class="c3"
-      href="/2023-05-14"
+      href="/records/dodonpachi-cshot/2023-05-14"
     >
       <div
         class="c4"
@@ -276,7 +276,7 @@ exports[`RecordSelection > should match snapshot with non-empty recordIds 1`] = 
     </a>
     <a
       class="c3"
-      href="/2022-11-21"
+      href="/records/dodonpachi-cshot/2022-11-21"
     >
       <div
         class="c4"
