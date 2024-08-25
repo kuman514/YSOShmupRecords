@@ -1,7 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { styled } from 'styled-components';
 
-import { GoBackButton } from '^/components/atoms/GoBackButton';
 import { NavRouteTitle } from '^/components/atoms/NavRouteTitle';
 import { Skeleton } from '^/components/atoms/Skeleton';
 import { ErrorIndicator } from '^/components/molecules/ErrorIndicator';
@@ -82,7 +81,6 @@ export function RecordPage() {
 
   return (
     <Root>
-      <GoBackButton typeId={typeId} />
       <TitleArea>
         <Title>{convertDateToString(new Date(recordDateId))}</Title>
         <NavRouteTitle />

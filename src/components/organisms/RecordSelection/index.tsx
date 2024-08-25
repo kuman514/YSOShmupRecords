@@ -48,7 +48,7 @@ export function RecordSelection({ recordPreviews }: Props) {
       {recordPreviews.map((recordPreview) => (
         <RecordSelectionLink
           key={recordPreview.recordId}
-          to={recordPreview.recordId.split('--')[1]}
+          to={`/records/${recordPreview.recordId.split('--').join('/')}`}
         >
           <RecordListCard recordPreview={recordPreview} />
         </RecordSelectionLink>

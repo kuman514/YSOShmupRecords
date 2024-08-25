@@ -15,27 +15,10 @@ export const textsForNavigation: Record<string, string> = {
   criteria: '등록 기준',
   records: '기록',
   terminology: '용어',
-  dodonpachi: '도돈파치 (1997)',
-  'dodonpachi-ashot': 'A-Shot',
-  'dodonpachi-alaser': 'A-Laser',
-  'dodonpachi-bshot': 'B-Shot',
-  'dodonpachi-blaser': 'B-Laser',
-  'dodonpachi-cshot': 'C-Shot',
-  'dodonpachi-claser': 'C-Laser',
+  'dodonpachi-cshot': '도돈파치 (1997): C-Shot',
   galagaarrangement: '갤러그 어레인지먼트',
-  dariusgaiden: '다라이어스 외전',
-  // prettier-ignore
-  'dariusgaiden-zprime': 'Z\'존',
-  'dariusgaiden-v': 'V존',
-  'dariusgaiden-w': 'W존',
-  'dariusgaiden-x': 'X존',
-  'dariusgaiden-y': 'Y존',
-  'dariusgaiden-z': 'Z존',
-  // prettier-ignore
-  'dariusgaiden-vprime': 'V\'존',
-  ketsui: '케츠이',
-  'ketsui-a': 'A타입',
-  'ketsui-b': 'B타입',
+  'ketsui-b': '케츠이: B타입',
+  inthehunt: '인더헌트 (해저대전쟁 해외판)',
 };
 
 export const textsForArticle: Record<string, string> = {
@@ -75,6 +58,7 @@ export const textsForArticle: Record<string, string> = {
   ketsui: '케츠이',
   'ketsui-a': '케츠이: A타입',
   'ketsui-b': '케츠이: B타입',
+  inthehunt: '인더헌트 (해저대전쟁 해외판)',
   /**
    * Method names
    */
