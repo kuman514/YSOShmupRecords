@@ -1,4 +1,4 @@
-import { cleanup, render, screen } from '@testing-library/react';
+import { cleanup, fireEvent, render, screen } from '@testing-library/react';
 import { RouterProvider, createMemoryRouter } from 'react-router-dom';
 import { beforeEach, describe, expect, it } from 'vitest';
 
@@ -94,5 +94,64 @@ describe('NavRouteTitle', () => {
     render(<RouterProvider router={router} />);
 
     expect(screen.queryByText(/인삿말/i)).toBeNull();
+  });
+
+  it('should have each text label or node id clickable', async () => {
+    const routes = [
+      {
+        path: '/test-sub1',
+        element: (
+          <div>
+            <NavRouteTitle />
+            <div>꼭대기 전설</div>
+          </div>
+        ),
+      },
+      {
+        path: '/test-sub1/test',
+        element: (
+          <div>
+            <NavRouteTitle />
+            <div>야스오</div>
+          </div>
+        ),
+      },
+      {
+        path: '/test-sub1/test/koishi',
+        element: (
+          <div>
+            <NavRouteTitle />
+            <div>애기코이시</div>
+          </div>
+        ),
+      },
+      {
+        path: '/test-sub1/test/koishi/hoshino',
+        element: (
+          <div>
+            <NavRouteTitle />
+            <div>애기호시노</div>
+          </div>
+        ),
+      },
+    ];
+
+    const router = createMemoryRouter(routes, {
+      initialEntries: ['/', '/test-sub1/test/koishi/hoshino'],
+      initialIndex: 1,
+    });
+
+    render(<RouterProvider router={router} />);
+
+    expect(await screen.findByText(/애기호시노/i)).not.toBeNull();
+    fireEvent.click(await screen.findByText(/koishi/i));
+
+    expect(await screen.findByText(/애기코이시/i)).not.toBeNull();
+    fireEvent.click(await screen.findByText(/kuman514/i));
+
+    expect(await screen.findByText(/야스오/i)).not.toBeNull();
+    fireEvent.click(await screen.findByText(/subitem1/i));
+
+    expect(await screen.findByText(/꼭대기 전설/i)).not.toBeNull();
   });
 });
