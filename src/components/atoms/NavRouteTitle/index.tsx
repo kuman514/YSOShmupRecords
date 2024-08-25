@@ -1,4 +1,4 @@
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { textsForArticle } from '^/constants/texts';
@@ -17,10 +17,20 @@ const CrumbItem = styled.li`
     content: ' > ';
     white-space: pre;
   }
+
+  & > a {
+    text-decoration: none;
+    color: inherit;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 `;
 
 export function NavRouteTitle() {
   const location = useLocation();
+
   const pathNameSplit = location.pathname
     .split('/')
     .filter((path) => path.length > 1);
@@ -28,9 +38,11 @@ export function NavRouteTitle() {
   return pathNameSplit.length > 0 ? (
     <nav>
       <Crumbs>
-        {pathNameSplit.map((navNodeId) => (
+        {pathNameSplit.map((navNodeId, index) => (
           <CrumbItem key={navNodeId}>
-            {textsForArticle[navNodeId] ?? navNodeId}
+            <Link to={`/${pathNameSplit.slice(0, index + 1).join('/')}`}>
+              {textsForArticle[navNodeId] ?? navNodeId}
+            </Link>
           </CrumbItem>
         ))}
       </Crumbs>
