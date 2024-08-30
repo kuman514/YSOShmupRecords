@@ -31,6 +31,10 @@ export interface DescriptionListItem {
   description: string;
 }
 
+export interface Terminology extends DescriptionListItem {
+  term: string;
+}
+
 export enum ButtonType {
   SOLID = 'solid',
   LINE = 'line',
