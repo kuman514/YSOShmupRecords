@@ -11,7 +11,7 @@ import { getAPIURL } from '^/utils/get-api-url';
 
 import { apiClient } from './api';
 
-export async function getShmupRecordPreviewList(
+export async function getShmupRecordList(
   typeId?: string
 ): Promise<GetResult<ShmupRecordPreview[]>> {
   try {

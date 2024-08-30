@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 
-import { getShmupRecordPreviewList } from '^/apis/get-shmup-record-preview-list';
+import { getShmupRecordList } from '^/apis/get-shmup-record-preview-list';
 import { ShmupRecordPreview } from '^/types';
 
-export function useShmupRecordPreviewList(typeId?: string) {
+export function useShmupRecordList(typeId?: string) {
   const [recordPreviews, setRecordPreviews] = useState<ShmupRecordPreview[]>(
     []
   );
@@ -15,7 +15,7 @@ export function useShmupRecordPreviewList(typeId?: string) {
       setIsLoading(true);
       setIsError(false);
 
-      const result = await getShmupRecordPreviewList(typeId);
+      const result = await getShmupRecordList(typeId);
 
       switch (result.status) {
         case 'successful':
