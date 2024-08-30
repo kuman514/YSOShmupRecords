@@ -9,22 +9,28 @@ export function useShmupArticle(typeId: string, recordDateId: string) {
   const [isError, setIsError] = useState<boolean>(false);
 
   useEffect(() => {
-    getShmupRecordArticle({
-      typeId,
-      recordDateId,
-      onStart: () => {
-        setIsLoading(true);
-        setIsError(false);
-      },
-      onError: () => {
-        setIsError(true);
-        setIsLoading(false);
-      },
-      onComplete: (newShmupRecordArticle) => {
-        setRecordArticle(newShmupRecordArticle);
-        setIsLoading(false);
-      },
-    });
+    (async () => {
+      setIsLoading(true);
+      setIsError(false);
+
+      const result = await getShmupRecordArticle({
+        typeId,
+        recordDateId,
+      });
+
+      switch (result.status) {
+        case 'successful':
+          setRecordArticle(result.data);
+          break;
+        case 'failed':
+          setIsError(true);
+          break;
+        default:
+          break;
+      }
+
+      setIsLoading(false);
+    })();
   }, [typeId, recordDateId]);
 
   return {
