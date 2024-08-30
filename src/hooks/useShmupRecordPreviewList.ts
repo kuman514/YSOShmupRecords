@@ -11,21 +11,25 @@ export function useShmupRecordPreviewList(typeId?: string) {
   const [isError, setIsError] = useState<boolean>(false);
 
   useEffect(() => {
-    getShmupRecordPreviewList({
-      typeId,
-      onStart: () => {
-        setIsLoading(true);
-        setIsError(false);
-      },
-      onError: () => {
-        setIsError(true);
-        setIsLoading(false);
-      },
-      onComplete: (newShmupRecordPreviews) => {
-        setRecordPreviews(newShmupRecordPreviews);
-        setIsLoading(false);
-      },
-    });
+    (async () => {
+      setIsLoading(true);
+      setIsError(false);
+
+      const result = await getShmupRecordPreviewList(typeId);
+
+      switch (result.status) {
+        case 'successful':
+          setRecordPreviews(result.data);
+          break;
+        case 'failed':
+          setIsError(true);
+          break;
+        default:
+          break;
+      }
+
+      setIsLoading(false);
+    })();
   }, [typeId]);
 
   return {
