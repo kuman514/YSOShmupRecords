@@ -1,0 +1,212 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`TerminologyDescription > should have all root list items and their sub-items (match snapshot) 1`] = `
+.c0 {
+  display: flex;
+  flex-direction: column;
+  row-gap: 16px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.c1 {
+  font-size: 36px;
+  font-weight: 700;
+}
+
+.c2 {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.c3 {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.c4 {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.c5 {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+<div
+  class="c0"
+>
+  <h1
+    class="c1"
+  >
+    Test 1 kuman514
+  </h1>
+  <ul
+    class="c2"
+  >
+    <li>
+      <div
+        class="c3"
+      >
+        <span
+          class="c4"
+        >
+          term 1
+        </span>
+        <span
+          class="c5"
+        >
+          Root Test 1
+        </span>
+      </div>
+    </li>
+    <li>
+      <div
+        class="c3"
+      >
+        <span
+          class="c4"
+        >
+          term 1-1
+        </span>
+        <span
+          class="c5"
+        >
+          Root Test Sub 1
+        </span>
+      </div>
+    </li>
+    <li>
+      <div
+        class="c3"
+      >
+        <span
+          class="c4"
+        >
+          term 1-2
+        </span>
+        <span
+          class="c5"
+        >
+          Root Test Sub 2
+        </span>
+      </div>
+    </li>
+    <li>
+      <div
+        class="c3"
+      >
+        <span
+          class="c4"
+        >
+          term 1-2-1
+        </span>
+        <span
+          class="c5"
+        >
+          Root Test Sub Sub 1
+        </span>
+      </div>
+    </li>
+    <li>
+      <div
+        class="c3"
+      >
+        <span
+          class="c4"
+        >
+          term 1-2-2
+        </span>
+        <span
+          class="c5"
+        >
+          Root Test Sub Sub 2
+        </span>
+      </div>
+    </li>
+    <li>
+      <div
+        class="c3"
+      >
+        <span
+          class="c4"
+        >
+          term 1-2-3
+        </span>
+        <span
+          class="c5"
+        >
+          Root Test Sub Sub 3
+        </span>
+      </div>
+    </li>
+    <li>
+      <div
+        class="c3"
+      >
+        <span
+          class="c4"
+        >
+          term 1-3
+        </span>
+        <span
+          class="c5"
+        >
+          Root Test Sub 3
+        </span>
+      </div>
+    </li>
+    <li>
+      <div
+        class="c3"
+      >
+        <span
+          class="c4"
+        >
+          term 2
+        </span>
+        <span
+          class="c5"
+        >
+          Root Test 2
+        </span>
+      </div>
+    </li>
+    <li>
+      <div
+        class="c3"
+      >
+        <span
+          class="c4"
+        >
+          term 3
+        </span>
+        <span
+          class="c5"
+        >
+          Root Test 3
+        </span>
+      </div>
+    </li>
+    <li>
+      <div
+        class="c3"
+      >
+        <span
+          class="c4"
+        >
+          term 3-1
+        </span>
+        <span
+          class="c5"
+        >
+          Root Test Sub 5
+        </span>
+      </div>
+    </li>
+  </ul>
+</div>
+`;
