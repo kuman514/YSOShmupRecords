@@ -54,3 +54,21 @@ export interface GetShmupRecordArticleResponse {
   statusCode: number;
   data: ShmupRecord;
 }
+
+export interface GetResponse<T> {
+  attempts: number;
+  statusCode: number;
+  data: T;
+}
+
+export interface SuccessfulGetResult<T> {
+  status: 'successful';
+  data: T;
+}
+
+export interface FailedGetResult {
+  status: 'failed';
+  errorMessage: Error;
+}
+
+export type GetResult<T> = SuccessfulGetResult<T> | FailedGetResult;

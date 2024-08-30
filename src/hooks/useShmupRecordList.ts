@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react';
 
-import { getShmupRecordArticle } from '^/apis/get-shmup-record-article';
-import { ShmupRecord } from '^/types';
+import { getShmupRecordList } from '^/apis/get-shmup-record-preview-list';
+import { ShmupRecordPreview } from '^/types';
 
-export function useShmupArticle(typeId: string, recordDateId: string) {
-  const [recordArticle, setRecordArticle] = useState<ShmupRecord>();
+export function useShmupRecordList(typeId?: string) {
+  const [recordPreviews, setRecordPreviews] = useState<ShmupRecordPreview[]>(
+    []
+  );
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [isError, setIsError] = useState<boolean>(false);
 
@@ -13,14 +15,11 @@ export function useShmupArticle(typeId: string, recordDateId: string) {
       setIsLoading(true);
       setIsError(false);
 
-      const result = await getShmupRecordArticle({
-        typeId,
-        recordDateId,
-      });
+      const result = await getShmupRecordList(typeId);
 
       switch (result.status) {
         case 'successful':
-          setRecordArticle(result.data);
+          setRecordPreviews(result.data);
           break;
         case 'failed':
           setIsError(true);
@@ -31,10 +30,10 @@ export function useShmupArticle(typeId: string, recordDateId: string) {
 
       setIsLoading(false);
     })();
-  }, [typeId, recordDateId]);
+  }, [typeId]);
 
   return {
-    recordArticle,
+    recordPreviews,
     isLoading,
     isError,
   };
