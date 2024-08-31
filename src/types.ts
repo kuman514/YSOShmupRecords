@@ -31,6 +31,10 @@ export interface DescriptionListItem {
   description: string;
 }
 
+export interface Terminology extends DescriptionListItem {
+  term: string;
+}
+
 export enum ButtonType {
   SOLID = 'solid',
   LINE = 'line',
@@ -50,3 +54,21 @@ export interface GetShmupRecordArticleResponse {
   statusCode: number;
   data: ShmupRecord;
 }
+
+export interface GetResponse<T> {
+  attempts: number;
+  statusCode: number;
+  data: T;
+}
+
+export interface SuccessfulGetResult<T> {
+  status: 'successful';
+  data: T;
+}
+
+export interface FailedGetResult {
+  status: 'failed';
+  errorMessage: Error;
+}
+
+export type GetResult<T> = SuccessfulGetResult<T> | FailedGetResult;

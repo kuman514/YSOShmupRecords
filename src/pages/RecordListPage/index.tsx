@@ -5,7 +5,7 @@ import { Skeleton } from '^/components/atoms/Skeleton';
 import { ErrorIndicator } from '^/components/molecules/ErrorIndicator';
 import { RecordSelection } from '^/components/organisms/RecordSelection';
 import { textsForArticle } from '^/constants/texts';
-import { useShmupRecordPreviewList } from '^/hooks/useShmupRecordPreviewList';
+import { useShmupRecordList } from '^/hooks/useShmupRecordList';
 
 const Root = styled.div`
   padding-left: 15px;
@@ -46,8 +46,7 @@ function RecordListCardSkeleton() {
 export function RecordListPage() {
   const { typeId } = useParams();
 
-  const { recordPreviews, isLoading, isError } =
-    useShmupRecordPreviewList(typeId);
+  const { recordPreviews, isLoading, isError } = useShmupRecordList(typeId);
 
   const renderRecordSelectionArea = (() => {
     if (isLoading) {
