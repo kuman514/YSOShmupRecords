@@ -8,6 +8,7 @@ import { LandingPage } from '^/pages/LandingPage';
 import { RecordListPage } from '^/pages/RecordListPage';
 import { RecordPage } from '^/pages/RecordPage';
 import { TerminologyPage } from '^/pages/TerminologyPage';
+import { WayToAkatronicsPage } from './pages/WayToAkatronicsPage';
 
 export const router = createBrowserRouter([
   {
@@ -51,6 +52,10 @@ export const router = createBrowserRouter([
             ],
           },
         ],
+      },
+      {
+        path: 'way-to-akatronics',
+        element: <WayToAkatronicsPage />,
       },
     ],
     errorElement: <ErrorPage />,

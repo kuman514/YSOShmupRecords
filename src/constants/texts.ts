@@ -19,6 +19,7 @@ export const textsForNavigation: Record<string, string> = {
   galagaarrangement: '갤러그 어레인지먼트',
   'ketsui-b': '케츠이: B타입',
   inthehunt: '인더헌트 (해저대전쟁 해외판)',
+  'way-to-akatronics': '아카트로닉스 오시는 길',
 };
 
 export const textsForArticle: Record<string, string> = {
