@@ -1,8 +1,13 @@
-import { Map as OpenLayersMap, View } from 'ol';
+import { Feature, MapBrowserEvent, Map as OpenLayersMap, View } from 'ol';
+import { Coordinate } from 'ol/coordinate';
+import { LineString } from 'ol/geom';
 import TileLayer from 'ol/layer/Tile';
-import { fromLonLat } from 'ol/proj';
-import { OSM } from 'ol/source';
-import { useEffect, useRef } from 'react';
+import VectorLayer from 'ol/layer/Vector';
+import { fromLonLat, toLonLat } from 'ol/proj';
+import { OSM, Vector } from 'ol/source';
+import Stroke from 'ol/style/Stroke';
+import Style from 'ol/style/Style';
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 import { DescriptionTemplate } from '^/components/molecules/DescriptionTemplate';
@@ -27,7 +32,8 @@ const OpenLayersMapContainer = styled.div`
 `;
 
 export function WayToAkatronicsPage() {
-  const mapRef = useRef<HTMLDivElement>(null);
+  const [mapObject, setMapObject] = useState<OpenLayersMap | null>(null);
+  const [clickedCoords, setClickedCoords] = useState<Coordinate[]>([]);
 
   useEffect(() => {
     const map = new OpenLayersMap({
@@ -45,16 +51,59 @@ export function WayToAkatronicsPage() {
       controls: [],
     });
 
-    map.setTarget(mapRef.current || '');
+    setMapObject(map);
     return () => {
-      map.setTarget('');
+      map.setTarget();
     };
-  }, [mapRef.current]);
+  }, []);
+
+  useEffect(() => {
+    if (!mapObject) {
+      return () => {};
+    }
+
+    /**
+     * Draw line
+     */
+    const lineCoordinates = clickedCoords.map((coords) => fromLonLat(coords));
+    const lineFeature = new Feature({
+      geometry: new LineString(lineCoordinates),
+    });
+    const lineStyle = new Style({
+      stroke: new Stroke({
+        color: '#22b14c',
+        width: 8,
+      }),
+    });
+    lineFeature.setStyle(lineStyle);
+
+    const lineLayer = new VectorLayer({
+      source: new Vector({
+        features: [lineFeature],
+      }),
+    });
+    mapObject.addLayer(lineLayer);
+
+    /**
+     * Add handler
+     */
+    function onClickHandler(event: MapBrowserEvent<UIEvent>) {
+      setClickedCoords(
+        clickedCoords.concat([toLonLat(event.coordinate, 'EPSG:3857')])
+      );
+    }
+    mapObject.on('click', onClickHandler);
+
+    return () => {
+      mapObject.removeLayer(lineLayer);
+      mapObject.un('click', onClickHandler);
+    };
+  }, [mapObject, clickedCoords]);
 
   return (
     <Root>
       <Title>아카트로닉스 오시는 길</Title>
-      <OpenLayersMapContainer id="map-area" ref={mapRef} />
+      <OpenLayersMapContainer id="map-area" />
       <DescriptionTemplate
         title=""
         descriptionListItems={[
