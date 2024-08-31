@@ -1,16 +1,26 @@
-import { Feature, MapBrowserEvent, Map as OpenLayersMap, View } from 'ol';
+import { Feature, Map as OpenLayersMap, View } from 'ol';
 import { Coordinate } from 'ol/coordinate';
-import { LineString } from 'ol/geom';
+import { LineString, Point } from 'ol/geom';
 import TileLayer from 'ol/layer/Tile';
 import VectorLayer from 'ol/layer/Vector';
-import { fromLonLat, toLonLat } from 'ol/proj';
+import { fromLonLat } from 'ol/proj';
 import { OSM, Vector } from 'ol/source';
+import Icon from 'ol/style/Icon';
 import Stroke from 'ol/style/Stroke';
 import Style from 'ol/style/Style';
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
+import AkatronicsPngUrl from '^/assets/icons/akatronics-logo.png';
 import { DescriptionTemplate } from '^/components/molecules/DescriptionTemplate';
+
+const LINE_COORDS: Coordinate[] = [
+  [126.77565890252434, 37.50281641505751],
+  [126.77456594053629, 37.50301172233357],
+  [126.77441175490547, 37.50235404336776],
+  [126.77163829658917, 37.50269792104304],
+  [126.7715911479633, 37.502556092263376],
+];
 
 const Root = styled.div`
   width: 100%;
@@ -33,7 +43,7 @@ const OpenLayersMapContainer = styled.div`
 
 export function WayToAkatronicsPage() {
   const [mapObject, setMapObject] = useState<OpenLayersMap | null>(null);
-  const [clickedCoords, setClickedCoords] = useState<Coordinate[]>([]);
+  // const [clickedCoords, setClickedCoords] = useState<Coordinate[]>([]);
 
   useEffect(() => {
     const map = new OpenLayersMap({
@@ -65,7 +75,10 @@ export function WayToAkatronicsPage() {
     /**
      * Draw line
      */
-    const lineCoordinates = clickedCoords.map((coords) => fromLonLat(coords));
+    // const lineCoordinates = clickedCoords.map((coord) => fromLonLat(coord));
+    const lineCoordinates = LINE_COORDS.map((coord) =>
+      fromLonLat(coord, 'EPSG:3857')
+    );
     const lineFeature = new Feature({
       geometry: new LineString(lineCoordinates),
     });
@@ -85,20 +98,47 @@ export function WayToAkatronicsPage() {
     mapObject.addLayer(lineLayer);
 
     /**
+     * Draw marker
+     */
+    const markerCoordinate = fromLonLat(
+      LINE_COORDS[LINE_COORDS.length - 1],
+      'EPSG:3857'
+    );
+    const markerFeature = new Feature({
+      geometry: new Point(markerCoordinate),
+    });
+    const markerStyle = new Style({
+      image: new Icon({
+        src: AkatronicsPngUrl,
+        scale: 0.064,
+      }),
+    });
+    markerFeature.setStyle(markerStyle);
+
+    const markerLayer = new VectorLayer({
+      source: new Vector({
+        features: [markerFeature],
+      }),
+    });
+    mapObject.addLayer(markerLayer);
+
+    /**
      * Add handler
      */
-    function onClickHandler(event: MapBrowserEvent<UIEvent>) {
-      setClickedCoords(
-        clickedCoords.concat([toLonLat(event.coordinate, 'EPSG:3857')])
-      );
-    }
-    mapObject.on('click', onClickHandler);
+    // function onClickHandler(event: MapBrowserEvent<UIEvent>) {
+    //   setClickedCoords(
+    //     clickedCoords.concat([toLonLat(event.coordinate, 'EPSG:3857')])
+    //   );
+    // }
+    // mapObject.on('click', onClickHandler);
+
+    // console.log(clickedCoords);
 
     return () => {
       mapObject.removeLayer(lineLayer);
-      mapObject.un('click', onClickHandler);
+      // mapObject.un('click', onClickHandler);
     };
-  }, [mapObject, clickedCoords]);
+  }, [mapObject /* , clickedCoords */]);
 
   return (
     <Root>
