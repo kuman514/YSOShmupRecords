@@ -38,7 +38,7 @@ const Title = styled.h1`
 
 const OpenLayersMapContainer = styled.div`
   width: 100%;
-  height: 400px;
+  height: 360px;
 `;
 
 export function WayToAkatronicsPage() {
@@ -46,12 +46,32 @@ export function WayToAkatronicsPage() {
   // const [clickedCoords, setClickedCoords] = useState<Coordinate[]>([]);
 
   useEffect(() => {
+    const zoomLevel = (() => {
+      if (window.innerWidth < 400) {
+        return 16.3;
+      }
+
+      if (window.innerWidth >= 400 && window.innerWidth < 470) {
+        return 16.5;
+      }
+
+      if (window.innerWidth >= 470 && window.innerWidth < 510) {
+        return 16.7;
+      }
+
+      if (window.innerWidth >= 510 && window.innerWidth < 650) {
+        return 17;
+      }
+
+      return 17.5;
+    })();
+
     const map = new OpenLayersMap({
       target: 'map-area',
       view: new View({
         projection: 'EPSG:3857',
-        center: fromLonLat([126.77313987879374, 37.502897100388466]),
-        zoom: 17,
+        center: fromLonLat([126.77350369530089, 37.502723280874264]),
+        zoom: zoomLevel,
       }),
       layers: [
         new TileLayer({
@@ -85,7 +105,7 @@ export function WayToAkatronicsPage() {
     const lineStyle = new Style({
       stroke: new Stroke({
         color: '#22b14c',
-        width: 8,
+        width: 5,
       }),
     });
     lineFeature.setStyle(lineStyle);
