@@ -22,6 +22,7 @@
     "eslint-plugin-jsx-a11y": "^6.7.1",
     "eslint-plugin-react-hooks": "^4.6.0",
     "framer-motion": "^11.3.28",
+    "ol": "^10.1.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-is": "^18.3.1",

@@ -37,6 +37,10 @@ export const rootNavNodes: NavNodeInfo[] = [
         id: 'terminology',
         linkTo: '/terminology',
       },
+      {
+        id: 'way-to-akatronics',
+        linkTo: '/way-to-akatronics',
+      },
     ],
   },
   {
