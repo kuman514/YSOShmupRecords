@@ -1,4 +1,5 @@
 import { Feature, Map as OpenLayersMap, View } from 'ol';
+import Control from 'ol/control/Control';
 import { Coordinate } from 'ol/coordinate';
 import { LineString, Point } from 'ol/geom';
 import TileLayer from 'ol/layer/Tile';
@@ -66,6 +67,29 @@ export function WayToAkatronicsPage() {
       return 17.5;
     })();
 
+    const openLayersLicenseContainer = document.createElement('div');
+    openLayersLicenseContainer.style.fontWeight = '400';
+    openLayersLicenseContainer.style.color = 'var(--white-color)';
+    openLayersLicenseContainer.style.textShadow =
+      '1px 1px 2px var(--black-color)';
+    openLayersLicenseContainer.style.padding = '4px';
+    openLayersLicenseContainer.style.position = 'absolute';
+    openLayersLicenseContainer.style.left = '0px';
+    openLayersLicenseContainer.style.bottom = '0px';
+    openLayersLicenseContainer.style.pointerEvents = 'none';
+
+    const openLayersElement = document.createElement('div');
+    openLayersElement.textContent = 'OpenLayers';
+    const openLayersLicenseElement = document.createElement('div');
+    openLayersLicenseElement.textContent = 'BSD 2-Clause License';
+    const openLayersCopyrightElement = document.createElement('div');
+    openLayersCopyrightElement.textContent =
+      'Copyright 2005-present, OpenLayers Contributors All rights reserved.';
+
+    openLayersLicenseContainer.appendChild(openLayersElement);
+    openLayersLicenseContainer.appendChild(openLayersLicenseElement);
+    openLayersLicenseContainer.appendChild(openLayersCopyrightElement);
+
     const map = new OpenLayersMap({
       target: 'map-area',
       view: new View({
@@ -78,7 +102,11 @@ export function WayToAkatronicsPage() {
           source: new OSM(),
         }),
       ],
-      controls: [],
+      controls: [
+        new Control({
+          element: openLayersLicenseContainer,
+        }),
+      ],
     });
 
     setMapObject(map);
