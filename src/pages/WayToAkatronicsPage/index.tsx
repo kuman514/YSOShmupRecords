@@ -1,6 +1,5 @@
 import { Feature, Map as OpenLayersMap, View } from 'ol';
 import Control from 'ol/control/Control';
-import { Coordinate } from 'ol/coordinate';
 import { LineString, Point } from 'ol/geom';
 import TileLayer from 'ol/layer/Tile';
 import VectorLayer from 'ol/layer/Vector';
@@ -14,14 +13,7 @@ import styled from 'styled-components';
 
 import AkatronicsPngUrl from '^/assets/icons/akatronics-logo.png';
 import { DescriptionTemplate } from '^/components/molecules/DescriptionTemplate';
-
-const LINE_COORDS: Coordinate[] = [
-  [126.77565890252434, 37.50281641505751],
-  [126.77456594053629, 37.50301172233357],
-  [126.77441175490547, 37.50235404336776],
-  [126.77163829658917, 37.50269792104304],
-  [126.7715911479633, 37.502556092263376],
-];
+import { routeCoordsFromSinjungdongExit3 } from '^/constants/coords';
 
 const Root = styled.div`
   width: 100%;
@@ -124,7 +116,7 @@ export function WayToAkatronicsPage() {
      * Draw line
      */
     // const lineCoordinates = clickedCoords.map((coord) => fromLonLat(coord));
-    const lineCoordinates = LINE_COORDS.map((coord) =>
+    const lineCoordinates = routeCoordsFromSinjungdongExit3.map((coord) =>
       fromLonLat(coord, 'EPSG:3857')
     );
     const lineFeature = new Feature({
@@ -149,7 +141,9 @@ export function WayToAkatronicsPage() {
      * Draw marker
      */
     const markerCoordinate = fromLonLat(
-      LINE_COORDS[LINE_COORDS.length - 1],
+      routeCoordsFromSinjungdongExit3[
+        routeCoordsFromSinjungdongExit3.length - 1
+      ],
       'EPSG:3857'
     );
     const markerFeature = new Feature({
