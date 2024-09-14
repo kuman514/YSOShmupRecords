@@ -14,7 +14,17 @@ import styled from 'styled-components';
 import AkatronicsPngUrl from '^/assets/icons/akatronics-logo.png';
 import { DescriptionTemplate } from '^/components/molecules/DescriptionTemplate';
 import { Tabbar } from '^/components/molecules/Tabbar';
-import { routeCoordsFromSinjungdongExit3 } from '^/constants/coords';
+import {
+  routeCoordsFromMirinaeMaeul,
+  routeCoordsFromSinjungdongExit3,
+  routeCoordsFromSinjungdongExit4,
+} from '^/constants/coords';
+
+const routeCoordsByIndex = [
+  routeCoordsFromSinjungdongExit3,
+  routeCoordsFromSinjungdongExit4,
+  routeCoordsFromMirinaeMaeul,
+];
 
 const Root = styled.div`
   width: 100%;
@@ -41,26 +51,6 @@ export function WayToAkatronicsPage() {
   const [currentTabIndex, setCurrentTabIndex] = useState<number>(0);
 
   useEffect(() => {
-    const zoomLevel = (() => {
-      if (window.innerWidth < 400) {
-        return 16.3;
-      }
-
-      if (window.innerWidth >= 400 && window.innerWidth < 470) {
-        return 16.5;
-      }
-
-      if (window.innerWidth >= 470 && window.innerWidth < 510) {
-        return 16.7;
-      }
-
-      if (window.innerWidth >= 510 && window.innerWidth < 650) {
-        return 17;
-      }
-
-      return 17.5;
-    })();
-
     const openLayersLicenseContainer = document.createElement('div');
     openLayersLicenseContainer.style.fontWeight = '400';
     openLayersLicenseContainer.style.color = 'var(--white-color)';
@@ -86,11 +76,6 @@ export function WayToAkatronicsPage() {
 
     const map = new OpenLayersMap({
       target: 'map-area',
-      view: new View({
-        projection: 'EPSG:3857',
-        center: fromLonLat([126.77350369530089, 37.502723280874264]),
-        zoom: zoomLevel,
-      }),
       layers: [
         new TileLayer({
           source: new OSM(),
@@ -114,11 +99,52 @@ export function WayToAkatronicsPage() {
       return () => {};
     }
 
+    const zoomLevel = (() => {
+      if (window.innerWidth < 400) {
+        return 16.3;
+      }
+
+      if (window.innerWidth >= 400 && window.innerWidth < 470) {
+        return 16.5;
+      }
+
+      if (window.innerWidth >= 470 && window.innerWidth < 510) {
+        return 16.7;
+      }
+
+      if (window.innerWidth >= 510 && window.innerWidth < 650) {
+        return 17;
+      }
+
+      return 17.5;
+    })();
+
+    const centerLon =
+      (routeCoordsByIndex[currentTabIndex][0][0] +
+        routeCoordsByIndex[currentTabIndex][
+          routeCoordsByIndex[currentTabIndex].length - 1
+        ][0]) /
+      2;
+    const centerLat =
+      (routeCoordsByIndex[currentTabIndex][0][1] +
+        routeCoordsByIndex[currentTabIndex][
+          routeCoordsByIndex[currentTabIndex].length - 1
+        ][1]) /
+      2;
+
+    mapObject.setView(
+      new View({
+        projection: 'EPSG:3857',
+        center: fromLonLat([centerLon, centerLat], 'EPSG:3857'),
+        zoom: zoomLevel,
+      })
+    );
+
     /**
      * Draw line
      */
     // const lineCoordinates = clickedCoords.map((coord) => fromLonLat(coord));
-    const lineCoordinates = routeCoordsFromSinjungdongExit3.map((coord) =>
+    const lineCoordinates = routeCoordsByIndex[currentTabIndex].map((coord) =>
       fromLonLat(coord, 'EPSG:3857')
     );
     const lineFeature = new Feature({
@@ -182,7 +208,7 @@ export function WayToAkatronicsPage() {
       mapObject.removeLayer(lineLayer);
       // mapObject.un('click', onClickHandler);
     };
-  }, [mapObject /* , clickedCoords */]);
+  }, [mapObject, currentTabIndex /* , clickedCoords */]);
 
   return (
     <Root>
