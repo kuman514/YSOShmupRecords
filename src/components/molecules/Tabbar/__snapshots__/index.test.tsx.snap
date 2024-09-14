@@ -1,0 +1,58 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Tabbar > should highlight tab button corresponding to current tab index 1`] = `
+.c1 {
+  all: unset;
+  box-sizing: border-box;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 8px 16px;
+  color: var(--white-color);
+  background-color: transparent;
+  border: none;
+  border-radius: 16px;
+  cursor: pointer;
+}
+
+.c1:hover {
+  background-color: var(--hovering-color);
+  color: var(--white-color);
+}
+
+.c1:disabled {
+  border: none;
+  color: var(--gray-color);
+  background-color: transparent;
+  text-decoration: line-through;
+}
+
+.c0 {
+  width: 100%;
+  min-height: 50px;
+  display: flex;
+  flex-direction: row;
+}
+
+<div
+  class="c0"
+>
+  <button
+    class="c1"
+    style="min-height: 100%; border-radius: 0; text-align: center; word-break: keep-all; flex-grow: 1;"
+  >
+    Koishi Komeiji
+  </button>
+  <button
+    class="c1"
+    style="min-height: 100%; border-radius: 0; text-align: center; border-top: 3px solid transparent; word-break: keep-all; flex-grow: 1;"
+  >
+    Hoshino Takanashi
+  </button>
+  <button
+    class="c1"
+    style="min-height: 100%; border-radius: 0; text-align: center; word-break: keep-all; flex-grow: 1;"
+  >
+    Yasuo
+  </button>
+</div>
+`;
