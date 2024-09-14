@@ -39,6 +39,7 @@ export function Tabbar({ tabNames, currentTabIndex, onClick }: Props) {
                 : 'none',
             wordBreak: 'keep-all',
             flexGrow: 1,
+            color: 'inherit',
           }}
         >
           {tabName}
