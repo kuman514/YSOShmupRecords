@@ -13,6 +13,7 @@ import styled from 'styled-components';
 
 import AkatronicsPngUrl from '^/assets/icons/akatronics-logo.png';
 import { DescriptionTemplate } from '^/components/molecules/DescriptionTemplate';
+import { Tabbar } from '^/components/molecules/Tabbar';
 import { routeCoordsFromSinjungdongExit3 } from '^/constants/coords';
 
 const Root = styled.div`
@@ -37,6 +38,7 @@ const OpenLayersMapContainer = styled.div`
 export function WayToAkatronicsPage() {
   const [mapObject, setMapObject] = useState<OpenLayersMap | null>(null);
   // const [clickedCoords, setClickedCoords] = useState<Coordinate[]>([]);
+  const [currentTabIndex, setCurrentTabIndex] = useState<number>(0);
 
   useEffect(() => {
     const zoomLevel = (() => {
@@ -186,6 +188,15 @@ export function WayToAkatronicsPage() {
     <Root>
       <Title>아카트로닉스 오시는 길</Title>
       <OpenLayersMapContainer id="map-area" />
+      <Tabbar
+        tabNames={[
+          '신중동역 3번출구',
+          '신중동역 버스정류장',
+          '미리내마을 버스정류장',
+        ]}
+        currentTabIndex={currentTabIndex}
+        onClick={setCurrentTabIndex}
+      />
       <DescriptionTemplate
         title=""
         descriptionListItems={[
