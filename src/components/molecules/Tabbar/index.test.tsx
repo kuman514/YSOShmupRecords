@@ -10,7 +10,7 @@ describe('Tabbar', () => {
 
   it('should have tabs that are all clickable', () => {});
 
-  it('should show first tab active at first', () => {});
+  it('should highlight tab button corresponding to current tab index', () => {});
 
-  it('should switch active tab when click a tab', () => {});
+  it('should call on-click function with its index as a parameter', () => {});
 });
