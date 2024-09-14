@@ -19,11 +19,85 @@ import {
   routeCoordsFromSinjungdongExit3,
   routeCoordsFromSinjungdongExit4,
 } from '^/constants/coords';
+import { DescriptionListItem } from '^/types';
 
 const routeCoordsByIndex = [
   routeCoordsFromSinjungdongExit3,
   routeCoordsFromSinjungdongExit4,
   routeCoordsFromMirinaeMaeul,
+];
+
+const routeDescriptionByIndex: DescriptionListItem[][] = [
+  [
+    {
+      id: 'shinjungdong-station-exit-3',
+      description:
+        '신중동역 3번 출구에서 롯데시네마를 바라보는 방향(왼쪽, 서쪽)으로 나오기',
+    },
+    {
+      id: 'straight-until-mcdonald',
+      description: '왼쪽을 바라볼 때 맥도날드 건물이 나올 때까지 직진',
+    },
+    {
+      id: 'go-to-mcdonald',
+      description:
+        '왼쪽으로 돌아 맥도날드 건물을 향해 직진하여 다다랐을 때 우회전',
+    },
+    {
+      id: 'straight-until-akatronics',
+      description:
+        '왼쪽을 바라볼 때 3층에 아카트로닉스 건물이 보일 때까지 직진 (2층에는 엔젤스코인노래방이 있음)',
+    },
+    {
+      id: '3rd-floor',
+      description: '3층에 도착하여 아카트로닉스 방문',
+    },
+  ],
+  [
+    {
+      id: 'sinjungdong-bus-station-exit3or4',
+      description:
+        '신중동역 3/4번 출구 버스 정류장에서 하차 (4번 출구 버스정류장의 경우 횡단보도를 건너야 함)',
+    },
+    {
+      id: 'daewoo-mybill-cosmopolitan',
+      description:
+        '대우마이빌2 건물과 코스모폴리탄 오피스텔 사이의 거리로 들어오기 (들어오면 좌측에 짱이네 매콤돈가스 냉면이 있고, 우측에 메가커피, 공차, 테라커피가 보이며, 바로 앞에 CU 편의점이 보임)',
+    },
+    {
+      id: 'cu-right',
+      description:
+        'CU 건물의 오른쪽 방향으로 이동하여 3층에 아카트로닉스 건물이 보일 때까지 직진 (2층에는 엔젤스코인노래방이 있음)',
+    },
+    {
+      id: '3rd-floor',
+      description: '3층에 도착하여 아카트로닉스 방문',
+    },
+  ],
+  [
+    {
+      id: 'mirinae-maeul-bus-station',
+      description:
+        '미리내마을 버스 정류장에서 하차 (부천시청역 방면에서 왔다면 횡단보도를 건너야 함)',
+    },
+    {
+      id: 'crossroad-nonghyeop',
+      description: '횡단보도 바로 근처에 있는 농협은행으로 이동',
+    },
+    {
+      id: 'bukkyeong-jjajang',
+      description: '북경짜장 건물이 보일 때까지 직진 후 CU 편의점에서 좌회전',
+    },
+    {
+      id: 'straight-until-akatronics',
+      description:
+        '오른쪽을 바라볼 때 3층에 아카트로닉스 건물이 보일 때까지 직진 (2층에는 엔젤스코인노래방이 있음)',
+    },
+    {
+      id: '3rd-floor',
+      description: '3층에 도착하여 아카트로닉스 방문',
+    },
+  ],
 ];
 
 const Root = styled.div`
@@ -225,31 +299,7 @@ export function WayToAkatronicsPage() {
       />
       <DescriptionTemplate
         title=""
-        descriptionListItems={[
-          {
-            id: 'shinjungdong-station-exit-3',
-            description:
-              '신중동역 3번 출구에서 롯데시네마를 바라보는 방향(왼쪽, 서쪽)으로 나오기',
-          },
-          {
-            id: 'straight-until-mcdonald',
-            description: '왼쪽을 바라볼 때 맥도날드 건물이 나올 때까지 직진',
-          },
-          {
-            id: 'go-to-mcdonald',
-            description:
-              '왼쪽으로 돌아 맥도날드 건물을 향해 직진하여 다다랐을 때 우회전',
-          },
-          {
-            id: 'straight-until-akatronics',
-            description:
-              '왼쪽을 바라볼 때 3층에 아카트로닉스 건물이 보일 때까지 직진 (2층에는 엔젤스코인노래방이 있음)',
-          },
-          {
-            id: '3rd-floor',
-            description: '3층에 도착하여 아카트로닉스 방문',
-          },
-        ]}
+        descriptionListItems={routeDescriptionByIndex[currentTabIndex]}
       />
     </Root>
   );
