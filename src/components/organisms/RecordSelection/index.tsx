@@ -28,6 +28,7 @@ const RecordSelectionList = styled.div`
 `;
 
 const RecordSelectionLink = styled(Link)`
+  width: 100%;
   color: unset;
   text-decoration: none;
 `;

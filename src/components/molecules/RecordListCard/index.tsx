@@ -7,11 +7,8 @@ import { ShmupRecordPreview } from '^/types';
 
 const Root = styled.div`
   position: relative;
-  width: 300px;
-  min-height: 240px;
-
-  display: grid;
-  grid-template-rows: 200px 1fr;
+  width: 100%;
+  height: 300px;
 
   background-color: var(--primary-color);
 
@@ -51,7 +48,7 @@ const Image = styled.img`
 
 const ImageContainerOverlay = styled.div`
   width: 100%;
-  height: 200px;
+  height: 100%;
 
   position: absolute;
   left: 0;
@@ -64,16 +61,33 @@ const ImageContainerOverlay = styled.div`
 `;
 
 const Summary = styled.div`
+  width: 100%;
   height: 100%;
+
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+`;
+
+const SummaryGrdientArea = styled.div`
+  width: 100%;
+
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 5%,
+    rgba(0, 0, 0, 0.5) 25%
+  );
 
   display: flex;
   flex-direction: column;
   row-gap: 8px;
 
-  padding: 8px 16px;
-
-  justify-content: center;
-  align-items: flex-start;
+  padding: 32px 16px 16px 16px;
 `;
 
 const Title = styled.span`
@@ -130,12 +144,14 @@ export function RecordListCard({ recordPreview }: Props) {
         <ImageContainerOverlay />
       </ImageContainer>
       <Summary>
-        <Title>
-          {textsForArticle[recordPreview.typeId] ?? recordPreview.typeId}
-        </Title>
-        <Title>{recordPreview.title}</Title>
-        <StageAndScore>{`${recordPreview.stage} / ${recordPreview.score}점`}</StageAndScore>
-        {renderSpecialTags}
+        <SummaryGrdientArea>
+          <Title>
+            {textsForArticle[recordPreview.typeId] ?? recordPreview.typeId}
+          </Title>
+          <Title>{recordPreview.title}</Title>
+          <StageAndScore>{`${recordPreview.stage} / ${recordPreview.score}점`}</StageAndScore>
+          {renderSpecialTags}
+        </SummaryGrdientArea>
       </Summary>
       {renderYoutubeMarkSvg}
     </Root>
