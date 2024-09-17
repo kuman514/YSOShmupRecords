@@ -34,7 +34,7 @@ exports[`ContactButton > should have a snapshot match 1`] = `
 
 <button
   class="c0"
-  style="position: fixed; bottom: 32px; right: 32px; z-index: 21; width: 48px; height: 48px; padding: 0px; border-radius: 50%; display: flex; justify-content: center; align-items: center;"
+  style="position: fixed; bottom: 24px; right: 24px; z-index: 21; width: 64px; height: 64px; padding: 0px; border-radius: 50%; display: flex; justify-content: center; align-items: center;"
 >
   <svg
     class="c1"
