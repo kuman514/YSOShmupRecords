@@ -20,11 +20,11 @@ export function ContactButton({ onClick }: Props) {
       type={ButtonType.ROUND_SOLID}
       customStyle={{
         position: 'fixed',
-        bottom: '32px',
-        right: '32px',
+        bottom: '24px',
+        right: '24px',
         zIndex: 21,
-        width: '48px',
-        height: '48px',
+        width: '64px',
+        height: '64px',
         padding: 0,
         borderRadius: '50%',
         display: 'flex',

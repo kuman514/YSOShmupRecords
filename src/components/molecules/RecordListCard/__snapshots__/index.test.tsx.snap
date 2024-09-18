@@ -3,10 +3,8 @@
 exports[`RecordListCard > should have a snapshot match for its appearance 1`] = `
 .c0 {
   position: relative;
-  width: 300px;
-  min-height: 240px;
-  display: grid;
-  grid-template-rows: 200px 1fr;
+  width: 100%;
+  height: 300px;
   background-color: var(--primary-color);
   border-radius: 16px;
   overflow: hidden;
@@ -41,7 +39,7 @@ exports[`RecordListCard > should have a snapshot match for its appearance 1`] = 
 
 .c3 {
   width: 100%;
-  height: 200px;
+  height: 100%;
   position: absolute;
   left: 0;
   top: 0;
@@ -51,22 +49,33 @@ exports[`RecordListCard > should have a snapshot match for its appearance 1`] = 
 }
 
 .c4 {
+  width: 100%;
   height: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
   display: flex;
   flex-direction: column;
-  row-gap: 8px;
-  padding: 8px 16px;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: flex-start;
 }
 
 .c5 {
+  width: 100%;
+  background: linear-gradient(     180deg,     rgba(0, 0, 0, 0) 5%,     rgba(0, 0, 0, 0.5) 25%   );
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
+  padding: 32px 16px 16px 16px;
+}
+
+.c6 {
   color: var(--white-color);
   font-size: 16px;
   font-weight: 600;
 }
 
-.c6 {
+.c7 {
   color: var(--white-color);
   font-size: 16px;
   font-weight: 400;
@@ -90,27 +99,31 @@ exports[`RecordListCard > should have a snapshot match for its appearance 1`] = 
   <div
     class="c4"
   >
-    <span
+    <div
       class="c5"
     >
-      kuman514
-    </span>
-    <span
-      class="c5"
-    >
-      kumankoishi shmup record 2024-01-01
-    </span>
-    <span
-      class="c6"
-    >
-      2-5 / 12345679점
-    </span>
+      <span
+        class="c6"
+      >
+        kuman514
+      </span>
+      <span
+        class="c6"
+      >
+        kumankoishi shmup record 2024-01-01
+      </span>
+      <span
+        class="c7"
+      >
+        2-5 / 12345679점
+      </span>
+    </div>
   </div>
 </div>
 `;
 
 exports[`RecordListCard > should have a snapshot match showing youtube mark and special tags 1`] = `
-.c8 {
+.c9 {
   padding: 4px 8px;
   justify-content: center;
   align-items: center;
@@ -123,10 +136,8 @@ exports[`RecordListCard > should have a snapshot match showing youtube mark and 
 
 .c0 {
   position: relative;
-  width: 300px;
-  min-height: 240px;
-  display: grid;
-  grid-template-rows: 200px 1fr;
+  width: 100%;
+  height: 300px;
   background-color: var(--primary-color);
   border-radius: 16px;
   overflow: hidden;
@@ -161,7 +172,7 @@ exports[`RecordListCard > should have a snapshot match showing youtube mark and 
 
 .c3 {
   width: 100%;
-  height: 200px;
+  height: 100%;
   position: absolute;
   left: 0;
   top: 0;
@@ -171,35 +182,46 @@ exports[`RecordListCard > should have a snapshot match showing youtube mark and 
 }
 
 .c4 {
+  width: 100%;
   height: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
   display: flex;
   flex-direction: column;
-  row-gap: 8px;
-  padding: 8px 16px;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: flex-start;
 }
 
 .c5 {
-  color: var(--white-color);
-  font-size: 16px;
-  font-weight: 600;
+  width: 100%;
+  background: linear-gradient(     180deg,     rgba(0, 0, 0, 0) 5%,     rgba(0, 0, 0, 0.5) 25%   );
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
+  padding: 32px 16px 16px 16px;
 }
 
 .c6 {
   color: var(--white-color);
   font-size: 16px;
-  font-weight: 400;
+  font-weight: 600;
 }
 
 .c7 {
+  color: var(--white-color);
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.c8 {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   gap: 8px;
 }
 
-.c9 {
+.c10 {
   position: absolute;
   top: 16px;
   right: 16px;
@@ -223,43 +245,47 @@ exports[`RecordListCard > should have a snapshot match showing youtube mark and 
   <div
     class="c4"
   >
-    <span
-      class="c5"
-    >
-      kuman514
-    </span>
-    <span
-      class="c5"
-    >
-      kumankoishi shmup record 2024-01-01
-    </span>
-    <span
-      class="c6"
-    >
-      2-5 / 12345679점
-    </span>
     <div
-      class="c7"
+      class="c5"
     >
       <span
-        class="c8"
+        class="c6"
       >
-        yasuo
+        kuman514
       </span>
       <span
-        class="c8"
+        class="c6"
       >
-        koishi
+        kumankoishi shmup record 2024-01-01
       </span>
       <span
+        class="c7"
+      >
+        2-5 / 12345679점
+      </span>
+      <div
         class="c8"
       >
-        노미스 ALL
-      </span>
+        <span
+          class="c9"
+        >
+          yasuo
+        </span>
+        <span
+          class="c9"
+        >
+          koishi
+        </span>
+        <span
+          class="c9"
+        >
+          노미스 ALL
+        </span>
+      </div>
     </div>
   </div>
   <svg
-    class="c9"
+    class="c10"
     height="33.6"
     preserveAspectRatio="xMidYMid meet"
     viewBox="0 0 28.57 20"
