@@ -85,4 +85,21 @@ describe('ArticleSummary', () => {
     expect(screen.getByText(/no miss/i)).not.toBeNull();
     expect(screen.getByText(/노미스 ALL/i)).not.toBeNull();
   });
+
+  it('should serve instruction for how to turn on image modal', () => {
+    const routes = [
+      {
+        path: '/',
+        element: <ArticleSummary record={testDataWithSpecialTags} />,
+      },
+    ];
+
+    const router = createMemoryRouter(routes, {
+      initialEntries: ['/'],
+      initialIndex: 0,
+    });
+
+    render(<RouterProvider router={router} />);
+    expect(screen.getByText(/\[ 클릭하여 모든 이미지 보기 \]/i)).not.toBeNull();
+  });
 });
