@@ -18,6 +18,18 @@ const Root = styled.div`
   gap: 16px;
 `;
 
+const ThumbnailWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+`;
+
+const ThumbnailInstruction = styled.span`
+  font-size: 12px;
+`;
+
 const SummaryDescription = styled.div`
   display: flex;
   flex-direction: column;
@@ -193,15 +205,20 @@ export function ArticleSummary({ record }: Props) {
   return (
     <>
       <Root>
-        <Thumbnail
-          imageSrc={record.thumbnailUrl}
-          altText={`${record.typeId} ${convertDateToString(record.when)} ${
-            record.stage
-          }스테이지 ${record.score}점`}
-          onClick={() => {
-            setIsImageModalShow(true);
-          }}
-        />
+        <ThumbnailWrapper>
+          <Thumbnail
+            imageSrc={record.thumbnailUrl}
+            altText={`${record.typeId} ${convertDateToString(record.when)} ${
+              record.stage
+            }스테이지 ${record.score}점`}
+            onClick={() => {
+              setIsImageModalShow(true);
+            }}
+          />
+          <ThumbnailInstruction>
+            [ 클릭하여 모든 이미지 보기 ]
+          </ThumbnailInstruction>
+        </ThumbnailWrapper>
         <SummaryDescription>
           {renderList}
           <ShareButtonList>
