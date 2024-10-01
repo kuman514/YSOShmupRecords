@@ -32,15 +32,30 @@ const Title = styled.h1`
 const ArticleSkeletonArea = styled.div`
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: 10px;
 
-  & > div {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    row-gap: 10px;
+  @media (max-width: 599px) {
+    flex-wrap: wrap;
   }
+`;
+
+const ArticleSkeletonThumbnailArea = styled.div`
+  width: 240px;
+  height: 240px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-shrink: 0;
+`;
+
+const ArticleSkeletonSummaryArea = styled.div`
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  row-gap: 10px;
+  flex-shrink: 1;
 `;
 
 export function RecordPage() {
@@ -58,16 +73,15 @@ export function RecordPage() {
     if (isLoading) {
       return (
         <ArticleSkeletonArea>
-          <div>
-            <Skeleton width="360px" height="360px" />
-          </div>
-          <div>
-            <Skeleton width="500px" height="50px" />
-            <Skeleton width="500px" height="50px" />
-            <Skeleton width="500px" height="50px" />
-            <Skeleton width="500px" height="50px" />
-            <Skeleton width="500px" height="50px" />
-          </div>
+          <ArticleSkeletonThumbnailArea>
+            <Skeleton width="100%" height="100%" borderRadius="16px" />
+          </ArticleSkeletonThumbnailArea>
+          <ArticleSkeletonSummaryArea>
+            <Skeleton width="100%" height="20px" borderRadius="10px" />
+            <Skeleton width="100%" height="20px" borderRadius="10px" />
+            <Skeleton width="100%" height="20px" borderRadius="10px" />
+            <Skeleton width="100%" height="20px" borderRadius="10px" />
+          </ArticleSkeletonSummaryArea>
         </ArticleSkeletonArea>
       );
     }
