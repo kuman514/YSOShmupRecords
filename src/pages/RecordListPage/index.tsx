@@ -23,12 +23,12 @@ const Title = styled.h1`
 
 const RecordListCardSkeletonListWrapper = styled.div`
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: 16px;
+  flex-direction: column;
+  gap: 24px;
 `;
 
 const RecordListCardSkeletonRoot = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: column;
   row-gap: 8px;
@@ -37,8 +37,9 @@ const RecordListCardSkeletonRoot = styled.div`
 function RecordListCardSkeleton() {
   return (
     <RecordListCardSkeletonRoot>
-      <Skeleton width="300px" height="200px" borderRadius="16px" />
-      <Skeleton width="300px" height="20px" borderRadius="10px" />
+      <Skeleton width="100%" height="250px" borderRadius="16px" />
+      <Skeleton width="240px" height="20px" borderRadius="10px" />
+      <Skeleton width="160px" height="20px" borderRadius="10px" />
     </RecordListCardSkeletonRoot>
   );
 }
@@ -52,8 +53,7 @@ export function RecordListPage() {
     if (isLoading) {
       return (
         <RecordListCardSkeletonListWrapper>
-          <RecordListCardSkeleton />
-          <RecordListCardSkeleton />
+          <Skeleton width="160px" height="20px" borderRadius="10px" />
           <RecordListCardSkeleton />
           <RecordListCardSkeleton />
         </RecordListCardSkeletonListWrapper>
