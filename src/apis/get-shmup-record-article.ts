@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { GetResponse, GetResult, ShmupRecord } from '^/types';
+import { GetResult, ShmupRecord } from '^/types';
 import { getAPIURL } from '^/utils/get-api-url';
 
 import { apiClient } from './api';
@@ -15,15 +15,15 @@ export async function getShmupRecordArticle({
   recordDateId,
 }: Params): Promise<GetResult<ShmupRecord>> {
   try {
-    const response = await apiClient.get<GetResponse<ShmupRecord>>(
+    const response = await apiClient.get<ShmupRecord>(
       getAPIURL('records', typeId, recordDateId)
     );
 
     return {
       status: 'successful',
       data: {
-        ...response.data.data,
-        when: new Date(response.data.data.when),
+        ...response.data,
+        when: new Date(response.data.when),
       },
     };
   } catch (error) {
