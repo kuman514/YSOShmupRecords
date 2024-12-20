@@ -1,11 +1,6 @@
 import axios from 'axios';
 
-import {
-  GetResponse,
-  GetResult,
-  ShmupRecord,
-  ShmupRecordPreview,
-} from '^/types';
+import { GetResult, ShmupRecord, ShmupRecordPreview } from '^/types';
 import { convertDateToString } from '^/utils/date-to-string';
 import { getAPIURL } from '^/utils/get-api-url';
 
@@ -15,11 +10,11 @@ export async function getShmupRecordList(
   typeId?: string
 ): Promise<GetResult<ShmupRecordPreview[]>> {
   try {
-    const response = await apiClient.get<GetResponse<ShmupRecord[]>>(
-      getAPIURL('records', typeId ?? '')
+    const response = await apiClient.get<ShmupRecord[]>(
+      typeId ? getAPIURL('records', `${typeId}.json`) : 'records.json'
     );
 
-    const newRecordPreviews = response.data.data
+    const newRecordPreviews = response.data
       .map((record): ShmupRecordPreview => {
         const dateFromString = new Date(record.when);
         return {
