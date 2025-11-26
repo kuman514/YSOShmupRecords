@@ -133,7 +133,7 @@ YSO(kuman514)가 주력으로 플레이하는 슈팅게임의 기록을 등록�
 - `2024년 10월 7일`
   - 기록 아티클과 기록 목록을 로딩할 때 표시할 스켈레톤 컴포넌트를 변경하였습니다.
 - `2024년 12월 21일`
-  - AWS 프리 티어 만료로 인해 YSOShmupRecords 종료. (YSOArcadeRecords)[https://github.com/kuman514/YSOArcadeRecords]로 이관 중.
+  - AWS 프리 티어 만료로 인해 YSOShmupRecords 종료. [YSOArcadeRecords](https://github.com/kuman514/YSOArcadeRecords)로 이관 중.
 
 ## Feedbacks
 - ~~트위터에 기록된 게임들이 많은 것 같은데 그것도 이 프로젝트에 다루는게 어떨까?~~ (반영 완료)
